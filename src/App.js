@@ -3,6 +3,9 @@ import Homepage from './pages/Homepage';
 import Lottie from 'lottie-react';
 import { motion } from 'framer-motion';
 import sand from './anime/sandy.json'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import AboutUs from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -135,9 +138,13 @@ const App = () => {
   }
 
   return (
-    <div>
-      <Homepage />
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/*" element={<Homepage />} />
+      <Route path="/about" element={<AboutUs />} />
+      <Route path="/contact" element={<ContactUs/>} />
+    </Routes>
+    </BrowserRouter>
   );
 };
 

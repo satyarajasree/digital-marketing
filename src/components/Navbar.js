@@ -139,7 +139,7 @@ const Navbar = () => {
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center space-x-10">
               <motion.a 
-                href="#home" 
+                href="/" 
                 className="hover:text-orange-400 transition-colors duration-300 font-semibold relative group"
                 whileHover={{ y: -2 }}
               >
@@ -248,7 +248,7 @@ const Navbar = () => {
               {['About', 'Portfolio', 'Contact'].map((item) => (
                 <motion.a 
                   key={item}
-                  href={`#${item.toLowerCase()}`} 
+                  href={`/${item.toLowerCase()}`} 
                   className="hover:text-orange-400 transition-colors duration-300 font-semibold relative group"
                   whileHover={{ y: -2 }}
                 >

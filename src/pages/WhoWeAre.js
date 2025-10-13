@@ -24,42 +24,42 @@ const WhoWeAre = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
+        duration: 0.8,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
-        ease: "easeOut",
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };
 
-  // Floating animation for background elements
+  // Smoother floating animations
   const floatVariants = {
     float: {
-      y: [-15, 15, -15],
-      rotate: [0, 3, 0],
+      y: [-10, 10, -10],
       transition: {
-        duration: 6,
+        duration: 8,
         repeat: Infinity,
         ease: "easeInOut"
       }
     }
   };
 
-  const pulseVariants = {
+  const gentlePulseVariants = {
     pulse: {
-      scale: [1, 1.05, 1],
-      opacity: [0.2, 0.4, 0.2],
+      scale: [1, 1.02, 1],
+      opacity: [0.3, 0.5, 0.3],
       transition: {
-        duration: 4,
+        duration: 6,
         repeat: Infinity,
         ease: "easeInOut"
       }
@@ -103,100 +103,100 @@ const WhoWeAre = () => {
   return (
     <section
       id="about"
-      className="py-20 bg-gradient-to-br from-amber-50 via-cream-100 to-orange-50 text-gray-800 overflow-hidden relative rounded-3xl mx-4 my-8"
+      className="py-20 bg-gradient-to-br from-amber-50 via-white to-orange-50 text-gray-800 overflow-hidden relative rounded-3xl mx-4 my-8"
     >
-      {/* Enhanced Background Elements for Light Theme */}
+      {/* Refined Background Elements */}
       <div className="absolute inset-0 overflow-hidden rounded-3xl">
         {/* Subtle Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,white,transparent)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,white,transparent)]" />
         
-        {/* Moving Gradient Orbs - Light Colors */}
+        {/* Smoother Gradient Orbs */}
         <motion.div
           variants={floatVariants}
           animate="float"
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-amber-200 to-orange-200 rounded-full filter blur-3xl opacity-40"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-amber-100 to-orange-100 rounded-full filter blur-3xl opacity-30"
         />
         <motion.div
           variants={floatVariants}
           animate="float"
-          transition={{ delay: 2 }}
-          className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-200 to-cyan-200 rounded-full filter blur-3xl opacity-40"
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-full filter blur-3xl opacity-30"
         />
         <motion.div
           variants={floatVariants}
           animate="float"
-          transition={{ delay: 4 }}
-          className="absolute top-1/3 right-1/3 w-64 h-64 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full filter blur-3xl opacity-40"
+          transition={{ delay: 3 }}
+          className="absolute top-1/3 right-1/3 w-64 h-64 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full filter blur-3xl opacity-30"
         />
 
-        {/* Animated Particles - Dark for contrast */}
-        {[...Array(15)].map((_, i) => (
+        {/* Optimized Particles */}
+        {[...Array(12)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1.5 h-1.5 bg-amber-600 rounded-full opacity-20"
+            className="absolute w-1 h-1 bg-amber-400 rounded-full opacity-20"
             initial={{
-              x: Math.random() * 100 - 50 + '%',
-              y: Math.random() * 100 - 50 + '%',
-              scale: 0,
+              x: Math.random() * 100 + '%',
+              y: Math.random() * 100 + '%',
             }}
             animate={{
               x: [
-                Math.random() * 100 - 50 + '%',
-                Math.random() * 100 - 50 + '%',
-                Math.random() * 100 - 50 + '%'
+                Math.random() * 100 + '%',
+                Math.random() * 100 + '%',
+                Math.random() * 100 + '%'
               ],
               y: [
-                Math.random() * 100 - 50 + '%',
-                Math.random() * 100 - 50 + '%',
-                Math.random() * 100 - 50 + '%'
+                Math.random() * 100 + '%',
+                Math.random() * 100 + '%',
+                Math.random() * 100 + '%'
               ],
               scale: [0, 1, 0],
-              opacity: [0, 0.3, 0],
+              opacity: [0, 0.4, 0],
             }}
             transition={{
-              duration: 8 + Math.random() * 4,
+              duration: 10 + Math.random() * 5,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: Math.random() * 3,
+              ease: "easeInOut"
             }}
           />
         ))}
 
-        {/* Floating Icons - Subtle */}
+        {/* Subtle Floating Icons */}
         {[FaRocket, FaChartLine, FaUsers, FaGlobe, FaAward, FaShieldAlt].map((Icon, index) => (
           <motion.div
             key={index}
             variants={floatVariants}
             animate="float"
-            transition={{ delay: index * 0.5 }}
-            className="absolute text-amber-300 opacity-30"
+            transition={{ delay: index * 0.8 }}
+            className="absolute text-amber-200 opacity-20"
             style={{
-              left: `${20 + (index * 12)}%`,
-              top: `${30 + (index % 3) * 20}%`,
+              left: `${15 + (index * 14)}%`,
+              top: `${25 + (index % 3) * 25}%`,
             }}
           >
-            <Icon className="w-8 h-8" />
+            <Icon className="w-6 h-6" />
           </motion.div>
         ))}
 
-        {/* Pulse Rings - Subtle */}
+        {/* Gentle Pulse Rings */}
         <motion.div
-          variants={pulseVariants}
+          variants={gentlePulseVariants}
           animate="pulse"
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-amber-300 rounded-full"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 border-2 border-amber-200 rounded-full"
         />
         <motion.div
-          variants={pulseVariants}
+          variants={gentlePulseVariants}
           animate="pulse"
-          transition={{ delay: 1 }}
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-blue-300 rounded-full"
+          transition={{ delay: 2 }}
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border-2 border-blue-200 rounded-full"
         />
 
-        {/* Additional Light Effects */}
+        {/* Professional Light Effects */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.3, scale: 1 }}
-          transition={{ duration: 2 }}
-          className="absolute top-10 right-10 w-48 h-48 bg-white rounded-full filter blur-2xl"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 0.2, scale: 1 }}
+          transition={{ duration: 3, ease: "easeOut" }}
+          className="absolute top-10 right-10 w-48 h-48 bg-gradient-to-r from-amber-200 to-orange-200 rounded-full filter blur-3xl"
         />
       </div>
 
@@ -212,22 +212,21 @@ const WhoWeAre = () => {
           <div className="text-center mb-16">
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center gap-2 bg-white bg-opacity-70 border border-amber-200 rounded-full px-6 py-3 mb-6 backdrop-blur-sm relative overflow-hidden shadow-lg"
+              className="inline-flex items-center gap-2 bg-white/80 border border-amber-100 rounded-full px-6 py-3 mb-6 backdrop-blur-sm shadow-sm"
             >
-              {/* Animated background for badge */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 opacity-20"
+                className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 opacity-10 rounded-full"
                 animate={{
                   backgroundPosition: ['0% 0%', '100% 100%'],
                 }}
                 transition={{
-                  duration: 3,
+                  duration: 4,
                   repeat: Infinity,
                   repeatType: 'reverse'
                 }}
               />
               <FaAward className="w-5 h-5 text-amber-600 relative z-10" />
-              <span className="text-sm font-semibold text-amber-800 relative z-10">
+              <span className="text-sm font-medium text-amber-700 relative z-10">
                 Trusted Digital Partner Since 2024
               </span>
             </motion.div>
@@ -237,47 +236,52 @@ const WhoWeAre = () => {
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 relative"
             >
               Who{" "}
-              <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent relative">
+              <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent relative inline-block">
                 We Are
                 <motion.div
-                  className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"
+                  className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
-                  transition={{ delay: 1, duration: 1 }}
+                  transition={{ delay: 0.8, duration: 0.8 }}
                 />
               </span>
             </motion.h2>
 
-          
+            <motion.p
+              variants={itemVariants}
+              className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            >
+              A passionate team of digital innovators dedicated to transforming your business through cutting-edge marketing solutions
+            </motion.p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
             {/* Left Content - Introduction */}
             <motion.div variants={itemVariants} className="space-y-6 relative">
-              {/* Floating elements around content */}
+              {/* Subtle floating elements */}
               <motion.div
                 variants={floatVariants}
                 animate="float"
-                className="absolute -top-4 -left-4 w-8 h-8 bg-amber-400 rounded-full opacity-30"
+                className="absolute -top-4 -left-4 w-6 h-6 bg-amber-300 rounded-full opacity-20"
               />
               <motion.div
                 variants={floatVariants}
                 animate="float"
-                transition={{ delay: 1 }}
-                className="absolute -bottom-4 -right-4 w-6 h-6 bg-blue-400 rounded-full opacity-30"
+                transition={{ delay: 1.2 }}
+                className="absolute -bottom-4 -right-4 w-5 h-5 bg-blue-300 rounded-full opacity-20"
               />
 
               <div className="flex items-center gap-4 mb-6 relative">
                 <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg shadow-amber-500/25"
+                  whileHover={{ scale: 1.05 }}
+                  className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg shadow-amber-500/20"
                 >
                   <FaLightbulb className="w-6 h-6 text-white" />
                 </motion.div>
                 <h3 className="text-2xl font-bold text-gray-800">Meet Our Team</h3>
               </div>
 
-              <div className="space-y-4 backdrop-blur-sm bg-white bg-opacity-70 rounded-2xl p-6 border border-amber-100 shadow-lg">
+              <div className="space-y-4 backdrop-blur-sm bg-white/70 rounded-2xl p-8 border border-amber-50 shadow-sm">
                 <p className="text-gray-700 text-lg leading-relaxed">
                   At DigitalPro, we're more than just marketers - we're a diverse
                   collective of
@@ -311,33 +315,48 @@ const WhoWeAre = () => {
                 </p>
               </div>
 
-             
+              {/* Stats Grid */}
+              <motion.div 
+                className="grid grid-cols-2 gap-4 mt-8"
+                variants={containerVariants}
+              >
+                {teamStats.map((stat, index) => (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    className="bg-white/80 backdrop-blur-sm rounded-xl p-4 text-center border border-amber-100 shadow-sm"
+                  >
+                    <stat.icon className="w-6 h-6 text-amber-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-gray-800">{stat.number}</div>
+                    <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+                  </motion.div>
+                ))}
+              </motion.div>
             </motion.div>
 
             {/* Right Content - Team Photo */}
             <motion.div variants={itemVariants} className="relative">
-              {/* Animated border around the photo container */}
+              {/* Enhanced border animation */}
               <motion.div
                 animate={{
                   rotate: [0, 360],
                 }}
                 transition={{
-                  duration: 25,
+                  duration: 20,
                   repeat: Infinity,
                   ease: "linear"
                 }}
-                className="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-400 via-orange-400 to-amber-300 p-1 -z-10"
-                style={{
-                  backgroundSize: '200% 200%',
-                }}
+                className="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-400 via-orange-400 to-amber-300 p-0.5 -z-10 opacity-80"
               >
                 <div className="w-full h-full rounded-3xl bg-transparent" />
               </motion.div>
 
               {/* Main Team Photo Container */}
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="relative bg-gradient-to-br from-white to-amber-50 rounded-3xl p-4 border border-amber-200 shadow-2xl overflow-hidden backdrop-blur-sm"
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.3 }}
+                className="relative bg-white rounded-3xl p-3 border border-amber-100 shadow-lg overflow-hidden backdrop-blur-sm"
               >
                 {/* Team Photo */}
                 <div className="relative h-96 rounded-2xl overflow-hidden">
@@ -345,70 +364,95 @@ const WhoWeAre = () => {
                     src={image}
                     alt="DigitalPro Team - Professional Digital Marketing Experts"
                     className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.4 }}
                   />
                   
-                  {/* Light Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-amber-50 via-transparent to-transparent opacity-30" />
+                  {/* Subtle Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent" />
 
-                  {/* Floating stars overlay */}
-                  {[...Array(12)].map((_, i) => (
+                  {/* Refined stars overlay */}
+                  {[...Array(8)].map((_, i) => (
                     <motion.div
                       key={i}
-                      className="absolute text-amber-400"
+                      className="absolute text-amber-300"
                       style={{
                         left: `${Math.random() * 100}%`,
                         top: `${Math.random() * 100}%`,
                       }}
                       animate={{
                         scale: [0, 1, 0],
-                        opacity: [0, 0.8, 0],
+                        opacity: [0, 0.6, 0],
                         rotate: [0, 180, 360],
                       }}
                       transition={{
-                        duration: 3 + Math.random() * 2,
+                        duration: 4 + Math.random() * 2,
                         repeat: Infinity,
                         delay: Math.random() * 2,
+                        ease: "easeInOut"
                       }}
                     >
-                      <FaStar className="w-2 h-2" />
+                      <FaStar className="w-1.5 h-1.5" />
                     </motion.div>
                   ))}
                 </div>
 
-                {/* Animated corner accents */}
+                {/* Professional corner accents */}
                 <motion.div
-                  className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-amber-500"
-                  animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                  className="absolute top-3 right-3 w-3 h-3 border-t border-r border-amber-400"
+                  animate={{ opacity: [0.3, 0.7, 0.3] }}
+                  transition={{ duration: 3, repeat: Infinity }}
                 />
                 <motion.div
-                  className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-orange-500"
-                  animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                  className="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-orange-400"
+                  animate={{ opacity: [0.3, 0.7, 0.3] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
                 />
               </motion.div>
 
               {/* Background Glow */}
               <motion.div
                 animate={{
-                  opacity: [0.2, 0.4, 0.2],
-                  scale: [1, 1.05, 1],
+                  opacity: [0.1, 0.2, 0.1],
+                  scale: [1, 1.02, 1],
                 }}
                 transition={{
-                  duration: 3,
+                  duration: 4,
                   repeat: Infinity,
+                  ease: "easeInOut"
                 }}
-                className="absolute inset-0 bg-gradient-to-r from-amber-300 to-orange-300 rounded-3xl blur-3xl -z-20 opacity-40"
+                className="absolute inset-0 bg-gradient-to-r from-amber-200 to-orange-200 rounded-3xl blur-2xl -z-20 opacity-30"
               />
             </motion.div>
           </div>
 
-        
-          
-
-          
+          {/* Values Section */}
+          <motion.div
+            variants={containerVariants}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16"
+          >
+            {values.map((value, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-amber-100 shadow-sm hover:shadow-md transition-all duration-300"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className={`w-12 h-12 bg-gradient-to-r ${value.color} rounded-xl flex items-center justify-center shadow-lg mb-4`}
+                >
+                  <value.icon className="w-6 h-6 text-white" />
+                </motion.div>
+                <h3 className="text-xl font-bold text-gray-800 mb-3">
+                  {value.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {value.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>
