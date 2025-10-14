@@ -6,6 +6,9 @@ import sand from './anime/sandy.json'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
+import Portfolio from './components/Portfolio';
+import PortfolioPage from './pages/PortfolioPage';
+import Chatbot from './components/Chatbot';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -138,13 +141,17 @@ const App = () => {
   }
 
   return (
+    <>
     <BrowserRouter>
     <Routes>
       <Route path="/*" element={<Homepage />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/contact" element={<ContactUs/>} />
+      <Route path="/portfolio" element={<PortfolioPage />} />
     </Routes>
     </BrowserRouter>
+    <Chatbot />
+    </>
   );
 };
 
