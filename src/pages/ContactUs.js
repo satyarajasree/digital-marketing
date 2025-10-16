@@ -15,6 +15,7 @@ import {
   FaUser,
   FaComment,
   FaStar,
+  FaMobile,
 } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -24,11 +25,16 @@ const ContactUs = () => {
   const isInView = useInView(ref, { once: true, threshold: 0.1 });
 
   const [formData, setFormData] = useState({
-    name: "",
+    fullname: "",
+    mobile: "",
     email: "",
     subject: "",
     message: ""
   });
+
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -79,11 +85,55 @@ const ContactUs = () => {
     }
   };
 
+  // Validators
+  const validateIndianMobile = (mobile) => {
+    const indianMobileRegex = /^[6-9]\d{9}$/;
+    return indianMobileRegex.test(mobile.replace(/\D/g, ''));
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.fullname.trim()) {
+      newErrors.fullname = "Full name is required";
+    }
+
+    if (!formData.mobile.trim()) {
+      newErrors.mobile = "Mobile number is required";
+    } else if (!validateIndianMobile(formData.mobile)) {
+      newErrors.mobile = "Please enter a valid Indian mobile number";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!validateEmail(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    if (!formData.subject.trim()) {
+      newErrors.subject = "Subject is required";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message should be at least 10 characters long";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const contactMethods = [
     {
       icon: FaPhone,
       title: "Call Us",
-      details: "+1 (555) 123-4567",
+      details: "+91 98765 43210",
       description: "Mon-Fri from 8am to 6pm",
       color: "from-blue-500 to-cyan-500"
     },
@@ -98,14 +148,14 @@ const ContactUs = () => {
       icon: FaMapMarkerAlt,
       title: "Visit Us",
       details: "123 Business Ave, Suite 100",
-      description: "San Francisco, CA 94107",
+      description: "Mumbai, Maharashtra 400001",
       color: "from-emerald-500 to-green-500"
     },
     {
       icon: FaClock,
       title: "Business Hours",
       details: "Monday - Friday",
-      description: "8:00 AM - 6:00 PM PST",
+      description: "9:00 AM - 6:00 PM IST",
       color: "from-purple-500 to-pink-500"
     }
   ];
@@ -118,23 +168,69 @@ const ContactUs = () => {
   ];
 
   const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }));
+    }
+
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: ""
-    });
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch('https://digitalmarketing.pythonanywhere.com/api/contact/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': getCSRFToken(), // You'll need to implement this
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        // Reset form
+        setFormData({
+          fullname: "",
+          mobile: "",
+          email: "",
+          subject: "",
+          message: ""
+        });
+      } else {
+        const errorData = await response.json();
+        setSubmitStatus('error');
+        console.error('Submission error:', errorData);
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      console.error('Network error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Helper function to get CSRF token (you might need to adjust this based on your Django setup)
+  const getCSRFToken = () => {
+    const cookieValue = document.cookie
+      .split('; ')
+      .find(row => row.startsWith('csrftoken='))
+      ?.split('=')[1];
+    return cookieValue || '';
   };
 
   return (
@@ -312,45 +408,102 @@ const ContactUs = () => {
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-amber-100 shadow-sm">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
                 
+                {/* Submission Status Messages */}
+                {submitStatus === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl text-green-700"
+                  >
+                    Thank you for your message! We'll get back to you soon.
+                  </motion.div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700"
+                  >
+                    There was an error sending your message. Please try again or contact us directly.
+                  </motion.div>
+                )}
+                
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="fullname" className="block text-sm font-medium text-gray-700 mb-2">
                         Full Name *
                       </label>
                       <div className="relative">
                         <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                         <input
                           type="text"
-                          id="name"
-                          name="name"
+                          id="fullname"
+                          name="fullname"
                           required
-                          value={formData.name}
+                          value={formData.fullname}
                           onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white/50 backdrop-blur-sm transition-all duration-200"
+                          className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white/50 backdrop-blur-sm transition-all duration-200 ${
+                            errors.fullname ? 'border-red-300' : 'border-amber-200'
+                          }`}
                           placeholder="Your full name"
                         />
                       </div>
+                      {errors.fullname && (
+                        <p className="mt-1 text-sm text-red-600">{errors.fullname}</p>
+                      )}
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email Address *
+                      <label htmlFor="mobile" className="block text-sm font-medium text-gray-700 mb-2">
+                        Mobile Number *
                       </label>
                       <div className="relative">
-                        <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                        <FaMobile className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                         <input
-                          type="email"
-                          id="email"
-                          name="email"
+                          type="tel"
+                          id="mobile"
+                          name="mobile"
                           required
-                          value={formData.email}
+                          value={formData.mobile}
                           onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white/50 backdrop-blur-sm transition-all duration-200"
-                          placeholder="your.email@example.com"
+                          className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white/50 backdrop-blur-sm transition-all duration-200 ${
+                            errors.mobile ? 'border-red-300' : 'border-amber-200'
+                          }`}
+                          placeholder="9876543210"
+                          pattern="[6-9]{1}[0-9]{9}"
+                          title="Please enter a valid Indian mobile number"
                         />
                       </div>
+                      {errors.mobile && (
+                        <p className="mt-1 text-sm text-red-600">{errors.mobile}</p>
+                      )}
                     </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      Email Address *
+                    </label>
+                    <div className="relative">
+                      <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white/50 backdrop-blur-sm transition-all duration-200 ${
+                          errors.email ? 'border-red-300' : 'border-amber-200'
+                        }`}
+                        placeholder="your.email@example.com"
+                      />
+                    </div>
+                    {errors.email && (
+                      <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                    )}
                   </div>
 
                   <div>
@@ -364,9 +517,14 @@ const ContactUs = () => {
                       required
                       value={formData.subject}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white/50 backdrop-blur-sm transition-all duration-200"
+                      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white/50 backdrop-blur-sm transition-all duration-200 ${
+                        errors.subject ? 'border-red-300' : 'border-amber-200'
+                      }`}
                       placeholder="What's this about?"
                     />
+                    {errors.subject && (
+                      <p className="mt-1 text-sm text-red-600">{errors.subject}</p>
+                    )}
                   </div>
 
                   <div>
@@ -382,20 +540,40 @@ const ContactUs = () => {
                         rows="6"
                         value={formData.message}
                         onChange={handleInputChange}
-                        className="w-full pl-10 pr-4 py-3 border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white/50 backdrop-blur-sm resize-none transition-all duration-200"
+                        className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white/50 backdrop-blur-sm resize-none transition-all duration-200 ${
+                          errors.message ? 'border-red-300' : 'border-amber-200'
+                        }`}
                         placeholder="Tell us about your project or inquiry..."
                       />
                     </div>
+                    {errors.message && (
+                      <p className="mt-1 text-sm text-red-600">{errors.message}</p>
+                    )}
                   </div>
 
                   <motion.button
                     type="submit"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3"
+                    disabled={isSubmitting}
+                    whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                    className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <FaPaperPlane className="w-5 h-5" />
-                    Send Message
+                    {isSubmitting ? (
+                      <>
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        >
+                          <FaPaperPlane className="w-5 h-5" />
+                        </motion.div>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <FaPaperPlane className="w-5 h-5" />
+                        Send Message
+                      </>
+                    )}
                   </motion.button>
                 </form>
               </div>
@@ -407,7 +585,7 @@ const ContactUs = () => {
               >
                 <h4 className="text-lg font-semibold mb-2">Emergency Support</h4>
                 <p className="text-amber-100 mb-3">Need immediate assistance?</p>
-                <p className="text-xl font-bold">+1 (555) 123-HELP</p>
+                <p className="text-xl font-bold">+91 98765 43210</p>
                 <p className="text-amber-100 text-sm mt-2">24/7 Technical Support</p>
               </motion.div>
             </motion.div>

@@ -273,27 +273,7 @@ const Testimonials = () => {
             </div>
           </div>
 
-          {/* Testimonial Stats */}
-          <motion.div
-            variants={containerVariants}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
-          >
-            {[
-              { number: "50+", label: "Happy Clients" },
-              { number: "4.9/5", label: "Average Rating" },
-              { number: "300%", label: "Average Growth" },
-              { number: "98%", label: "Client Retention" }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-amber-400/30 transition-all"
-              >
-                <div className="text-3xl font-bold text-amber-400 mb-2">{stat.number}</div>
-                <div className="text-gray-400 font-medium">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+         
 
           
         </motion.div>

@@ -6,9 +6,15 @@ import sand from './anime/sandy.json'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
-import Portfolio from './components/Portfolio';
 import PortfolioPage from './pages/PortfolioPage';
 import Chatbot from './components/Chatbot';
+import Careers from './pages/Careers';
+import Blogs from './pages/Blogs';
+import BlogDetail from './pages/BlogDetail';
+import StrategyConsulting from './services/StrategyConsulting';
+import JobApplication from './pages/JobApplication';
+import SocialMediaMarketing from './services/SocialMediaMarketing';
+import GraphicsDesigning from './services/GraphicsDesigning';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -148,6 +154,18 @@ const App = () => {
       <Route path="/about" element={<AboutUs />} />
       <Route path="/contact" element={<ContactUs/>} />
       <Route path="/portfolio" element={<PortfolioPage />} />
+      <Route path='/careers' element={<Careers />} />
+      <Route path='/blog' element={<Blogs />} />
+      <Route path="/blog/:slug" element={<BlogDetail />} />
+
+      <Route path="/services/strategy-consulting" element={<StrategyConsulting />} />
+      <Route path="/services/social-media-marketing" element={<SocialMediaMarketing />} />
+      <Route path='/services/graphics-designing' element={<GraphicsDesigning/>} />
+
+
+
+      // In your App.js or routing setup
+      <Route path="/apply/:id" element={<JobApplication />} />
     </Routes>
     </BrowserRouter>
     <Chatbot />

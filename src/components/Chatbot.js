@@ -23,7 +23,7 @@ const Chatbot = () => {
   const [error, setError] = useState('');
   const messagesEndRef = useRef(null);
 
-  const OPENROUTER_API_KEY = process.env.REACT_APP_OPENROUTER_API_KEY;
+  const OPENROUTER_API_KEY = "";
   const SITE_URL = process.env.REACT_APP_SITE_URL || 'https://digitalpro.com';
   const SITE_NAME = process.env.REACT_APP_SITE_NAME || 'DigitalPro';
 

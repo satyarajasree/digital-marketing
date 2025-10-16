@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { 
+  FaUserTie, FaRocket, FaCode, FaVideo, FaChartLine, FaLaptopCode, 
+  FaShoppingCart, FaSearch, FaRobot, FaEnvelope, FaListAlt, 
+  FaDollarSign, FaUsers, FaPodcast 
+} from 'react-icons/fa';
 
-const ServiceCard = ({ title, description, icon, index }) => {
+const ServiceCard = ({ name, description, icon: Icon, index }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -14,11 +20,13 @@ const ServiceCard = ({ title, description, icon, index }) => {
     <div
       className={`
         relative bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 
-        transition-all duration-500 group overflow-hidden
+        transition-all duration-500 group overflow-hidden cursor-pointer
         transform ${isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-95'}
         hover:-translate-y-2 hover:scale-105 hover:border-orange-500
       `}
       style={{ transitionDelay: `${index * 100}ms` }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {/* Animated background gradient on hover */}
       <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -31,18 +39,23 @@ const ServiceCard = ({ title, description, icon, index }) => {
 
       <div className="relative z-10">
         {/* Icon with enhanced animation */}
-        <div className="text-orange-500 text-5xl mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 inline-block">
-          {icon}
+        <div className="text-orange-500 text-4xl mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 inline-block">
+          <Icon />
         </div>
 
         {/* Title with gradient text on hover */}
-        <h3 className="text-2xl font-bold text-white mb-4 transition-all duration-500 group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-orange-600 group-hover:bg-clip-text group-hover:text-transparent group-hover:translate-x-1">
-          {title}
+        <h3 className="text-xl font-bold text-white mb-4 transition-all duration-500 group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-orange-600 group-hover:bg-clip-text group-hover:text-transparent group-hover:translate-x-1">
+          {name}
         </h3>
 
-        {/* Description with enhanced readability */}
-        <p className="text-gray-300 leading-relaxed text-lg transition-colors duration-500 group-hover:text-gray-100 group-hover:translate-x-0.5">
-          {description}
+        {/* Description with enhanced readability and typing animation */}
+        <p className="text-gray-300 leading-relaxed text-sm transition-all duration-500 group-hover:text-gray-100 group-hover:translate-x-0.5">
+          <span className={`
+            inline-block overflow-hidden
+            ${isHovered ? 'animate-typewriter' : ''}
+          `}>
+            {description}
+          </span>
         </p>
 
         {/* Learn more arrow */}
@@ -50,6 +63,47 @@ const ServiceCard = ({ title, description, icon, index }) => {
           Learn more
           <span className="ml-2 animate-bounce-horizontal">→</span>
         </div>
+      </div>
+    </div>
+  );
+};
+
+const AnimatedGrid = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden opacity-10">
+      {/* Horizontal Lines */}
+      <div className="absolute inset-0 animate-grid-horizontal">
+        {Array.from({ length: 20 }).map((_, i) => (
+          <div
+            key={`h-${i}`}
+            className="absolute w-full h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent"
+            style={{ top: `${(i * 100) / 19}%` }}
+          />
+        ))}
+      </div>
+      
+      {/* Vertical Lines */}
+      <div className="absolute inset-0 animate-grid-vertical">
+        {Array.from({ length: 20 }).map((_, i) => (
+          <div
+            key={`v-${i}`}
+            className="absolute h-full w-px bg-gradient-to-b from-transparent via-gray-500 to-transparent"
+            style={{ left: `${(i * 100) / 19}%` }}
+          />
+        ))}
+      </div>
+      
+      {/* Animated Corner Accents */}
+      <div className="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-orange-500/30 animate-pulse-slow" />
+      <div className="absolute top-0 right-0 w-32 h-32 border-t-2 border-r-2 border-purple-500/30 animate-pulse-slow" />
+      <div className="absolute bottom-0 left-0 w-32 h-32 border-b-2 border-l-2 border-orange-500/30 animate-pulse-slow" />
+      <div className="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-purple-500/30 animate-pulse-slow" />
+      
+      {/* Moving Grid Highlights */}
+      <div className="absolute inset-0">
+        <div className="absolute w-1 h-1 bg-orange-500 rounded-full animate-grid-move-1" />
+        <div className="absolute w-1 h-1 bg-purple-500 rounded-full animate-grid-move-2" />
+        <div className="absolute w-1 h-1 bg-orange-500 rounded-full animate-grid-move-3" />
       </div>
     </div>
   );
@@ -65,41 +119,98 @@ const Services = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const services = [
+  const servicesItems = [
     {
-      title: "SEO Optimization",
-      description: "Boost your search engine rankings with our comprehensive SEO strategies that drive organic traffic and increase visibility.",
-      icon: "🚀"
+      name: "Strategy & Consulting",
+      icon: FaUserTie,
+      href: "/services/strategy-consulting",
+      description: "Data-driven strategies for business growth",
     },
     {
-      title: "Social Media Marketing",
-      description: "Engage your audience across all social platforms with creative content and data-driven advertising campaigns.",
-      icon: "📱"
+      name: "Social Media Marketing",
+      icon: FaRocket,
+      href: "/services/social-media-marketing",
+      description: "Engage your audience across all platforms",
     },
     {
-      title: "PPC Advertising",
-      description: "Maximize your ROI with targeted pay-per-click campaigns that convert visitors into loyal customers.",
-      icon: "🎯"
+      name: "Graphics Designing",
+      icon: FaCode,
+      href: "/services/graphics-designing",
+      description: "Visual storytelling that captivates your audience",
     },
     {
-      title: "Content Marketing",
-      description: "Tell your brand's story with compelling content that resonates with your audience and builds trust.",
-      icon: "✍️"
+      name: "Video Production",
+      icon: FaVideo,
+      href: "/services/video-production",
+      description: "Professional video content that tells your story",
     },
     {
-      title: "Email Marketing",
-      description: "Nurture leads and retain customers with personalized email campaigns that drive engagement and sales.",
-      icon: "📧"
+      name: "Performance Marketing",
+      icon: FaChartLine,
+      href: "/services/performance-marketing",
+      description: "Drive measurable results and ROI",
     },
     {
-      title: "Web Development",
-      description: "Create stunning, responsive websites that provide exceptional user experiences and drive conversions.",
-      icon: "💻"
-    }
+      name: "Website Development",
+      icon: FaLaptopCode,
+      href: "/services/website-development",
+      description: "Build high-performance websites",
+    },
+    {
+      name: "E Commerce Development",
+      icon: FaShoppingCart,
+      href: "/services/ecommerce-development",
+      description: "Complete online store solutions",
+    },
+    {
+      name: "Search Engine Optimization",
+      icon: FaSearch,
+      href: "/services/seo",
+      description: "Boost your search rankings and organic traffic",
+    },
+    {
+      name: "Answer Engine Optimization",
+      icon: FaRobot,
+      href: "/services/answer-engine-optimization",
+      description: "Optimize for voice and AI-powered search",
+    },
+    {
+      name: "Email Marketing",
+      icon: FaEnvelope,
+      href: "/services/email-marketing",
+      description: "Nurture leads and build relationships",
+    },
+    {
+      name: "Platform Listing & Optimization",
+      icon: FaListAlt,
+      href: "/services/platform-listing-optimization",
+      description: "Maximize your presence across all platforms",
+    },
+    {
+      name: "Media Buying & Planning",
+      icon: FaDollarSign,
+      href: "/services/media-buying-planning",
+      description: "Strategic ad placement for maximum impact",
+    },
+    {
+      name: "Influencer Marketing",
+      icon: FaUsers,
+      href: "/services/influencer-marketing",
+      description: "Leverage influencer partnerships for brand growth",
+    },
+    {
+      name: "Podcast Marketing",
+      icon: FaPodcast,
+      href: "/services/podcast-marketing",
+      description: "Amplify your audio content and reach",
+    },
   ];
 
   return (
     <section id="services" className="relative py-24 bg-black text-white overflow-hidden">
+      {/* Background Grid */}
+      <AnimatedGrid />
+      
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl animate-pulse-slow" />
@@ -126,9 +237,9 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <ServiceCard key={service.title} {...service} index={index} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {servicesItems.map((service, index) => (
+            <ServiceCard key={service.name} {...service} index={index} />
           ))}
         </div>
 
@@ -159,6 +270,69 @@ const Services = () => {
         }
         .animate-pulse-slow {
           animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes typewriter {
+          from { width: 0; }
+          to { width: 100%; }
+        }
+        .animate-typewriter {
+          display: inline-block;
+          animation: typewriter 0.5s ease-in-out;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        @keyframes grid-horizontal {
+          0% { transform: translateY(0); }
+          100% { transform: translateY(10px); }
+        }
+        @keyframes grid-vertical {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(10px); }
+        }
+        @keyframes grid-move-1 {
+          0%, 100% { 
+            transform: translate(10%, 20%); 
+            opacity: 0.5;
+          }
+          50% { 
+            transform: translate(90%, 80%); 
+            opacity: 1;
+          }
+        }
+        @keyframes grid-move-2 {
+          0%, 100% { 
+            transform: translate(80%, 10%); 
+            opacity: 0.5;
+          }
+          50% { 
+            transform: translate(20%, 90%); 
+            opacity: 1;
+          }
+        }
+        @keyframes grid-move-3 {
+          0%, 100% { 
+            transform: translate(50%, 50%); 
+            opacity: 0.3;
+          }
+          50% { 
+            transform: translate(70%, 30%); 
+            opacity: 0.8;
+          }
+        }
+        .animate-grid-horizontal {
+          animation: grid-horizontal 8s ease-in-out infinite alternate;
+        }
+        .animate-grid-vertical {
+          animation: grid-vertical 6s ease-in-out infinite alternate;
+        }
+        .animate-grid-move-1 {
+          animation: grid-move-1 15s linear infinite;
+        }
+        .animate-grid-move-2 {
+          animation: grid-move-2 20s linear infinite;
+        }
+        .animate-grid-move-3 {
+          animation: grid-move-3 12s linear infinite;
         }
       `}</style>
     </section>
