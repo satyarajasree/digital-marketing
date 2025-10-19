@@ -267,25 +267,8 @@ const OurClients = () => {
                 ))}
               </div>
 
-              {/* Client Success Quote */}
-              <motion.div
-                variants={itemVariants}
-                className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-amber-400/20 mt-8"
-              >
-                <FaQuoteLeft className="w-8 h-8 text-amber-400/40 mb-4" />
-                <p className="text-gray-300 text-lg leading-relaxed mb-4 italic">
-                  "Digital Pro's approach transformed our digital presence. They don't just run campaigns—they build sustainable growth engines that continue to deliver results long after implementation."
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-amber-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">CT</span>
-                  </div>
-                  <div>
-                    <div className="text-white font-semibold">Sarah Chen</div>
-                    <div className="text-gray-400 text-sm">CEO, TechNova Solutions</div>
-                  </div>
-                </div>
-              </motion.div>
+    
+             
             </motion.div>
           </div>
 

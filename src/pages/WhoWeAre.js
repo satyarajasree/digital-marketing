@@ -93,12 +93,7 @@ const WhoWeAre = () => {
     }
   ];
 
-  const teamStats = [
-    { number: "8+", label: "Years Experience", icon: FaAward },
-    { number: "50+", label: "Experts Team", icon: FaUsers },
-    { number: "15+", label: "Countries Served", icon: FaGlobe },
-    { number: "99%", label: "Client Retention", icon: FaShieldAlt }
-  ];
+ 
 
   return (
     <section
@@ -315,24 +310,7 @@ const WhoWeAre = () => {
                 </p>
               </div>
 
-              {/* Stats Grid */}
-              <motion.div 
-                className="grid grid-cols-2 gap-4 mt-8"
-                variants={containerVariants}
-              >
-                {teamStats.map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    className="bg-white/80 backdrop-blur-sm rounded-xl p-4 text-center border border-amber-100 shadow-sm"
-                  >
-                    <stat.icon className="w-6 h-6 text-amber-600 mx-auto mb-2" />
-                    <div className="text-2xl font-bold text-gray-800">{stat.number}</div>
-                    <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </motion.div>
+             
             </motion.div>
 
             {/* Right Content - Team Photo */}

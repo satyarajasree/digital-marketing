@@ -20,18 +20,12 @@ import {
   FaGraduationCap,
   FaHome,
   FaBuilding,
-  FaLaptopCode,
   FaShoppingCart,
   FaHeartbeat,
   FaCode,
-  FaDollarSign,
   FaCity,
   FaAddressCard,
   FaVideo,
-  FaSearch,
-  FaRobot,
-  FaListAlt,
-  FaPodcast,
 } from "react-icons/fa";
 
 const Navbar = () => {
@@ -49,83 +43,30 @@ const Navbar = () => {
       description: "Data-driven strategies for business growth",
     },
     {
-      name: "Social Media Marketing",
+      name: "Design & Creative",
       icon: FaRocket,
       href: "/services/social-media-marketing",
       description: "Engage your audience across all platforms",
     },
     {
-      name: "Graphics Designing",
+      name: "Web & E-commerce Development",
       icon: FaCode,
       href: "/services/graphics-designing",
-      description: "Visual storytelling that captivates your audience",
+      description: "Complete online store solutions",
     },
     {
-      name: "Video Production",
+      name: "Marketing & Advertising",
       icon: FaVideo,
       href: "/services/video-production",
       description: "Professional video content that tells your story",
     },
     {
-      name: "Performance Marketing",
+      name: "Search Engine Optimization",
       icon: FaChartLine,
       href: "/services/performance-marketing",
       description: "Drive measurable results and ROI",
     },
-    {
-      name: "Website Development",
-      icon: FaLaptopCode,
-      href: "/services/website-development",
-      description: "Build high-performance websites",
-    },
-    {
-      name: "E Commerce Development",
-      icon: FaShoppingCart,
-      href: "/services/ecommerce-development",
-      description: "Complete online store solutions",
-    },
-    {
-      name: "Search Engine Optimization",
-      icon: FaSearch,
-      href: "/services/seo",
-      description: "Boost your search rankings and organic traffic",
-    },
-    {
-      name: "Answer Engine Optimization",
-      icon: FaRobot,
-      href: "/services/answer-engine-optimization",
-      description: "Optimize for voice and AI-powered search",
-    },
-    {
-      name: "Email Marketing",
-      icon: FaEnvelope,
-      href: "/services/email-marketing",
-      description: "Nurture leads and build relationships",
-    },
-    {
-      name: "Platform Listing & Optimization",
-      icon: FaListAlt,
-      href: "/services/platform-listing-optimization",
-      description: "Maximize your presence across all platforms",
-    },
-    {
-      name: "Media Buying & Planning",
-      icon: FaDollarSign,
-      href: "/services/media-buying-planning",
-      description: "Strategic ad placement for maximum impact",
-    },
-    {
-      name: "Influencer Marketing",
-      icon: FaUsers,
-      href: "/services/influencer-marketing",
-      description: "Leverage influencer partnerships for brand growth",
-    },
-    {
-      name: "Podcast Marketing",
-      icon: FaPodcast,
-      href: "/services/podcast-marketing",
-      description: "Amplify your audio content and reach",
-    },
+    
   ];
 
   const industryItems = [
@@ -199,12 +140,7 @@ const Navbar = () => {
       href: "/faq",
       description: "Find answers to common questions",
     },
-    {
-      name: "Case Studies",
-      icon: FaChartLine,
-      href: "/case-studies",
-      description: "Explore our success stories",
-    },
+   
   ];
 
   const socialMediaLinks = [
@@ -234,6 +170,13 @@ const Navbar = () => {
     },
   ];
 
+  const marqueeMessages = [
+    "🚀 Special Offer: Get 20% off on all digital marketing services this month!",
+    "⭐ Awarded 'Best Digital Agency 2024' by Industry Leaders",
+    "📞 Book a free consultation today and transform your digital presence!",
+    "🎯 Over 500+ satisfied clients worldwide trust our expertise",
+  ];
+
   const toggleMobileDropdown = (dropdown) => {
     setMobileDropdown(mobileDropdown === dropdown ? null : dropdown);
   };
@@ -241,7 +184,7 @@ const Navbar = () => {
   return (
     <>
       {/* Top Bar */}
-      <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm">
+      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white text-sm">
         <div className="container mx-auto px-6 py-2">
           <div className="flex flex-col md:flex-row justify-between items-center">
             {/* Contact Info - Left */}
@@ -259,7 +202,7 @@ const Navbar = () => {
                 </motion.div>
                 <a
                   href="mailto:hello@digitalpro.com"
-                  className="hover:text-black transition-colors duration-300 font-medium"
+                  className="hover:text-yellow-300 transition-colors duration-300 font-medium"
                 >
                   hello@digitalpro.com
                 </a>
@@ -279,10 +222,56 @@ const Navbar = () => {
                 </motion.div>
                 <a
                   href="tel:+15551234567"
-                  className="hover:text-black transition-colors duration-300 font-medium"
+                  className="hover:text-yellow-300 transition-colors duration-300 font-medium"
                 >
                   +1 (555) 123-4567
                 </a>
+              </motion.div>
+            </div>
+
+            {/* Marquee Text - Center */}
+            <div className="hidden lg:block flex-1 mx-6 overflow-hidden">
+              <motion.div
+                className="whitespace-nowrap"
+                animate={{
+                  x: [0, -1200],
+                }}
+                transition={{
+                  x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 25,
+                    ease: "linear",
+                  },
+                }}
+              >
+                {marqueeMessages.map((message, index) => (
+                  <span key={index} className="inline-block mx-8 text-yellow-300 font-semibold">
+                    {message}
+                  </span>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Mobile Marquee - Only show on mobile */}
+            <div className="lg:hidden w-full my-2 overflow-hidden">
+              <motion.div
+                className="whitespace-nowrap"
+                animate={{
+                  x: [0, -400],
+                }}
+                transition={{
+                  x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 15,
+                    ease: "linear",
+                  },
+                }}
+              >
+                <span className="inline-block mx-4 text-yellow-300 font-semibold text-xs">
+                  {marqueeMessages[0]}
+                </span>
               </motion.div>
             </div>
 
@@ -292,7 +281,7 @@ const Navbar = () => {
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center space-x-4"
             >
-              <span className="hidden sm:inline text-xs text-orange-100 font-medium">
+              <span className="hidden sm:inline text-xs text-blue-200 font-medium">
                 Follow us:
               </span>
               <div className="flex space-x-3">
@@ -317,7 +306,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Main Navigation */}
+      {/* Main Navigation - Rest of the navbar remains exactly the same */}
       <nav className="bg-black text-white sticky top-0 z-50 shadow-2xl">
         <div className="container mx-auto px-6 py-3">
           <div className="flex justify-between items-center">

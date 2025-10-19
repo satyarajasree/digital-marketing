@@ -31,7 +31,7 @@ const FAQ = () => {
       answer: "Yes! We work with businesses of all sizes and tailor our services to fit your budget. We'll help you prioritize the most impactful strategies that align with your financial constraints while ensuring every rupee spent delivers measurable value. Many of our most successful clients started with modest budgets."
     },
     {
-      question: "What makes Mage Marketer different from other agencies?",
+      question: "What makes Mage  different from other agencies?",
       answer: "We combine data-driven strategies with creative storytelling, ensuring your brand not only performs well in metrics but also connects emotionally with your audience. Our transparent approach, flexible packages, and focus on building long-term partnerships set us apart. We become an extension of your team, deeply invested in your success."
     },
     {
@@ -135,94 +135,105 @@ const FAQ = () => {
           </div>
 
           {/* Main Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
-            {/* Left Content - Introduction */}
-            <motion.div variants={itemVariants} className="space-y-6">
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-amber-100 shadow-sm">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">Our Approach to Partnership</h3>
-                
-                <div className="space-y-4">
-                  <p className="text-gray-700 leading-relaxed">
-                    Whether you're a startup or an established brand, our approach is completely tailored to your unique needs. From flexible, goal-based packages to our deep understanding of your business goals, we ensure that every strategy we create is designed with you in mind.
-                  </p>
+          <div className="grid lg:grid-cols-1 gap-12 items-start mb-16">
+           
 
-                  <p className="text-gray-700 leading-relaxed">
-                    We work alongside you to craft solutions that maximize your brand's potential and fit your budget, without compromising on quality. Our focus is on creating long-lasting relationships built on trust, delivering results you can measure, and continuously optimizing our strategies to bring your business the attention it deserves.
-                  </p>
+          {/* Two-column FAQ layout */}
+<motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  {/* Left column */}
+  <div className="space-y-4">
+    {faqs.slice(0, Math.ceil(faqs.length / 2)).map((faq, index) => (
+      <motion.div
+        key={index}
+        variants={itemVariants}
+        className="bg-white/80 backdrop-blur-sm rounded-2xl border border-amber-100 shadow-sm overflow-hidden"
+      >
+        <button
+          onClick={() => toggleFAQ(index)}
+          className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-amber-50/50 transition-colors duration-300"
+        >
+          <span className="text-lg font-semibold text-gray-800 pr-4">
+            {faq.question}
+          </span>
+          <motion.div
+            animate={{ rotate: openIndex === index ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+            className="flex-shrink-0 w-6 h-6 bg-amber-100 rounded-full flex items-center justify-center"
+          >
+            {openIndex === index ? (
+              <FaChevronUp className="w-3 h-3 text-amber-600" />
+            ) : (
+              <FaChevronDown className="w-3 h-3 text-amber-600" />
+            )}
+          </motion.div>
+        </button>
+        <motion.div
+          initial={false}
+          animate={{
+            height: openIndex === index ? 'auto' : 0,
+            opacity: openIndex === index ? 1 : 0,
+          }}
+          transition={{ duration: 0.3 }}
+          className="overflow-hidden"
+        >
+          <div className="px-6 pb-6">
+            <div className="w-12 h-0.5 bg-amber-200 mb-4"></div>
+            <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+          </div>
+        </motion.div>
+      </motion.div>
+    ))}
+  </div>
 
-                  <p className="text-gray-700 leading-relaxed font-semibold">
-                    Have more questions? Whether it's about timelines, budgets, or how we track progress, we're ready to answer all of them. Let's talk and find out how we can work together to help your business grow.
-                  </p>
-                </div>
-              </div>
-
-              {/* Key Benefits */}
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { title: "Flexible Packages", desc: "Tailored to your budget" },
-                  { title: "Transparent Reporting", desc: "Clear progress tracking" },
-                  { title: "Quick Onboarding", desc: "Start within 1 week" },
-                  { title: "Dedicated Support", desc: "Single point of contact" }
-                ].map((benefit, index) => (
-                  <motion.div
-                    key={index}
-                    variants={itemVariants}
-                    className="bg-white/80 backdrop-blur-sm rounded-xl p-4 text-center border border-amber-100"
-                  >
-                    <h4 className="font-bold text-gray-800 mb-1">{benefit.title}</h4>
-                    <p className="text-sm text-gray-600">{benefit.desc}</p>
-                  </motion.div>
-                ))}
-              </div>
+  {/* Right column */}
+  <div className="space-y-4">
+    {faqs.slice(Math.ceil(faqs.length / 2)).map((faq, index) => {
+      const actualIndex = index + Math.ceil(faqs.length / 2);
+      return (
+        <motion.div
+          key={actualIndex}
+          variants={itemVariants}
+          className="bg-white/80 backdrop-blur-sm rounded-2xl border border-amber-100 shadow-sm overflow-hidden"
+        >
+          <button
+            onClick={() => toggleFAQ(actualIndex)}
+            className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-amber-50/50 transition-colors duration-300"
+          >
+            <span className="text-lg font-semibold text-gray-800 pr-4">
+              {faq.question}
+            </span>
+            <motion.div
+              animate={{ rotate: openIndex === actualIndex ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+              className="flex-shrink-0 w-6 h-6 bg-amber-100 rounded-full flex items-center justify-center"
+            >
+              {openIndex === actualIndex ? (
+                <FaChevronUp className="w-3 h-3 text-amber-600" />
+              ) : (
+                <FaChevronDown className="w-3 h-3 text-amber-600" />
+              )}
             </motion.div>
+          </button>
+          <motion.div
+            initial={false}
+            animate={{
+              height: openIndex === actualIndex ? 'auto' : 0,
+              opacity: openIndex === actualIndex ? 1 : 0,
+            }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-6">
+              <div className="w-12 h-0.5 bg-amber-200 mb-4"></div>
+              <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+            </div>
+          </motion.div>
+        </motion.div>
+      );
+    })}
+  </div>
+</motion.div>
 
-            {/* Right Content - FAQ Items */}
-            <motion.div variants={itemVariants} className="space-y-4">
-              {faqs.map((faq, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="bg-white/80 backdrop-blur-sm rounded-2xl border border-amber-100 shadow-sm overflow-hidden"
-                >
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-amber-50/50 transition-colors duration-300"
-                  >
-                    <span className="text-lg font-semibold text-gray-800 pr-4">
-                      {faq.question}
-                    </span>
-                    <motion.div
-                      animate={{ rotate: openIndex === index ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="flex-shrink-0 w-6 h-6 bg-amber-100 rounded-full flex items-center justify-center"
-                    >
-                      {openIndex === index ? (
-                        <FaChevronUp className="w-3 h-3 text-amber-600" />
-                      ) : (
-                        <FaChevronDown className="w-3 h-3 text-amber-600" />
-                      )}
-                    </motion.div>
-                  </button>
-                  
-                  <motion.div
-                    initial={false}
-                    animate={{ 
-                      height: openIndex === index ? 'auto' : 0,
-                      opacity: openIndex === index ? 1 : 0
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="px-6 pb-6">
-                      <div className="w-12 h-0.5 bg-amber-200 mb-4"></div>
-                      <p className="text-gray-700 leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  </motion.div>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
 
           

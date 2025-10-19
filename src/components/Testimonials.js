@@ -206,15 +206,7 @@ const Testimonials = () => {
                       <FaStar key={i} className="w-5 h-5 text-amber-400 fill-current" />
                     ))}
                   </div>
-                  
-                  <h3 className="text-2xl font-bold text-white mb-1">
-                    {testimonials[currentIndex].name}
-                  </h3>
-                  
-                  <p className="text-amber-300 font-semibold mb-1">
-                    {testimonials[currentIndex].position}
-                  </p>
-                  
+
                   <p className="text-gray-400 text-sm mb-2">
                     {testimonials[currentIndex].company}
                   </p>
@@ -223,6 +215,8 @@ const Testimonials = () => {
                     <FaMapMarkerAlt className="w-3 h-3" />
                     <span>{testimonials[currentIndex].location}</span>
                   </div>
+                  
+                  
                 </div>
 
                 {/* Testimonial Content */}
@@ -232,6 +226,16 @@ const Testimonials = () => {
                   <p className="text-xl text-gray-300 leading-relaxed mb-6 italic">
                     "{testimonials[currentIndex].content}"
                   </p>
+
+                  <h3 className="text-2xl font-bold text-white mb-1">
+                    {testimonials[currentIndex].name}
+                  </h3>
+                  
+                  <p className="text-amber-300 font-semibold mb-1">
+                    {testimonials[currentIndex].position}
+                  </p>
+                  
+                  
 
                   {/* Progress Dots */}
                   <div className="flex justify-center lg:justify-start gap-2">
