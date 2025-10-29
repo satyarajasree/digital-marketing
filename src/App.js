@@ -16,66 +16,12 @@ import JobApplication from './pages/JobApplication';
 import SocialMediaMarketing from './services/SocialMediaMarketing';
 import GraphicsDesigning from './services/GraphicsDesigning';
 import Seo from'./pages/Seo';
+import ITHomePage from './pages/ITHomePage';
+import DigitalMarketing from './pages/DigitalMarketing';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
 
-  // Simple loading animation data (you can replace this with your own Lottie JSON)
-  const loadingAnimation = {
-    v: "5.5.2",
-    fr: 60,
-    ip: 0,
-    op: 180,
-    w: 400,
-    h: 400,
-    nm: "Loading Animation",
-    ddd: 0,
-    assets: [],
-    layers: [
-      {
-        ddd: 0,
-        ind: 1,
-        ty: 4,
-        nm: "Loading Circle",
-        sr: 1,
-        ks: {
-          o: { a: 0, k: 100, ix: 11 },
-          r: { a: 1, k: [{ t: 0, s: [0], h: 0 }, { t: 180, s: [360], h: 0 }], ix: 10 },
-          p: { a: 0, k: [200, 200, 0], ix: 2 },
-          a: { a: 0, k: [0, 0, 0], ix: 1 },
-          s: { a: 0, k: [100, 100, 100], ix: 6 }
-        },
-        shapes: [
-          {
-            ty: "gr",
-            it: [
-              {
-                ty: "el",
-                p: { a: 0, k: [0, 0], ix: 3 },
-                s: { a: 0, k: [80, 80], ix: 4 }
-              },
-              {
-                ty: "st",
-                c: { a: 0, k: [1, 0.5, 0.2, 1], ix: 4 },
-                o: { a: 0, k: 100, ix: 5 },
-                w: { a: 0, k: 8, ix: 6 }
-              },
-              {
-                ty: "tr",
-                p: { a: 0, k: [0, 0], ix: 2 },
-                a: { a: 0, k: [0, 0], ix: 1 },
-                s: { a: 0, k: [100, 100], ix: 3 },
-                r: { a: 0, k: 0, ix: 6 }
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  };
-
-  // Alternative: Use a Lottie URL from LottieFiles
-  const LOTTIE_URL = "https://assets1.lottiefiles.com/packages/lf20_ubngqe2x.json";
 
   useEffect(() => {
     // Simulate loading time
@@ -164,10 +110,10 @@ const App = () => {
       <Route path="/services/social-media-marketing" element={<SocialMediaMarketing />} />
       <Route path='/services/graphics-designing' element={<GraphicsDesigning/>} />
 
-
-
-      // In your App.js or routing setup
       <Route path="/apply/:id" element={<JobApplication />} />
+
+      <Route path='/it' element={<ITHomePage/>} />
+      <Route path='/marketing' element={<DigitalMarketing/>}/>
     </Routes>
     </BrowserRouter>
     <Chatbot />

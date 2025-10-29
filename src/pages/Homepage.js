@@ -9,12 +9,14 @@ import ContentCreation from '../components/ContentCreation';
 import OurClients from '../components/OurClients';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
+import Contact from '../components/Contact';
 
 const Homepage = () => {
   return (
     <div className="min-h-screen bg-black">
       <Navbar />
-      <Hero />
+      <Hero  mode='combined'/>
+      <Contact mode='combined' />
       <Services />
       <WhoWeAre/>
       <ContentCreation />

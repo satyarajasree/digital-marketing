@@ -10,7 +10,6 @@ import {
   FaChevronDown,
   FaBars,
   FaTimes,
-  FaUserTie,
   FaQuestionCircle,
   FaBlog,
   FaRocket,
@@ -26,7 +25,14 @@ import {
   FaCity,
   FaAddressCard,
   FaVideo,
-  FaMobileAlt, FaCloud
+  FaLaptopCode,
+  FaMobileAlt,
+  FaSearch,
+  FaShieldAlt,
+  FaCloud,
+  FaDatabase,
+  FaNetworkWired,
+  FaCogs,
 } from "react-icons/fa";
 
 const Navbar = () => {
@@ -35,82 +41,111 @@ const Navbar = () => {
   const [isMoreOpen, setIsMoreOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(null);
+  const [nestedDropdown, setNestedDropdown] = useState(null);
 
+  // IT Services
+  const itServices = {
+    name: "IT Services",
+    icon: FaLaptopCode,
+    description: "Complete IT solutions for your business",
+    services: [
+      {
+        name: "Web Development",
+        icon: FaCode,
+        href: "/services/it/web-development",
+        description: "Custom websites and web applications",
+      },
+      {
+        name: "Mobile App Development",
+        icon: FaMobileAlt,
+        href: "/services/it/mobile-app-development",
+        description: "iOS and Android applications",
+      },
+      {
+        name: "Cloud Solutions",
+        icon: FaCloud,
+        href: "/services/it/cloud-solutions",
+        description: "AWS, Azure, and Google Cloud services",
+      },
+      {
+        name: "Cybersecurity",
+        icon: FaShieldAlt,
+        href: "/services/it/cybersecurity",
+        description: "Protect your business from threats",
+      },
+      {
+        name: "IT Infrastructure",
+        icon: FaNetworkWired,
+        href: "/services/it/infrastructure",
+        description: "Network and server management",
+      },
+      {
+        name: "Database Management",
+        icon: FaDatabase,
+        href: "/services/it/database",
+        description: "Database design and optimization",
+      },
+      {
+        name: "Software Development",
+        icon: FaCogs,
+        href: "/services/it/software-development",
+        description: "Custom software solutions",
+      },
+    ]
+  };
 
+  // Digital Marketing Services
+  const digitalMarketingServices = {
+    name: "Digital Marketing",
+    icon: FaRocket,
+    description: "Boost your online presence and growth",
+    services: [
+      {
+        name: "SEO Services",
+        icon: FaSearch,
+        href: "/services/digital-marketing/seo",
+        description: "Search Engine Optimization",
+      },
+      {
+        name: "Social Media Marketing",
+        icon: FaUsers,
+        href: "/services/digital-marketing/social-media",
+        description: "Engage your audience across platforms",
+      },
+      {
+        name: "Content Marketing",
+        icon: FaBlog,
+        href: "/services/digital-marketing/content",
+        description: "Strategic content creation",
+      },
+      {
+        name: "PPC Advertising",
+        icon: FaChartLine,
+        href: "/services/digital-marketing/ppc",
+        description: "Pay-per-click campaigns",
+      },
+      {
+        name: "Email Marketing",
+        icon: FaEnvelope,
+        href: "/services/digital-marketing/email",
+        description: "Targeted email campaigns",
+      },
+      {
+        name: "Video Marketing",
+        icon: FaVideo,
+        href: "/services/digital-marketing/video",
+        description: "Professional video content",
+      },
+      {
+        name: "Analytics & Reporting",
+        icon: FaChartLine,
+        href: "/services/digital-marketing/analytics",
+        description: "Data-driven insights",
+      },
+    ]
+  };
 
-  const servicesItems = [
-    {
-      category: "Digital Marketing",
-      items: [
-        {
-          name: "SEO (Search Engine Optimization)",
-          icon: FaChartLine,
-          href: "/seo",
-          description: "Boost your visibility and organic traffic.",
-        },
-        {
-          name: "Social Media Marketing",
-          icon: FaRocket,
-          href: "/services/social-media-marketing",
-          description: "Build engagement across all platforms.",
-        },
-        {
-          name: "Content Marketing",
-          icon: FaBlog,
-          href: "/services/content-marketing",
-          description: "Create compelling content for your audience.",
-        },
-        {
-          name: "Email Marketing",
-          icon: FaEnvelope,
-          href: "/services/email-marketing",
-          description: "Reach your customers directly and effectively.",
-        },
-        {
-          name: "Performance Marketing",
-          icon: FaChartLine,
-          href: "/services/performance-marketing",
-          description: "Deliver measurable ROI with paid ads.",
-        },
-      ],
-    },
-    {
-      category: "IT Services",
-      items: [
-        {
-          name: "Web Development",
-          icon: FaCode,
-          href: "/services/web-development",
-          description: "Build fast, responsive, and scalable websites.",
-        },
-        {
-          name: "E-commerce Solutions",
-          icon: FaShoppingCart,
-          href: "/services/ecommerce",
-          description: "Develop secure and high-performing online stores.",
-        },
-        {
-          name: "App Development",
-          icon: FaMobileAlt,
-          href: "/services/app-development",
-          description: "Create mobile apps for Android & iOS platforms.",
-        },
-        {
-          name: "Cloud & DevOps",
-          icon: FaCloud,
-          href: "/services/cloud-devops",
-          description: "Scale your infrastructure with reliability.",
-        },
-        {
-          name: "Software Consulting",
-          icon: FaUserTie,
-          href: "/services/software-consulting",
-          description: "Get expert advice on digital transformation.",
-        },
-      ],
-    },
-  ];
-
+  const servicesCategories = [itServices, digitalMarketingServices];
 
   const industryItems = [
     {
@@ -161,10 +196,15 @@ const Navbar = () => {
       href: "/industries/fmcg",
       description: "Drive fast-moving consumer goods sales",
     },
-
   ];
 
   const moreItems = [
+    {
+      name: "About",
+      icon: FaBriefcase,
+      href: "/about",
+      description: "About us",
+    },
     {
       name: "Careers",
       icon: FaBriefcase,
@@ -183,7 +223,6 @@ const Navbar = () => {
       href: "/faq",
       description: "Find answers to common questions",
     },
-
   ];
 
   const socialMediaLinks = [
@@ -222,6 +261,10 @@ const Navbar = () => {
 
   const toggleMobileDropdown = (dropdown) => {
     setMobileDropdown(mobileDropdown === dropdown ? null : dropdown);
+  };
+
+  const toggleNestedDropdown = (category) => {
+    setNestedDropdown(nestedDropdown === category ? null : category);
   };
 
   return (
@@ -349,7 +392,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Main Navigation - Rest of the navbar remains exactly the same */}
+      {/* Main Navigation */}
       <nav className="bg-black text-white sticky top-0 z-50 shadow-2xl">
         <div className="container mx-auto px-6 py-3">
           <div className="flex justify-between items-center">
@@ -384,6 +427,26 @@ const Navbar = () => {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
               </motion.a>
 
+               <motion.a
+                href="/marketing"
+                className="hover:text-orange-400 transition-colors duration-300 font-semibold relative group flex items-center"
+                whileHover={{ y: -2 }}
+              >
+                <FaRocket className="w-4 h-4 mr-2" />
+                Digital Marketing
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+              </motion.a>
+
+               <motion.a
+                href="/it"
+                className="hover:text-orange-400 transition-colors duration-300 font-semibold relative group flex items-center"
+                whileHover={{ y: -2 }}
+              >
+                <FaCode className="w-4 h-4 mr-2" />
+                IT Solutions
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+              </motion.a>
+
               {/* Services Dropdown */}
               <div
                 className="relative"
@@ -406,43 +469,93 @@ const Navbar = () => {
                 </motion.button>
 
                 <AnimatePresence>
-              {isServicesOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 15, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 15, scale: 0.95 }}
-                  className="absolute top-full left-0 mt-3 w-[550px] bg-gray-900 border border-gray-700 rounded-xl shadow-2xl backdrop-blur-lg z-50 grid grid-cols-2 gap-x-4 p-4"
-                >
-                  {servicesItems.map((group) => (
-                    <div key={group.category}>
-                      <div className="text-orange-400 font-bold mb-3 uppercase tracking-wider text-sm">
-                        {group.category}
-                      </div>
-                      {group.items.map((item, index) => (
-                        <motion.a
-                          key={item.name}
-                          href={item.href}
-                          className="flex items-start px-3 py-2 hover:bg-orange-500 hover:text-white transition-all duration-300 rounded-lg group"
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.05 }}
-                          whileHover={{ x: 5 }}
-                        >
-                          <item.icon className="w-5 h-5 text-orange-400 mr-3 mt-1 group-hover:text-white transition-colors duration-300 flex-shrink-0" />
-                          <div>
-                            <div className="font-semibold">{item.name}</div>
-                            <div className="text-sm text-gray-400 group-hover:text-orange-100 mt-1">
-                              {item.description}
-                            </div>
+                  {isServicesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                      className="absolute top-full left-0 mt-3 w-[800px] bg-gray-900 border border-gray-700 rounded-xl shadow-2xl backdrop-blur-lg z-50"
+                    >
+                      <div className="flex">
+                        {/* Categories Column */}
+                        <div className="w-1/3 border-r border-gray-700">
+                          <div className="p-4 bg-gray-800">
+                            <h3 className="text-lg font-bold text-orange-400">Our Services</h3>
+                            <p className="text-sm text-gray-400 mt-1">Complete solutions for your business</p>
                           </div>
-                        </motion.a>
-                      ))}
-                    </div>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
+                          <div className="max-h-96 overflow-y-auto">
+                            {servicesCategories.map((category, index) => (
+                              <motion.div
+                                key={category.name}
+                                className={`p-4 border-b border-gray-800 cursor-pointer transition-all duration-300 ${
+                                  nestedDropdown === category.name 
+                                    ? 'bg-orange-500 text-white' 
+                                    : 'hover:bg-gray-800'
+                                }`}
+                                onMouseEnter={() => setNestedDropdown(category.name)}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: index * 0.05 }}
+                              >
+                                <div className="flex items-center">
+                                  <category.icon className="w-5 h-5 mr-3 flex-shrink-0" />
+                                  <div>
+                                    <div className="font-semibold">{category.name}</div>
+                                    <div className="text-sm text-gray-400 mt-1">
+                                      {category.description}
+                                    </div>
+                                  </div>
+                                </div>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
 
+                        {/* Services Column */}
+                        <div className="w-2/3">
+                          <div className="p-4 bg-gray-800 border-b border-gray-700">
+                            <h3 className="text-lg font-bold text-orange-400">
+                              {nestedDropdown || "Select a Category"}
+                            </h3>
+                          </div>
+                          <div className="max-h-96 overflow-y-auto">
+                            {servicesCategories
+                              .find(cat => cat.name === nestedDropdown)
+                              ?.services.map((service, index) => (
+                                <motion.a
+                                  key={service.name}
+                                  href={service.href}
+                                  className="flex items-start px-6 py-4 hover:bg-orange-500 hover:text-white transition-all duration-300 border-b border-gray-800 last:border-b-0 group"
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: index * 0.05 }}
+                                  whileHover={{ x: 5 }}
+                                >
+                                  <service.icon className="w-5 h-5 text-orange-400 mr-3 mt-1 group-hover:text-white transition-colors duration-300 flex-shrink-0" />
+                                  <div>
+                                    <div className="font-semibold">{service.name}</div>
+                                    <div className="text-sm text-gray-400 group-hover:text-orange-100 mt-1">
+                                      {service.description}
+                                    </div>
+                                  </div>
+                                </motion.a>
+                              ))}
+                            
+                            {/* Default view when no category is selected */}
+                            {!nestedDropdown && (
+                              <div className="flex items-center justify-center h-64 text-gray-500">
+                                <div className="text-center">
+                                  <FaRocket className="w-12 h-12 mx-auto mb-4 text-gray-600" />
+                                  <p>Hover over a category to view services</p>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               {/* Industry Dropdown */}
@@ -474,8 +587,7 @@ const Navbar = () => {
                       exit={{ opacity: 0, y: 15, scale: 0.95 }}
                       className="absolute top-full left-0 mt-3 w-96 bg-gray-900 border border-gray-700 rounded-xl shadow-2xl backdrop-blur-lg z-50"
                     >
-                      {/* Scrollable container for industries */}
-                      <div className="max-h-96 overflow-y-auto scrollbar-hide"> 
+                      <div className="max-h-96 overflow-y-auto scrollbar-hide">
                         {industryItems.map((item, index) => (
                           <motion.a
                             key={item.name}
@@ -500,17 +612,6 @@ const Navbar = () => {
                   )}
                 </AnimatePresence>
               </div>
-
-              {/* About */}
-              <motion.a
-                href="/about"
-                className="hover:text-orange-400 transition-colors duration-300 font-semibold relative group flex items-center"
-                whileHover={{ y: -2 }}
-              >
-                <FaUsers className="w-4 h-4 mr-2" />
-                About
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
-              </motion.a>
 
               {/* Contact Us */}
               <motion.a
@@ -674,32 +775,57 @@ const Navbar = () => {
                             exit={{ opacity: 0, height: 0 }}
                             className="ml-4 mt-2 space-y-2 border-l-2 border-orange-500 pl-4"
                           >
-                            {/* Scrollable container for mobile services */}
-                            <div className="max-h-64 overflow-y-auto scrollbar-hide pr-2">
-                              {servicesItems.map((group) => (
-                                <div key={group.category}>
-                                  <div className="text-orange-400 font-bold mb-2 mt-2 uppercase tracking-wider text-sm">
-                                    {group.category}
+                            {servicesCategories.map((category) => (
+                              <div key={category.name} className="mb-2">
+                                <motion.button
+                                  onClick={() => toggleNestedDropdown(category.name)}
+                                  className="flex items-center justify-between w-full py-3 px-4 text-gray-300 hover:text-white hover:bg-orange-500 rounded-lg transition-all duration-300 font-medium"
+                                  whileHover={{ x: 5 }}
+                                >
+                                  <div className="flex items-center">
+                                    <category.icon className="w-4 h-4 mr-3" />
+                                    <span>{category.name}</span>
                                   </div>
-                                  {group.items.map((item) => (
-                                    <motion.a
-                                      key={item.name}
-                                      href={item.href}
-                                      className="flex items-center py-3 px-4 text-gray-300 hover:text-white hover:bg-orange-500 rounded-lg transition-all duration-300 font-medium mb-2 last:mb-0"
-                                      onClick={() => setIsMobileMenuOpen(false)}
-                                      whileHover={{ x: 5 }}
-                                    >
-                                      <item.icon className="w-4 h-4 mr-3 text-orange-400" />
-                                      <div>
-                                        <div>{item.name}</div>
-                                        <div className="text-xs text-gray-500 mt-1">{item.description}</div>
-                                      </div>
-                                    </motion.a>
-                                  ))}
-                                </div>
-                              ))}
+                                  <motion.div
+                                    animate={{
+                                      rotate: nestedDropdown === category.name ? 180 : 0,
+                                    }}
+                                    transition={{ duration: 0.3 }}
+                                  >
+                                    <FaChevronDown className="w-3 h-3" />
+                                  </motion.div>
+                                </motion.button>
 
-                            </div>
+                                <AnimatePresence>
+                                  {nestedDropdown === category.name && (
+                                    <motion.div
+                                      initial={{ opacity: 0, height: 0 }}
+                                      animate={{ opacity: 1, height: "auto" }}
+                                      exit={{ opacity: 0, height: 0 }}
+                                      className="ml-4 mt-2 space-y-2 border-l-2 border-orange-300 pl-4"
+                                    >
+                                      {category.services.map((service) => (
+                                        <motion.a
+                                          key={service.name}
+                                          href={service.href}
+                                          className="flex items-center py-3 px-4 text-gray-400 hover:text-white hover:bg-orange-400 rounded-lg transition-all duration-300 text-sm mb-2 last:mb-0"
+                                          onClick={() => setIsMobileMenuOpen(false)}
+                                          whileHover={{ x: 5 }}
+                                        >
+                                          <service.icon className="w-3 h-3 mr-3" />
+                                          <div>
+                                            <div>{service.name}</div>
+                                            <div className="text-xs text-gray-500 mt-1">
+                                              {service.description}
+                                            </div>
+                                          </div>
+                                        </motion.a>
+                                      ))}
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                              </div>
+                            ))}
                           </motion.div>
                         )}
                       </AnimatePresence>
@@ -734,7 +860,6 @@ const Navbar = () => {
                             exit={{ opacity: 0, height: 0 }}
                             className="ml-4 mt-2 space-y-2 border-l-2 border-orange-500 pl-4"
                           >
-                            {/* Scrollable container for mobile industries */}
                             <div className="max-h-64 overflow-y-auto scrollbar-hide pr-2">
                               {industryItems.map((item) => (
                                 <motion.a
@@ -758,17 +883,6 @@ const Navbar = () => {
                         )}
                       </AnimatePresence>
                     </div>
-
-                    {/* About */}
-                    <motion.a
-                      href="/about"
-                      className="flex items-center px-6 py-4 hover:bg-orange-500 hover:text-white transition-all duration-300 mx-2 rounded-lg font-semibold"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      whileHover={{ x: 10 }}
-                    >
-                      <FaUsers className="w-4 h-4 mr-3" />
-                      About
-                    </motion.a>
 
                     {/* Contact Us */}
                     <motion.a

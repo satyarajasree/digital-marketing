@@ -8,11 +8,7 @@ import {
   FaEdit,
   FaMicrophone,
   FaLightbulb,
-  FaRocket,
-  FaChartLine,
-  FaUsers,
   FaPlayCircle,
-  FaRegCheckCircle,
 } from "react-icons/fa";
 import studioImage from '../anime/team.jpg';
 
@@ -163,19 +159,7 @@ const ContentCreation = () => {
                     to bring your creative vision to life.
                   </p>
 
-                  <div className="grid grid-cols-2 gap-4 mt-6">
-                    {[
-                      { value: "4K", label: "Video Quality" },
-                      { value: "360°", label: "Studio Setup" },
-                      { value: "24/7", label: "Access" },
-                      { value: "10+", label: "Experts" }
-                    ].map((stat, index) => (
-                      <div key={index} className="text-center p-4 bg-white/80 rounded-xl border border-amber-100">
-                        <div className="text-2xl font-bold text-amber-600">{stat.value}</div>
-                        <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-                      </div>
-                    ))}
-                  </div>
+                
                 </div>
               </div>
 
@@ -216,24 +200,7 @@ const ContentCreation = () => {
                 </div>
               </div>
 
-              {/* Key Features */}
-              <div className="mt-8 grid grid-cols-2 gap-4">
-                {[
-                  "End-to-end production",
-                  "Marketing-optimized",
-                  "Quick turnaround",
-                  "Data-driven results"
-                ].map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    variants={itemVariants}
-                    className="flex items-center gap-3 p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-amber-100"
-                  >
-                    <FaRegCheckCircle className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                    <span className="text-gray-700 font-medium text-sm">{feature}</span>
-                  </motion.div>
-                ))}
-              </div>
+              
             </motion.div>
           </div>
 

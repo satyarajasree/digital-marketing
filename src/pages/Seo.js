@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  FaSearch, FaChartLine, FaMobile, FaDesktop, FaLink, 
-  FaFileAlt, FaArrowRight, FaCheck, FaPlay, FaStar
+  FaSearch, FaMobile, FaLink, 
+  FaFileAlt, FaArrowRight, FaCheck, FaPlay
 } from 'react-icons/fa';
 
 const SEOOptimization = () => {

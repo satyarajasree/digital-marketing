@@ -7,7 +7,6 @@ import {
   FaAward,
   FaChartLine,
   FaHandshake,
-  FaStar,
   FaGlobe,
   FaArrowLeft,
   FaPaperPlane,
@@ -40,7 +39,7 @@ const JobApplication = () => {
     const fetchJob = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:8000/api/jobs/${id}/`);
+        const response = await fetch(`https://digitalmarketing.pythonanywhere.com/api/jobs/${id}/`);
         if (!response.ok) throw new Error("Failed to fetch job details");
         const data = await response.json();
         setJob(data);
@@ -90,7 +89,7 @@ const JobApplication = () => {
     submitData.append("resume", formData.resume);
 
     try {
-      const response = await fetch("http://localhost:8000/api/apply/", {
+      const response = await fetch("https://digitalmarketing.pythonanywhere.com/api/apply/", {
         method: "POST",
         body: submitData,
       });
