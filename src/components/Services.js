@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { FaBullhorn, FaChartLine, FaEnvelopeOpenText, FaPaintBrush, FaSearch, FaShoppingCart } from 'react-icons/fa';
+import { 
+  FaBullhorn, FaChartLine, FaEnvelopeOpenText, FaPaintBrush, FaSearch, FaShoppingCart,
+  FaCode, FaCloud, FaShieldAlt, FaMobile, FaServer, FaDatabase, FaLaptopCode
+} from 'react-icons/fa';
 
 const ServiceCard = ({ title, description, icon, index }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -58,6 +61,7 @@ const ServiceCard = ({ title, description, icon, index }) => {
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [activeCategory, setActiveCategory] = useState('digital-marketing');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -66,38 +70,90 @@ const Services = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const services = [
-  {
-    title: "Strategy & Consulting",
-    description: "Develop data-driven strategies that align your business goals with measurable results and sustainable growth.",
-    icon: <FaChartLine className="text-3xl text-blue-500" />
-  },
-  {
-    title: "Design & Creative",
-    description: "Craft visually stunning and user-centered designs that elevate your brand and captivate your audience.",
-    icon: <FaPaintBrush className="text-3xl text-pink-500" />
-  },
-  {
-    title: "Web & E-commerce Development",
-    description: "Build fast, secure, and scalable web solutions and e-commerce platforms that drive conversions and engagement.",
-    icon: <FaShoppingCart className="text-3xl text-green-500" />
-  },
-  {
-    title: "Marketing & Advertising",
-    description: "Amplify your brand reach with creative campaigns and multi-channel marketing strategies that deliver results.",
-    icon: <FaBullhorn className="text-3xl text-yellow-500" />
-  },
-  {
-    title: "Search Engine Optimization",
-    description: "Improve your online visibility and attract quality traffic with our advanced SEO optimization techniques.",
-    icon: <FaSearch className="text-3xl text-purple-500" />
-  },
-  {
-    title: "Email & Direct Marketing",
-    description: "Engage customers and boost conversions through personalized, data-backed email and direct marketing campaigns.",
-    icon: <FaEnvelopeOpenText className="text-3xl text-red-500" />
-  }
-];
+  // Services data organized by category
+  const servicesData = {
+    'digital-marketing': [
+      {
+        title: "Digital Strategy & Consulting",
+        description: "Develop data-driven strategies that align your business goals with measurable results and sustainable growth.",
+        icon: <FaChartLine className="text-3xl text-blue-500" />
+      },
+      {
+        title: "Social Media Marketing",
+        description: "Build engaging social media campaigns that increase brand awareness and drive meaningful customer interactions.",
+        icon: <FaBullhorn className="text-3xl text-yellow-500" />
+      },
+      {
+        title: "Search Engine Optimization",
+        description: "Improve your online visibility and attract quality traffic with our advanced SEO optimization techniques.",
+        icon: <FaSearch className="text-3xl text-purple-500" />
+      },
+      {
+        title: "Content Marketing",
+        description: "Create compelling content that resonates with your audience and drives engagement across all channels.",
+        icon: <FaEnvelopeOpenText className="text-3xl text-red-500" />
+      },
+      {
+        title: "Email Marketing",
+        description: "Engage customers and boost conversions through personalized, data-backed email marketing campaigns.",
+        icon: <FaEnvelopeOpenText className="text-3xl text-green-500" />
+      },
+      {
+        title: "PPC Advertising",
+        description: "Drive immediate results with targeted pay-per-click campaigns that maximize your advertising ROI.",
+        icon: <FaShoppingCart className="text-3xl text-orange-500" />
+      }
+    ],
+    'it-services': [
+      {
+        title: "Web Development",
+        description: "Build fast, secure, and scalable websites and web applications with modern technologies and best practices.",
+        icon: <FaCode className="text-3xl text-blue-500" />
+      },
+      {
+        title: "Mobile App Development",
+        description: "Create intuitive and powerful mobile applications for iOS and Android that enhance user experience.",
+        icon: <FaMobile className="text-3xl text-green-500" />
+      },
+      {
+        title: "Cloud Solutions",
+        description: "Leverage cloud technology with scalable infrastructure, migration services, and cloud optimization.",
+        icon: <FaCloud className="text-3xl text-purple-500" />
+      },
+      {
+        title: "Cyber Security",
+        description: "Protect your digital assets with comprehensive security solutions, threat detection, and risk assessment.",
+        icon: <FaShieldAlt className="text-3xl text-red-500" />
+      },
+      {
+        title: "IT Infrastructure",
+        description: "Design and implement robust IT infrastructure solutions that support your business growth and operations.",
+        icon: <FaServer className="text-3xl text-yellow-500" />
+      },
+      {
+        title: "Database Management",
+        description: "Optimize and manage your databases for performance, security, and seamless data operations.",
+        icon: <FaDatabase className="text-3xl text-orange-500" />
+      }
+    ]
+  };
+
+  const categories = [
+    {
+      id: 'digital-marketing',
+      name: 'Digital Marketing',
+      description: 'Grow your online presence and drive results',
+      icon: <FaChartLine className="w-5 h-5" />
+    },
+    {
+      id: 'it-services',
+      name: 'IT Services',
+      description: 'Technology solutions for modern businesses',
+      icon: <FaLaptopCode className="w-5 h-5" />
+    }
+  ];
+
+  const currentServices = servicesData[activeCategory];
 
   return (
     <section id="services" className="relative py-24 bg-black text-white overflow-hidden">
@@ -108,7 +164,7 @@ const Services = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {/* Section Badge */}
           <div className={`inline-block px-4 py-2 bg-orange-500/20 border border-orange-500/30 rounded-full mb-6 transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
             <span className="text-orange-400 font-semibold text-sm">Our Expertise</span>
@@ -121,14 +177,46 @@ const Services = () => {
           {/* Animated underline */}
           <div className={`w-24 h-1 bg-gradient-to-r from-orange-500 to-purple-600 mx-auto mb-8 rounded-full transition-all duration-1000 ${isVisible ? 'w-24' : 'w-0'}`} />
 
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Comprehensive digital marketing solutions tailored to drive your business growth and 
-            <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent font-semibold"> maximize your online potential</span>.
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12">
+            Comprehensive solutions tailored to drive your business growth and  
+            <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent font-semibold"> maximize your potential</span>.
           </p>
+
+          {/* Category Selector */}
+          <div className="flex justify-center mb-12">
+            <div className="bg-gray-900 bg-opacity-50 border border-gray-700 rounded-2xl p-2 backdrop-blur-sm">
+              <div className="flex flex-wrap justify-center gap-2">
+                {categories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => setActiveCategory(category.id)}
+                    className={`
+                      flex items-center gap-3 px-3 py-2 rounded-xl font-semibold text-lg transition-all duration-300
+                      ${activeCategory === category.id 
+                        ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/25' 
+                        : 'text-gray-300 hover:text-white hover:bg-gray-800'
+                      }
+                    `}
+                  >
+                    {category.icon}
+                    {category.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Category Description */}
+          <div className="max-w-2xl mx-auto">
+            <p className="text-gray-400 text-sm">
+              {categories.find(cat => cat.id === activeCategory)?.description}
+            </p>
+          </div>
         </div>
 
+        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {currentServices.map((service, index) => (
             <ServiceCard key={service.title} {...service} index={index} />
           ))}
         </div>
@@ -140,9 +228,13 @@ const Services = () => {
             transition-all duration-300 hover:scale-105 hover:shadow-2xl
             transform hover:shadow-orange-500/25 active:scale-95
           ">
-            Explore All Services
+            Get {activeCategory === 'digital-marketing' ? 'Marketing' : 'IT'} Consultation
             <span className="ml-2 animate-bounce-horizontal">→</span>
           </button>
+          
+          <p className="text-gray-400 mt-4">
+            Ready to transform your {activeCategory === 'digital-marketing' ? 'digital presence' : 'technology infrastructure'}?
+          </p>
         </div>
       </div>
 

@@ -26,6 +26,7 @@ import {
   FaCity,
   FaAddressCard,
   FaVideo,
+  FaMobileAlt, FaCloud
 } from "react-icons/fa";
 
 const Navbar = () => {
@@ -35,39 +36,81 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(null);
 
+
+
   const servicesItems = [
     {
-      name: "Strategy & Consulting",
-      icon: FaUserTie,
-      href: "/services/strategy-consulting",
-      description: "Data-driven strategies for business growth",
+      category: "Digital Marketing",
+      items: [
+        {
+          name: "SEO (Search Engine Optimization)",
+          icon: FaChartLine,
+          href: "/seo",
+          description: "Boost your visibility and organic traffic.",
+        },
+        {
+          name: "Social Media Marketing",
+          icon: FaRocket,
+          href: "/services/social-media-marketing",
+          description: "Build engagement across all platforms.",
+        },
+        {
+          name: "Content Marketing",
+          icon: FaBlog,
+          href: "/services/content-marketing",
+          description: "Create compelling content for your audience.",
+        },
+        {
+          name: "Email Marketing",
+          icon: FaEnvelope,
+          href: "/services/email-marketing",
+          description: "Reach your customers directly and effectively.",
+        },
+        {
+          name: "Performance Marketing",
+          icon: FaChartLine,
+          href: "/services/performance-marketing",
+          description: "Deliver measurable ROI with paid ads.",
+        },
+      ],
     },
     {
-      name: "Design & Creative",
-      icon: FaRocket,
-      href: "/services/social-media-marketing",
-      description: "Engage your audience across all platforms",
+      category: "IT Services",
+      items: [
+        {
+          name: "Web Development",
+          icon: FaCode,
+          href: "/services/web-development",
+          description: "Build fast, responsive, and scalable websites.",
+        },
+        {
+          name: "E-commerce Solutions",
+          icon: FaShoppingCart,
+          href: "/services/ecommerce",
+          description: "Develop secure and high-performing online stores.",
+        },
+        {
+          name: "App Development",
+          icon: FaMobileAlt,
+          href: "/services/app-development",
+          description: "Create mobile apps for Android & iOS platforms.",
+        },
+        {
+          name: "Cloud & DevOps",
+          icon: FaCloud,
+          href: "/services/cloud-devops",
+          description: "Scale your infrastructure with reliability.",
+        },
+        {
+          name: "Software Consulting",
+          icon: FaUserTie,
+          href: "/services/software-consulting",
+          description: "Get expert advice on digital transformation.",
+        },
+      ],
     },
-    {
-      name: "Web & E-commerce Development",
-      icon: FaCode,
-      href: "/services/graphics-designing",
-      description: "Complete online store solutions",
-    },
-    {
-      name: "Marketing & Advertising",
-      icon: FaVideo,
-      href: "/services/video-production",
-      description: "Professional video content that tells your story",
-    },
-    {
-      name: "Search Engine Optimization",
-      icon: FaChartLine,
-      href: "/services/performance-marketing",
-      description: "Drive measurable results and ROI",
-    },
-    
   ];
+
 
   const industryItems = [
     {
@@ -118,7 +161,7 @@ const Navbar = () => {
       href: "/industries/fmcg",
       description: "Drive fast-moving consumer goods sales",
     },
-    
+
   ];
 
   const moreItems = [
@@ -140,7 +183,7 @@ const Navbar = () => {
       href: "/faq",
       description: "Find answers to common questions",
     },
-   
+
   ];
 
   const socialMediaLinks = [
@@ -363,38 +406,43 @@ const Navbar = () => {
                 </motion.button>
 
                 <AnimatePresence>
-                  {isServicesOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 15, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 15, scale: 0.95 }}
-                      className="absolute top-full left-0 mt-3 w-96 bg-gray-900 border border-gray-700 rounded-xl shadow-2xl backdrop-blur-lg z-50"
-                    >
-                      {/* Scrollable container for services */}
-                      <div className="max-h-96 overflow-y-auto scrollbar-hide">
-                        {servicesItems.map((item, index) => (
-                          <motion.a
-                            key={item.name}
-                            href={item.href}
-                            className="flex items-start px-6 py-4 hover:bg-orange-500 hover:text-white transition-all duration-300 border-b border-gray-800 last:border-b-0 group"
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.05 }}
-                            whileHover={{ x: 5 }}
-                          >
-                            <item.icon className="w-5 h-5 text-orange-400 mr-3 mt-1 group-hover:text-white transition-colors duration-300 flex-shrink-0" />
-                            <div>
-                              <div className="font-semibold">{item.name}</div>
-                              <div className="text-sm text-gray-400 group-hover:text-orange-100 mt-1">
-                                {item.description}
-                              </div>
-                            </div>
-                          </motion.a>
-                        ))}
+              {isServicesOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                  className="absolute top-full left-0 mt-3 w-[550px] bg-gray-900 border border-gray-700 rounded-xl shadow-2xl backdrop-blur-lg z-50 grid grid-cols-2 gap-x-4 p-4"
+                >
+                  {servicesItems.map((group) => (
+                    <div key={group.category}>
+                      <div className="text-orange-400 font-bold mb-3 uppercase tracking-wider text-sm">
+                        {group.category}
                       </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                      {group.items.map((item, index) => (
+                        <motion.a
+                          key={item.name}
+                          href={item.href}
+                          className="flex items-start px-3 py-2 hover:bg-orange-500 hover:text-white transition-all duration-300 rounded-lg group"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.05 }}
+                          whileHover={{ x: 5 }}
+                        >
+                          <item.icon className="w-5 h-5 text-orange-400 mr-3 mt-1 group-hover:text-white transition-colors duration-300 flex-shrink-0" />
+                          <div>
+                            <div className="font-semibold">{item.name}</div>
+                            <div className="text-sm text-gray-400 group-hover:text-orange-100 mt-1">
+                              {item.description}
+                            </div>
+                          </div>
+                        </motion.a>
+                      ))}
+                    </div>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+
               </div>
 
               {/* Industry Dropdown */}
@@ -427,7 +475,7 @@ const Navbar = () => {
                       className="absolute top-full left-0 mt-3 w-96 bg-gray-900 border border-gray-700 rounded-xl shadow-2xl backdrop-blur-lg z-50"
                     >
                       {/* Scrollable container for industries */}
-                      <div className="max-h-96 overflow-y-auto scrollbar-hide">
+                      <div className="max-h-96 overflow-y-auto scrollbar-hide"> 
                         {industryItems.map((item, index) => (
                           <motion.a
                             key={item.name}
@@ -628,23 +676,29 @@ const Navbar = () => {
                           >
                             {/* Scrollable container for mobile services */}
                             <div className="max-h-64 overflow-y-auto scrollbar-hide pr-2">
-                              {servicesItems.map((item) => (
-                                <motion.a
-                                  key={item.name}
-                                  href={item.href}
-                                  className="flex items-center py-3 px-4 text-gray-300 hover:text-white hover:bg-orange-500 rounded-lg transition-all duration-300 font-medium mb-2 last:mb-0"
-                                  onClick={() => setIsMobileMenuOpen(false)}
-                                  whileHover={{ x: 5 }}
-                                >
-                                  <item.icon className="w-4 h-4 mr-3 text-orange-400" />
-                                  <div>
-                                    <div>{item.name}</div>
-                                    <div className="text-xs text-gray-500 mt-1">
-                                      {item.description}
-                                    </div>
+                              {servicesItems.map((group) => (
+                                <div key={group.category}>
+                                  <div className="text-orange-400 font-bold mb-2 mt-2 uppercase tracking-wider text-sm">
+                                    {group.category}
                                   </div>
-                                </motion.a>
+                                  {group.items.map((item) => (
+                                    <motion.a
+                                      key={item.name}
+                                      href={item.href}
+                                      className="flex items-center py-3 px-4 text-gray-300 hover:text-white hover:bg-orange-500 rounded-lg transition-all duration-300 font-medium mb-2 last:mb-0"
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                      whileHover={{ x: 5 }}
+                                    >
+                                      <item.icon className="w-4 h-4 mr-3 text-orange-400" />
+                                      <div>
+                                        <div>{item.name}</div>
+                                        <div className="text-xs text-gray-500 mt-1">{item.description}</div>
+                                      </div>
+                                    </motion.a>
+                                  ))}
+                                </div>
                               ))}
+
                             </div>
                           </motion.div>
                         )}

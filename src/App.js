@@ -15,6 +15,7 @@ import StrategyConsulting from './services/StrategyConsulting';
 import JobApplication from './pages/JobApplication';
 import SocialMediaMarketing from './services/SocialMediaMarketing';
 import GraphicsDesigning from './services/GraphicsDesigning';
+import Seo from'./pages/Seo';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -156,6 +157,7 @@ const App = () => {
       <Route path="/portfolio" element={<PortfolioPage />} />
       <Route path='/careers' element={<Careers />} />
       <Route path='/blog' element={<Blogs />} />
+      <Route path='/seo' element={<Seo />} />
       <Route path="/blog/:slug" element={<BlogDetail />} />
 
       <Route path="/services/strategy-consulting" element={<StrategyConsulting />} />
