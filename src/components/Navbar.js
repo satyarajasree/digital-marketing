@@ -410,7 +410,7 @@ const Navbar = () => {
                 }}
                 transition={{ duration: 0.5 }}
               >
-                DigitalPro
+                Amplinova
               </motion.a>
             </motion.div>
 
@@ -479,10 +479,7 @@ const Navbar = () => {
                       <div className="flex">
                         {/* Categories Column */}
                         <div className="w-1/3 border-r border-gray-700">
-                          <div className="p-4 bg-gray-800">
-                            <h3 className="text-lg font-bold text-orange-400">Our Services</h3>
-                            <p className="text-sm text-gray-400 mt-1">Complete solutions for your business</p>
-                          </div>
+                          
                           <div className="max-h-96 overflow-y-auto">
                             {servicesCategories.map((category, index) => (
                               <motion.div

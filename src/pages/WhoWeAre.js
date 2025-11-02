@@ -67,30 +67,7 @@ const WhoWeAre = () => {
   };
 
   const values = [
-    {
-      icon: FaRocket,
-      title: "Innovation First",
-      description: "We stay ahead of digital trends to deliver cutting-edge solutions that keep you competitive.",
-      color: "from-amber-500 to-orange-500"
-    },
-    {
-      icon: FaUsers,
-      title: "Client-Centric",
-      description: "Your success is our priority. We build partnerships, not just client relationships.",
-      color: "from-blue-400 to-cyan-500"
-    },
-    {
-      icon: FaChartLine,
-      title: "Data-Driven",
-      description: "Every decision is backed by analytics and measurable results for maximum ROI.",
-      color: "from-emerald-400 to-green-500"
-    },
-    {
-      icon: FaHandshake,
-      title: "Transparency",
-      description: "Clear communication and honest reporting build the trust our partnerships are built on.",
-      color: "from-purple-400 to-pink-500"
-    }
+    
   ];
 
  
@@ -205,27 +182,7 @@ const WhoWeAre = () => {
         >
           {/* Header Section */}
           <div className="text-center mb-16">
-            <motion.div
-              variants={itemVariants}
-              className="inline-flex items-center gap-2 bg-white/80 border border-amber-100 rounded-full px-6 py-3 mb-6 backdrop-blur-sm shadow-sm"
-            >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 opacity-10 rounded-full"
-                animate={{
-                  backgroundPosition: ['0% 0%', '100% 100%'],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  repeatType: 'reverse'
-                }}
-              />
-              <FaAward className="w-5 h-5 text-amber-600 relative z-10" />
-              <span className="text-sm font-medium text-amber-700 relative z-10">
-                Trusted Digital Partner Since 2024
-              </span>
-            </motion.div>
-
+           
             <motion.h2
               variants={itemVariants}
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 relative"
@@ -266,15 +223,7 @@ const WhoWeAre = () => {
                 className="absolute -bottom-4 -right-4 w-5 h-5 bg-blue-300 rounded-full opacity-20"
               />
 
-              <div className="flex items-center gap-4 mb-6 relative">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg shadow-amber-500/20"
-                >
-                  <FaLightbulb className="w-6 h-6 text-white" />
-                </motion.div>
-                <h3 className="text-2xl font-bold text-gray-800">Meet Our Team</h3>
-              </div>
+             
 
               <div className="space-y-4 backdrop-blur-sm bg-white/70 rounded-2xl p-8 border border-amber-50 shadow-sm">
                 <p className="text-gray-700 text-lg leading-relaxed">

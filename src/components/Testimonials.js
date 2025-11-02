@@ -154,16 +154,7 @@ const Testimonials = () => {
         >
           {/* Header Section */}
           <div className="text-center mb-16">
-            <motion.div
-              variants={itemVariants}
-              className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-6"
-            >
-              <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" />
-              <span className="text-sm font-medium text-amber-300">
-                Client Success Stories
-              </span>
-            </motion.div>
-
+           
             <motion.h2
               variants={itemVariants}
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"

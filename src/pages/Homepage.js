@@ -5,7 +5,6 @@ import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
 import Footer from '../components/Footer';
 import WhoWeAre from './WhoWeAre';
-import ContentCreation from '../components/ContentCreation';
 import OurClients from '../components/OurClients';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
@@ -19,7 +18,6 @@ const Homepage = () => {
       <Contact mode='combined' />
       <Services />
       <WhoWeAre/>
-      <ContentCreation />
       <OurClients />
       <Portfolio />
       <Testimonials />

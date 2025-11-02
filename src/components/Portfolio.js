@@ -87,17 +87,7 @@ const Portfolio = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-white/80 border border-amber-100 rounded-full px-6 py-3 mb-6 backdrop-blur-sm shadow-sm"
-          >
-            <span className="text-sm font-medium text-amber-700">
-              Our Portfolio
-            </span>
-          </motion.div>
-
+         
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -125,23 +115,6 @@ const Portfolio = () => {
             Our Portfolio of Impactful Solutions
           </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed"
-          >
-            At MageMarketer, we believe great marketing is about driving measurable results while building lasting connections. Our portfolio showcases the diverse projects we've delivered across industries from business development strategies and social media campaigns to digital marketing solutions and creative designs. Each project reflects our commitment to innovation, creativity, and ROI-driven execution.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mt-4 font-semibold"
-          >
-            Explore some of our recent work to see how we've helped brands grow, engage their audience, and strengthen their digital presence.
-          </motion.p>
         </motion.div>
 
         {/* Filter Buttons */}
