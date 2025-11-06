@@ -5,9 +5,6 @@ import {
   FaUser, 
   FaEnvelope,
   FaPhone,
-  FaClock,
-  FaShieldAlt,
-  FaHeadset
 } from 'react-icons/fa';
 
 const Contact = ({ 
@@ -112,58 +109,16 @@ const Contact = ({
     switch (mode) {
       case "it":
         return [
-          {
-            icon: FaShieldAlt,
-            title: "Secure Solutions",
-            description: "Enterprise-grade security for your projects"
-          },
-          {
-            icon: FaClock,
-            title: "Fast Delivery",
-            description: "Quick turnaround without compromising quality"
-          },
-          {
-            icon: FaHeadset,
-            title: "24/7 Support",
-            description: "Round-the-clock technical assistance"
-          }
+         
         ];
       case "marketing":
         return [
-          {
-            icon: FaShieldAlt,
-            title: "Proven Results",
-            description: "Data-driven strategies that deliver ROI"
-          },
-          {
-            icon: FaClock,
-            title: "Quick Setup",
-            description: "Get started with campaigns in days"
-          },
-          {
-            icon: FaHeadset,
-            title: "Dedicated Manager",
-            description: "Personal support for your marketing needs"
-          }
+        
         ];
       case "combined":
       default:
         return [
-          {
-            icon: FaShieldAlt,
-            title: "Expert Team",
-            description: "Seasoned professionals in tech and marketing"
-          },
-          {
-            icon: FaClock,
-            title: "Fast Response",
-            description: "Get a callback within 2 hours during business days"
-          },
-          {
-            icon: FaHeadset,
-            title: "Free Consultation",
-            description: "No-obligation initial consultation"
-          }
+         
         ];
     }
   };
@@ -225,9 +180,7 @@ const Contact = ({
                 variants={itemVariants}
                 className="bg-white rounded-2xl border border-gray-200 p-8 lg:p-10 shadow-xl"
               >
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2 text-center">Get Started Now</h3>
-                </div>
+               
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name Field */}
@@ -307,10 +260,7 @@ const Contact = ({
                     )}
                   </motion.button>
 
-                  {/* Privacy Note */}
-                  <p className="text-center text-gray-500 text-sm">
-                    We respect your privacy. Your information is secure and will never be shared.
-                  </p>
+                  
                 </form>
               </motion.div>
             </div>

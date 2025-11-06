@@ -18,10 +18,10 @@ const Homepage = () => {
       <Contact mode='combined' />
       <Services />
       <WhoWeAre/>
-      <OurClients />
+      <OurClients mode='home' />
       <Portfolio />
       <Testimonials />
-      <FAQ />
+      <FAQ mode='home'/>
       <Footer />
     </div>
   );
