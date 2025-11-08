@@ -48,18 +48,18 @@ const Contact = ({
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.15
+        staggerChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.7,
+        duration: 0.5,
         ease: "easeOut"
       }
     }
@@ -84,12 +84,12 @@ const Contact = ({
     
     switch (mode) {
       case "it":
-        return "Get expert IT solutions tailored to your business needs. Our team is ready to bring your ideas to life.";
+        return "Get expert IT solutions tailored to your business needs.";
       case "marketing":
-        return "Drive results with data-driven marketing strategies. Let's grow your business together.";
+        return "Drive results with data-driven marketing strategies.";
       case "combined":
       default:
-        return "Transform your vision into reality. Share your details and we'll get back to you with the perfect solution.";
+        return "Transform your vision into reality. Share your details and we'll get back to you.";
     }
   };
 
@@ -105,31 +105,13 @@ const Contact = ({
     }
   };
 
-  const getBenefits = () => {
-    switch (mode) {
-      case "it":
-        return [
-         
-        ];
-      case "marketing":
-        return [
-        
-        ];
-      case "combined":
-      default:
-        return [
-         
-        ];
-    }
-  };
-
   return (
-    <section id="contact" className="relative bg-white text-gray-800 py-16 lg:py-15">
+    <section id="contact" className="relative bg-white text-gray-800 py-12 lg:py-16">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:56px_56px]" />
-        <div className={`absolute top-0 left-0 w-80 h-80 bg-gradient-to-r ${getGradientColors()} rounded-full filter blur-3xl opacity-5`} />
-        <div className="absolute bottom-0 right-0 w-72 h-72 bg-orange-50 rounded-full filter blur-3xl opacity-30" />
+        <div className={`absolute top-0 left-0 w-64 h-64 bg-gradient-to-r ${getGradientColors()} rounded-full filter blur-3xl opacity-5`} />
+        <div className="absolute bottom-0 right-0 w-60 h-60 bg-orange-50 rounded-full filter blur-3xl opacity-30" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -138,51 +120,24 @@ const Contact = ({
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="max-w-6xl mx-auto"
+          className="max-w-4xl mx-auto"
         >
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-start">
-            {/* Left Content - Text & Benefits */}
-            <div className="w-full lg:w-2/5">
-              <motion.div variants={itemVariants} className="mb-8">
-                <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
-                  {getMainTitle()}
-                </h2>
-                
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  {getSubtitle()}
-                </p>
-              </motion.div>
+          {/* Header */}
+          <motion.div variants={itemVariants} className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight">
+              {getMainTitle()}
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              {getSubtitle()}
+            </p>
+          </motion.div>
 
-              {/* Benefits List */}
-              <motion.div variants={itemVariants} className="space-y-6">
-                {getBenefits().map((benefit, index) => (
-                  <motion.div
-                    key={benefit.title}
-                    whileHover={{ x: 5 }}
-                    className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-all duration-300"
-                  >
-                    <div className={`w-12 h-12 bg-gradient-to-r ${getGradientColors()} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                      <benefit.icon className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-800 text-lg">{benefit.title}</h4>
-                      <p className="text-gray-600">{benefit.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-            </div>
-
-            {/* Right Content - Form */}
-            <div className="w-full lg:w-3/5">
-              <motion.div
-                variants={itemVariants}
-                className="bg-white rounded-2xl border border-gray-200 p-8 lg:p-10 shadow-xl"
-              >
-               
-
-                <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Form */}
+          <motion.div variants={itemVariants}>
+            <div className="bg-white rounded-2xl border border-gray-200 p-6 lg:p-8 shadow-xl">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Side by side fields */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {/* Name Field */}
                   <div className="space-y-2">
                     <label htmlFor="name" className="flex items-center gap-2 text-sm font-medium text-gray-700">
@@ -197,7 +152,7 @@ const Contact = ({
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                      placeholder="Enter your full name"
+                      placeholder="Your name"
                     />
                   </div>
 
@@ -205,7 +160,7 @@ const Contact = ({
                   <div className="space-y-2">
                     <label htmlFor="mobile" className="flex items-center gap-2 text-sm font-medium text-gray-700">
                       <FaPhone className="w-4 h-4 text-green-500" />
-                      Mobile Number *
+                      Mobile *
                     </label>
                     <input
                       type="tel"
@@ -215,7 +170,7 @@ const Contact = ({
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                      placeholder="Enter your mobile number"
+                      placeholder="Your mobile"
                     />
                   </div>
 
@@ -223,7 +178,7 @@ const Contact = ({
                   <div className="space-y-2">
                     <label htmlFor="email" className="flex items-center gap-2 text-sm font-medium text-gray-700">
                       <FaEnvelope className="w-4 h-4 text-orange-500" />
-                      Email Address *
+                      Email *
                     </label>
                     <input
                       type="email"
@@ -233,38 +188,36 @@ const Contact = ({
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                      placeholder="Enter your email address"
+                      placeholder="Your email"
                     />
                   </div>
+                </div>
 
-                  {/* Submit Button */}
-                  <motion.button
-                    type="submit"
-                    disabled={isSubmitting}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={`w-full bg-gradient-to-r ${getGradientColors()} text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-3 ${
-                      isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl'
-                    }`}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <FaPaperPlane className="w-5 h-5" />
-                        Contact Me Now
-                      </>
-                    )}
-                  </motion.button>
-
-                  
-                </form>
-              </motion.div>
+                {/* Submit Button */}
+                <motion.button
+                  type="submit"
+                  disabled={isSubmitting}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={`w-full bg-gradient-to-r ${getGradientColors()} text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-3 ${
+                    isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl'
+                  }`}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <FaPaperPlane className="w-5 h-5" />
+                      Contact Us Now
+                    </>
+                  )}
+                </motion.button>
+              </form>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

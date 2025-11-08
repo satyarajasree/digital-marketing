@@ -59,7 +59,7 @@ const App = () => {
             className="text-white"
           >
             <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
-              DigitalPro
+              Amplinova
             </h2>
             <p className="text-gray-400 text-lg">Get ready...</p>
             

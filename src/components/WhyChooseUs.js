@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-
 const WhyChooseUs = ({ mode = "digital-marketing" }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.1 });
@@ -73,13 +72,52 @@ const WhyChooseUs = ({ mode = "digital-marketing" }) => {
     },
   };
 
+  const statsVariants = {
+    hidden: { scale: 0.8, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      },
+    },
+  };
 
+  // Stats data based on mode
+  const getStatsData = () => {
+    if (mode === "digital-marketing") {
+      return {
+        projectsCompleted: "850+",
+        clientsServed: "320+",
+        projectsDescription: "Successful Campaigns",
+        clientsDescription: "Satisfied Clients",
+        additionalStats: [
+          { value: "240%", label: "Average ROI Increase" },
+          { value: "98%", label: "Client Retention Rate" }
+        ]
+      };
+    } else {
+      return {
+        projectsCompleted: "1200+",
+        clientsServed: "450+",
+        projectsDescription: "IT Projects Delivered",
+        clientsDescription: "Business Partners",
+        additionalStats: [
+          { value: "99.9%", label: "Uptime Guarantee" },
+          { value: "24/7", label: "Support Available" }
+        ]
+      };
+    }
+  };
 
   // Image URLs based on mode
   const imageUrls = {
     "digital-marketing": "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     "it-services": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
   };
+
+  const statsData = getStatsData();
 
   return (
     <section
@@ -105,7 +143,6 @@ const WhyChooseUs = ({ mode = "digital-marketing" }) => {
         >
           {/* Header Section */}
           <div className="text-center mb-16">
-
             <motion.h2
               variants={itemVariants}
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 relative"
@@ -168,7 +205,7 @@ const WhyChooseUs = ({ mode = "digital-marketing" }) => {
                       : "Build Future-Ready Technology Solutions"
                     }
                   </h3>
-                  <p className="text-lg text-gray-600 leading-relaxed">
+                  <p className="text-lg text-gray-600 leading-relaxed mb-8">
                     {mode === "digital-marketing"
                       ? "Our comprehensive digital marketing services are designed to elevate your brand, engage your audience, and drive sustainable growth through innovative strategies and data-driven insights."
                       : "From concept to deployment, we create technology solutions that not only solve today's challenges but also scale for tomorrow's opportunities with security and reliability at the core."
@@ -176,12 +213,52 @@ const WhyChooseUs = ({ mode = "digital-marketing" }) => {
                   </p>
                 </div>
 
-              
+                {/* Stats Section - Integrated into content flow */}
+                <motion.div
+                  variants={statsVariants}
+                  className="grid grid-cols-2 gap-6 py-6 border-y border-gray-200"
+                >
+                  {/* Main Stats */}
+                  <div className="text-center">
+                    <div className={`text-3xl font-bold bg-gradient-to-r ${themeConfig.gradient} bg-clip-text text-transparent mb-2`}>
+                      {statsData.projectsCompleted}
+                    </div>
+                    <div className="text-sm font-medium text-gray-600 uppercase tracking-wide">
+                      {statsData.projectsDescription}
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className={`text-3xl font-bold bg-gradient-to-r ${themeConfig.gradient} bg-clip-text text-transparent mb-2`}>
+                      {statsData.clientsServed}
+                    </div>
+                    <div className="text-sm font-medium text-gray-600 uppercase tracking-wide">
+                      {statsData.clientsDescription}
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Additional Stats */}
+                <motion.div
+                  variants={statsVariants}
+                  className="grid grid-cols-2 gap-4"
+                >
+                  {statsData.additionalStats.map((stat, index) => (
+                    <div key={index} className="text-center">
+                      <div className={`text-2xl font-bold ${themeConfig.badgeText} mb-1`}>
+                        {stat.value}
+                      </div>
+                      <div className="text-xs text-gray-500 font-medium uppercase tracking-wider">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
+                </motion.div>
+
                 {/* CTA Button */}
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`px-8 py-4 bg-gradient-to-r ${themeConfig.gradient} text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition duration-300`}
+                  className={`w-full px-8 py-4 bg-gradient-to-r ${themeConfig.gradient} text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition duration-300 mt-6`}
                 >
                   Get Started Today
                 </motion.button>

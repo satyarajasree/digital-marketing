@@ -4,136 +4,247 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
-  const projects = [
+  const portfolioItems = [
     {
       id: 1,
-      title: "Creative Design",
-      category: "design",
-      description: "Innovative visual designs that capture brand essence and drive engagement",
-      image: "🎨",
-      results: "45% increase in brand recognition"
+      title: "Fashion E-commerce Website",
+      category: "websites",
+      type: "iframe",
+      url: "https://fashion-store.demo",
+      thumbnail: "https://images.unsplash.com/photo-1607082350899-7e105aa886ae?w=400&h=300&fit=crop",
+      views: "50K+",
+      likes: "2.4K"
     },
     {
       id: 2,
-      title: "Website Development",
-      category: "website",
-      description: "High-performance websites with seamless user experience and conversion optimization",
-      image: "💻",
-      results: "3x faster load times"
+      title: "Viral Food Reel",
+      category: "reels",
+      type: "reel",
+      url: "https://instagram.com/reel/foodviral",
+      thumbnail: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=300&fit=crop",
+      views: "2.5M",
+      likes: "150K"
     },
     {
       id: 3,
-      title: "Social Media Reels",
-      category: "reels",
-      description: "Engaging short-form video content that drives virality and brand awareness",
-      image: "📱",
-      results: "5M+ impressions"
+      title: "Brand Logo Design",
+      category: "design",
+      type: "image",
+      url: "https://images.unsplash.com/photo-1564865878688-9a244444042a?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1564865878688-9a244444042a?w=400&h=300&fit=crop",
+      views: "25K",
+      likes: "1.2K"
     },
     {
       id: 4,
-      title: "SEO Optimization",
-      category: "seo",
-      description: "Comprehensive SEO strategies that dominate search rankings and drive organic growth",
-      image: "🔍",
-      results: "300% organic traffic growth"
+      title: "Mobile Banking App",
+      category: "mobile",
+      type: "image",
+      url: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop",
+      views: "35K",
+      likes: "1.8K"
     },
     {
       id: 5,
-      title: "Performance Marketing",
-      category: "performance",
-      description: "Data-driven campaigns that maximize ROI through precise targeting and optimization",
-      image: "🎯",
-      results: "60% lower CPA"
+      title: "SEO Dashboard",
+      category: "seo",
+      type: "iframe",
+      url: "https://seo-dashboard.demo",
+      thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+      views: "18K",
+      likes: "890"
     },
     {
       id: 6,
-      title: "Brand Strategy",
-      category: "strategy",
-      description: "Holistic brand development that positions businesses as industry leaders",
-      image: "🚀",
-      results: "45% market share increase"
+      title: "Corporate Website",
+      category: "websites",
+      type: "iframe",
+      url: "https://corporate-site.demo",
+      thumbnail: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
+      views: "42K",
+      likes: "2.1K"
+    },
+    {
+      id: 7,
+      title: "Fashion Reel",
+      category: "reels",
+      type: "reel",
+      url: "https://instagram.com/reel/fashiontrend",
+      thumbnail: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
+      views: "3.2M",
+      likes: "210K"
+    },
+    {
+      id: 8,
+      title: "Packaging Design",
+      category: "design",
+      type: "image",
+      url: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=300&fit=crop",
+      views: "28K",
+      likes: "1.5K"
+    },
+    {
+      id: 9,
+      title: "Fitness App UI",
+      category: "mobile",
+      type: "image",
+      url: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
+      views: "31K",
+      likes: "1.6K"
+    },
+    {
+      id: 10,
+      title: "Analytics Dashboard",
+      category: "seo",
+      type: "iframe",
+      url: "https://analytics-dashboard.demo",
+      thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+      views: "22K",
+      likes: "1.1K"
+    },
+    {
+      id: 11,
+      title: "Travel Reel",
+      category: "reels",
+      type: "reel",
+      url: "https://instagram.com/reel/travelvibes",
+      thumbnail: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=300&fit=crop",
+      views: "4.1M",
+      likes: "280K"
+    },
+    {
+      id: 12,
+      title: "Brand Identity",
+      category: "design",
+      type: "image",
+      url: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop",
+      views: "33K",
+      likes: "1.7K"
     }
   ];
 
   const filters = [
-    { key: 'all', label: 'All Projects' },
-    { key: 'design', label: 'Creative Design' },
-    { key: 'website', label: 'Website' },
+    { key: 'all', label: 'All Work' },
+    { key: 'websites', label: 'Websites' },
     { key: 'reels', label: 'Reels' },
-    { key: 'seo', label: 'SEO' },
-    { key: 'performance', label: 'Performance Marketing' }
+    { key: 'design', label: 'Design' },
+    { key: 'mobile', label: 'Mobile' },
+    { key: 'seo', label: 'SEO' }
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+  const filteredItems = activeFilter === 'all' 
+    ? portfolioItems 
+    : portfolioItems.filter(item => item.category === activeFilter);
+
+  const getCategoryIcon = (category) => {
+    switch(category) {
+      case 'websites': return '💻';
+      case 'reels': return '🎬';
+      case 'design': return '🎨';
+      case 'mobile': return '📱';
+      case 'seo': return '🔍';
+      default: return '⭐';
+    }
+  };
+
+  const MediaItem = ({ item }) => {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.9 }}
+        whileHover={{ scale: 1.05, y: -5 }}
+        className="relative group cursor-pointer"
+      >
+        {/* Main Media Container */}
+        <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200 hover:border-amber-300 transition-all duration-300">
+          {/* Thumbnail */}
+          <div className="relative h-48 overflow-hidden">
+            <img
+              src={item.thumbnail}
+              alt={item.title}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+            
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
+            
+            {/* Category Badge */}
+            <div className="absolute top-3 left-3 bg-black bg-opacity-70 text-white px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+              <span>{getCategoryIcon(item.category)}</span>
+              <span className="capitalize">{item.category}</span>
+            </div>
+            
+            {/* Play Button for Reels */}
+            {item.type === 'reel' && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="bg-white bg-opacity-90 rounded-full w-12 h-12 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-lg">▶</span>
+                </div>
+              </div>
+            )}
+            
+            {/* View/Likes Counter */}
+            <div className="absolute bottom-3 left-3 right-3 flex justify-between text-white text-xs">
+              <div className="bg-black bg-opacity-60 px-2 py-1 rounded-full">
+                👁️ {item.views}
+              </div>
+              <div className="bg-black bg-opacity-60 px-2 py-1 rounded-full">
+                ❤️ {item.likes}
+              </div>
+            </div>
+          </div>
+          
+          {/* Content */}
+          <div className="p-4">
+            <h3 className="font-semibold text-gray-800 group-hover:text-amber-600 transition-colors duration-300 line-clamp-2">
+              {item.title}
+            </h3>
+          </div>
+        </div>
+      </motion.div>
+    );
+  };
 
   return (
-    <section id="portfolio" className="py-20 bg-gradient-to-br from-amber-50 via-white to-orange-50 text-gray-800 overflow-hidden relative rounded-3xl mx-4 my-8">
-      {/* Same Background as Content Creation */}
-      <div className="absolute inset-0 overflow-hidden rounded-3xl">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,white,transparent)]" />
-        
-        {/* Static Gradient Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-amber-100 to-orange-100 rounded-full filter blur-3xl opacity-30" />
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-full filter blur-3xl opacity-30" />
-        <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full filter blur-3xl opacity-30" />
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-         
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 relative"
-          >
-            Our{" "}
-            <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent relative inline-block">
-              Work
-              <motion.div
-                className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
-              />
-            </span>
-          </motion.h2>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6"
-          >
-            Our Portfolio of Impactful Solutions
-          </motion.p>
-
-        </motion.div>
-
-        {/* Filter Buttons */}
+    <section id="portfolio" className="py-16 bg-gradient-to-br from-gray-50 to-white text-gray-800 overflow-hidden">
+      <div className="container mx-auto px-4">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-wrap justify-center gap-3 mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Our <span className="text-amber-600">Work</span>
+          </h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Explore our collection of successful projects across different platforms and services
+          </p>
+        </motion.div>
+
+        {/* Filter Tabs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-3 mb-12"
         >
           {filters.map((filter) => (
             <motion.button
               key={filter.key}
-              whileHover={{ scale: 1.05, y: -2 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveFilter(filter.key)}
-              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 border backdrop-blur-sm ${
+              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                 activeFilter === filter.key
-                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white border-transparent shadow-lg shadow-amber-500/25'
-                  : 'bg-white/80 text-gray-600 border-amber-100 hover:border-amber-300 hover:text-amber-600 shadow-sm'
+                  ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/25'
+                  : 'bg-white text-gray-600 border border-gray-200 hover:border-amber-300 hover:text-amber-600 shadow-sm'
               }`}
             >
               {filter.label}
@@ -141,61 +252,20 @@ const Portfolio = () => {
           ))}
         </motion.div>
 
-        {/* Projects Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Portfolio Grid */}
+        <motion.div
+          layout
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        >
           <AnimatePresence>
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className="relative group"
-              >
-                {/* Curved Border Container */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-400 via-orange-400 to-amber-300 p-0.5 -z-10 opacity-80">
-                  <div className="w-full h-full rounded-3xl bg-transparent" />
-                </div>
-
-                {/* Main Project Card */}
-                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-3 border border-amber-100 shadow-lg overflow-hidden backdrop-blur-sm h-full">
-                  <div className="p-6 h-full flex flex-col">
-                    <div className="text-6xl mb-6 text-center group-hover:scale-110 transition-transform duration-300">
-                      {project.image}
-                    </div>
-                    
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center group-hover:text-amber-600 transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 text-center leading-relaxed mb-4 flex-grow">
-                      {project.description}
-                    </p>
-                    
-                    <div className="text-center mt-auto">
-                      <span className="inline-block bg-amber-50 text-amber-700 text-sm font-semibold px-4 py-2 rounded-full border border-amber-200 backdrop-blur-sm">
-                        {project.results}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Corner Accents */}
-                  <div className="absolute top-3 right-3 w-3 h-3 border-t border-r border-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-
-                {/* Background Glow */}
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-200 to-orange-200 rounded-3xl blur-xl -z-20 opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
-              </motion.div>
+            {filteredItems.map((item) => (
+              <MediaItem key={item.id} item={item} />
             ))}
           </AnimatePresence>
         </motion.div>
 
         {/* Empty State */}
-        {filteredProjects.length === 0 && (
+        {filteredItems.length === 0 && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -203,11 +273,36 @@ const Portfolio = () => {
           >
             <div className="text-6xl mb-4">🔍</div>
             <h3 className="text-2xl font-bold text-gray-800 mb-2">No projects found</h3>
-            <p className="text-gray-600">Try selecting a different filter to see more projects.</p>
+            <p className="text-gray-600">Try selecting a different category</p>
           </motion.div>
         )}
 
-       
+        {/* Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center mt-16"
+        >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-amber-600 mb-2">50+</div>
+              <div className="text-gray-600">Projects</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-amber-600 mb-2">25M+</div>
+              <div className="text-gray-600">Impressions</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-amber-600 mb-2">98%</div>
+              <div className="text-gray-600">Success Rate</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-amber-600 mb-2">45+</div>
+              <div className="text-gray-600">Happy Clients</div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

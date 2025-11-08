@@ -30,35 +30,131 @@ const OurClients = ({ mode = "home" }) => {
     },
   };
 
-  // Real company logos for different industries
+  // Real company logos with online image URLs
   const digitalMarketingClients = [
-    { name: "Nike", logo: "NIKE", color: "from-red-500 to-red-600" },
-    { name: "Coca-Cola", logo: "COCA-COLA", color: "from-red-600 to-red-700" },
-    { name: "Apple", logo: "APPLE", color: "from-gray-600 to-gray-700" },
-    { name: "Amazon", logo: "AMAZON", color: "from-orange-500 to-orange-600" },
-    { name: "Google", logo: "GOOGLE", color: "from-blue-500 to-green-500" },
-    { name: "Microsoft", logo: "MICROSOFT", color: "from-blue-600 to-blue-700" },
-    { name: "Meta", logo: "META", color: "from-blue-800 to-purple-600" },
-    { name: "Netflix", logo: "NETFLIX", color: "from-red-700 to-red-800" },
-    { name: "Spotify", logo: "SPOTIFY", color: "from-green-500 to-green-600" },
-    { name: "Adobe", logo: "ADOBE", color: "from-red-500 to-purple-600" },
-    { name: "Uber", logo: "UBER", color: "from-black to-gray-800" },
-    { name: "Airbnb", logo: "AIRBNB", color: "from-red-500 to-pink-500" },
+    {
+      name: "Nike",
+      logo: "https://logos-world.net/wp-content/uploads/2020/04/Nike-Logo.png",
+      color: "from-red-500 to-red-600"
+    },
+    {
+      name: "Coca-Cola",
+      logo: "https://logos-world.net/wp-content/uploads/2020/04/Coca-Cola-Logo.png",
+      color: "from-red-600 to-red-700"
+    },
+    {
+      name: "Apple",
+      logo: "https://logos-world.net/wp-content/uploads/2020/04/Apple-Logo.png",
+      color: "from-gray-600 to-gray-700"
+    },
+    {
+      name: "Amazon",
+      logo: "https://logos-world.net/wp-content/uploads/2016/10/Amazon-logo-meaning.png",
+      color: "from-orange-500 to-orange-600"
+    },
+    {
+      name: "Google",
+      logo: "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo.png",
+      color: "from-blue-500 to-green-500"
+    },
+    {
+      name: "Microsoft",
+      logo: "https://logos-world.net/wp-content/uploads/2020/07/Microsoft-Logo.png",
+      color: "from-blue-600 to-blue-700"
+    },
+    {
+      name: "Meta",
+      logo: "https://logos-world.net/wp-content/uploads/2020/04/Facebook-Logo.png",
+      color: "from-blue-800 to-purple-600"
+    },
+    {
+      name: "Netflix",
+      logo: "https://logos-world.net/wp-content/uploads/2020/04/Netflix-Logo.png",
+      color: "from-red-700 to-red-800"
+    },
+    {
+      name: "Spotify",
+      logo: "https://logos-world.net/wp-content/uploads/2020/09/Spotify-Logo.png",
+      color: "from-green-500 to-green-600"
+    },
+    {
+      name: "Adobe",
+      logo: "https://logos-world.net/wp-content/uploads/2020/07/Adobe-Logo.png",
+      color: "from-red-500 to-purple-600"
+    },
+    {
+      name: "Uber",
+      logo: "https://logos-world.net/wp-content/uploads/2020/05/Uber-Logo.png",
+      color: "from-black to-gray-800"
+    },
+    {
+      name: "Airbnb",
+      logo: "https://logos-world.net/wp-content/uploads/2020/08/Airbnb-Logo.png",
+      color: "from-red-500 to-pink-500"
+    },
   ];
 
   const itServicesClients = [
-    { name: "IBM", logo: "IBM", color: "from-blue-500 to-blue-600" },
-    { name: "Intel", logo: "INTEL", color: "from-blue-600 to-blue-700" },
-    { name: "Cisco", logo: "CISCO", color: "from-blue-700 to-blue-800" },
-    { name: "Oracle", logo: "ORACLE", color: "from-red-600 to-red-700" },
-    { name: "Dell", logo: "DELL", color: "from-blue-800 to-blue-900" },
-    { name: "HP", logo: "HP", color: "from-blue-500 to-blue-600" },
-    { name: "SAP", logo: "SAP", color: "from-blue-600 to-blue-700" },
-    { name: "Salesforce", logo: "SALESFORCE", color: "from-blue-400 to-blue-500" },
-    { name: "VMware", logo: "VMWARE", color: "from-blue-600 to-blue-700" },
-    { name: "Accenture", logo: "ACCENTURE", color: "from-pink-600 to-purple-600" },
-    { name: "Infosys", logo: "INFOSYS", color: "from-blue-700 to-blue-800" },
-    { name: "TCS", logo: "TCS", color: "from-blue-800 to-blue-900" },
+    {
+      name: "IBM",
+      logo: "https://logos-world.net/wp-content/uploads/2020/04/IBM-Logo.png",
+      color: "from-blue-500 to-blue-600"
+    },
+    {
+      name: "Intel",
+      logo: "https://logos-world.net/wp-content/uploads/2020/04/Intel-Logo.png",
+      color: "from-blue-600 to-blue-700"
+    },
+    {
+      name: "Cisco",
+      logo: "https://logos-world.net/wp-content/uploads/2017/11/Cisco-Logo.png",
+      color: "from-blue-700 to-blue-800"
+    },
+    {
+      name: "Oracle",
+      logo: "https://logos-world.net/wp-content/uploads/2020/09/Oracle-Logo.png",
+      color: "from-red-600 to-red-700"
+    },
+    {
+      name: "Dell",
+      logo: "https://logos-world.net/wp-content/uploads/2020/03/Dell-Logo.png",
+      color: "from-blue-800 to-blue-900"
+    },
+    {
+      name: "HP",
+      logo: "https://logos-world.net/wp-content/uploads/2020/04/HP-Logo.png",
+      color: "from-blue-500 to-blue-600"
+    },
+    {
+      name: "SAP",
+      logo: "https://logos-world.net/wp-content/uploads/2021/08/SAP-Logo.png",
+      color: "from-blue-600 to-blue-700"
+    },
+    {
+      name: "Salesforce",
+      logo: "https://logos-world.net/wp-content/uploads/2020/09/Salesforce-Logo.png",
+      color: "from-blue-400 to-blue-500"
+    },
+    {
+      name: "VMware",
+      logo: "https://logos-world.net/wp-content/uploads/2021/09/VMware-Logo.png",
+      color: "from-blue-600 to-blue-700"
+    },
+    {
+      name: "Accenture",
+      logo: "https://logos-world.net/wp-content/uploads/2021/08/Accenture-Logo.png",
+      color: "from-pink-600 to-purple-600"
+    },
+    {
+      name: "Infosys",
+      logo: "https://logos-world.net/wp-content/uploads/2021/09/Infosys-Logo.png",
+      color: "from-blue-700 to-blue-800"
+    },
+    {
+      name: "TCS",
+      logo: "https://logos-world.net/wp-content/uploads/2021/08/Tata-Consultancy-Services-TCS-Logo.png",
+      color: "from-blue-800 to-blue-900"
+    },
   ];
 
   // Get appropriate clients based on mode
@@ -87,7 +183,7 @@ const OurClients = ({ mode = "home" }) => {
         bg: "bg-gradient-to-br from-orange-50 via-white to-red-50",
         textColor: "text-gray-800",
         subtitleColor: "text-gray-600",
-        cardBg: "bg-white/80",
+        cardBg: "bg-white/90",
         border: "border-orange-200",
         hoverBorder: "border-orange-400",
         overlayGradient: "from-orange-50 to-transparent"
@@ -98,7 +194,7 @@ const OurClients = ({ mode = "home" }) => {
         bg: "bg-gradient-to-br from-blue-50 via-white to-purple-50",
         textColor: "text-gray-800",
         subtitleColor: "text-gray-600",
-        cardBg: "bg-white/80",
+        cardBg: "bg-white/90",
         border: "border-blue-200",
         hoverBorder: "border-blue-400",
         overlayGradient: "from-blue-50 to-transparent"
@@ -109,9 +205,9 @@ const OurClients = ({ mode = "home" }) => {
         bg: "bg-gray-900",
         textColor: "text-white",
         subtitleColor: "text-gray-300",
-        cardBg: "bg-white/5",
-        border: "border-white/10",
-        hoverBorder: "border-amber-400/30",
+        cardBg: "bg-white/10",
+        border: "border-white/20",
+        hoverBorder: "border-amber-400/50",
         overlayGradient: "from-gray-900 to-transparent"
       };
     }
@@ -204,14 +300,23 @@ const OurClients = ({ mode = "home" }) => {
                     {getScrollingClients(clients.digital).map((client, index) => (
                       <div
                         key={index}
-                        className={`flex items-center justify-center w-48 h-24 ${themeConfig.cardBg} backdrop-blur-sm rounded-xl border ${themeConfig.border} hover:border-orange-400/30 transition-all duration-300 hover:scale-105`}
+                        className={`flex items-center justify-center w-48 h-24 ${themeConfig.cardBg} backdrop-blur-sm rounded-xl border ${themeConfig.border} hover:border-orange-400/30 transition-all duration-300 hover:scale-105 shadow-lg`}
                       >
-                        <div className="text-center">
-                          <div className="text-lg font-bold text-white mb-1">
-                            {client.logo}
-                          </div>
-                          <div className="text-xs text-gray-400 font-medium">
-                            {client.name}
+                        <div className="flex items-center justify-center w-40 h-16 p-2">
+                          <img 
+                            src={client.logo} 
+                            alt={client.name}
+                            className="max-h-12 max-w-full object-contain filter brightness-0 invert-0"
+                            onError={(e) => {
+                              // Fallback to text if image fails to load
+                              e.target.style.display = 'none';
+                              e.target.nextSibling.style.display = 'block';
+                            }}
+                          />
+                          <div className="text-center hidden">
+                            <div className="text-sm font-bold text-white mb-1">
+                              {client.name.split(' ')[0]}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -245,14 +350,22 @@ const OurClients = ({ mode = "home" }) => {
                     {getScrollingClients(clients.it).map((client, index) => (
                       <div
                         key={index}
-                        className={`flex items-center justify-center w-48 h-24 ${themeConfig.cardBg} backdrop-blur-sm rounded-xl border ${themeConfig.border} hover:border-blue-400/30 transition-all duration-300 hover:scale-105`}
+                        className={`flex items-center justify-center w-48 h-24 ${themeConfig.cardBg} backdrop-blur-sm rounded-xl border ${themeConfig.border} hover:border-blue-400/30 transition-all duration-300 hover:scale-105 shadow-lg`}
                       >
-                        <div className="text-center">
-                          <div className="text-lg font-bold text-white mb-1">
-                            {client.logo}
-                          </div>
-                          <div className="text-xs text-gray-400 font-medium">
-                            {client.name}
+                        <div className="flex items-center justify-center w-40 h-16 p-2">
+                          <img 
+                            src={client.logo} 
+                            alt={client.name}
+                            className="max-h-12 max-w-full object-contain filter brightness-0 invert-0"
+                            onError={(e) => {
+                              e.target.style.display = 'none';
+                              e.target.nextSibling.style.display = 'block';
+                            }}
+                          />
+                          <div className="text-center hidden">
+                            <div className="text-sm font-bold text-white mb-1">
+                              {client.name.split(' ')[0]}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -287,18 +400,24 @@ const OurClients = ({ mode = "home" }) => {
                   {getScrollingClients(clients).map((client, index) => (
                     <div
                       key={index}
-                      className={`flex items-center justify-center w-48 h-24 ${themeConfig.cardBg} backdrop-blur-sm rounded-xl border ${themeConfig.border} hover:${themeConfig.hoverBorder} transition-all duration-300 hover:scale-105 shadow-sm`}
+                      className={`flex items-center justify-center w-48 h-24 ${themeConfig.cardBg} backdrop-blur-sm rounded-xl border ${themeConfig.border} hover:${themeConfig.hoverBorder} transition-all duration-300 hover:scale-105 shadow-lg`}
                     >
-                      <div className="text-center">
-                        <div className={`text-lg font-bold ${
-                          mode === "digital-marketing" ? "text-gray-800" : "text-gray-800"
-                        } mb-1`}>
-                          {client.logo}
-                        </div>
-                        <div className={`text-xs font-medium ${
-                          mode === "digital-marketing" ? "text-gray-600" : "text-gray-600"
-                        }`}>
-                          {client.name}
+                      <div className="flex items-center justify-center w-40 h-16 p-2">
+                        <img 
+                          src={client.logo} 
+                          alt={client.name}
+                          className="max-h-12 max-w-full object-contain"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.nextSibling.style.display = 'block';
+                          }}
+                        />
+                        <div className="text-center hidden">
+                          <div className={`text-sm font-bold ${
+                            mode === "digital-marketing" ? "text-gray-800" : "text-gray-800"
+                          } mb-1`}>
+                            {client.name.split(' ')[0]}
+                          </div>
                         </div>
                       </div>
                     </div>

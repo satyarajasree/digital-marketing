@@ -8,7 +8,9 @@ import {
   FaServer,
   FaStethoscope,
   FaRocket,
-  FaCog
+  FaCog,
+  FaChevronLeft,
+  FaChevronRight
 } from "react-icons/fa";
 
 const IndustryCard = ({ title, description, icon, index, mode }) => {
@@ -67,7 +69,8 @@ const IndustryCard = ({ title, description, icon, index, mode }) => {
       }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="relative group cursor-pointer"
+      className="relative group cursor-pointer flex-shrink-0"
+      style={{ width: "320px" }} // Fixed width for consistent scrolling
     >
       {/* Background Glow Effect */}
       <motion.div
@@ -76,7 +79,7 @@ const IndustryCard = ({ title, description, icon, index, mode }) => {
       />
 
       {/* Main Card */}
-      <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-gray-700 backdrop-blur-sm overflow-hidden">
+      <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-gray-700 backdrop-blur-sm overflow-hidden h-full">
         {/* Animated Border */}
         <motion.div
           animate={{ opacity: isHovered ? 1 : 0 }}
@@ -131,7 +134,10 @@ const IndustryCard = ({ title, description, icon, index, mode }) => {
 
 const Industries = ({ mode = "digital-marketing" }) => {
   const sectionRef = useRef(null);
+  const scrollContainerRef = useRef(null);
   const [isInView, setIsInView] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -177,6 +183,21 @@ const Industries = ({ mode = "digital-marketing" }) => {
         title: "Education & E-Learning",
         description: "Reach students and promote courses with effective digital marketing strategies for educational institutions.",
         icon: <FaGraduationCap />
+      },
+      {
+        title: "Real Estate",
+        description: "Generate leads and showcase properties with targeted digital marketing for real estate agencies and developers.",
+        icon: <FaCog />
+      },
+      {
+        title: "Hospitality & Travel",
+        description: "Attract guests and boost bookings with compelling digital marketing strategies for hotels and travel companies.",
+        icon: <FaServer />
+      },
+      {
+        title: "Automotive",
+        description: "Drive showroom traffic and vehicle sales with innovative digital marketing for automotive dealers and brands.",
+        icon: <FaStethoscope />
       }
     ],
     "it-services": [
@@ -204,6 +225,21 @@ const Industries = ({ mode = "digital-marketing" }) => {
         title: "Enterprise Solutions",
         description: "Build robust enterprise software with CRM integration, workflow automation, and advanced analytics.",
         icon: <FaCog />
+      },
+      {
+        title: "Manufacturing & Logistics",
+        description: "Create efficient supply chain management systems and manufacturing automation solutions.",
+        icon: <FaRocket />
+      },
+      {
+        title: "Media & Entertainment",
+        description: "Develop streaming platforms, content management systems, and digital media solutions.",
+        icon: <FaChartLine />
+      },
+      {
+        title: "Government & Public Sector",
+        description: "Build secure, scalable government technology solutions with compliance and citizen engagement features.",
+        icon: <FaHeart />
       }
     ]
   };
@@ -231,6 +267,43 @@ const Industries = ({ mode = "digital-marketing" }) => {
   };
 
   const themeConfig = getThemeConfig();
+
+  const scroll = (direction) => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const scrollAmount = 320 + 24; // card width + gap
+      const newScrollLeft = container.scrollLeft + (direction === 'left' ? -scrollAmount : scrollAmount);
+      
+      container.scrollTo({
+        left: newScrollLeft,
+        behavior: 'smooth'
+      });
+
+      // Update button states after scroll
+      setTimeout(() => {
+        updateScrollButtons();
+      }, 300);
+    }
+  };
+
+  const updateScrollButtons = () => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const { scrollLeft, scrollWidth, clientWidth } = container;
+      
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    updateScrollButtons();
+    
+    const handleResize = () => updateScrollButtons();
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <section 
@@ -310,16 +383,71 @@ const Industries = ({ mode = "digital-marketing" }) => {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {currentIndustries.map((industry, index) => (
-            <IndustryCard 
-              key={industry.title} 
-              {...industry} 
-              index={index} 
-              mode={mode}
-            />
-          ))}
+        {/* Scrollable Container with Arrows */}
+        <div className="relative">
+          {/* Left Arrow */}
+          <motion.button
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: canScrollLeft ? 1 : 0.5, x: 0 } : { opacity: 0, x: -20 }}
+            whileHover={{ scale: canScrollLeft ? 1.1 : 1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => scroll('left')}
+            disabled={!canScrollLeft}
+            className={`absolute left-0 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-gradient-to-r ${themeConfig.gradient} shadow-2xl flex items-center justify-center transition-all duration-300 ${
+              canScrollLeft ? 'cursor-pointer hover:shadow-xl' : 'cursor-not-allowed opacity-50'
+            }`}
+            style={{ left: '-20px' }}
+          >
+            <FaChevronLeft className="text-white text-lg" />
+          </motion.button>
+
+          {/* Scrollable Cards Container */}
+          <div 
+            ref={scrollContainerRef}
+            className="flex gap-6 overflow-x-auto scrollbar-hide py-4 px-2"
+            onScroll={updateScrollButtons}
+            style={{ 
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
+            }}
+          >
+            {currentIndustries.map((industry, index) => (
+              <IndustryCard 
+                key={industry.title} 
+                {...industry} 
+                index={index} 
+                mode={mode}
+              />
+            ))}
+          </div>
+
+          {/* Right Arrow */}
+          <motion.button
+            initial={{ opacity: 0, x: 20 }}
+            animate={isInView ? { opacity: canScrollRight ? 1 : 0.5, x: 0 } : { opacity: 0, x: 20 }}
+            whileHover={{ scale: canScrollRight ? 1.1 : 1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => scroll('right')}
+            disabled={!canScrollRight}
+            className={`absolute right-0 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-gradient-to-r ${themeConfig.gradient} shadow-2xl flex items-center justify-center transition-all duration-300 ${
+              canScrollRight ? 'cursor-pointer hover:shadow-xl' : 'cursor-not-allowed opacity-50'
+            }`}
+            style={{ right: '-20px' }}
+          >
+            <FaChevronRight className="text-white text-lg" />
+          </motion.button>
         </div>
+
+        {/* Scroll Indicators */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="flex justify-center items-center space-x-2 mt-6"
+        >
+          <div className={`w-2 h-2 rounded-full ${canScrollLeft ? 'bg-white' : 'bg-gray-600'}`} />
+          <div className={`w-2 h-2 rounded-full ${canScrollRight ? 'bg-white' : 'bg-gray-600'}`} />
+        </motion.div>
 
         {/* CTA Section */}
         <motion.div
@@ -348,6 +476,13 @@ const Industries = ({ mode = "digital-marketing" }) => {
           </motion.button>
         </motion.div>
       </div>
+
+      {/* Hide scrollbar for webkit browsers */}
+      <style jsx>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 };

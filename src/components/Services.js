@@ -5,21 +5,41 @@ import {
   FaCloud,
   FaMobile,
   FaArrowRight,
-  FaRocket,
   FaGoogle,
   FaHashtag,
   FaPenFancy,
   FaMailBulk,
   FaAd,
-  FaDesktop,
-  FaNetworkWired,
-  FaKey,
-  FaSync,
-  FaCogs
+  FaCogs,
+  FaShieldAlt,
+  FaDatabase,
+  FaServer,
+  FaCode,
 } from "react-icons/fa";
+import { FaAnchorCircleExclamation } from "react-icons/fa6";
 
-const ServiceCard = ({ title, description, icon, index, isVisible }) => {
+const ServiceCard = ({ title, description, icon, index, isVisible, category }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  // Color schemes based on category
+  const colorSchemes = {
+    "digital-marketing": {
+      gradient: "from-orange-500 to-orange-600",
+      hoverGradient: "from-orange-500 to-red-500",
+      light: "from-orange-500/20 to-red-500/20",
+      text: "text-orange-500",
+      border: "border-orange-500/50"
+    },
+    "it-services": {
+      gradient: "from-blue-500 to-cyan-500",
+      hoverGradient: "from-blue-500 to-blue-600",
+      light: "from-blue-500/20 to-cyan-500/20",
+      text: "text-blue-500",
+      border: "border-blue-500/50"
+    }
+  };
+
+  const colors = colorSchemes[category] || colorSchemes["digital-marketing"];
 
   const cardVariants = {
     hidden: {
@@ -67,7 +87,7 @@ const ServiceCard = ({ title, description, icon, index, isVisible }) => {
       {/* Background Glow Effect */}
       <motion.div
         animate={{ opacity: isHovered ? 1 : 0 }}
-        className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-purple-600/20 rounded-2xl blur-xl transition-opacity duration-500"
+        className={`absolute inset-0 bg-gradient-to-br ${colors.light} rounded-2xl blur-xl transition-opacity duration-500`}
       />
 
       {/* Main Card */}
@@ -85,7 +105,7 @@ const ServiceCard = ({ title, description, icon, index, isVisible }) => {
             opacity: [0.3, 0.6, 0.3],
           }}
           transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
-          className="absolute top-4 right-4 w-2 h-2 bg-orange-500 rounded-full"
+          className={`absolute top-4 right-4 w-2 h-2 ${category === 'digital-marketing' ? 'bg-orange-500' : 'bg-blue-500'} rounded-full`}
         />
 
         <div className="relative z-10">
@@ -93,7 +113,7 @@ const ServiceCard = ({ title, description, icon, index, isVisible }) => {
           <motion.div
             variants={iconVariants}
             animate={isHovered ? "hover" : "normal"}
-            className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 mb-6 relative overflow-hidden"
+            className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${colors.gradient} mb-6 relative overflow-hidden`}
           >
             {/* Icon Background Shine */}
             <motion.div
@@ -107,7 +127,7 @@ const ServiceCard = ({ title, description, icon, index, isVisible }) => {
           {/* Title */}
           <motion.h3
             className="text-2xl font-bold text-white mb-4"
-            animate={{ color: isHovered ? "#f97316" : "#ffffff" }}
+            animate={{ color: isHovered ? colors.text : "#ffffff" }}
             transition={{ duration: 0.3 }}
           >
             {title}
@@ -128,7 +148,7 @@ const ServiceCard = ({ title, description, icon, index, isVisible }) => {
               opacity: isHovered ? 1 : 0.7,
               x: isHovered ? 5 : 0,
             }}
-            className="flex items-center text-orange-500 font-semibold"
+            className={`flex items-center ${colors.text} font-semibold`}
           >
             Learn more
             <motion.div
@@ -143,17 +163,86 @@ const ServiceCard = ({ title, description, icon, index, isVisible }) => {
         {/* Border Glow */}
         <motion.div
           animate={{ opacity: isHovered ? 1 : 0 }}
-          className="absolute inset-0 rounded-2xl border-2 border-orange-500/50 pointer-events-none"
+          className={`absolute inset-0 rounded-2xl border-2 ${colors.border} pointer-events-none`}
         />
       </div>
     </motion.div>
   );
 };
 
-const Services = ({ mode = "combined" }) => {
+// Toggle Switch Component
+const ServiceToggle = ({ activeCategory, onToggle, isVisible }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.6, delay: 0.6 }}
+      className="flex justify-center mb-12"
+    >
+      <div className="bg-gray-900 bg-opacity-50 border border-gray-700 rounded-2xl p-2 backdrop-blur-sm">
+        <div className="flex items-center gap-4">
+          {/* Digital Marketing Option */}
+          <motion.button
+            onClick={() => onToggle("digital-marketing")}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={`
+              relative flex items-center gap-3 px-6 py-3 rounded-xl font-semibold text-lg transition-all duration-300 overflow-hidden
+              ${
+                activeCategory === "digital-marketing"
+                  ? "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg"
+                  : "text-gray-300 hover:text-white hover:bg-gray-800"
+              }
+            `}
+          >
+            {activeCategory === "digital-marketing" && (
+              <motion.div
+                animate={{ x: ["0%", "200%"] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12"
+              />
+            )}
+            <span className="relative z-10">
+              <FaChartLine className="w-5 h-5" />
+            </span>
+            <span className="relative z-10">Digital Marketing</span>
+          </motion.button>
+
+         
+
+          {/* IT Services Option */}
+          <motion.button
+            onClick={() => onToggle("it-services")}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={`
+              relative flex items-center gap-3 px-6 py-3 rounded-xl font-semibold text-lg transition-all duration-300 overflow-hidden
+              ${
+                activeCategory === "it-services"
+                  ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg"
+                  : "text-gray-300 hover:text-white hover:bg-gray-800"
+              }
+            `}
+          >
+            
+            <span className="relative z-10">
+              <FaCogs className="w-5 h-5" />
+            </span>
+            <span className="relative z-10">IT Services</span>
+          </motion.button>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const Services = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeCategory, setActiveCategory] = useState("digital-marketing");
-  const [hoveredCategory, setHoveredCategory] = useState(null);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -173,113 +262,74 @@ const Services = ({ mode = "combined" }) => {
     return () => observer.disconnect();
   }, []);
 
-  // Enhanced services data with realistic icons
+  // Services data for homepage with toggle
   const servicesData = {
     "digital-marketing": [
       {
-        title: "Digital Strategy & Consulting",
-        description:
-          "Develop data-driven strategies that align your business goals with measurable results and sustainable growth.",
-        icon: <FaRocket />,
-      },
-      {
-        title: "Social Media Marketing",
-        description:
-          "Build engaging social media campaigns that increase brand awareness and drive meaningful customer interactions.",
-        icon: <FaHashtag />,
-      },
-      {
-        title: "Search Engine Optimization",
-        description:
-          "Improve your online visibility and attract quality traffic with our advanced SEO optimization techniques.",
+        title: "SEO Optimization",
+        description: "Boost your search rankings and drive organic traffic with our comprehensive SEO strategies and technical optimization.",
         icon: <FaGoogle />,
       },
       {
+        title: "Social Media Marketing",
+        description: "Engage your audience and build brand loyalty through strategic social media campaigns across all major platforms.",
+        icon: <FaHashtag />,
+      },
+      {
         title: "Content Marketing",
-        description:
-          "Create compelling content that resonates with your audience and drives engagement across all channels.",
+        description: "Create compelling content that drives engagement, builds authority, and converts visitors into customers.",
         icon: <FaPenFancy />,
       },
       {
+        title: "PPC Advertising",
+        description: "Drive immediate results with targeted pay-per-click campaigns that maximize your advertising ROI and conversion rates.",
+        icon: <FaAd />,
+      },
+      {
         title: "Email Marketing",
-        description:
-          "Engage customers and boost conversions through personalized, data-backed email marketing campaigns.",
+        description: "Nurture leads and retain customers with personalized email campaigns that drive engagement and sales.",
         icon: <FaMailBulk />,
       },
       {
-        title: "PPC Advertising",
-        description:
-          "Drive immediate results with targeted pay-per-click campaigns that maximize your advertising ROI.",
-        icon: <FaAd />,
-      },
+        title: "Analytics & Reporting",
+        description: "Make data-driven decisions with comprehensive analytics and performance reports that track your marketing success.",
+        icon: <FaAnchorCircleExclamation />,
+      }
     ],
     "it-services": [
       {
         title: "Web Development",
-        description:
-          "Build fast, secure, and scalable websites and web applications with modern technologies and best practices.",
-        icon: <FaDesktop />,
+        description: "Build responsive, high-performance websites and web applications using the latest technologies and best practices.",
+        icon: <FaCode />,
       },
       {
         title: "Mobile App Development",
-        description:
-          "Create intuitive and powerful mobile applications for iOS and Android that enhance user experience.",
+        description: "Create intuitive, feature-rich mobile applications for iOS and Android that deliver exceptional user experiences.",
         icon: <FaMobile />,
       },
       {
         title: "Cloud Solutions",
-        description:
-          "Leverage cloud technology with scalable infrastructure, migration services, and cloud optimization.",
+        description: "Migrate, deploy, and optimize your infrastructure with secure and scalable cloud solutions tailored to your needs.",
         icon: <FaCloud />,
       },
       {
         title: "Cyber Security",
-        description:
-          "Protect your digital assets with comprehensive security solutions, threat detection, and risk assessment.",
-        icon: <FaKey />,
+        description: "Protect your digital assets with enterprise-grade security solutions, threat monitoring, and vulnerability assessments.",
+        icon: <FaShieldAlt />,
       },
       {
         title: "IT Infrastructure",
-        description:
-          "Design and implement robust IT infrastructure solutions that support your business growth and operations.",
-        icon: <FaNetworkWired />,
+        description: "Design and implement robust IT infrastructure that supports your business growth and ensures operational excellence.",
+        icon: <FaServer />,
       },
       {
         title: "Database Management",
-        description:
-          "Optimize and manage your databases for performance, security, and seamless data operations.",
-        icon: <FaSync />,
-      },
+        description: "Optimize database performance, ensure data integrity, and implement efficient data management solutions.",
+        icon: <FaDatabase />,
+      }
     ],
   };
 
-  // Filter categories based on mode
-  const getCategories = () => {
-    const allCategories = [
-      {
-        id: "digital-marketing",
-        name: "Digital Marketing",
-        description: "Grow your online presence and drive measurable results",
-        icon: <FaChartLine className="w-5 h-5" />,
-        color: "from-orange-500 to-red-500",
-      },
-      {
-        id: "it-services",
-        name: "IT Services",
-        description: "Technology solutions for modern business transformation",
-        icon: <FaCogs className="w-5 h-5" />,
-        color: "from-blue-500 to-cyan-500",
-      },
-    ];
-
-    if (mode === "it")
-      return allCategories.filter((cat) => cat.id === "it-services");
-    if (mode === "marketing")
-      return allCategories.filter((cat) => cat.id === "digital-marketing");
-    return allCategories;
-  };
-
-  const categories = getCategories();
   const currentServices = servicesData[activeCategory] || [];
 
   const containerVariants = {
@@ -292,25 +342,39 @@ const Services = ({ mode = "combined" }) => {
     },
   };
 
+  const handleToggle = (category) => {
+    setActiveCategory(category);
+  };
+
   return (
     <section
       ref={sectionRef}
       id="services"
       className="relative py-20 bg-black text-white overflow-hidden"
     >
-      {/* Enhanced Background Elements */}
+      {/* Enhanced Background Elements with Category-based Colors */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-orange-500/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-purple-500/5 to-transparent" />
+        <div className={`absolute top-0 left-0 w-full h-1/2 ${
+          activeCategory === 'digital-marketing' 
+            ? 'bg-gradient-to-b from-orange-500/5 to-transparent' 
+            : 'bg-gradient-to-b from-blue-500/5 to-transparent'
+        }`} />
+        <div className={`absolute bottom-0 left-0 w-full h-1/2 ${
+          activeCategory === 'digital-marketing'
+            ? 'bg-gradient-to-t from-purple-500/5 to-transparent'
+            : 'bg-gradient-to-t from-cyan-500/5 to-transparent'
+        }`} />
 
-        {/* Animated Orbs */}
+        {/* Animated Orbs with Category Colors */}
         <motion.div
           animate={{
             x: [0, 100, 0],
             y: [0, -50, 0],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"
+          className={`absolute top-1/4 left-1/4 w-96 h-96 ${
+            activeCategory === 'digital-marketing' ? 'bg-orange-500/5' : 'bg-blue-500/5'
+          } rounded-full blur-3xl`}
         />
         <motion.div
           animate={{
@@ -318,7 +382,9 @@ const Services = ({ mode = "combined" }) => {
             y: [0, 50, 0],
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"
+          className={`absolute bottom-1/4 right-1/4 w-96 h-96 ${
+            activeCategory === 'digital-marketing' ? 'bg-purple-500/5' : 'bg-cyan-500/5'
+          } rounded-full blur-3xl`}
         />
       </div>
 
@@ -336,7 +402,11 @@ const Services = ({ mode = "combined" }) => {
             className="text-5xl md:text-6xl font-bold mb-6"
           >
             Our{" "}
-            <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+            <span className={`bg-gradient-to-r ${
+              activeCategory === 'digital-marketing' 
+                ? 'from-orange-400 to-orange-600' 
+                : 'from-blue-400 to-cyan-600'
+            } bg-clip-text text-transparent`}>
               Services
             </span>
           </motion.h2>
@@ -346,69 +416,42 @@ const Services = ({ mode = "combined" }) => {
             initial={{ width: 0 }}
             animate={isVisible ? { width: 96 } : { width: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="h-1 bg-gradient-to-r from-orange-500 to-purple-600 mx-auto mb-8 rounded-full"
+            className={`h-1 bg-gradient-to-r ${
+              activeCategory === 'digital-marketing'
+                ? 'from-orange-500 to-purple-600'
+                : 'from-blue-500 to-cyan-600'
+            } mx-auto mb-8 rounded-full`}
           />
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-300 max-w-6xl mx-auto leading-relaxed mb-12 whitespace-nowrap overflow-x-auto"
+            className="text-xl md:text-2xl text-gray-300 max-w-6xl mx-auto leading-relaxed mb-12"
           >
-            Comprehensive solutions tailored to drive your business growth and{" "}
-            <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent font-semibold">
-              maximize your potential
+            {activeCategory === 'digital-marketing' 
+              ? "Transform your digital presence with data-driven marketing strategies that "
+              : "Accelerate your business with cutting-edge technology solutions that "
+            }
+            <span className={`bg-gradient-to-r ${
+              activeCategory === 'digital-marketing'
+                ? 'from-orange-400 to-orange-600'
+                : 'from-blue-400 to-cyan-600'
+            } bg-clip-text text-transparent font-semibold`}>
+              {activeCategory === 'digital-marketing' 
+                ? "drive measurable growth and ROI"
+                : "scale with your ambition"
+              }
             </span>
             .
           </motion.p>
 
-          {/* Enhanced Category Selector */}
-          {categories.length > 1 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex justify-center mb-12"
-            >
-              <div className="bg-gray-900 bg-opacity-50 border border-gray-700 rounded-2xl p-2 backdrop-blur-sm">
-                <div className="flex flex-wrap justify-center gap-2">
-                  {categories.map((category) => (
-                    <motion.button
-                      key={category.id}
-                      onClick={() => setActiveCategory(category.id)}
-                      onHoverStart={() => setHoveredCategory(category.id)}
-                      onHoverEnd={() => setHoveredCategory(null)}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`
-                        relative flex items-center gap-3 px-6 py-3 rounded-xl font-semibold text-lg transition-all duration-300 overflow-hidden
-                        ${
-                          activeCategory === category.id
-                            ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
-                            : "text-gray-300 hover:text-white hover:bg-gray-800"
-                        }
-                      `}
-                    >
-                      {/* Button Background Shine */}
-                      {activeCategory === category.id && (
-                        <motion.div
-                          animate={{ x: ["0%", "200%"] }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "linear",
-                          }}
-                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12"
-                        />
-                      )}
-                      <span className="relative z-10">{category.icon}</span>
-                      <span className="relative z-10">{category.name}</span>
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          )}
+          {/* Toggle Switch for Homepage */}
+          <ServiceToggle 
+            activeCategory={activeCategory} 
+            onToggle={handleToggle}
+            isVisible={isVisible}
+          />
         </motion.div>
 
         {/* Services Grid */}
@@ -441,10 +484,14 @@ const Services = ({ mode = "combined" }) => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="
-              relative bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl font-semibold text-lg 
+            className={`
+              relative bg-gradient-to-r ${
+                activeCategory === 'digital-marketing'
+                  ? 'from-orange-500 to-orange-600'
+                  : 'from-blue-500 to-cyan-500'
+              } text-white px-8 py-4 rounded-xl font-semibold text-lg 
               transition-all duration-300 hover:shadow-2xl overflow-hidden group
-            "
+            `}
           >
             {/* Button Shine Effect */}
             <motion.div
@@ -474,7 +521,7 @@ const Services = ({ mode = "combined" }) => {
             {activeCategory === "digital-marketing"
               ? "digital presence"
               : "technology infrastructure"}
-            ?
+            ? Let's discuss your project.
           </motion.p>
         </motion.div>
       </div>

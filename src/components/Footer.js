@@ -238,10 +238,10 @@ const Footer = () => {
             {/* Copyright */}
             <div className="text-center lg:text-left">
               <p className="text-gray-400 text-sm flex items-center gap-2">
-                © 2024 <span className="text-orange-400 font-semibold">DigitalPro</span>. All rights reserved.
+                © 2024 <span className="text-orange-400 font-semibold">Amplinova</span>. All rights reserved.
                 <span className="text-gray-600">|</span>
                 <span className="text-gray-500 flex items-center gap-1">
-                  Made with <FaHeart className="w-3 h-3 text-red-400" /> by DigitalPro Team
+                  Made with <FaHeart className="w-3 h-3 text-red-400" /> by Amplinova Team
                 </span>
               </p>
               <p className="text-gray-500 text-xs mt-1">
