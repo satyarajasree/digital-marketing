@@ -2,7 +2,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  FaRobot, 
   FaTimes, 
   FaPaperPlane, 
   FaUser, 
@@ -46,12 +45,7 @@ IMPORTANT RULES:
 
 If users ask about non-marketing topics, politely redirect to marketing discussions.`;
 
-  const initialGreeting = {
-    id: 1,
-    text: "Hello! I'm your DigitalPro Marketing Assistant. I specialize in digital marketing strategies, ROI optimization, and campaign planning. How can I help grow your business today?",
-    sender: 'bot',
-    timestamp: new Date()
-  };
+ 
 
   const marketingQuickReplies = [
     "SEO strategy for my business",
@@ -74,10 +68,18 @@ If users ask about non-marketing topics, politely redirect to marketing discussi
   };
 
   useEffect(() => {
-    if (messages.length === 0) {
-      setMessages([initialGreeting]);
-    }
-  }, []);
+  const initialGreeting = {
+    id: 1,
+    text: "Hello! I'm your DigitalPro Marketing Assistant. I specialize in digital marketing strategies, ROI optimization, and campaign planning. How can I help grow your business today?",
+    sender: 'bot',
+    timestamp: new Date()
+  };
+
+  if (messages.length === 0) {
+    setMessages([initialGreeting]);
+  }
+}, [messages.length]);
+
 
   useEffect(() => {
     scrollToBottom();

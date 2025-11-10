@@ -66,6 +66,7 @@ const BlogDetail = () => {
     },
   };
 
+  useEffect(() => {
   // Fetch blog post
   const fetchBlogPost = async () => {
     try {
@@ -95,6 +96,11 @@ const BlogDetail = () => {
       setLoading(false);
     }
   };
+
+  fetchBlogPost(); // ✅ Call the function immediately
+
+}, [slug]); // Only depend on slug
+
 
   // Fetch related posts
   const fetchRelatedPosts = async (categoryId) => {
@@ -136,9 +142,7 @@ const BlogDetail = () => {
   };
 
   // Fetch data when slug changes
-  useEffect(() => {
-    if (slug) fetchBlogPost();
-  }, [slug]);
+ 
 
   const formatDate = (dateString) => {
     if (!dateString) return "";

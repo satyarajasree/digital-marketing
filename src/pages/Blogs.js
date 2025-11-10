@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import {
-  FaBookOpen,
   FaUser,
   FaCalendarAlt,
   FaClock,
@@ -52,7 +51,7 @@ const Blogs = () => {
     axios.get(`${API_BASE}/posts/`, { params: { search: searchQuery } })
       .then(res => setBlogPosts(res.data.results))
       .finally(() => setLoadingPosts(false));
-  }, []);
+  }, [searchQuery]);
 
   // Fetch Categories
   useEffect(() => {

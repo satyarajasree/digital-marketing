@@ -7,7 +7,6 @@ import {
   FaPhone,
   FaCheck,
   FaLightbulb,
-  FaRocket
 } from 'react-icons/fa';
 
 const Contact = ({ 
