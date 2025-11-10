@@ -5,6 +5,9 @@ import {
   FaUser, 
   FaEnvelope,
   FaPhone,
+  FaCheck,
+  FaLightbulb,
+  FaRocket
 } from 'react-icons/fa';
 
 const Contact = ({ 
@@ -89,7 +92,7 @@ const Contact = ({
         return "Drive results with data-driven marketing strategies.";
       case "combined":
       default:
-        return "Transform your vision into reality. Share your details and we'll get back to you.";
+        return "Transform your vision into reality. Share your details and we'll get back to you within 24 hours.";
     }
   };
 
@@ -102,6 +105,33 @@ const Contact = ({
       case "combined":
       default:
         return "from-blue-500 to-purple-600";
+    }
+  };
+
+  const getBenefits = () => {
+    switch (mode) {
+      case "it":
+        return [
+          "Expert technical consultation",
+          "Custom software development",
+          "24/7 support & maintenance",
+          "Scalable cloud solutions"
+        ];
+      case "marketing":
+        return [
+          "Data-driven strategy session",
+          "Competitor analysis report",
+          "Custom marketing plan",
+          "ROI-focused campaigns"
+        ];
+      case "combined":
+      default:
+        return [
+          "Free project consultation",
+          "Detailed proposal within 24h",
+          "Dedicated project manager",
+          "Flexible engagement models"
+        ];
     }
   };
 
@@ -120,24 +150,64 @@ const Contact = ({
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
+          className="max-w-6xl mx-auto"
         >
-          {/* Header */}
-          <motion.div variants={itemVariants} className="text-center mb-8">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight">
-              {getMainTitle()}
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              {getSubtitle()}
-            </p>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Side - Text Content */}
+            <motion.div variants={itemVariants} className="space-y-8">
+              <div className="space-y-6">
+                <div>
+                  <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight">
+                    {getMainTitle()}
+                  </h2>
+                  <p className="text-lg text-gray-600 leading-relaxed">
+                    {getSubtitle()}
+                  </p>
+                </div>
 
-          {/* Form */}
-          <motion.div variants={itemVariants}>
-            <div className="bg-white rounded-2xl border border-gray-200 p-6 lg:p-8 shadow-xl">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Side by side fields */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Benefits List */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
+                    <FaLightbulb className="text-yellow-500" />
+                    What you'll get:
+                  </h3>
+                  <ul className="space-y-3">
+                    {getBenefits().map((benefit, index) => (
+                      <li key={index} className="flex items-start gap-3 text-gray-700">
+                        <FaCheck className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Trust Indicators */}
+                <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                  <div className="flex items-center gap-4">
+                    <div className="flex -space-x-2">
+                      <div className="w-8 h-8 bg-blue-500 rounded-full border-2 border-white"></div>
+                      <div className="w-8 h-8 bg-green-500 rounded-full border-2 border-white"></div>
+                      <div className="w-8 h-8 bg-purple-500 rounded-full border-2 border-white"></div>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-800">
+                        Join 500+ satisfied clients
+                      </p>
+                      <p className="text-xs text-gray-600">
+                        Trusted by businesses worldwide
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Side - Form */}
+            <motion.div variants={itemVariants} className="lg:pl-8">
+              <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-xl">
+               
+
+                <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name Field */}
                   <div className="space-y-2">
                     <label htmlFor="name" className="flex items-center gap-2 text-sm font-medium text-gray-700">
@@ -152,25 +222,7 @@ const Contact = ({
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                      placeholder="Your name"
-                    />
-                  </div>
-
-                  {/* Mobile Field */}
-                  <div className="space-y-2">
-                    <label htmlFor="mobile" className="flex items-center gap-2 text-sm font-medium text-gray-700">
-                      <FaPhone className="w-4 h-4 text-green-500" />
-                      Mobile *
-                    </label>
-                    <input
-                      type="tel"
-                      id="mobile"
-                      name="mobile"
-                      value={formData.mobile}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                      placeholder="Your mobile"
+                      placeholder="Enter your full name"
                     />
                   </div>
 
@@ -178,7 +230,7 @@ const Contact = ({
                   <div className="space-y-2">
                     <label htmlFor="email" className="flex items-center gap-2 text-sm font-medium text-gray-700">
                       <FaEnvelope className="w-4 h-4 text-orange-500" />
-                      Email *
+                      Email Address *
                     </label>
                     <input
                       type="email"
@@ -188,36 +240,59 @@ const Contact = ({
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                      placeholder="Your email"
+                      placeholder="your.email@company.com"
                     />
                   </div>
-                </div>
 
-                {/* Submit Button */}
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={`w-full bg-gradient-to-r ${getGradientColors()} text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-3 ${
-                    isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl'
-                  }`}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <FaPaperPlane className="w-5 h-5" />
-                      Contact Us Now
-                    </>
-                  )}
-                </motion.button>
-              </form>
-            </div>
-          </motion.div>
+                  {/* Mobile Field */}
+                  <div className="space-y-2">
+                    <label htmlFor="mobile" className="flex items-center gap-2 text-sm font-medium text-gray-700">
+                      <FaPhone className="w-4 h-4 text-green-500" />
+                      Mobile Number *
+                    </label>
+                    <input
+                      type="tel"
+                      id="mobile"
+                      name="mobile"
+                      value={formData.mobile}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                      placeholder="+1 (555) 000-0000"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <motion.button
+                    type="submit"
+                    disabled={isSubmitting}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`w-full bg-gradient-to-r ${getGradientColors()} text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-3 ${
+                      isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl'
+                    }`}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        Processing...
+                      </>
+                    ) : (
+                      <>
+                        <FaPaperPlane className="w-5 h-5" />
+                        Start Conversation
+                      </>
+                    )}
+                  </motion.button>
+
+                  {/* Privacy Note */}
+                  <p className="text-xs text-gray-500 text-center mt-4">
+                    By submitting this form, you agree to our privacy policy. We respect your data.
+                  </p>
+                </form>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

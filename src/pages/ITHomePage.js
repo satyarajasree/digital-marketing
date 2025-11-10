@@ -16,11 +16,7 @@ const ITHomePage = () => {
     <div>
       <Navbar />
       <Hero mode="it" />
-      <Contact
-        mode="it"
-        title="Start Your IT Project"
-        subtitle="Let's discuss your technology needs and build something amazing together."
-      />
+     
       <ITServices />
       <Process mode="it-services" />
       <Industries mode="it-services" />
@@ -28,6 +24,11 @@ const ITHomePage = () => {
       <OurClients mode="it-services" />
       <OurWork mode="it-services" />
       <FAQ mode="it-services"/>
+       <Contact
+        mode="it"
+        title="Start Your IT Project"
+        subtitle="Let's discuss your technology needs and build something amazing together."
+      />
       <Footer />
     </div>
   );

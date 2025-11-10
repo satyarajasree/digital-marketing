@@ -1,10 +1,16 @@
+// src/components/OurWork.js
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import CollageGrid from "../components/CollageGrid";
 import {
   FaArrowRight,
   FaExternalLinkAlt,
+  FaChartLine,
+  FaUsers,
+  FaMobileAlt,
+  FaRocket
 } from "react-icons/fa";
 
 const OurWork = ({ mode = "digital-marketing" }) => {
@@ -70,7 +76,7 @@ const OurWork = ({ mode = "digital-marketing" }) => {
     },
   };
 
-  // Portfolio data with real online images
+  // Portfolio case studies data
   const portfolioData = {
     "digital-marketing": [
       {
@@ -79,9 +85,9 @@ const OurWork = ({ mode = "digital-marketing" }) => {
         description: "Complete digital marketing overhaul for a fashion retailer, driving unprecedented growth through strategic SEO, social media campaigns, and conversion rate optimization.",
         category: "E-commerce & Retail",
         results: [
-          { metric: "Revenue Growth", value: "250%", change: "+" },
-          { metric: "Organic Traffic", value: "180%", change: "+" },
-          { metric: "Social Engagement", value: "320%", change: "+" }
+          { metric: "Revenue Growth", value: "250%", change: "+", icon: FaChartLine },
+          { metric: "Organic Traffic", value: "180%", change: "+", icon: FaUsers },
+          { metric: "Social Engagement", value: "320%", change: "+", icon: FaRocket }
         ],
         timeline: "3 Months",
         technologies: ["SEO", "PPC", "Social Media", "Email Marketing", "CRO"],
@@ -95,9 +101,9 @@ const OurWork = ({ mode = "digital-marketing" }) => {
         description: "360-degree digital campaign for a fitness app launch, creating massive buzz and driving high-quality downloads through targeted social advertising and influencer partnerships.",
         category: "Mobile App Marketing",
         results: [
-          { metric: "App Downloads", value: "50K", change: "+" },
-          { metric: "User Retention", value: "85%", change: "+" },
-          { metric: "Campaign ROI", value: "400%", change: "+" }
+          { metric: "App Downloads", value: "50K", change: "+", icon: FaMobileAlt },
+          { metric: "User Retention", value: "85%", change: "+", icon: FaUsers },
+          { metric: "Campaign ROI", value: "400%", change: "+", icon: FaChartLine }
         ],
         timeline: "2 Months",
         technologies: ["App Store Optimization", "Social Ads", "Influencer Marketing", "Content Strategy"],
@@ -111,9 +117,9 @@ const OurWork = ({ mode = "digital-marketing" }) => {
         description: "Strategic digital marketing approach for B2B tech company, focusing on high-quality lead generation and establishing thought leadership in the enterprise software space.",
         category: "B2B Marketing",
         results: [
-          { metric: "Qualified Leads", value: "300%", change: "+" },
-          { metric: "Cost per Lead", value: "45%", change: "-" },
-          { metric: "Conversion Rate", value: "22%", change: "+" }
+          { metric: "Qualified Leads", value: "300%", change: "+", icon: FaUsers },
+          { metric: "Cost per Lead", value: "45%", change: "-", icon: FaChartLine },
+          { metric: "Conversion Rate", value: "22%", change: "+", icon: FaRocket }
         ],
         timeline: "6 Months",
         technologies: ["LinkedIn Ads", "Content Syndication", "Webinars", "Account-Based Marketing"],
@@ -129,9 +135,9 @@ const OurWork = ({ mode = "digital-marketing" }) => {
         description: "Large-scale migration of legacy financial systems to secure cloud infrastructure, ensuring compliance, scalability, and enhanced performance for critical financial operations.",
         category: "Cloud Infrastructure",
         results: [
-          { metric: "Infrastructure Cost", value: "40%", change: "-" },
-          { metric: "System Performance", value: "300%", change: "+" },
-          { metric: "Uptime SLA", value: "99.9%", change: "+" }
+          { metric: "Infrastructure Cost", value: "40%", change: "-", icon: FaChartLine },
+          { metric: "System Performance", value: "300%", change: "+", icon: FaRocket },
+          { metric: "Uptime SLA", value: "99.9%", change: "+", icon: FaUsers }
         ],
         timeline: "8 Months",
         technologies: ["AWS", "Docker", "Kubernetes", "Terraform", "Security"],
@@ -145,9 +151,9 @@ const OurWork = ({ mode = "digital-marketing" }) => {
         description: "Enterprise-grade CRM solution with advanced analytics, automation workflows, and seamless integration with existing sales tools and communication platforms.",
         category: "Web Application",
         results: [
-          { metric: "Sales Efficiency", value: "60%", change: "+" },
-          { metric: "Data Accuracy", value: "95%", change: "+" },
-          { metric: "Reporting Time", value: "80%", change: "-" }
+          { metric: "Sales Efficiency", value: "60%", change: "+", icon: FaRocket },
+          { metric: "Data Accuracy", value: "95%", change: "+", icon: FaChartLine },
+          { metric: "Reporting Time", value: "80%", change: "-", icon: FaUsers }
         ],
         timeline: "5 Months",
         technologies: ["React", "Node.js", "MongoDB", "Redis", "API Integration"],
@@ -161,9 +167,9 @@ const OurWork = ({ mode = "digital-marketing" }) => {
         description: "Secure mobile banking platform with biometric authentication, real-time transactions, and advanced fraud detection for modern digital banking experience.",
         category: "Mobile Development",
         results: [
-          { metric: "User Adoption", value: "85%", change: "+" },
-          { metric: "Security Score", value: "9.8/10", change: "+" },
-          { metric: "Customer Rating", value: "4.9★", change: "+" }
+          { metric: "User Adoption", value: "85%", change: "+", icon: FaUsers },
+          { metric: "Security Score", value: "9.8/10", change: "+", icon: FaChartLine },
+          { metric: "Customer Rating", value: "4.9★", change: "+", icon: FaRocket }
         ],
         timeline: "6 Months",
         technologies: ["React Native", "Firebase", "Biometric Auth", "REST APIs", "Security"],
@@ -198,8 +204,6 @@ const OurWork = ({ mode = "digital-marketing" }) => {
         >
           {/* Header Section */}
           <div className="text-center mb-20">
-           
-
             <motion.h2
               variants={itemVariants}
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
@@ -220,12 +224,24 @@ const OurWork = ({ mode = "digital-marketing" }) => {
               }
             </motion.p>
           </div>
+
+          {/* Collage Grid Section */}
+          <motion.div
+            variants={itemVariants}
+            className="mb-20"
+          >
+            <CollageGrid 
+              mode={mode}
+              title="Visual Portfolio"
+              className="mb-16"
+              maxColumns={10}
+            />
           </motion.div>
 
-          {/* Portfolio Grid Layout with Images */}
+          {/* Case Studies Section */}
           <motion.div
             variants={containerVariants}
-            className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
           >
             {currentPortfolio.map((project, index) => (
               <motion.div
@@ -290,6 +306,7 @@ const OurWork = ({ mode = "digital-marketing" }) => {
                   <div className="grid grid-cols-3 gap-3 mb-4">
                     {project.results.map((result, resultIndex) => (
                       <div key={resultIndex} className={`text-center p-2 rounded-lg ${themeConfig.statBg} border ${themeConfig.border}`}>
+                        <result.icon className={`w-4 h-4 mx-auto mb-1 ${themeConfig.badgeText}`} />
                         <div className={`text-lg font-bold ${themeConfig.badgeText}`}>
                           {result.value}
                         </div>
@@ -336,9 +353,25 @@ const OurWork = ({ mode = "digital-marketing" }) => {
                 <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${themeConfig.overlayGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
               </motion.div>
             ))}
-          
+          </motion.div>
 
-         
+          {/* CTA Section */}
+          <motion.div
+            variants={itemVariants}
+            className="text-center"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`bg-gradient-to-r ${themeConfig.gradient} text-white px-8 py-4 rounded-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 relative overflow-hidden group`}
+            >
+              <span className="relative z-10">View Full Portfolio</span>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                initial={false}
+              />
+            </motion.button>
+          </motion.div>
         </motion.div>
       </div>
     </section>

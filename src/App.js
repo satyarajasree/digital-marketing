@@ -18,6 +18,8 @@ import GraphicsDesigning from './services/GraphicsDesigning';
 import Seo from'./pages/Seo';
 import ITHomePage from './pages/ITHomePage';
 import DigitalMarketing from './pages/DigitalMarketing';
+import ServicesPage from './components/ServicesPage';
+import IndustriesPage from './components/IndustriesPage';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -114,6 +116,11 @@ const App = () => {
 
       <Route path='/it' element={<ITHomePage/>} />
       <Route path='/marketing' element={<DigitalMarketing/>}/>
+
+      <Route path="/services/:category/:service" element={<ServicesPage />} />
+        
+        {/* Industries Routes */}
+        <Route path="/industries/:category/:industry" element={<IndustriesPage />} />
     </Routes>
     </BrowserRouter>
     <Chatbot />

@@ -16,11 +16,7 @@ const DigitalMarketing = () => {
     <div>
       <Navbar />
       <Hero mode="marketing" />
-      <Contact
-        mode="marketing"
-        title="Boost Your Marketing Results"
-        subtitle="Ready to grow your business? Share your goals and we'll create a winning strategy."
-      />
+      
       <DigitalMarketingServices />
       <Process mode="digital-marketing" />
       <Industries mode="digital-marketing" />
@@ -28,6 +24,11 @@ const DigitalMarketing = () => {
       <OurClients mode="digital-marketing" />
       <OurWork mode="digital-marketing" />
       <FAQ mode="digital-marketing"/>
+      <Contact
+        mode="marketing"
+        title="Boost Your Marketing Results"
+        subtitle="Ready to grow your business? Share your goals and we'll create a winning strategy."
+      />
       <Footer />
     </div>
   );

@@ -9,19 +9,21 @@ import OurClients from '../components/OurClients';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
+import WhyChooseUs from '../components/WhyChooseUs';
 
 const Homepage = () => {
   return (
     <div className="min-h-screen bg-black">
       <Navbar />
       <Hero  mode='combined'/>
-      <Contact mode='combined' />
+      <WhyChooseUs mode="it-services" />
       <Services />
       <WhoWeAre/>
       <OurClients mode='home' />
       <Portfolio />
       <Testimonials />
       <FAQ mode='home'/>
+      <Contact mode='combined' />
       <Footer />
     </div>
   );
