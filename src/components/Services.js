@@ -28,14 +28,18 @@ const ServiceCard = ({ title, description, icon, index, isVisible, category }) =
       hoverGradient: "from-orange-500 to-red-500",
       light: "from-orange-500/20 to-red-500/20",
       text: "text-orange-500",
-      border: "border-orange-500/50"
+      border: "border-orange-500/50",
+      iconBg: "bg-orange-500/10",
+      iconColor: "text-yellow-400" // Changed to yellow for contrast
     },
     "it-services": {
       gradient: "from-blue-500 to-cyan-500",
       hoverGradient: "from-blue-500 to-blue-600",
       light: "from-blue-500/20 to-cyan-500/20",
       text: "text-blue-500",
-      border: "border-blue-500/50"
+      border: "border-blue-500/50",
+      iconBg: "bg-blue-500/10",
+      iconColor: "text-cyan-300" // Changed to cyan for contrast
     }
   };
 
@@ -109,19 +113,28 @@ const ServiceCard = ({ title, description, icon, index, isVisible, category }) =
         />
 
         <div className="relative z-10">
-          {/* Icon Container */}
+          {/* Icon Container - Updated with distinct icon colors */}
           <motion.div
             variants={iconVariants}
             animate={isHovered ? "hover" : "normal"}
-            className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${colors.gradient} mb-6 relative overflow-hidden`}
+            className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${colors.iconBg} border ${colors.border} mb-6 relative overflow-hidden group/icon`}
           >
             {/* Icon Background Shine */}
             <motion.div
               animate={{ x: isHovered ? ["0%", "200%"] : "0%" }}
               transition={{ duration: 0.6 }}
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12"
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12"
             />
-            <div className="text-white text-2xl relative z-10">{icon}</div>
+            {/* Distinct Colored Icon */}
+            <motion.div
+              className={`text-2xl ${colors.iconColor} relative z-10`}
+              animate={{ 
+                scale: isHovered ? 1.2 : 1,
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              {icon}
+            </motion.div>
           </motion.div>
 
           {/* Title */}
@@ -212,8 +225,6 @@ const ServiceToggle = ({ activeCategory, onToggle, isVisible }) => {
             <span className="relative z-10">Digital Marketing</span>
           </motion.button>
 
-         
-
           {/* IT Services Option */}
           <motion.button
             onClick={() => onToggle("it-services")}
@@ -228,7 +239,6 @@ const ServiceToggle = ({ activeCategory, onToggle, isVisible }) => {
               }
             `}
           >
-            
             <span className="relative z-10">
               <FaCogs className="w-5 h-5" />
             </span>
@@ -262,70 +272,70 @@ const Services = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Services data for homepage with toggle
+  // Services data for homepage with distinct icon colors
   const servicesData = {
     "digital-marketing": [
       {
         title: "SEO Optimization",
         description: "Boost your search rankings and drive organic traffic with our comprehensive SEO strategies and technical optimization.",
-        icon: <FaGoogle />,
+        icon: <FaGoogle className="text-yellow-400" />,
       },
       {
         title: "Social Media Marketing",
         description: "Engage your audience and build brand loyalty through strategic social media campaigns across all major platforms.",
-        icon: <FaHashtag />,
+        icon: <FaHashtag className="text-yellow-400" />,
       },
       {
         title: "Content Marketing",
         description: "Create compelling content that drives engagement, builds authority, and converts visitors into customers.",
-        icon: <FaPenFancy />,
+        icon: <FaPenFancy className="text-yellow-400" />,
       },
       {
         title: "PPC Advertising",
         description: "Drive immediate results with targeted pay-per-click campaigns that maximize your advertising ROI and conversion rates.",
-        icon: <FaAd />,
+        icon: <FaAd className="text-yellow-400" />,
       },
       {
         title: "Email Marketing",
         description: "Nurture leads and retain customers with personalized email campaigns that drive engagement and sales.",
-        icon: <FaMailBulk />,
+        icon: <FaMailBulk className="text-yellow-400" />,
       },
       {
         title: "Analytics & Reporting",
         description: "Make data-driven decisions with comprehensive analytics and performance reports that track your marketing success.",
-        icon: <FaAnchorCircleExclamation />,
+        icon: <FaAnchorCircleExclamation className="text-yellow-400" />,
       }
     ],
     "it-services": [
       {
         title: "Web Development",
         description: "Build responsive, high-performance websites and web applications using the latest technologies and best practices.",
-        icon: <FaCode />,
+        icon: <FaCode className="text-cyan-300" />,
       },
       {
         title: "Mobile App Development",
         description: "Create intuitive, feature-rich mobile applications for iOS and Android that deliver exceptional user experiences.",
-        icon: <FaMobile />,
+        icon: <FaMobile className="text-cyan-300" />,
       },
       {
         title: "Cloud Solutions",
         description: "Migrate, deploy, and optimize your infrastructure with secure and scalable cloud solutions tailored to your needs.",
-        icon: <FaCloud />,
+        icon: <FaCloud className="text-cyan-300" />,
       },
       {
         title: "Cyber Security",
         description: "Protect your digital assets with enterprise-grade security solutions, threat monitoring, and vulnerability assessments.",
-        icon: <FaShieldAlt />,
+        icon: <FaShieldAlt className="text-cyan-300" />,
       },
       {
         title: "IT Infrastructure",
         description: "Design and implement robust IT infrastructure that supports your business growth and ensures operational excellence.",
-        icon: <FaServer />,
+        icon: <FaServer className="text-cyan-300" />,
       },
       {
         title: "Database Management",
         description: "Optimize database performance, ensure data integrity, and implement efficient data management solutions.",
-        icon: <FaDatabase />,
+        icon: <FaDatabase className="text-cyan-300" />,
       }
     ],
   };

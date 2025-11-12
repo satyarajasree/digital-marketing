@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-const WhyChooseUs = ({ mode = "digital-marketing" }) => {
+const WhyChooseUs = ({ mode = "combined" }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.1 });
 
@@ -26,7 +26,7 @@ const WhyChooseUs = ({ mode = "digital-marketing" }) => {
         cardHover: "hover:border-orange-300",
         textGradient: "from-orange-600 to-red-600"
       };
-    } else {
+    } else if (mode === "it-services") {
       return {
         gradient: "from-blue-600 to-purple-600",
         lightGradient: "from-blue-500 to-purple-500",
@@ -43,6 +43,25 @@ const WhyChooseUs = ({ mode = "digital-marketing" }) => {
         lineColor: "bg-blue-200",
         cardHover: "hover:border-blue-300",
         textGradient: "from-blue-600 to-purple-600"
+      };
+    } else {
+      // Combined theme
+      return {
+        gradient: "from-purple-600 to-blue-600",
+        lightGradient: "from-purple-500 to-blue-500",
+        bgFrom: "from-purple-50",
+        bgVia: "via-white",
+        bgTo: "to-blue-50",
+        orb1: "from-purple-100 to-blue-100",
+        orb2: "from-indigo-50 to-cyan-100",
+        border: "border-purple-100",
+        badgeText: "text-purple-700",
+        badgeBorder: "border-purple-100",
+        iconColor: "text-purple-600",
+        buttonBg: "bg-purple-100",
+        lineColor: "bg-purple-200",
+        cardHover: "hover:border-purple-300",
+        textGradient: "from-purple-600 to-blue-600"
       };
     }
   };
@@ -97,7 +116,7 @@ const WhyChooseUs = ({ mode = "digital-marketing" }) => {
           { value: "98%", label: "Client Retention Rate" }
         ]
       };
-    } else {
+    } else if (mode === "it-services") {
       return {
         projectsCompleted: "1200+",
         clientsServed: "450+",
@@ -108,14 +127,28 @@ const WhyChooseUs = ({ mode = "digital-marketing" }) => {
           { value: "24/7", label: "Support Available" }
         ]
       };
+    } else {
+      return {
+        projectsCompleted: "2050+",
+        clientsServed: "770+",
+        projectsDescription: "Total Projects",
+        clientsDescription: "Happy Clients",
+        additionalStats: [
+          { value: "99%", label: "Client Satisfaction" },
+          { value: "10+", label: "Years Experience" }
+        ]
+      };
     }
   };
 
   // Image URLs based on mode
   const imageUrls = {
     "digital-marketing": "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    "it-services": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    "it-services": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    "combined": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
   };
+
+  
 
   const statsData = getStatsData();
 
@@ -149,7 +182,8 @@ const WhyChooseUs = ({ mode = "digital-marketing" }) => {
             >
               Why Choose{" "}
               <span className={`bg-gradient-to-r ${themeConfig.gradient} bg-clip-text text-transparent relative inline-block`}>
-                {mode === "digital-marketing" ? "Our Marketing" : "Our IT"}
+                {mode === "digital-marketing" ? "Our Marketing" : 
+                 mode === "it-services" ? "Our IT" : "Our Complete"}
                 <motion.div
                   className={`absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r ${themeConfig.lightGradient} rounded-full`}
                   initial={{ scaleX: 0 }}
@@ -158,7 +192,7 @@ const WhyChooseUs = ({ mode = "digital-marketing" }) => {
                 />
               </span>
               <br />
-              Services?
+              {mode === "combined" ? "Digital Solutions?" : "Services?"}
             </motion.h2>
 
             <motion.p
@@ -167,7 +201,9 @@ const WhyChooseUs = ({ mode = "digital-marketing" }) => {
             >
               {mode === "digital-marketing" 
                 ? "We combine data-driven strategies with creative excellence to deliver measurable results that drive your business growth and market presence."
-                : "We deliver robust, scalable technology solutions with a focus on security, performance, and long-term value for your business."
+                : mode === "it-services" 
+                ? "We deliver robust, scalable technology solutions with a focus on security, performance, and long-term value for your business."
+                : "We provide comprehensive digital solutions that combine cutting-edge technology with strategic marketing to drive your business growth and digital transformation."
               }
             </motion.p>
           </div>
@@ -184,7 +220,11 @@ const WhyChooseUs = ({ mode = "digital-marketing" }) => {
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                   <img 
                     src={imageUrls[mode]} 
-                    alt={mode === "digital-marketing" ? "Digital Marketing Team" : "IT Services Team"}
+                    alt={
+                      mode === "digital-marketing" ? "Digital Marketing Team" : 
+                      mode === "it-services" ? "IT Services Team" : 
+                      "Complete Digital Solutions Team"
+                    }
                     className="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700"
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300`} />
@@ -202,18 +242,23 @@ const WhyChooseUs = ({ mode = "digital-marketing" }) => {
                   <h3 className="text-3xl font-bold text-gray-900 mb-4">
                     {mode === "digital-marketing" 
                       ? "Transform Your Digital Presence" 
-                      : "Build Future-Ready Technology Solutions"
+                      : mode === "it-services"
+                      ? "Build Future-Ready Technology Solutions"
+                      : "Complete Digital Transformation"
                     }
                   </h3>
                   <p className="text-lg text-gray-600 leading-relaxed mb-8">
                     {mode === "digital-marketing"
                       ? "Our comprehensive digital marketing services are designed to elevate your brand, engage your audience, and drive sustainable growth through innovative strategies and data-driven insights."
-                      : "From concept to deployment, we create technology solutions that not only solve today's challenges but also scale for tomorrow's opportunities with security and reliability at the core."
+                      : mode === "it-services"
+                      ? "From concept to deployment, we create technology solutions that not only solve today's challenges but also scale for tomorrow's opportunities with security and reliability at the core."
+                      : "Get the best of both worlds - powerful technology infrastructure combined with strategic digital marketing. We provide end-to-end solutions that cover your entire digital ecosystem."
                     }
                   </p>
                 </div>
+                
 
-                {/* Stats Section - Integrated into content flow */}
+                {/* Stats Section */}
                 <motion.div
                   variants={statsVariants}
                   className="grid grid-cols-2 gap-6 py-6 border-y border-gray-200"

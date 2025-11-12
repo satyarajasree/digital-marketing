@@ -24,7 +24,6 @@ import {
   FaCode,
   FaCity,
   FaAddressCard,
-  FaVideo,
   FaLaptopCode,
   FaMobileAlt,
   FaSearch,
@@ -32,7 +31,6 @@ import {
   FaCloud,
   FaDatabase,
   FaNetworkWired,
-  FaCogs,
 } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
@@ -62,27 +60,27 @@ const Navbar = () => {
 
   // Check if services dropdown should be considered active
   const isServicesActive = () => {
-    return servicesCategories.some(category => 
-      category.services.some(service => 
-        activeTab.startsWith(service.href)
-      )
-    ) || activeTab.startsWith("/services");
+    return (
+      servicesCategories.some((category) =>
+        category.services.some((service) => activeTab.startsWith(service.href))
+      ) || activeTab.startsWith("/services")
+    );
   };
 
   // Check if industry dropdown should be considered active
   const isIndustryActive = () => {
-    return industryCategories.some(category => 
-      category.industries.some(industry => 
-        activeTab.startsWith(industry.href)
-      )
-    ) || activeTab.startsWith("/industries");
+    return (
+      industryCategories.some((category) =>
+        category.industries.some((industry) =>
+          activeTab.startsWith(industry.href)
+        )
+      ) || activeTab.startsWith("/industries")
+    );
   };
 
   // Check if more dropdown should be considered active
   const isMoreActive = () => {
-    return moreItems.some(item => 
-      activeTab.startsWith(item.href)
-    );
+    return moreItems.some((item) => activeTab.startsWith(item.href));
   };
 
   // IT Services
@@ -120,12 +118,7 @@ const Navbar = () => {
         icon: FaDatabase,
         href: "/services/it/database",
       },
-      {
-        name: "Software Development",
-        icon: FaCogs,
-        href: "/services/it/software-development",
-      },
-    ]
+    ],
   };
 
   // Digital Marketing Services
@@ -158,17 +151,13 @@ const Navbar = () => {
         icon: FaEnvelope,
         href: "/services/digital-marketing/email",
       },
-      {
-        name: "Video Marketing",
-        icon: FaVideo,
-        href: "/services/digital-marketing/video",
-      },
+
       {
         name: "Analytics & Reporting",
         icon: FaChartLine,
         href: "/services/digital-marketing/analytics",
       },
-    ]
+    ],
   };
 
   const servicesCategories = [itServices, digitalMarketingServices];
@@ -198,7 +187,7 @@ const Navbar = () => {
         icon: FaCity,
         href: "/industries/service/real-estate",
       },
-    ]
+    ],
   };
 
   // Product Industries
@@ -226,7 +215,7 @@ const Navbar = () => {
         icon: FaShoppingCart,
         href: "/industries/product/fmcg",
       },
-    ]
+    ],
   };
 
   const industryCategories = [serviceIndustries, productIndustries];
@@ -297,7 +286,9 @@ const Navbar = () => {
   };
 
   const toggleNestedIndustryDropdown = (category) => {
-    setNestedIndustryDropdown(nestedIndustryDropdown === category ? null : category);
+    setNestedIndustryDropdown(
+      nestedIndustryDropdown === category ? null : category
+    );
   };
 
   // Active tab styles
@@ -369,7 +360,10 @@ const Navbar = () => {
                 }}
               >
                 {marqueeMessages.map((message, index) => (
-                  <span key={index} className="inline-block mx-8 text-yellow-300 font-semibold">
+                  <span
+                    key={index}
+                    className="inline-block mx-8 text-yellow-300 font-semibold"
+                  >
                     {message}
                   </span>
                 ))}
@@ -463,9 +457,13 @@ const Navbar = () => {
               >
                 <FaHome className="w-4 h-4 mr-2" />
                 Home
-                <span className={`absolute bottom-0 left-0 transition-all duration-300 ${
-                  isActive("/") ? activeBorderStyles : "w-0 h-0.5 bg-orange-500 group-hover:w-full"
-                }`}></span>
+                <span
+                  className={`absolute bottom-0 left-0 transition-all duration-300 ${
+                    isActive("/")
+                      ? activeBorderStyles
+                      : "w-0 h-0.5 bg-orange-500 group-hover:w-full"
+                  }`}
+                ></span>
               </motion.a>
 
               <motion.a
@@ -477,30 +475,43 @@ const Navbar = () => {
               >
                 <FaCode className="w-4 h-4 mr-2" />
                 IT Solutions
-                <span className={`absolute bottom-0 left-0 transition-all duration-300 ${
-                  isActive("/it") ? activeBorderStyles : "w-0 h-0.5 bg-orange-500 group-hover:w-full"
-                }`}></span>
+                <span
+                  className={`absolute bottom-0 left-0 transition-all duration-300 ${
+                    isActive("/it")
+                      ? activeBorderStyles
+                      : "w-0 h-0.5 bg-orange-500 group-hover:w-full"
+                  }`}
+                ></span>
               </motion.a>
 
               <motion.a
                 href="/marketing"
                 className={`transition-colors duration-300 font-semibold relative group flex items-center ${
-                  isActive("/marketing") ? activeStyles : "hover:text-orange-400"
+                  isActive("/marketing")
+                    ? activeStyles
+                    : "hover:text-orange-400"
                 }`}
                 whileHover={{ y: -2 }}
               >
                 <FaRocket className="w-4 h-4 mr-2" />
                 Digital Marketing
-                <span className={`absolute bottom-0 left-0 transition-all duration-300 ${
-                  isActive("/marketing") ? activeBorderStyles : "w-0 h-0.5 bg-orange-500 group-hover:w-full"
-                }`}></span>
+                <span
+                  className={`absolute bottom-0 left-0 transition-all duration-300 ${
+                    isActive("/marketing")
+                      ? activeBorderStyles
+                      : "w-0 h-0.5 bg-orange-500 group-hover:w-full"
+                  }`}
+                ></span>
               </motion.a>
 
               {/* Services Dropdown */}
               <div
                 className="relative"
                 onMouseEnter={() => setIsServicesOpen(true)}
-                onMouseLeave={() => setIsServicesOpen(false)}
+                onMouseLeave={() => {
+                  setIsServicesOpen(false);
+                  setNestedDropdown(null);
+                }}
               >
                 <motion.button
                   className={`transition-colors duration-300 flex items-center font-semibold relative group ${
@@ -516,86 +527,97 @@ const Navbar = () => {
                   >
                     <FaChevronDown className="w-3 h-3 ml-2" />
                   </motion.div>
-                  <span className={`absolute bottom-0 left-0 transition-all duration-300 ${
-                    isServicesActive() ? activeBorderStyles : "w-0 h-0.5 bg-orange-500 group-hover:w-full"
-                  }`}></span>
+                  <span
+                    className={`absolute bottom-0 left-0 transition-all duration-300 ${
+                      isServicesActive()
+                        ? activeBorderStyles
+                        : "w-0 h-0.5 bg-orange-500 group-hover:w-full"
+                    }`}
+                  ></span>
                 </motion.button>
 
                 <AnimatePresence>
                   {isServicesOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 15, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 15, scale: 0.95 }}
-                      className="absolute top-full left-0 mt-3 w-[500px] bg-gray-900 border border-gray-700 rounded-xl shadow-2xl backdrop-blur-lg z-50"
-                    >
-                      <div className="flex">
-                        {/* Categories Column */}
-                        <div className="w-2/5 border-r border-gray-700">
-                          {servicesCategories.map((category, index) => (
-                            <motion.div
-                              key={category.name}
-                              className={`p-3 border-b border-gray-800 cursor-pointer transition-all duration-300 ${
-                                nestedDropdown === category.name 
-                                  ? 'bg-orange-500 text-white' 
-                                  : 'hover:bg-gray-800'
-                              } ${
-                                category.services.some(service => isActive(service.href)) 
-                                  ? 'border-l-4 border-l-orange-500 bg-gray-800' 
-                                  : ''
-                              }`}
-                              onMouseEnter={() => setNestedDropdown(category.name)}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: index * 0.05 }}
-                            >
-                              <div className="flex items-center">
-                                <category.icon className="w-4 h-4 mr-2 flex-shrink-0" />
-                                <div className="font-semibold text-sm">{category.name}</div>
-                              </div>
-                            </motion.div>
-                          ))}
-                        </div>
-
-                        {/* Services Column */}
-                        <div className="w-3/5">
-                          {servicesCategories
-                            .find(cat => cat.name === nestedDropdown)
-                            ?.services.map((service, index) => (
-                              <motion.a
-                                key={service.name}
-                                href={service.href}
-                                className={`flex items-center px-4 py-3 transition-all duration-300 border-b border-gray-800 last:border-b-0 group ${
-                                  isActive(service.href)
-                                    ? 'bg-orange-500 text-white'
-                                    : 'hover:bg-orange-500 hover:text-white'
-                                }`}
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: index * 0.05 }}
-                                whileHover={{ x: 5 }}
-                              >
-                                <service.icon className={`w-4 h-4 mr-3 transition-colors duration-300 flex-shrink-0 ${
-                                  isActive(service.href) 
-                                    ? 'text-white' 
-                                    : 'text-orange-400 group-hover:text-white'
-                                }`} />
-                                <div className="font-semibold text-sm">{service.name}</div>
-                              </motion.a>
-                            ))}
-                          
-                          {/* Default view when no category is selected */}
-                          {!nestedDropdown && (
-                            <div className="flex items-center justify-center h-full min-h-[200px] text-gray-500">
-                              <div className="text-center">
-                                <FaRocket className="w-8 h-8 mx-auto mb-2 text-gray-600" />
-                                <p className="text-sm">Hover over a category to view services</p>
+                    <>
+                      {/* --- FIRST DROPDOWN: Categories --- */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.97 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.97 }}
+                        className="absolute top-full left-0 mt-3 w-[260px] bg-gray-900 border border-gray-700 rounded-l-xl rounded-r-none shadow-2xl backdrop-blur-lg z-50"
+                      >
+                        {servicesCategories.map((category, index) => (
+                          <motion.div
+                            key={category.name}
+                            className={`p-3 border-b border-gray-800 cursor-pointer transition-all duration-300 ${
+                              nestedDropdown === category.name
+                                ? "bg-orange-500 text-white"
+                                : "hover:bg-gray-800"
+                            } ${
+                              category.services.some((s) => isActive(s.href))
+                                ? "border-l-4 border-l-orange-500 bg-gray-800"
+                                : ""
+                            }`}
+                            onMouseEnter={() =>
+                              setNestedDropdown(category.name)
+                            }
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.05 }}
+                          >
+                            <div className="flex items-center">
+                              <category.icon className="w-4 h-4 mr-2 flex-shrink-0" />
+                              <div className="font-semibold text-sm">
+                                {category.name}
                               </div>
                             </div>
-                          )}
-                        </div>
-                      </div>
-                    </motion.div>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+
+                      {/* --- SECOND DROPDOWN: Nested Services --- */}
+                      <AnimatePresence>
+                        {nestedDropdown && (
+                          <motion.div
+                            key={nestedDropdown}
+                            initial={{ opacity: 0, y: 10, scale: 0.97 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 10, scale: 0.97 }}
+                            // ✅ No margin and no border radius on touching side
+                            className="absolute top-full left-[260px] mt-3 w-[260px] bg-gray-900 border border-l-0 border-gray-700 rounded-r-xl rounded-l-none shadow-2xl backdrop-blur-lg z-50"
+                          >
+                            {servicesCategories
+                              .find((cat) => cat.name === nestedDropdown)
+                              ?.services.map((service, index) => (
+                                <motion.a
+                                  key={service.name}
+                                  href={service.href}
+                                  className={`flex items-center px-4 py-3 transition-all duration-300 border-b border-gray-800 last:border-b-0 group ${
+                                    isActive(service.href)
+                                      ? "bg-orange-500 text-white"
+                                      : "hover:bg-orange-500 hover:text-white"
+                                  }`}
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: index * 0.05 }}
+                                  whileHover={{ x: 5 }}
+                                >
+                                  <service.icon
+                                    className={`w-4 h-4 mr-3 transition-colors duration-300 flex-shrink-0 ${
+                                      isActive(service.href)
+                                        ? "text-white"
+                                        : "text-orange-400 group-hover:text-white"
+                                    }`}
+                                  />
+                                  <div className="font-semibold text-sm">
+                                    {service.name}
+                                  </div>
+                                </motion.a>
+                              ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </>
                   )}
                 </AnimatePresence>
               </div>
@@ -604,7 +626,10 @@ const Navbar = () => {
               <div
                 className="relative"
                 onMouseEnter={() => setIsIndustryOpen(true)}
-                onMouseLeave={() => setIsIndustryOpen(false)}
+                onMouseLeave={() => {
+                  setIsIndustryOpen(false);
+                  setNestedIndustryDropdown(null);
+                }}
               >
                 <motion.button
                   className={`transition-colors duration-300 flex items-center font-semibold relative group ${
@@ -620,86 +645,100 @@ const Navbar = () => {
                   >
                     <FaChevronDown className="w-3 h-3 ml-2" />
                   </motion.div>
-                  <span className={`absolute bottom-0 left-0 transition-all duration-300 ${
-                    isIndustryActive() ? activeBorderStyles : "w-0 h-0.5 bg-orange-500 group-hover:w-full"
-                  }`}></span>
+                  <span
+                    className={`absolute bottom-0 left-0 transition-all duration-300 ${
+                      isIndustryActive()
+                        ? activeBorderStyles
+                        : "w-0 h-0.5 bg-orange-500 group-hover:w-full"
+                    }`}
+                  ></span>
                 </motion.button>
 
                 <AnimatePresence>
                   {isIndustryOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 15, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 15, scale: 0.95 }}
-                      className="absolute top-full left-0 mt-3 w-[500px] bg-gray-900 border border-gray-700 rounded-xl shadow-2xl backdrop-blur-lg z-50"
-                    >
-                      <div className="flex">
-                        {/* Categories Column */}
-                        <div className="w-2/5 border-r border-gray-700">
-                          {industryCategories.map((category, index) => (
-                            <motion.div
-                              key={category.name}
-                              className={`p-3 border-b border-gray-800 cursor-pointer transition-all duration-300 ${
-                                nestedIndustryDropdown === category.name 
-                                  ? 'bg-orange-500 text-white' 
-                                  : 'hover:bg-gray-800'
-                              } ${
-                                category.industries.some(industry => isActive(industry.href)) 
-                                  ? 'border-l-4 border-l-orange-500 bg-gray-800' 
-                                  : ''
-                              }`}
-                              onMouseEnter={() => setNestedIndustryDropdown(category.name)}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: index * 0.05 }}
-                            >
-                              <div className="flex items-center">
-                                <category.icon className="w-4 h-4 mr-2 flex-shrink-0" />
-                                <div className="font-semibold text-sm">{category.name}</div>
-                              </div>
-                            </motion.div>
-                          ))}
-                        </div>
-
-                        {/* Industries Column */}
-                        <div className="w-3/5">
-                          {industryCategories
-                            .find(cat => cat.name === nestedIndustryDropdown)
-                            ?.industries.map((industry, index) => (
-                              <motion.a
-                                key={industry.name}
-                                href={industry.href}
-                                className={`flex items-center px-4 py-3 transition-all duration-300 border-b border-gray-800 last:border-b-0 group ${
-                                  isActive(industry.href)
-                                    ? 'bg-orange-500 text-white'
-                                    : 'hover:bg-orange-500 hover:text-white'
-                                }`}
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: index * 0.05 }}
-                                whileHover={{ x: 5 }}
-                              >
-                                <industry.icon className={`w-4 h-4 mr-3 transition-colors duration-300 flex-shrink-0 ${
-                                  isActive(industry.href) 
-                                    ? 'text-white' 
-                                    : 'text-orange-400 group-hover:text-white'
-                                }`} />
-                                <div className="font-semibold text-sm">{industry.name}</div>
-                              </motion.a>
-                            ))}
-                          
-                          {/* Default view when no category is selected */}
-                          {!nestedIndustryDropdown && (
-                            <div className="flex items-center justify-center h-full min-h-[200px] text-gray-500">
-                              <div className="text-center">
-                                <FaBuilding className="w-8 h-8 mx-auto mb-2 text-gray-600" />
-                                <p className="text-sm">Hover over a category to view industries</p>
+                    <>
+                      {/* --- FIRST DROPDOWN: Categories --- */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.97 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.97 }}
+                        className="absolute top-full left-0 mt-3 w-[260px] bg-gray-900 border border-gray-700 rounded-l-xl rounded-r-none shadow-2xl backdrop-blur-lg z-50"
+                      >
+                        {industryCategories.map((category, index) => (
+                          <motion.div
+                            key={category.name}
+                            className={`p-3 border-b border-gray-800 cursor-pointer transition-all duration-300 ${
+                              nestedIndustryDropdown === category.name
+                                ? "bg-orange-500 text-white"
+                                : "hover:bg-gray-800"
+                            } ${
+                              category.industries.some((ind) =>
+                                isActive(ind.href)
+                              )
+                                ? "border-l-4 border-l-orange-500 bg-gray-800"
+                                : ""
+                            }`}
+                            onMouseEnter={() =>
+                              setNestedIndustryDropdown(category.name)
+                            }
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.05 }}
+                          >
+                            <div className="flex items-center">
+                              <category.icon className="w-4 h-4 mr-2 flex-shrink-0" />
+                              <div className="font-semibold text-sm">
+                                {category.name}
                               </div>
                             </div>
-                          )}
-                        </div>
-                      </div>
-                    </motion.div>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+
+                      {/* --- SECOND DROPDOWN: Nested Industries --- */}
+                      <AnimatePresence>
+                        {nestedIndustryDropdown && (
+                          <motion.div
+                            key={nestedIndustryDropdown}
+                            initial={{ opacity: 0, y: 10, scale: 0.97 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 10, scale: 0.97 }}
+                            className="absolute top-full left-[260px] mt-3 w-[260px] bg-gray-900 border border-l-0 border-gray-700 rounded-r-xl rounded-l-none shadow-2xl backdrop-blur-lg z-50"
+                          >
+                            {industryCategories
+                              .find(
+                                (cat) => cat.name === nestedIndustryDropdown
+                              )
+                              ?.industries.map((industry, index) => (
+                                <motion.a
+                                  key={industry.name}
+                                  href={industry.href}
+                                  className={`flex items-center px-4 py-3 transition-all duration-300 border-b border-gray-800 last:border-b-0 group ${
+                                    isActive(industry.href)
+                                      ? "bg-orange-500 text-white"
+                                      : "hover:bg-orange-500 hover:text-white"
+                                  }`}
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: index * 0.05 }}
+                                  whileHover={{ x: 5 }}
+                                >
+                                  <industry.icon
+                                    className={`w-4 h-4 mr-3 transition-colors duration-300 flex-shrink-0 ${
+                                      isActive(industry.href)
+                                        ? "text-white"
+                                        : "text-orange-400 group-hover:text-white"
+                                    }`}
+                                  />
+                                  <div className="font-semibold text-sm">
+                                    {industry.name}
+                                  </div>
+                                </motion.a>
+                              ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </>
                   )}
                 </AnimatePresence>
               </div>
@@ -714,9 +753,13 @@ const Navbar = () => {
               >
                 <FaAddressCard className="w-4 h-4 mr-2" />
                 Contact Us
-                <span className={`absolute bottom-0 left-0 transition-all duration-300 ${
-                  isActive("/contact") ? activeBorderStyles : "w-0 h-0.5 bg-orange-500 group-hover:w-full"
-                }`}></span>
+                <span
+                  className={`absolute bottom-0 left-0 transition-all duration-300 ${
+                    isActive("/contact")
+                      ? activeBorderStyles
+                      : "w-0 h-0.5 bg-orange-500 group-hover:w-full"
+                  }`}
+                ></span>
               </motion.a>
 
               {/* More Dropdown */}
@@ -738,9 +781,13 @@ const Navbar = () => {
                   >
                     <FaChevronDown className="w-3 h-3 ml-2" />
                   </motion.div>
-                  <span className={`absolute bottom-0 left-0 transition-all duration-300 ${
-                    isMoreActive() ? activeBorderStyles : "w-0 h-0.5 bg-orange-500 group-hover:w-full"
-                  }`}></span>
+                  <span
+                    className={`absolute bottom-0 left-0 transition-all duration-300 ${
+                      isMoreActive()
+                        ? activeBorderStyles
+                        : "w-0 h-0.5 bg-orange-500 group-hover:w-full"
+                    }`}
+                  ></span>
                 </motion.button>
 
                 <AnimatePresence>
@@ -757,20 +804,24 @@ const Navbar = () => {
                           href={item.href}
                           className={`flex items-center px-4 py-3 transition-all duration-300 border-b border-gray-800 last:border-b-0 group ${
                             isActive(item.href)
-                              ? 'bg-orange-500 text-white'
-                              : 'hover:bg-orange-500 hover:text-white'
+                              ? "bg-orange-500 text-white"
+                              : "hover:bg-orange-500 hover:text-white"
                           }`}
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: index * 0.05 }}
                           whileHover={{ x: 5 }}
                         >
-                          <item.icon className={`w-4 h-4 mr-3 transition-colors duration-300 flex-shrink-0 ${
-                            isActive(item.href) 
-                              ? 'text-white' 
-                              : 'text-orange-400 group-hover:text-white'
-                          }`} />
-                          <div className="font-semibold text-sm">{item.name}</div>
+                          <item.icon
+                            className={`w-4 h-4 mr-3 transition-colors duration-300 flex-shrink-0 ${
+                              isActive(item.href)
+                                ? "text-white"
+                                : "text-orange-400 group-hover:text-white"
+                            }`}
+                          />
+                          <div className="font-semibold text-sm">
+                            {item.name}
+                          </div>
                         </motion.a>
                       ))}
                     </motion.div>
@@ -841,9 +892,9 @@ const Navbar = () => {
                     <motion.a
                       href="/"
                       className={`flex items-center px-4 py-3 transition-all duration-300 mx-2 rounded-lg font-semibold ${
-                        isActive("/") 
-                          ? 'bg-orange-500 text-white' 
-                          : 'hover:bg-orange-500 hover:text-white'
+                        isActive("/")
+                          ? "bg-orange-500 text-white"
+                          : "hover:bg-orange-500 hover:text-white"
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}
                       whileHover={{ x: 5 }}
@@ -858,8 +909,8 @@ const Navbar = () => {
                         onClick={() => toggleMobileDropdown("services")}
                         className={`flex items-center justify-between w-full px-4 py-3 transition-all duration-300 rounded-lg font-semibold ${
                           isServicesActive()
-                            ? 'bg-orange-500 text-white'
-                            : 'hover:bg-orange-500 hover:text-white'
+                            ? "bg-orange-500 text-white"
+                            : "hover:bg-orange-500 hover:text-white"
                         }`}
                         whileHover={{ x: 5 }}
                       >
@@ -888,21 +939,30 @@ const Navbar = () => {
                             {servicesCategories.map((category) => (
                               <div key={category.name} className="mb-1">
                                 <motion.button
-                                  onClick={() => toggleNestedDropdown(category.name)}
+                                  onClick={() =>
+                                    toggleNestedDropdown(category.name)
+                                  }
                                   className={`flex items-center justify-between w-full py-2 px-3 transition-all duration-300 rounded-lg font-medium ${
-                                    category.services.some(service => isActive(service.href))
-                                      ? 'bg-orange-500 text-white'
-                                      : 'text-gray-300 hover:text-white hover:bg-orange-500'
+                                    category.services.some((service) =>
+                                      isActive(service.href)
+                                    )
+                                      ? "bg-orange-500 text-white"
+                                      : "text-gray-300 hover:text-white hover:bg-orange-500"
                                   }`}
                                   whileHover={{ x: 3 }}
                                 >
                                   <div className="flex items-center">
                                     <category.icon className="w-3 h-3 mr-2" />
-                                    <span className="text-sm">{category.name}</span>
+                                    <span className="text-sm">
+                                      {category.name}
+                                    </span>
                                   </div>
                                   <motion.div
                                     animate={{
-                                      rotate: nestedDropdown === category.name ? 180 : 0,
+                                      rotate:
+                                        nestedDropdown === category.name
+                                          ? 180
+                                          : 0,
                                     }}
                                     transition={{ duration: 0.3 }}
                                   >
@@ -924,14 +984,18 @@ const Navbar = () => {
                                           href={service.href}
                                           className={`flex items-center py-2 px-3 transition-all duration-300 rounded-lg text-xs mb-1 last:mb-0 ${
                                             isActive(service.href)
-                                              ? 'bg-orange-400 text-white'
-                                              : 'text-gray-400 hover:text-white hover:bg-orange-400'
+                                              ? "bg-orange-400 text-white"
+                                              : "text-gray-400 hover:text-white hover:bg-orange-400"
                                           }`}
-                                          onClick={() => setIsMobileMenuOpen(false)}
+                                          onClick={() =>
+                                            setIsMobileMenuOpen(false)
+                                          }
                                           whileHover={{ x: 3 }}
                                         >
                                           <service.icon className="w-3 h-3 mr-2" />
-                                          <div className="text-xs">{service.name}</div>
+                                          <div className="text-xs">
+                                            {service.name}
+                                          </div>
                                         </motion.a>
                                       ))}
                                     </motion.div>
@@ -950,8 +1014,8 @@ const Navbar = () => {
                         onClick={() => toggleMobileDropdown("industry")}
                         className={`flex items-center justify-between w-full px-4 py-3 transition-all duration-300 rounded-lg font-semibold ${
                           isIndustryActive()
-                            ? 'bg-orange-500 text-white'
-                            : 'hover:bg-orange-500 hover:text-white'
+                            ? "bg-orange-500 text-white"
+                            : "hover:bg-orange-500 hover:text-white"
                         }`}
                         whileHover={{ x: 5 }}
                       >
@@ -980,21 +1044,30 @@ const Navbar = () => {
                             {industryCategories.map((category) => (
                               <div key={category.name} className="mb-1">
                                 <motion.button
-                                  onClick={() => toggleNestedIndustryDropdown(category.name)}
+                                  onClick={() =>
+                                    toggleNestedIndustryDropdown(category.name)
+                                  }
                                   className={`flex items-center justify-between w-full py-2 px-3 transition-all duration-300 rounded-lg font-medium ${
-                                    category.industries.some(industry => isActive(industry.href))
-                                      ? 'bg-orange-500 text-white'
-                                      : 'text-gray-300 hover:text-white hover:bg-orange-500'
+                                    category.industries.some((industry) =>
+                                      isActive(industry.href)
+                                    )
+                                      ? "bg-orange-500 text-white"
+                                      : "text-gray-300 hover:text-white hover:bg-orange-500"
                                   }`}
                                   whileHover={{ x: 3 }}
                                 >
                                   <div className="flex items-center">
                                     <category.icon className="w-3 h-3 mr-2" />
-                                    <span className="text-sm">{category.name}</span>
+                                    <span className="text-sm">
+                                      {category.name}
+                                    </span>
                                   </div>
                                   <motion.div
                                     animate={{
-                                      rotate: nestedIndustryDropdown === category.name ? 180 : 0,
+                                      rotate:
+                                        nestedIndustryDropdown === category.name
+                                          ? 180
+                                          : 0,
                                     }}
                                     transition={{ duration: 0.3 }}
                                   >
@@ -1016,14 +1089,18 @@ const Navbar = () => {
                                           href={industry.href}
                                           className={`flex items-center py-2 px-3 transition-all duration-300 rounded-lg text-xs mb-1 last:mb-0 ${
                                             isActive(industry.href)
-                                              ? 'bg-orange-400 text-white'
-                                              : 'text-gray-400 hover:text-white hover:bg-orange-400'
+                                              ? "bg-orange-400 text-white"
+                                              : "text-gray-400 hover:text-white hover:bg-orange-400"
                                           }`}
-                                          onClick={() => setIsMobileMenuOpen(false)}
+                                          onClick={() =>
+                                            setIsMobileMenuOpen(false)
+                                          }
                                           whileHover={{ x: 3 }}
                                         >
                                           <industry.icon className="w-3 h-3 mr-2" />
-                                          <div className="text-xs">{industry.name}</div>
+                                          <div className="text-xs">
+                                            {industry.name}
+                                          </div>
                                         </motion.a>
                                       ))}
                                     </motion.div>
@@ -1040,9 +1117,9 @@ const Navbar = () => {
                     <motion.a
                       href="/contact"
                       className={`flex items-center px-4 py-3 transition-all duration-300 mx-2 rounded-lg font-semibold ${
-                        isActive("/contact") 
-                          ? 'bg-orange-500 text-white' 
-                          : 'hover:bg-orange-500 hover:text-white'
+                        isActive("/contact")
+                          ? "bg-orange-500 text-white"
+                          : "hover:bg-orange-500 hover:text-white"
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}
                       whileHover={{ x: 5 }}
@@ -1057,8 +1134,8 @@ const Navbar = () => {
                         onClick={() => toggleMobileDropdown("more")}
                         className={`flex items-center justify-between w-full px-4 py-3 transition-all duration-300 rounded-lg font-semibold ${
                           isMoreActive()
-                            ? 'bg-orange-500 text-white'
-                            : 'hover:bg-orange-500 hover:text-white'
+                            ? "bg-orange-500 text-white"
+                            : "hover:bg-orange-500 hover:text-white"
                         }`}
                         whileHover={{ x: 5 }}
                       >
@@ -1089,15 +1166,19 @@ const Navbar = () => {
                                 href={item.href}
                                 className={`flex items-center py-2 px-3 transition-all duration-300 font-medium rounded-lg text-sm ${
                                   isActive(item.href)
-                                    ? 'bg-orange-500 text-white'
-                                    : 'text-gray-300 hover:text-white hover:bg-orange-500'
+                                    ? "bg-orange-500 text-white"
+                                    : "text-gray-300 hover:text-white hover:bg-orange-500"
                                 }`}
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 whileHover={{ x: 3 }}
                               >
-                                <item.icon className={`w-3 h-3 mr-2 ${
-                                  isActive(item.href) ? 'text-white' : 'text-orange-400'
-                                }`} />
+                                <item.icon
+                                  className={`w-3 h-3 mr-2 ${
+                                    isActive(item.href)
+                                      ? "text-white"
+                                      : "text-orange-400"
+                                  }`}
+                                />
                                 <div className="text-sm">{item.name}</div>
                               </motion.a>
                             ))}

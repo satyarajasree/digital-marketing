@@ -8,8 +8,8 @@ import Industries from "../components/Industries";
 import FAQ from "../components/FAQ";
 import OurClients from "../components/OurClients";
 import WhyChooseUs from "../components/WhyChooseUs";
-import OurWork from "./OurWork";
 import DigitalMarketingServices from "../components/DigitalMarketingServices";
+import DigitalMarketingWork from "../components/DigitalMarketingWork";
 
 const DigitalMarketing = () => {
   return (
@@ -22,7 +22,7 @@ const DigitalMarketing = () => {
       <Industries mode="digital-marketing" />
       <WhyChooseUs mode="digital-marketing" />
       <OurClients mode="digital-marketing" />
-      <OurWork mode="digital-marketing" />
+      <DigitalMarketingWork />
       <FAQ mode="digital-marketing"/>
       <Contact
         mode="marketing"

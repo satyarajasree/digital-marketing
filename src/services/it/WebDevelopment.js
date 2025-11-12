@@ -1,0 +1,296 @@
+import React from "react";
+import {
+  FaCode,
+  FaMobile,
+  FaDesktop,
+  FaShoppingCart,
+  FaDatabase,
+  FaShieldAlt,
+  FaRocket,
+  FaCheck,
+  FaArrowRight,
+} from "react-icons/fa";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+
+const WebDevelopment = () => {
+  const features = [
+    {
+      icon: FaDesktop,
+      title: "Responsive Design",
+      description: "Websites that look perfect on all devices - desktop, tablet, and mobile",
+      image: "🖥️",
+    },
+    {
+      icon: FaShoppingCart,
+      title: "E-commerce Solutions",
+      description: "Complete online store development with secure payment integration",
+      image: "🛒",
+    },
+    {
+      icon: FaDatabase,
+      title: "CMS Development",
+      description: "Custom content management systems for easy content updates",
+      image: "📊",
+    },
+    {
+      icon: FaShieldAlt,
+      title: "Security First",
+      description: "Built-in security measures to protect against vulnerabilities",
+      image: "🛡️",
+    },
+    {
+      icon: FaRocket,
+      title: "Performance Optimized",
+      description: "Lightning-fast loading times for better user experience and SEO",
+      image: "🚀",
+    },
+    {
+      icon: FaMobile,
+      title: "Progressive Web Apps",
+      description: "Web applications that feel like native mobile apps",
+      image: "📱",
+    },
+  ];
+
+  const technologies = {
+    frontend: [
+      "React",
+      "Vue.js",
+      "Angular",
+      "TypeScript",
+      "Tailwind CSS",
+      "SASS",
+    ],
+    backend: ["Node.js", "Python", "PHP", "Java", "Ruby on Rails", ".NET"],
+    database: ["MySQL", "PostgreSQL", "MongoDB", "Firebase", "Redis"],
+    cms: ["WordPress", "Shopify", "Magento", "Custom CMS"],
+  };
+
+  const process = [
+    {
+      step: "01",
+      title: "Discovery & Planning",
+      description: "Understanding your requirements and creating a detailed project plan",
+      image: "🎯",
+    },
+    {
+      step: "02",
+      title: "UI/UX Design",
+      description: "Creating wireframes and designs for optimal user experience",
+      image: "🎨",
+    },
+    {
+      step: "03",
+      title: "Development",
+      description: "Building your website with clean, maintainable code",
+      image: "💻",
+    },
+    {
+      step: "04",
+      title: "Testing & Quality",
+      description: "Rigorous testing across all devices and browsers",
+      image: "🧪",
+    },
+    {
+      step: "05",
+      title: "Deployment",
+      description: "Launching your website and ensuring everything works perfectly",
+      image: "🚀",
+    },
+    {
+      step: "06",
+      title: "Support & Maintenance",
+      description: "Ongoing support and updates to keep your site running smoothly",
+      image: "🔧",
+    },
+  ];
+
+  return (
+    <div className="bg-gray-50">
+      <Navbar />
+      <div className="min-h-screen">
+        {/* Hero Section */}
+        <div className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 text-white py-24 overflow-hidden">
+          <div className="absolute inset-0 bg-black opacity-10"></div>
+          <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-blue-500 to-transparent opacity-20 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-blue-400 to-transparent opacity-20 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+          
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="flex justify-center mb-8">
+                <div className="p-6 bg-white bg-opacity-20 rounded-3xl backdrop-blur-sm border border-white border-opacity-30">
+                  <FaCode className="text-5xl text-white" />
+                </div>
+              </div>
+              <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+                Web Development
+              </h1>
+              <p className="text-xl text-blue-100 mb-10 leading-relaxed max-w-3xl mx-auto">
+                Custom, responsive, and high-performance websites that drive results. 
+                From simple business sites to complex web applications, we build digital 
+                experiences that convert and grow your business.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2">
+                  Start Your Project
+                  <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-200" />
+                </button>
+                <button className="bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 border border-white border-opacity-30 hover:border-opacity-50">
+                  View Portfolio
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Features Section */}
+        <div className="py-20 bg-white relative">
+          <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-blue-50 to-transparent"></div>
+          <div className="container mx-auto px-6 relative">
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-bold text-gray-900 mb-6">
+                What We Offer
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                Comprehensive web development services tailored to your unique business needs and goals
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="group bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 border border-blue-100 hover:border-blue-200 hover:transform hover:-translate-y-2"
+                >
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="text-4xl bg-gradient-to-r from-blue-600 to-blue-800 p-4 rounded-2xl text-white">
+                      {feature.image}
+                    </div>
+                    <div className="text-blue-600">
+                      <feature.icon className="text-3xl opacity-80" />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-lg">
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Technologies Section */}
+        <div className="py-20 bg-gradient-to-br from-blue-50 to-gray-100 relative">
+          <div className="absolute inset-0 bg-blue-900 opacity-5"></div>
+          <div className="container mx-auto px-6 relative">
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-bold text-gray-900 mb-6">
+                Technologies We Use
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Modern tech stack for robust, scalable, and future-proof solutions
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {Object.entries(technologies).map(([category, items]) => (
+                <div
+                  key={category}
+                  className="bg-white rounded-2xl p-8 shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300 group"
+                >
+                  <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white text-lg font-semibold py-3 px-6 rounded-xl mb-6 text-center capitalize transform -translate-y-2 group-hover:-translate-y-3 transition-transform duration-300">
+                    {category}
+                  </div>
+                  <div className="space-y-4">
+                    {items.map((tech, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center text-gray-700 text-lg group/item hover:text-blue-600 transition-colors duration-200"
+                      >
+                        <div className="bg-green-100 p-2 rounded-lg mr-4 group-hover/item:bg-green-200 transition-colors duration-200">
+                          <FaCheck className="text-green-600 text-sm" />
+                        </div>
+                        {tech}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Process Section */}
+        <div className="py-20 bg-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full -translate-y-48 translate-x-48"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-50 rounded-full translate-y-48 -translate-x-48"></div>
+          
+          <div className="container mx-auto px-6 relative">
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-bold text-gray-900 mb-6">
+                Our Development Process
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                A structured, transparent approach to ensure your project's success from concept to launch
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {process.map((step, index) => (
+                <div key={index} className="relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                  <div className="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl p-8 h-full transform group-hover:scale-105 transition-all duration-500">
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="text-3xl font-bold text-blue-200 bg-blue-900 bg-opacity-30 px-4 py-2 rounded-xl">
+                        {step.step}
+                      </div>
+                      <div className="text-4xl opacity-80">
+                        {step.image}
+                      </div>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
+                    <p className="text-blue-100 leading-relaxed text-lg">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="relative py-24 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full bg-black opacity-10"></div>
+          <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-blue-400 opacity-10 rounded-full -translate-y-1/4 translate-x-1/4"></div>
+          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-blue-300 opacity-10 rounded-full translate-y-1/4 -translate-x-1/4"></div>
+          
+          <div className="container mx-auto px-6 text-center relative z-10">
+            <h2 className="text-5xl font-bold text-white mb-8">
+              Ready to Build Your Website?
+            </h2>
+            <p className="text-xl text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Let's discuss your project and create a web solution that not only looks amazing 
+              but also drives measurable results for your business growth.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <button className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-12 py-5 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center gap-3">
+                Get Free Consultation
+                <FaArrowRight className="group-hover:translate-x-2 transition-transform duration-200" />
+              </button>
+              <button className="bg-white hover:bg-gray-100 text-blue-600 px-12 py-5 rounded-xl font-semibold text-lg transition-all duration-300 border-2 border-white hover:border-gray-100 shadow-2xl">
+                View Case Studies
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+};
+
+export default WebDevelopment;

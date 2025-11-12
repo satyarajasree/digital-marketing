@@ -1,29 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import Homepage from './pages/Homepage';
-import Lottie from 'lottie-react';
-import { motion } from 'framer-motion';
-import sand from './anime/sandy.json'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import AboutUs from './pages/AboutUs';
-import ContactUs from './pages/ContactUs';
-import PortfolioPage from './pages/PortfolioPage';
-import Chatbot from './components/Chatbot';
-import Careers from './pages/Careers';
-import Blogs from './pages/Blogs';
-import BlogDetail from './pages/BlogDetail';
-import StrategyConsulting from './services/StrategyConsulting';
-import JobApplication from './pages/JobApplication';
-import SocialMediaMarketing from './services/SocialMediaMarketing';
-import GraphicsDesigning from './services/GraphicsDesigning';
-import Seo from'./pages/Seo';
-import ITHomePage from './pages/ITHomePage';
-import DigitalMarketing from './pages/DigitalMarketing';
-import ServicesPage from './components/ServicesPage';
-import IndustriesPage from './components/IndustriesPage';
+import React, { useState, useEffect } from "react";
+import Homepage from "./pages/Homepage";
+import Lottie from "lottie-react";
+import { motion } from "framer-motion";
+import sand from "./anime/sandy.json";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
+import Chatbot from "./components/Chatbot";
+import Careers from "./pages/Careers";
+import Blogs from "./pages/Blogs";
+import BlogDetail from "./pages/BlogDetail";
+import JobApplication from "./pages/JobApplication";
+import Seo from "./pages/Seo";
+import ITHomePage from "./pages/ITHomePage";
+import DigitalMarketing from "./pages/DigitalMarketing";
+import WebDevelopment from "./services/it/WebDevelopment";
+import MobileAppDevelopment from "./services/it/MobileAppDevelopment";
+import CloudSolutions from "./services/it/CloudSolutions";
+import Cybersecurity from "./services/it/Cybersecurity";
+import ITInfrastructure from "./services/it/ITInfrastructure";
+import DatabaseManagement from "./services/it/DatabaseManagement";
+import SEOServices from "./services/digitalMarketing/SEOServices";
+import SocialMediaMarketingService from "./services/digitalMarketing/SocialMediaMarketingService";
+import ContentCreationService from "./services/digitalMarketing/ContentCreationService";
+import PPCAdvertisingService from "./services/digitalMarketing/PPCAdvertisingService";
+import AnalyticsReportingService from "./services/digitalMarketing/AnalyticsReportingService";
+import EmailMarketingService from "./services/digitalMarketing/EmailMarketingService";
+import HealthcareIndustry from "./industries/HealthcareIndustry";
+import EducationIndustry from "./industries/EducationIndustry";
+import ManufacturingIndustry from "./industries/ManufacturingIndustry";
+import FMCGIndustry from "./industries/FMCGIndustry";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-
 
   useEffect(() => {
     // Simulate loading time
@@ -46,13 +55,13 @@ const App = () => {
               // src={LOTTIE_URL}
               loop={true}
               autoplay={true}
-              style={{ width: '100%', height: '100%' }}
+              style={{ width: "100%", height: "100%" }}
               rendererSettings={{
-                preserveAspectRatio: 'xMidYMid slice'
+                preserveAspectRatio: "xMidYMid slice",
               }}
             />
           </div>
-          
+
           {/* Loading Text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -64,7 +73,7 @@ const App = () => {
               Amplinova
             </h2>
             <p className="text-gray-400 text-lg">Get ready...</p>
-            
+
             {/* Loading Dots Animation */}
             <div className="flex justify-center space-x-1 mt-4">
               {[0, 1, 2].map((dot) => (
@@ -73,12 +82,12 @@ const App = () => {
                   className="w-2 h-2 bg-orange-500 rounded-full"
                   animate={{
                     scale: [1, 1.5, 1],
-                    opacity: [0.5, 1, 0.5]
+                    opacity: [0.5, 1, 0.5],
                   }}
                   transition={{
                     duration: 1,
                     repeat: Infinity,
-                    delay: dot * 0.2
+                    delay: dot * 0.2,
                   }}
                 />
               ))}
@@ -97,33 +106,92 @@ const App = () => {
 
   return (
     <>
-    <BrowserRouter>
-    <Routes>
-      <Route path="/*" element={<Homepage />} />
-      <Route path="/about" element={<AboutUs />} />
-      <Route path="/contact" element={<ContactUs/>} />
-      <Route path="/portfolio" element={<PortfolioPage />} />
-      <Route path='/careers' element={<Careers />} />
-      <Route path='/blog' element={<Blogs />} />
-      <Route path='/seo' element={<Seo />} />
-      <Route path="/blog/:slug" element={<BlogDetail />} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/*" element={<Homepage />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/blog" element={<Blogs />} />
+          <Route path="/seo" element={<Seo />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} />
 
-      <Route path="/services/strategy-consulting" element={<StrategyConsulting />} />
-      <Route path="/services/social-media-marketing" element={<SocialMediaMarketing />} />
-      <Route path='/services/graphics-designing' element={<GraphicsDesigning/>} />
+          <Route path="/apply/:id" element={<JobApplication />} />
 
-      <Route path="/apply/:id" element={<JobApplication />} />
+          <Route path="/it" element={<ITHomePage />} />
+          <Route path="/marketing" element={<DigitalMarketing />} />
 
-      <Route path='/it' element={<ITHomePage/>} />
-      <Route path='/marketing' element={<DigitalMarketing/>}/>
+          <Route
+            path="/services/digital-marketing/social-media"
+            element={<SocialMediaMarketingService />}
+          />
 
-      <Route path="/services/:category/:service" element={<ServicesPage />} />
-        
-        {/* Industries Routes */}
-        <Route path="/industries/:category/:industry" element={<IndustriesPage />} />
-    </Routes>
-    </BrowserRouter>
-    <Chatbot />
+          <Route
+            path="/services/digital-marketing/content"
+            element={<ContentCreationService />}
+          />
+
+          <Route
+            path="/services/digital-marketing/ppc"
+            element={<PPCAdvertisingService />}
+          />
+          <Route
+            path="/services/digital-marketing/email"
+            element={<EmailMarketingService />}
+          />
+
+          <Route
+            path="/services/digital-marketing/analytics"
+            element={<AnalyticsReportingService />}
+          />
+
+          <Route
+            path="/services/it/web-development"
+            element={<WebDevelopment />}
+          />
+          <Route
+            path="/services/it/mobile-app-development"
+            element={<MobileAppDevelopment />}
+          />
+          <Route
+            path="/services/it/cloud-solutions"
+            element={<CloudSolutions />}
+          />
+          <Route
+            path="/services/it/cybersecurity"
+            element={<Cybersecurity />}
+          />
+          <Route
+            path="/services/it/infrastructure"
+            element={<ITInfrastructure />}
+          />
+          <Route
+            path="/services/it/database"
+            element={<DatabaseManagement />}
+          />
+
+          <Route
+            path="/services/digital-marketing/seo"
+            element={<SEOServices />}
+          />
+
+          {/* Alternative Routes for Industries */}
+          <Route
+            path="/industries/product/health-care"
+            element={<HealthcareIndustry />}
+          />
+          <Route
+            path="/industries/product/education"
+            element={<EducationIndustry />}
+          />
+          <Route
+            path="/industries/product/manufacturing"
+            element={<ManufacturingIndustry />}
+          />
+          <Route path="/industries/product/fmcg" element={<FMCGIndustry />} />
+        </Routes>
+      </BrowserRouter>
+      <Chatbot />
     </>
   );
 };

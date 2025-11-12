@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
-const ProcessStepCircle = ({ step, title, description, icon, index, isActive, isVisible, onClick, theme, isCompleted }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [showIcon, setShowIcon] = useState(false);
-
+const ProcessStepCircle = ({ step, title, description, icon, index, isActive, isVisible, onClick, theme, isCompleted, isHovered }) => {
   const circleVariants = {
     hidden: {
       opacity: 0,
@@ -24,23 +21,12 @@ const ProcessStepCircle = ({ step, title, description, icon, index, isActive, is
     },
   };
 
-  const iconVariants = {
-    hidden: { opacity: 0, scale: 0.8, rotate: -10 },
-    visible: { opacity: 1, scale: 1, rotate: 0 },
-  };
-
-  const numberVariants = {
-    normal: { opacity: 1, scale: 1 },
-    hidden: { opacity: 0, scale: 0.8 },
-  };
-
   const getThemeColors = () => {
     if (theme === "digital-marketing") {
       return {
         gradient: "from-orange-500 to-red-500",
         lightGradient: "from-orange-400 to-red-400",
         text: "text-orange-600",
-        hover: "hover:text-orange-700",
         bg: "bg-orange-500/20",
         border: "border-orange-500/30",
         glow: "shadow-orange-500/25"
@@ -50,7 +36,6 @@ const ProcessStepCircle = ({ step, title, description, icon, index, isActive, is
         gradient: "from-blue-500 to-purple-600",
         lightGradient: "from-blue-400 to-purple-500",
         text: "text-blue-600",
-        hover: "hover:text-blue-700",
         bg: "bg-blue-500/20",
         border: "border-blue-500/30",
         glow: "shadow-blue-500/25"
@@ -60,40 +45,13 @@ const ProcessStepCircle = ({ step, title, description, icon, index, isActive, is
 
   const colors = getThemeColors();
 
-  // Handle hover with delay for smooth transition
-  useEffect(() => {
-    let timeoutId;
-    if (isHovered) {
-      timeoutId = setTimeout(() => setShowIcon(true), 150);
-    } else {
-      timeoutId = setTimeout(() => setShowIcon(false), 100);
-    }
-    return () => clearTimeout(timeoutId);
-  }, [isHovered]);
-
   return (
     <div className="flex flex-col items-center relative flex-1 group">
-      {/* Connecting Line - Only between circles */}
-      {index < 4 && (
-        <div className="absolute top-16 left-1/2 w-full h-0.5 bg-gray-200 -z-10">
-          {/* Active line segment - only show if this step is completed */}
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: isCompleted ? "100%" : "0%" }}
-            transition={{ duration: 1, delay: 0.5 + index * 0.2 }}
-            className={`h-full bg-gradient-to-r ${colors.gradient}`}
-          />
-        </div>
-      )}
-
       {/* Step Circle */}
       <motion.div
         variants={circleVariants}
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
-        whileHover="hover"
-        onHoverStart={() => setIsHovered(true)}
-        onHoverEnd={() => setIsHovered(false)}
         onClick={onClick}
         className={`
           relative w-28 h-28 rounded-full flex flex-col items-center justify-center cursor-pointer transition-all duration-500 z-10
@@ -101,9 +59,9 @@ const ProcessStepCircle = ({ step, title, description, icon, index, isActive, is
             ? `bg-gradient-to-br ${colors.gradient} shadow-2xl scale-110 ${colors.glow}` 
             : isCompleted
             ? `bg-gradient-to-br ${colors.gradient} shadow-xl scale-105 ${colors.glow}`
-            : "bg-white border-2 border-gray-200 shadow-lg hover:shadow-2xl"
+            : "bg-white border-2 border-gray-200 shadow-lg"
           }
-          group-hover:shadow-xl
+          ${isHovered && !isActive && !isCompleted ? "scale-105 shadow-xl border-gray-300" : ""}
         `}
       >
         {/* Active Ring */}
@@ -112,15 +70,6 @@ const ProcessStepCircle = ({ step, title, description, icon, index, isActive, is
             animate={{ scale: [1, 1.15, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
             className={`absolute inset-0 rounded-full border-4 ${colors.border}`}
-          />
-        )}
-
-        {/* Completed Ring */}
-        {isCompleted && !isActive && (
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            className={`absolute inset-0 rounded-full border-2 ${colors.border}`}
           />
         )}
 
@@ -133,48 +82,25 @@ const ProcessStepCircle = ({ step, title, description, icon, index, isActive, is
           />
         )}
 
-        {/* Step Number - Always visible but hides on hover */}
-        <motion.div
-          variants={numberVariants}
-          animate={showIcon ? "hidden" : "normal"}
-          transition={{ duration: 0.3 }}
-          className="absolute inset-0 flex items-center justify-center"
+        {/* Step Number */}
+        <motion.span
+          animate={{
+            color: isActive || isCompleted ? "#ffffff" : isHovered ? (theme === "digital-marketing" ? "#ea580c" : "#3b82f6") : "#64748b",
+            scale: isActive ? 1.3 : isCompleted ? 1.1 : isHovered ? 1.1 : 1,
+          }}
+          className="text-2xl font-bold transition-all duration-300"
         >
-          <motion.span
-            animate={{
-              color: isActive || isCompleted ? "#ffffff" : isHovered ? (theme === "digital-marketing" ? "#ea580c" : "#3b82f6") : "#64748b",
-              scale: isActive ? 1.3 : isCompleted ? 1.1 : 1,
-            }}
-            className="text-2xl font-bold transition-all duration-300"
-          >
-            {step}
-          </motion.span>
-        </motion.div>
-
-        {/* Icon/Image - Shows on hover */}
-        <motion.div
-          variants={iconVariants}
-          initial="hidden"
-          animate={showIcon ? "visible" : "hidden"}
-          transition={{ duration: 0.4 }}
-          className={`transition-all duration-500 ${
-            isActive || isCompleted ? "filter brightness-0 invert" : colors.text
-          }`}
-        >
-          <img 
-            src={icon} 
-            alt={title}
-            className="w-12 h-12 object-contain"
-          />
-        </motion.div>
+          {step}
+        </motion.span>
 
         {/* Progress Dot */}
         <motion.div
-          animate={{ scale: isActive ? 1.8 : isCompleted ? 1.4 : 1 }}
+          animate={{ scale: isActive ? 1.8 : isCompleted ? 1.4 : isHovered ? 1.2 : 1 }}
           transition={{ type: "spring", stiffness: 200 }}
           className={`absolute -top-1 -right-1 w-4 h-4 rounded-full border-2 border-white ${
             isActive ? "bg-green-500 shadow-lg" : 
-            isCompleted ? "bg-green-400 shadow-md" : "bg-gray-300"
+            isCompleted ? "bg-green-400 shadow-md" : 
+            isHovered ? "bg-gray-400" : "bg-gray-300"
           }`}
         />
 
@@ -199,28 +125,14 @@ const ProcessStepCircle = ({ step, title, description, icon, index, isActive, is
         animate={{ 
           opacity: isVisible ? 1 : 0, 
           y: isVisible ? 0 : 10,
-          color: isActive ? "#1e293b" : isCompleted ? "#374151" : "#64748b",
-          scale: isActive ? 1.05 : isCompleted ? 1.02 : 1
+          color: isActive ? "#1e293b" : isCompleted ? "#374151" : isHovered ? "#374151" : "#64748b",
+          scale: isActive ? 1.05 : isCompleted ? 1.02 : isHovered ? 1.02 : 1
         }}
         transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
-        className="text-lg font-semibold mt-6 text-center max-w-32 leading-tight group-hover:text-gray-900 transition-colors duration-300"
+        className="text-lg font-semibold mt-6 text-center max-w-32 leading-tight transition-colors duration-300"
       >
         {title}
       </motion.h3>
-
-      {/* Description Tooltip on Hover */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={isHovered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-        transition={{ duration: 0.3 }}
-        className="absolute top-40 left-1/2 transform -translate-x-1/2 z-20 w-64 p-4 bg-white rounded-xl shadow-2xl border border-gray-100"
-      >
-        <div className="text-sm text-gray-600 leading-relaxed">
-          {description}
-        </div>
-        {/* Tooltip Arrow */}
-        <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rotate-45 border-l border-t border-gray-100" />
-      </motion.div>
     </div>
   );
 };
@@ -228,7 +140,9 @@ const ProcessStepCircle = ({ step, title, description, icon, index, isActive, is
 const Process = ({ mode = "digital-marketing" }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
+  const [hoveredStep, setHoveredStep] = useState(null);
   const sectionRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -247,16 +161,54 @@ const Process = ({ mode = "digital-marketing" }) => {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-rotate steps every 10 seconds
+  // Auto-rotate steps every 8 seconds
   useEffect(() => {
     if (!isVisible) return;
 
     const interval = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % 5);
-    }, 10000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, [isVisible]);
+
+  // Handle mouse movement for hover effects
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!containerRef.current) return;
+
+      const containerRect = containerRef.current.getBoundingClientRect();
+      const containerWidth = containerRect.width;
+      const mouseX = e.clientX - containerRect.left;
+      
+      // Calculate which step is being hovered based on mouse position
+      const stepWidth = containerWidth / 5;
+      const hoveredIndex = Math.floor(mouseX / stepWidth);
+      
+      if (hoveredIndex >= 0 && hoveredIndex < 5) {
+        setHoveredStep(hoveredIndex);
+      } else {
+        setHoveredStep(null);
+      }
+    };
+
+    const handleMouseLeave = () => {
+      setHoveredStep(null);
+    };
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener('mousemove', handleMouseMove);
+      container.addEventListener('mouseleave', handleMouseLeave);
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener('mousemove', handleMouseMove);
+        container.removeEventListener('mouseleave', handleMouseLeave);
+      }
+    };
+  }, []);
 
   // Process data with PNG image URLs
   const processData = {
@@ -367,6 +319,11 @@ const Process = ({ mode = "digital-marketing" }) => {
     return index < activeStep;
   };
 
+  // Helper function to check if a step is hovered
+  const isStepHovered = (index) => {
+    return hoveredStep === index;
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -439,7 +396,31 @@ const Process = ({ mode = "digital-marketing" }) => {
         </motion.div>
 
         {/* Process Steps Container */}
-        <div className="relative">
+        <div className="relative" ref={containerRef}>
+          {/* Connecting Lines Container */}
+          <div className="absolute top-16 left-0 w-full h-0.5 -z-10">
+            {/* Base Line */}
+            <div className="absolute top-0 left-0 w-full h-full bg-gray-200" />
+            
+            {/* Completed Steps Line */}
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: `${(activeStep / 4) * 100}%` }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className={`h-full bg-gradient-to-r ${themeConfig.gradient}`}
+            />
+            
+            {/* Hover Line */}
+            {hoveredStep !== null && (
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: `${((hoveredStep + 1) / 5) * 100}%` }}
+                transition={{ duration: 0.3 }}
+                className={`h-full bg-gradient-to-r ${themeConfig.lightGradient} opacity-60`}
+              />
+            )}
+          </div>
+
           {/* Process Steps Circles */}
           <motion.div
             variants={containerVariants}
@@ -454,6 +435,7 @@ const Process = ({ mode = "digital-marketing" }) => {
                 index={index}
                 isActive={index === activeStep}
                 isCompleted={isStepCompleted(index)}
+                isHovered={isStepHovered(index)}
                 isVisible={isVisible}
                 onClick={() => setActiveStep(index)}
                 theme={mode}
@@ -475,9 +457,7 @@ const Process = ({ mode = "digital-marketing" }) => {
           >
             {currentProcessData[activeStep].description}
           </motion.p>
-        </motion.div>
-
-        
+        </motion.div>  
       </div>
     </section>
   );
