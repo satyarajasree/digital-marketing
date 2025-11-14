@@ -7,16 +7,10 @@ import {
   FaArrowRight,
   FaGoogle,
   FaHashtag,
-  FaPenFancy,
-  FaMailBulk,
   FaAd,
   FaCogs,
-  FaShieldAlt,
-  FaDatabase,
   FaServer,
-  FaCode,
 } from "react-icons/fa";
-import { FaAnchorCircleExclamation } from "react-icons/fa6";
 
 const ServiceCard = ({ title, description, icon, index, isVisible, category }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -30,7 +24,6 @@ const ServiceCard = ({ title, description, icon, index, isVisible, category }) =
       text: "text-orange-500",
       border: "border-orange-500/50",
       iconBg: "bg-orange-500/10",
-      iconColor: "text-yellow-400" // Changed to yellow for contrast
     },
     "it-services": {
       gradient: "from-blue-500 to-cyan-500",
@@ -39,7 +32,6 @@ const ServiceCard = ({ title, description, icon, index, isVisible, category }) =
       text: "text-blue-500",
       border: "border-blue-500/50",
       iconBg: "bg-blue-500/10",
-      iconColor: "text-cyan-300" // Changed to cyan for contrast
     }
   };
 
@@ -113,7 +105,7 @@ const ServiceCard = ({ title, description, icon, index, isVisible, category }) =
         />
 
         <div className="relative z-10">
-          {/* Icon Container - Updated with distinct icon colors */}
+          {/* Icon Container */}
           <motion.div
             variants={iconVariants}
             animate={isHovered ? "hover" : "normal"}
@@ -125,9 +117,9 @@ const ServiceCard = ({ title, description, icon, index, isVisible, category }) =
               transition={{ duration: 0.6 }}
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12"
             />
-            {/* Distinct Colored Icon */}
+            {/* Icon Content */}
             <motion.div
-              className={`text-2xl ${colors.iconColor} relative z-10`}
+              className="text-2xl relative z-10"
               animate={{ 
                 scale: isHovered ? 1.2 : 1,
               }}
@@ -250,6 +242,11 @@ const ServiceToggle = ({ activeCategory, onToggle, isVisible }) => {
   );
 };
 
+// Custom Icon Component for PNG images
+const PngIcon = ({ src, alt, className = "w-8 h-8" }) => (
+  <img src={src} alt={alt} className={className} />
+);
+
 const Services = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeCategory, setActiveCategory] = useState("digital-marketing");
@@ -272,23 +269,23 @@ const Services = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Services data for homepage with distinct icon colors
+  // Services data with varied colored icons and PNG images
   const servicesData = {
     "digital-marketing": [
       {
         title: "SEO Optimization",
         description: "Boost your search rankings and drive organic traffic with our comprehensive SEO strategies and technical optimization.",
-        icon: <FaGoogle className="text-yellow-400" />,
+        icon: <FaGoogle className="text-green-400" />,
       },
       {
         title: "Social Media Marketing",
         description: "Engage your audience and build brand loyalty through strategic social media campaigns across all major platforms.",
-        icon: <FaHashtag className="text-yellow-400" />,
+        icon: <FaHashtag className="text-pink-400" />,
       },
       {
         title: "Content Marketing",
         description: "Create compelling content that drives engagement, builds authority, and converts visitors into customers.",
-        icon: <FaPenFancy className="text-yellow-400" />,
+        icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/3281/3281340.png" alt="Content Writing" className="w-7 h-7" />,
       },
       {
         title: "PPC Advertising",
@@ -298,44 +295,44 @@ const Services = () => {
       {
         title: "Email Marketing",
         description: "Nurture leads and retain customers with personalized email campaigns that drive engagement and sales.",
-        icon: <FaMailBulk className="text-yellow-400" />,
+        icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Marketing" className="w-7 h-7" />,
       },
       {
         title: "Analytics & Reporting",
         description: "Make data-driven decisions with comprehensive analytics and performance reports that track your marketing success.",
-        icon: <FaAnchorCircleExclamation className="text-yellow-400" />,
+        icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Analytics" className="w-7 h-7" />,
       }
     ],
     "it-services": [
       {
         title: "Web Development",
         description: "Build responsive, high-performance websites and web applications using the latest technologies and best practices.",
-        icon: <FaCode className="text-cyan-300" />,
+        icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/1006/1006363.png" alt="Web Development" className="w-7 h-7" />,
       },
       {
         title: "Mobile App Development",
         description: "Create intuitive, feature-rich mobile applications for iOS and Android that deliver exceptional user experiences.",
-        icon: <FaMobile className="text-cyan-300" />,
+        icon: <FaMobile className="text-purple-400" />,
       },
       {
         title: "Cloud Solutions",
         description: "Migrate, deploy, and optimize your infrastructure with secure and scalable cloud solutions tailored to your needs.",
-        icon: <FaCloud className="text-cyan-300" />,
+        icon: <FaCloud className="text-blue-300" />,
       },
       {
         title: "Cyber Security",
         description: "Protect your digital assets with enterprise-grade security solutions, threat monitoring, and vulnerability assessments.",
-        icon: <FaShieldAlt className="text-cyan-300" />,
+        icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/3064/3064676.png" alt="Cyber Security" className="w-7 h-7" />,
       },
       {
         title: "IT Infrastructure",
         description: "Design and implement robust IT infrastructure that supports your business growth and ensures operational excellence.",
-        icon: <FaServer className="text-cyan-300" />,
+        icon: <FaServer className="text-green-300" />,
       },
       {
         title: "Database Management",
         description: "Optimize database performance, ensure data integrity, and implement efficient data management solutions.",
-        icon: <FaDatabase className="text-cyan-300" />,
+        icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/6295/6295417.png" alt="Database" className="w-7 h-7" />,
       }
     ],
   };
@@ -449,7 +446,7 @@ const Services = () => {
                 : 'from-blue-400 to-cyan-600'
             } bg-clip-text text-transparent font-semibold`}>
               {activeCategory === 'digital-marketing' 
-                ? "drive measurable growth and ROI"
+                ? "drive measurable growth "
                 : "scale with your ambition"
               }
             </span>

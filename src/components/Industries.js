@@ -2,18 +2,115 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import {
   FaShoppingCart,
-  FaHeart,
-  FaGraduationCap,
-  FaChartLine,
-  FaServer,
-  FaStethoscope,
+  FaUsers,
   FaRocket,
-  FaCog,
+  FaCity,
+  FaBuilding,
+  FaHeartbeat,
+  FaGraduationCap,
   FaChevronLeft,
-  FaChevronRight
+  FaChevronRight,
+  FaLaptopCode,
+  FaMobileAlt
 } from "react-icons/fa";
 
-const IndustryCard = ({ title, description, icon, index, mode }) => {
+// Service Industries
+const serviceIndustries = {
+  name: "IT Industries",
+  icon: FaBuilding,
+  industries: [
+    {
+      name: "Food & Beverages",
+      icon: FaShoppingCart,
+      href: "/industries/service/food-beverages",
+      color: "from-yellow-500 to-orange-500",
+      iconColor: "text-yellow-500",
+      description: "Custom software solutions for restaurant management, inventory tracking, and delivery systems."
+    },
+    {
+      name: "Hospitality",
+      icon: FaUsers,
+      href: "/industries/service/hospitality",
+      color: "from-green-500 to-teal-500",
+      iconColor: "text-green-500",
+      description: "Hotel management systems, booking platforms, and customer experience solutions."
+    },
+    {
+      name: "Tours & Travels",
+      icon: FaRocket,
+      href: "/industries/service/tours-travels",
+      color: "from-blue-500 to-cyan-500",
+      iconColor: "text-blue-500",
+      description: "Travel booking engines, itinerary planners, and tourism management software."
+    },
+    {
+      name: "Real Estate",
+      icon: FaCity,
+      href: "/industries/service/real-estate",
+      color: "from-purple-500 to-pink-500",
+      iconColor: "text-purple-500",
+      description: "Property management systems, virtual tours, and real estate CRM solutions."
+    },
+    {
+      name: "Technology",
+      icon: FaLaptopCode,
+      href: "/industries/service/technology",
+      color: "from-indigo-500 to-purple-500",
+      iconColor: "text-indigo-500",
+      description: "Custom software development, cloud solutions, and IT infrastructure services."
+    },
+  ],
+};
+
+// Product Industries
+const productIndustries = {
+  name: "Digital Marketing Industries",
+  icon: FaShoppingCart,
+  industries: [
+    {
+      name: "Health Care",
+      icon: FaHeartbeat,
+      href: "/industries/product/health-care",
+      color: "from-red-500 to-pink-500",
+      iconColor: "text-red-500",
+      description: "Healthcare marketing strategies, patient acquisition, and medical brand building."
+    },
+    {
+      name: "Education",
+      icon: FaGraduationCap,
+      href: "/industries/product/education",
+      color: "from-indigo-500 to-purple-500",
+      iconColor: "text-indigo-500",
+      description: "Education marketing campaigns, student enrollment strategies, and institutional branding."
+    },
+    {
+      name: "Manufacturing",
+      icon: FaBuilding,
+      href: "/industries/product/manufacturing",
+      color: "from-gray-500 to-blue-500",
+      iconColor: "text-gray-500",
+      description: "Industrial marketing, B2B lead generation, and manufacturing brand development."
+    },
+    {
+      name: "FMCG",
+      icon: FaShoppingCart,
+      href: "/industries/product/fmcg",
+      color: "from-orange-500 to-red-500",
+      iconColor: "text-orange-500",
+      description: "Fast-moving consumer goods marketing, retail promotions, and brand awareness campaigns."
+    },
+    {
+      name: "Mobile Apps",
+      icon: FaMobileAlt,
+      href: "/industries/product/mobile-apps",
+      color: "from-teal-500 to-green-500",
+      iconColor: "text-teal-500",
+      description: "App store optimization, mobile user acquisition, and app marketing strategies."
+    },
+  ],
+};
+
+const IndustryCard = ({ industry, index, mode }) => {
   const ref = useRef(null);
   const [isInView, setIsInView] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -35,27 +132,11 @@ const IndustryCard = ({ title, description, icon, index, mode }) => {
     return () => observer.disconnect();
   }, []);
 
-  const getThemeColors = () => {
-    if (mode === "digital-marketing") {
-      return {
-        gradient: "from-orange-500 to-red-500",
-        hoverGradient: "from-orange-600 to-red-600",
-        text: "text-orange-500",
-        border: "border-orange-500/30",
-        glow: "from-orange-500/20 to-red-500/20"
-      };
-    } else {
-      return {
-        gradient: "from-blue-500 to-purple-600",
-        hoverGradient: "from-blue-600 to-purple-700",
-        text: "text-blue-500",
-        border: "border-blue-500/30",
-        glow: "from-blue-500/20 to-purple-500/20"
-      };
-    }
-  };
+ 
+  
 
-  const colors = getThemeColors();
+ 
+  const IconComponent = industry.icon;
 
   return (
     <motion.div
@@ -70,30 +151,30 @@ const IndustryCard = ({ title, description, icon, index, mode }) => {
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       className="relative group cursor-pointer flex-shrink-0"
-      style={{ width: "320px" }} // Fixed width for consistent scrolling
+      style={{ width: "320px" }}
     >
       {/* Background Glow Effect */}
       <motion.div
         animate={{ opacity: isHovered ? 1 : 0 }}
-        className={`absolute inset-0 bg-gradient-to-br ${colors.glow} rounded-xl blur-xl transition-opacity duration-500 -z-10`}
+        className={`absolute inset-0 bg-gradient-to-br ${industry.color.replace('from-', 'from-').replace('to-', 'to-')}/20 rounded-xl blur-xl transition-opacity duration-500 -z-10`}
       />
 
       {/* Main Card */}
-      <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-gray-700 backdrop-blur-sm overflow-hidden h-full">
+      <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-gray-700 backdrop-blur-sm overflow-hidden h-full flex flex-col">
         {/* Animated Border */}
         <motion.div
           animate={{ opacity: isHovered ? 1 : 0 }}
-          className={`absolute inset-0 rounded-xl border-2 ${colors.border} pointer-events-none`}
+          className={`absolute inset-0 rounded-xl border-2 ${industry.color.replace('from-', 'border-').split(' ')[0]}/30 pointer-events-none`}
         />
 
-        {/* Floating Icon */}
+        {/* Floating Icon with Industry-specific Color */}
         <motion.div
           animate={{ 
             scale: isHovered ? 1.1 : 1,
             rotate: isHovered ? 5 : 0
           }}
           transition={{ duration: 0.3 }}
-          className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${colors.gradient} mb-6 relative overflow-hidden`}
+          className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${industry.color} mb-6 relative overflow-hidden`}
         >
           {/* Icon Shine Effect */}
           <motion.div
@@ -101,31 +182,60 @@ const IndustryCard = ({ title, description, icon, index, mode }) => {
             transition={{ duration: 0.6 }}
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12"
           />
-          <div className="text-white text-2xl relative z-10">{icon}</div>
+          <IconComponent className={`text-white text-2xl relative z-10`} />
         </motion.div>
 
         {/* Content */}
         <motion.h3
-          animate={{ color: isHovered ? colors.text.replace('text-', '#') : "#ffffff" }}
+          animate={{ color: isHovered ? industry.iconColor : "#ffffff" }}
           transition={{ duration: 0.3 }}
-          className="text-2xl font-bold mb-4 group-hover:text-orange-500 transition-colors duration-300"
+          className="text-2xl font-bold mb-4 transition-colors duration-300"
         >
-          {title}
+          {industry.name}
         </motion.h3>
 
         <motion.p
           animate={{ color: isHovered ? "#d1d5db" : "#9ca3af" }}
           transition={{ duration: 0.3 }}
-          className="text-gray-300 leading-relaxed text-lg"
+          className="text-gray-300 leading-relaxed text-lg mb-6 flex-grow"
         >
-          {description}
+          {industry.description}
         </motion.p>
+
+        {/* Explore Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: isHovered ? 1 : 0.8, y: isHovered ? 0 : 10 }}
+          transition={{ duration: 0.3 }}
+          className="mt-auto"
+        >
+          <motion.a
+            href={industry.href}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={`
+              inline-flex items-center justify-center w-full px-6 py-3 rounded-xl font-semibold text-white 
+              bg-gradient-to-r ${industry.color} transition-all duration-300 hover:shadow-2xl shadow-lg overflow-hidden group relative
+            `}
+          >
+            {/* Button Shine Effect */}
+            <motion.div
+              animate={{ x: isHovered ? ["0%", "200%"] : "0%" }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12"
+            />
+            <span className="relative z-10 flex items-center">
+              Explore Solutions
+              <FaRocket className="ml-2 text-sm" />
+            </span>
+          </motion.a>
+        </motion.div>
 
         {/* Hover Indicator */}
         <motion.div
           animate={{ width: isHovered ? "100%" : "0%" }}
           transition={{ duration: 0.4 }}
-          className={`h-1 bg-gradient-to-r ${colors.gradient} mt-4 rounded-full`}
+          className={`h-1 bg-gradient-to-r ${industry.color} mt-4 rounded-full`}
         />
       </div>
     </motion.div>
@@ -156,95 +266,16 @@ const Industries = ({ mode = "digital-marketing" }) => {
     return () => observer.disconnect();
   }, []);
 
-  // Industries data for both modes
-  const industriesData = {
-    "digital-marketing": [
-      {
-        title: "E-commerce & Retail",
-        description: "Drive online sales and customer engagement with targeted digital marketing strategies tailored for retail businesses.",
-        icon: <FaShoppingCart />
-      },
-      {
-        title: "Healthcare & Wellness",
-        description: "Build trust and reach patients with compliant digital marketing solutions for healthcare providers and wellness brands.",
-        icon: <FaHeart />
-      },
-      {
-        title: "Technology & SaaS",
-        description: "Showcase innovation and drive B2B growth with specialized digital marketing for tech companies and SaaS platforms.",
-        icon: <FaRocket />
-      },
-      {
-        title: "Finance & Banking",
-        description: "Establish credibility and attract clients with secure, results-driven digital marketing for financial institutions.",
-        icon: <FaChartLine />
-      },
-      {
-        title: "Education & E-Learning",
-        description: "Reach students and promote courses with effective digital marketing strategies for educational institutions.",
-        icon: <FaGraduationCap />
-      },
-      {
-        title: "Real Estate",
-        description: "Generate leads and showcase properties with targeted digital marketing for real estate agencies and developers.",
-        icon: <FaCog />
-      },
-      {
-        title: "Hospitality & Travel",
-        description: "Attract guests and boost bookings with compelling digital marketing strategies for hotels and travel companies.",
-        icon: <FaServer />
-      },
-      {
-        title: "Automotive",
-        description: "Drive showroom traffic and vehicle sales with innovative digital marketing for automotive dealers and brands.",
-        icon: <FaStethoscope />
-      }
-    ],
-    "it-services": [
-      {
-        title: "FinTech & Banking",
-        description: "Develop secure financial technology solutions with banking integrations, compliance features, and advanced security.",
-        icon: <FaServer />
-      },
-      {
-        title: "Healthcare IT",
-        description: "Build compliant healthcare software with EHR integration, telemedicine capabilities, and patient management systems.",
-        icon: <FaStethoscope />
-      },
-      {
-        title: "E-commerce Platforms",
-        description: "Create scalable e-commerce solutions with advanced features, payment integrations, and inventory management.",
-        icon: <FaShoppingCart />
-      },
-      {
-        title: "EdTech & E-Learning",
-        description: "Develop innovative education technology platforms with LMS integration and interactive learning experiences.",
-        icon: <FaGraduationCap />
-      },
-      {
-        title: "Enterprise Solutions",
-        description: "Build robust enterprise software with CRM integration, workflow automation, and advanced analytics.",
-        icon: <FaCog />
-      },
-      {
-        title: "Manufacturing & Logistics",
-        description: "Create efficient supply chain management systems and manufacturing automation solutions.",
-        icon: <FaRocket />
-      },
-      {
-        title: "Media & Entertainment",
-        description: "Develop streaming platforms, content management systems, and digital media solutions.",
-        icon: <FaChartLine />
-      },
-      {
-        title: "Government & Public Sector",
-        description: "Build secure, scalable government technology solutions with compliance and citizen engagement features.",
-        icon: <FaHeart />
-      }
-    ]
+  // Get industries based on mode
+  const getCurrentIndustries = () => {
+    if (mode === "digital-marketing") {
+      return productIndustries.industries;
+    } else {
+      return serviceIndustries.industries;
+    }
   };
 
-  const currentIndustries = industriesData[mode] || industriesData["digital-marketing"];
+  const currentIndustries = getCurrentIndustries();
 
   const getThemeConfig = () => {
     if (mode === "digital-marketing") {
@@ -279,7 +310,6 @@ const Industries = ({ mode = "digital-marketing" }) => {
         behavior: 'smooth'
       });
 
-      // Update button states after scroll
       setTimeout(() => {
         updateScrollButtons();
       }, 300);
@@ -413,8 +443,8 @@ const Industries = ({ mode = "digital-marketing" }) => {
           >
             {currentIndustries.map((industry, index) => (
               <IndustryCard 
-                key={industry.title} 
-                {...industry} 
+                key={industry.name} 
+                industry={industry} 
                 index={index} 
                 mode={mode}
               />
@@ -449,32 +479,7 @@ const Industries = ({ mode = "digital-marketing" }) => {
           <div className={`w-2 h-2 rounded-full ${canScrollRight ? 'bg-white' : 'bg-gray-600'}`} />
         </motion.div>
 
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-16"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className={`
-              relative bg-gradient-to-r ${themeConfig.lightGradient} text-white px-8 py-4 rounded-xl font-semibold text-lg 
-              transition-all duration-300 hover:shadow-2xl shadow-lg overflow-hidden group
-            `}
-          >
-            {/* Button Shine Effect */}
-            <motion.div
-              animate={{ x: ["0%", "200%"] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12"
-            />
-            <span className="relative z-10">
-              Explore {mode === "digital-marketing" ? "Marketing" : "IT"} Solutions
-            </span>
-          </motion.button>
-        </motion.div>
+       
       </div>
 
       {/* Hide scrollbar for webkit browsers */}

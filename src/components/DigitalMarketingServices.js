@@ -4,11 +4,13 @@ import {
   FaArrowRight,
   FaGoogle,
   FaHashtag,
-  FaPenFancy,
-  FaMailBulk,
   FaAd,
 } from "react-icons/fa";
-import { FaAnchorCircleExclamation } from "react-icons/fa6";
+
+// Custom Icon Component for PNG images
+const PngIcon = ({ src, alt, className = "w-8 h-8" }) => (
+  <img src={src} alt={alt} className={className} />
+);
 
 const DigitalMarketingServiceCard = ({ title, description, icon, index, isVisible }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -19,7 +21,8 @@ const DigitalMarketingServiceCard = ({ title, description, icon, index, isVisibl
     hoverGradient: "from-orange-500 to-red-500",
     light: "from-orange-500/20 to-red-500/20",
     text: "text-orange-500",
-    border: "border-orange-500/50"
+    border: "border-orange-500/50",
+    iconBg: "bg-orange-500/10"
   };
 
   const cardVariants = {
@@ -94,15 +97,23 @@ const DigitalMarketingServiceCard = ({ title, description, icon, index, isVisibl
           <motion.div
             variants={iconVariants}
             animate={isHovered ? "hover" : "normal"}
-            className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${colors.gradient} mb-6 relative overflow-hidden`}
+            className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${colors.iconBg} border ${colors.border} mb-6 relative overflow-hidden group/icon`}
           >
             {/* Icon Background Shine */}
             <motion.div
               animate={{ x: isHovered ? ["0%", "200%"] : "0%" }}
               transition={{ duration: 0.6 }}
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12"
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12"
             />
-            <div className="text-white text-2xl relative z-10">{icon}</div>
+            <motion.div
+              className="text-2xl relative z-10"
+              animate={{ 
+                scale: isHovered ? 1.2 : 1,
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              {icon}
+            </motion.div>
           </motion.div>
 
           {/* Title */}
@@ -176,32 +187,32 @@ export const DigitalMarketingServices = () => {
     {
       title: "SEO Optimization",
       description: "Boost your search rankings and drive organic traffic with our comprehensive SEO strategies and technical optimization.",
-      icon: <FaGoogle />,
+      icon: <FaGoogle className="text-green-400" />,
     },
     {
       title: "Social Media Marketing",
       description: "Engage your audience and build brand loyalty through strategic social media campaigns across all major platforms.",
-      icon: <FaHashtag />,
+      icon: <FaHashtag className="text-pink-400" />,
     },
     {
       title: "Content Marketing",
       description: "Create compelling content that drives engagement, builds authority, and converts visitors into customers.",
-      icon: <FaPenFancy />,
+      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/3281/3281340.png" alt="Content Writing" className="w-7 h-7" />,
     },
     {
       title: "PPC Advertising",
       description: "Drive immediate results with targeted pay-per-click campaigns that maximize your advertising ROI and conversion rates.",
-      icon: <FaAd />,
+      icon: <FaAd className="text-yellow-400" />,
     },
     {
       title: "Email Marketing",
       description: "Nurture leads and retain customers with personalized email campaigns that drive engagement and sales.",
-      icon: <FaMailBulk />,
+      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Marketing" className="w-7 h-7" />,
     },
     {
       title: "Analytics & Reporting",
       description: "Make data-driven decisions with comprehensive analytics and performance reports that track your marketing success.",
-      icon: <FaAnchorCircleExclamation />,
+      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Analytics" className="w-7 h-7" />,
     }
   ];
 

@@ -57,15 +57,14 @@ const ProcessStepCircle = ({ step, title, description, icon, index, isActive, is
           relative w-28 h-28 rounded-full flex flex-col items-center justify-center cursor-pointer transition-all duration-500 z-10
           ${isActive 
             ? `bg-gradient-to-br ${colors.gradient} shadow-2xl scale-110 ${colors.glow}` 
-            : isCompleted
+            : isCompleted || isHovered
             ? `bg-gradient-to-br ${colors.gradient} shadow-xl scale-105 ${colors.glow}`
             : "bg-white border-2 border-gray-200 shadow-lg"
           }
-          ${isHovered && !isActive && !isCompleted ? "scale-105 shadow-xl border-gray-300" : ""}
         `}
       >
         {/* Active Ring */}
-        {isActive && (
+        {(isActive || isHovered) && (
           <motion.div
             animate={{ scale: [1, 1.15, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
@@ -73,50 +72,40 @@ const ProcessStepCircle = ({ step, title, description, icon, index, isActive, is
           />
         )}
 
-        {/* Hover Ring */}
-        {isHovered && !isActive && !isCompleted && (
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            className={`absolute inset-0 rounded-full border-2 ${colors.border}`}
+        {/* Icon */}
+        <div className="w-10 h-10 mb-1 flex items-center justify-center">
+          <img 
+            src={icon} 
+            alt={title}
+            className={`w-8 h-8 transition-all duration-300 ${
+              isActive || isCompleted || isHovered ? "filter brightness-0 invert" : ""
+            }`}
           />
-        )}
+        </div>
 
         {/* Step Number */}
         <motion.span
           animate={{
-            color: isActive || isCompleted ? "#ffffff" : isHovered ? (theme === "digital-marketing" ? "#ea580c" : "#3b82f6") : "#64748b",
-            scale: isActive ? 1.3 : isCompleted ? 1.1 : isHovered ? 1.1 : 1,
+            color: isActive || isCompleted || isHovered ? "#ffffff" : "#64748b",
+            scale: isActive ? 1.3 : isCompleted || isHovered ? 1.1 : 1,
           }}
-          className="text-2xl font-bold transition-all duration-300"
+          className="text-sm font-bold transition-all duration-300"
         >
           {step}
         </motion.span>
 
         {/* Progress Dot */}
         <motion.div
-          animate={{ scale: isActive ? 1.8 : isCompleted ? 1.4 : isHovered ? 1.2 : 1 }}
+          animate={{ scale: isActive ? 1.8 : isCompleted || isHovered ? 1.4 : 1 }}
           transition={{ type: "spring", stiffness: 200 }}
           className={`absolute -top-1 -right-1 w-4 h-4 rounded-full border-2 border-white ${
             isActive ? "bg-green-500 shadow-lg" : 
-            isCompleted ? "bg-green-400 shadow-md" : 
-            isHovered ? "bg-gray-400" : "bg-gray-300"
+            isCompleted || isHovered ? "bg-green-400 shadow-md" : 
+            "bg-gray-300"
           }`}
         />
 
-        {/* Checkmark for completed steps */}
-        {isCompleted && !isActive && (
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.5 + index * 0.1 }}
-            className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center shadow-lg"
-          >
-            <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-            </svg>
-          </motion.div>
-        )}
+        
       </motion.div>
 
       {/* Title */}
@@ -125,8 +114,8 @@ const ProcessStepCircle = ({ step, title, description, icon, index, isActive, is
         animate={{ 
           opacity: isVisible ? 1 : 0, 
           y: isVisible ? 0 : 10,
-          color: isActive ? "#1e293b" : isCompleted ? "#374151" : isHovered ? "#374151" : "#64748b",
-          scale: isActive ? 1.05 : isCompleted ? 1.02 : isHovered ? 1.02 : 1
+          color: isActive ? "#1e293b" : isCompleted || isHovered ? "#374151" : "#64748b",
+          scale: isActive ? 1.05 : isCompleted || isHovered ? 1.02 : 1
         }}
         transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
         className="text-lg font-semibold mt-6 text-center max-w-32 leading-tight transition-colors duration-300"
@@ -160,17 +149,6 @@ const Process = ({ mode = "digital-marketing" }) => {
 
     return () => observer.disconnect();
   }, []);
-
-  // Auto-rotate steps every 8 seconds
-  useEffect(() => {
-    if (!isVisible) return;
-
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % 5);
-    }, 8000);
-
-    return () => clearInterval(interval);
-  }, [isVisible]);
 
   // Handle mouse movement for hover effects
   useEffect(() => {
@@ -314,14 +292,14 @@ const Process = ({ mode = "digital-marketing" }) => {
     },
   };
 
-  // Helper function to check if a step is completed
+  // Helper function to check if a step is completed (for active step logic)
   const isStepCompleted = (index) => {
     return index < activeStep;
   };
 
-  // Helper function to check if a step is hovered
+  // Helper function to check if a step should be highlighted on hover
   const isStepHovered = (index) => {
-    return hoveredStep === index;
+    return hoveredStep !== null && index <= hoveredStep;
   };
 
   return (
@@ -402,15 +380,15 @@ const Process = ({ mode = "digital-marketing" }) => {
             {/* Base Line */}
             <div className="absolute top-0 left-0 w-full h-full bg-gray-200" />
             
-            {/* Completed Steps Line */}
+            {/* Active Steps Line */}
             <motion.div
               initial={{ width: 0 }}
-              animate={{ width: `${(activeStep / 4) * 100}%` }}
+              animate={{ width: `${((activeStep + 1) / 5) * 100}%` }}
               transition={{ duration: 1, delay: 0.5 }}
               className={`h-full bg-gradient-to-r ${themeConfig.gradient}`}
             />
             
-            {/* Hover Line */}
+            {/* Hover Line - Shows all steps up to hovered step */}
             {hoveredStep !== null && (
               <motion.div
                 initial={{ width: 0 }}

@@ -4,11 +4,13 @@ import {
   FaArrowRight,
   FaCloud,
   FaMobile,
-  FaShieldAlt,
-  FaDatabase,
   FaServer,
-  FaCode,
 } from "react-icons/fa";
+
+// Custom Icon Component for PNG images
+const PngIcon = ({ src, alt, className = "w-8 h-8" }) => (
+  <img src={src} alt={alt} className={className} />
+);
 
 const ITServiceCard = ({ title, description, icon, index, isVisible }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -19,7 +21,8 @@ const ITServiceCard = ({ title, description, icon, index, isVisible }) => {
     hoverGradient: "from-blue-500 to-blue-600",
     light: "from-blue-500/20 to-cyan-500/20",
     text: "text-blue-500",
-    border: "border-blue-500/50"
+    border: "border-blue-500/50",
+    iconBg: "bg-blue-500/10"
   };
 
   const cardVariants = {
@@ -94,15 +97,23 @@ const ITServiceCard = ({ title, description, icon, index, isVisible }) => {
           <motion.div
             variants={iconVariants}
             animate={isHovered ? "hover" : "normal"}
-            className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${colors.gradient} mb-6 relative overflow-hidden`}
+            className={``}
           >
             {/* Icon Background Shine */}
             <motion.div
               animate={{ x: isHovered ? ["0%", "200%"] : "0%" }}
               transition={{ duration: 0.6 }}
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12"
+              className=""
             />
-            <div className="text-white text-2xl relative z-10">{icon}</div>
+            <motion.div
+              className="text-5xl relative z-10"
+              animate={{ 
+                scale: isHovered ? 1.2 : 1,
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              {icon}
+            </motion.div>
           </motion.div>
 
           {/* Title */}
@@ -176,32 +187,32 @@ export const ITServices = () => {
     {
       title: "Web Development",
       description: "Build responsive, high-performance websites and web applications using the latest technologies and best practices.",
-      icon: <FaCode />,
+      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/1006/1006363.png" alt="Web Development" className="w-7 h-7" />,
     },
     {
       title: "Mobile App Development",
       description: "Create intuitive, feature-rich mobile applications for iOS and Android that deliver exceptional user experiences.",
-      icon: <FaMobile />,
+      icon: <FaMobile className="text-purple-400" />,
     },
     {
       title: "Cloud Solutions",
       description: "Migrate, deploy, and optimize your infrastructure with secure and scalable cloud solutions tailored to your needs.",
-      icon: <FaCloud />,
+      icon: <FaCloud className="text-blue-300" />,
     },
     {
       title: "Cyber Security",
       description: "Protect your digital assets with enterprise-grade security solutions, threat monitoring, and vulnerability assessments.",
-      icon: <FaShieldAlt />,
+      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/3064/3064676.png" alt="Cyber Security" className="w-7 h-7" />,
     },
     {
       title: "IT Infrastructure",
       description: "Design and implement robust IT infrastructure that supports your business growth and ensures operational excellence.",
-      icon: <FaServer />,
+      icon: <FaServer className="text-green-300" />,
     },
     {
       title: "Database Management",
       description: "Optimize database performance, ensure data integrity, and implement efficient data management solutions.",
-      icon: <FaDatabase />,
+      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/6295/6295417.png" alt="Database" className="w-7 h-7" />,
     }
   ];
 
