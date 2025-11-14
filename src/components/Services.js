@@ -119,7 +119,7 @@ const ServiceCard = ({ title, description, icon, index, isVisible, category }) =
             />
             {/* Icon Content */}
             <motion.div
-              className="text-2xl relative z-10"
+              className="text-2xl relative z-12"
               animate={{ 
                 scale: isHovered ? 1.2 : 1,
               }}
