@@ -5,6 +5,12 @@ import {
   FaUsers,
   FaRocket,
   FaCity,
+  FaUtensils,
+  FaHotel,
+  FaPlaneDeparture,
+  FaIndustry, 
+  FaBoxes,
+  FaMicrochip,
   FaBuilding,
   FaHeartbeat,
   FaGraduationCap,
@@ -14,6 +20,8 @@ import {
   FaMobileAlt
 } from "react-icons/fa";
 
+
+
 // Service Industries
 const serviceIndustries = {
   name: "IT Industries",
@@ -21,27 +29,30 @@ const serviceIndustries = {
   industries: [
     {
       name: "Food & Beverages",
-      icon: FaShoppingCart,
+      icon: FaUtensils,
       href: "/industries/service/food-beverages",
       color: "from-yellow-500 to-orange-500",
       iconColor: "text-yellow-500",
-      description: "Custom software solutions for restaurant management, inventory tracking, and delivery systems."
+      description:
+        "Custom software solutions for restaurant management, inventory tracking, and delivery systems.",
     },
     {
       name: "Hospitality",
-      icon: FaUsers,
+      icon: FaHotel,
       href: "/industries/service/hospitality",
       color: "from-green-500 to-teal-500",
       iconColor: "text-green-500",
-      description: "Hotel management systems, booking platforms, and customer experience solutions."
+      description:
+        "Hotel management systems, booking platforms, and customer experience solutions.",
     },
     {
       name: "Tours & Travels",
-      icon: FaRocket,
+      icon: FaPlaneDeparture,
       href: "/industries/service/tours-travels",
       color: "from-blue-500 to-cyan-500",
       iconColor: "text-blue-500",
-      description: "Travel booking engines, itinerary planners, and tourism management software."
+      description:
+        "Travel booking engines, itinerary planners, and tourism management software.",
     },
     {
       name: "Real Estate",
@@ -49,7 +60,8 @@ const serviceIndustries = {
       href: "/industries/service/real-estate",
       color: "from-purple-500 to-pink-500",
       iconColor: "text-purple-500",
-      description: "Property management systems, virtual tours, and real estate CRM solutions."
+      description:
+        "Property management systems, virtual tours, and real estate CRM solutions.",
     },
     {
       name: "Technology",
@@ -57,10 +69,12 @@ const serviceIndustries = {
       href: "/industries/service/technology",
       color: "from-indigo-500 to-purple-500",
       iconColor: "text-indigo-500",
-      description: "Custom software development, cloud solutions, and IT infrastructure services."
+      description:
+        "Custom software development, cloud solutions, and IT infrastructure services.",
     },
   ],
 };
+
 
 // Product Industries
 const productIndustries = {
@@ -84,21 +98,25 @@ const productIndustries = {
       description: "Education marketing campaigns, student enrollment strategies, and institutional branding."
     },
     {
-      name: "Manufacturing",
-      icon: FaBuilding,
-      href: "/industries/product/manufacturing",
-      color: "from-gray-500 to-blue-500",
-      iconColor: "text-gray-500",
-      description: "Industrial marketing, B2B lead generation, and manufacturing brand development."
-    },
-    {
-      name: "FMCG",
-      icon: FaShoppingCart,
-      href: "/industries/product/fmcg",
-      color: "from-orange-500 to-red-500",
-      iconColor: "text-orange-500",
-      description: "Fast-moving consumer goods marketing, retail promotions, and brand awareness campaigns."
-    },
+  name: "Manufacturing",
+  icon: FaIndustry,
+  href: "/industries/product/manufacturing",
+  color: "from-gray-500 to-blue-500",
+  iconColor: "text-gray-500",
+  description:
+    "Industrial marketing, B2B lead generation, and manufacturing brand development.",
+},
+
+{
+  name: "FMCG",
+  icon: FaBoxes,
+  href: "/industries/product/fmcg",
+  color: "from-orange-500 to-red-500",
+  iconColor: "text-orange-500",
+  description:
+    "Fast-moving consumer goods marketing, retail promotions, and brand awareness campaigns.",
+},
+
     {
       name: "Mobile Apps",
       icon: FaMobileAlt,
