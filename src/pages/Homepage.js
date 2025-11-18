@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import WhoWeAre from './WhoWeAre';
 import OurClients from '../components/OurClients';
 import Testimonials from '../components/Testimonials';
-import FAQ from '../components/FAQ';
+//import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 import DigitalMarketingWork from '../components/DigitalMarketingWork';
 
@@ -18,9 +18,8 @@ const Homepage = () => {
       <Services />
    
       <OurClients mode='home' />
-      <DigitalMarketingWork />
+      <DigitalMarketingWork />//
       <Testimonials />
-      <FAQ mode='home'/>
       <Contact mode='combined' />
       <Footer />
     </div>

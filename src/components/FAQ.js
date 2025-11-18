@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { FaChevronDown, FaChevronUp, FaQuestionCircle } from "react-icons/fa";
+import { FaArrowRight, FaChevronDown, FaChevronUp, FaQuestionCircle } from "react-icons/fa";
+import { useNavigate} from "react-router-dom";
 
 const FAQ = ({ mode = "home" }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.1 });
   const [openIndex, setOpenIndex] = useState(null);
+  const navigate = useNavigate();
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -111,10 +113,14 @@ const FAQ = ({ mode = "home" }) => {
         question:"Do you work with startups and enterprises?",
         answer:"Yes — we support startups, SMEs, and large-scale enterprise systems."
       },
+      {
+    question: "Do you offer support?",
+    answer: "Yes — we support startups, SMEs, and large-scale enterprise systems."
+  },
     ],
   };
 
-  const currentFAQs = faqData[mode] || faqData.home;
+const currentFAQs = faqData[mode] || faqData.home;
 
   const getThemeConfig = () => {
     if (mode === "digital-marketing") {
@@ -331,6 +337,15 @@ const FAQ = ({ mode = "home" }) => {
             </motion.div>
           </div>
         </motion.div>
+
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+                      <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-10 py-4 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-2" onClick={() => navigate("/contact")}>
+                        Get In Touch with Us
+                        <FaArrowRight />
+                      </button>
+        
+                     
+                    </div>
       </div>
     </section>
   );

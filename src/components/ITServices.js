@@ -11,11 +11,9 @@ import {
 const PngIcon = ({ src, alt, className = "w-8 h-8" }) => (
   <img src={src} alt={alt} className={className} />
 );
-
 const ITServiceCard = ({ title, description, icon, index, isVisible }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Blue color scheme for IT services
   const colors = {
     gradient: "from-blue-500 to-cyan-500",
     hoverGradient: "from-blue-500 to-blue-600",
@@ -55,7 +53,7 @@ const ITServiceCard = ({ title, description, icon, index, isVisible }) => {
 
   const iconVariants = {
     normal: { rotate: 0, scale: 1 },
-    hover: { rotate: 5, scale: 1.1 },
+    hover: { rotate: 5, scale: 1.05 },
   };
 
   return (
@@ -68,89 +66,62 @@ const ITServiceCard = ({ title, description, icon, index, isVisible }) => {
       onHoverEnd={() => setIsHovered(false)}
       className="relative group cursor-pointer"
     >
-      {/* Background Glow Effect */}
+      {/* Glow Effect */}
       <motion.div
         animate={{ opacity: isHovered ? 1 : 0 }}
         className={`absolute inset-0 bg-gradient-to-br ${colors.light} rounded-2xl blur-xl transition-opacity duration-500`}
       />
 
-      {/* Main Card */}
+      {/* Card */}
       <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 overflow-hidden backdrop-blur-sm">
-        {/* Animated Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full -translate-y-16 translate-x-16" />
-          <div className="absolute bottom-0 left-0 w-32 h-32 bg-white rounded-full translate-y-16 -translate-x-16" />
-        </div>
 
-        {/* Floating Particles */}
+        {/* Icon Container (FIXED) */}
+        <motion.div
+          variants={iconVariants}
+          animate={isHovered ? "hover" : "normal"}
+          className="mb-6"
+        >
+          <div
+            className="w-16 h-16 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-300 transition-transform duration-300 group-hover:scale-105 overflow-hidden"
+          >
+            {icon}
+          </div>
+        </motion.div>
+
+        {/* Title */}
+        <motion.h3
+          className="text-2xl font-bold text-white mb-4"
+          animate={{ color: isHovered ? colors.text : "#ffffff" }}
+          transition={{ duration: 0.3 }}
+        >
+          {title}
+        </motion.h3>
+
+        {/* Description */}
+        <motion.p
+          className="text-gray-300 leading-relaxed text-lg mb-6"
+          animate={{ color: isHovered ? "#d1d5db" : "#9ca3af" }}
+          transition={{ duration: 0.3 }}
+        >
+          {description}
+        </motion.p>
+
+        {/* Bottom CTA */}
         <motion.div
           animate={{
-            y: [0, -20, 0],
-            opacity: [0.3, 0.6, 0.3],
+            opacity: isHovered ? 1 : 0.7,
+            x: isHovered ? 5 : 0,
           }}
-          transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
-          className="absolute top-4 right-4 w-2 h-2 bg-blue-500 rounded-full"
-        />
-
-        <div className="relative z-10">
-          {/* Icon Container */}
+          className={`flex items-center ${colors.text} font-semibold`}
+        >
+          Learn more
           <motion.div
-            variants={iconVariants}
-            animate={isHovered ? "hover" : "normal"}
-            className={``}
+            animate={{ x: isHovered ? 8 : 0 }}
+            transition={{ type: "spring", stiffness: 500 }}
           >
-            {/* Icon Background Shine */}
-            <motion.div
-              animate={{ x: isHovered ? ["0%", "200%"] : "0%" }}
-              transition={{ duration: 0.6 }}
-              className=""
-            />
-            <motion.div
-              className="text-5xl relative z-10"
-              animate={{ 
-                scale: isHovered ? 1.2 : 1,
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              {icon}
-            </motion.div>
+            <FaArrowRight className="ml-2 w-4 h-4" />
           </motion.div>
-
-          {/* Title */}
-          <motion.h3
-            className="text-2xl font-bold text-white mb-4"
-            animate={{ color: isHovered ? colors.text : "#ffffff" }}
-            transition={{ duration: 0.3 }}
-          >
-            {title}
-          </motion.h3>
-
-          {/* Description */}
-          <motion.p
-            className="text-gray-300 leading-relaxed text-lg mb-6"
-            animate={{ color: isHovered ? "#d1d5db" : "#9ca3af" }}
-            transition={{ duration: 0.3 }}
-          >
-            {description}
-          </motion.p>
-
-          {/* CTA Button */}
-          <motion.div
-            animate={{
-              opacity: isHovered ? 1 : 0.7,
-              x: isHovered ? 5 : 0,
-            }}
-            className={`flex items-center ${colors.text} font-semibold`}
-          >
-            Learn more
-            <motion.div
-              animate={{ x: isHovered ? 8 : 0 }}
-              transition={{ type: "spring", stiffness: 500 }}
-            >
-              <FaArrowRight className="ml-2 w-4 h-4" />
-            </motion.div>
-          </motion.div>
-        </div>
+        </motion.div>
 
         {/* Border Glow */}
         <motion.div
@@ -187,32 +158,32 @@ export const ITServices = () => {
     {
       title: "Web Development",
       description: "Build responsive, high-performance websites and web applications using the latest technologies and best practices.",
-      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/1006/1006363.png" alt="Web Development" className="w-7 h-7" />,
+      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/1006/1006363.png" alt="Web Development" className="w-12 h-12" />,
     },
     {
       title: "Mobile App Development",
       description: "Create intuitive, feature-rich mobile applications for iOS and Android that deliver exceptional user experiences.",
-      icon: <FaMobile className="text-purple-400" />,
+      icon: <FaMobile className="text-purple-400 text-6xl"/>,
     },
     {
       title: "Cloud Solutions",
       description: "Migrate, deploy, and optimize your infrastructure with secure and scalable cloud solutions tailored to your needs.",
-      icon: <FaCloud className="text-blue-300" />,
+      icon: <FaCloud className="text-blue-300 text-6xl" />,
     },
     {
       title: "Cyber Security",
       description: "Protect your digital assets with enterprise-grade security solutions, threat monitoring, and vulnerability assessments.",
-      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/3064/3064676.png" alt="Cyber Security" className="w-7 h-7" />,
+      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/3064/3064676.png" alt="Cyber Security" className="w-12 h-12" />,
     },
     {
       title: "IT Infrastructure",
       description: "Design and implement robust IT infrastructure that supports your business growth and ensures operational excellence.",
-      icon: <FaServer className="text-green-300" />,
+      icon: <FaServer className="text-green-300 text-6xl"/>,
     },
     {
       title: "Database Management",
       description: "Optimize database performance, ensure data integrity, and implement efficient data management solutions.",
-      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/6295/6295417.png" alt="Database" className="w-7 h-7" />,
+      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/6295/6295417.png" alt="Database" className="w-12 h-12" />,
     }
   ];
 

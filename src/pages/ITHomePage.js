@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
-import Contact from "../components/Contact";
+// import Contact from "../components/Contact";
 import Process from "../components/Process";
 import Industries from "../components/Industries";
 import FAQ from "../components/FAQ";
@@ -23,11 +23,11 @@ const ITHomePage = () => {
 
       <ITServicesWork/>
       <FAQ mode="it-services"/>
-       <Contact
+       {/* <Contact
         mode="it"
         title="Start Your IT Project"
         subtitle="Let's discuss your technology needs and build something amazing together."
-      />
+      /> */}
       <Footer />
     </div>
   );

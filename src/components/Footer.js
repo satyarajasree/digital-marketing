@@ -210,25 +210,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-
-            {/* Newsletter Signup */}
-            <div className="bg-gray-800/30 backdrop-blur-sm rounded-xl p-4 border border-gray-700">
-              <p className="text-gray-300 mb-3 font-medium flex items-center gap-2">
-                <FaEnvelope className="w-4 h-4 text-orange-400" />
-                Stay Updated
-              </p>
-              <div className="flex space-x-2">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-orange-500 transition-colors duration-300 backdrop-blur-sm"
-                />
-                <button className="px-4 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2">
-                  Join
-                  <FaArrowRight className="w-3 h-3" />
-                </button>
-              </div>
-            </div>
+              
           </div>
         </div>
 
