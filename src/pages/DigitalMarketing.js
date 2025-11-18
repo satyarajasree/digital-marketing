@@ -21,7 +21,6 @@ const DigitalMarketing = () => {
       <Process mode="digital-marketing" />
       <Industries mode="digital-marketing" />
       <WhyChooseUs mode="digital-marketing" />
-      <OurClients mode="digital-marketing" />
       <DigitalMarketingWork />
       <FAQ mode="digital-marketing"/>
       <Contact

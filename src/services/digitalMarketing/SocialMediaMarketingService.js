@@ -5,7 +5,7 @@ import {
   FaTwitter,
   FaLinkedin,
   FaYoutube,
-  FaTiktok,
+  FaSnapchat,
   FaChartLine,
   FaUsers,
   FaRocket,
@@ -37,12 +37,15 @@ const SocialMediaMarketingService = () => {
       color: "from-pink-500 to-rose-600",
       description: "Visual storytelling and influencer partnerships for brand growth"
     },
+   
     {
-      icon: FaTiktok,
-      name: "TikTok",
-      color: "from-gray-900 to-gray-700",
-      description: "Viral video content and trend-based marketing for Gen Z"
-    },
+  icon: FaSnapchat,
+  name: "Snapchat",
+  color: "from-yellow-400 to-yellow-500",
+  description:
+    "Snapchat helps brands reach young audiences with quick, engaging content."
+},
+
     {
       icon: FaLinkedin,
       name: "LinkedIn",

@@ -7,6 +7,8 @@ import {
   FaPhone,
   FaCheck,
   FaLightbulb,
+  FaBuilding,
+  FaRegCalendarCheck
 } from 'react-icons/fa';
 
 const Contact = ({ 
@@ -260,6 +262,51 @@ const Contact = ({
                       placeholder="+1 (555) 000-0000"
                     />
                   </div>
+
+                     {/* Business Category Field */}
+                    <div className="space-y-2">
+                      <label htmlFor="businessCategory" className="flex items-center gap-2 text-sm font-medium text-gray-700">
+                   <FaBuilding className="w-4 h-4 text-orange-500" /> Business Category *
+                   </label>
+
+                   <select
+                   id="businessCategory"
+                   name="businessCategory"
+                   value={formData.businessCategory}
+                   onChange={handleChange}
+                   required
+                   className="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300" >
+                   <option value="">Select your business category</option>
+                   <option value="digital-marketing">Digital Marketing</option>
+                   <option value="it-services">IT Services</option>
+                   <option value="both">Both</option>
+                   </select>
+                  </div>
+
+                    {/* Project Start Timeline Field */}
+<div className="space-y-2">
+  <label
+    htmlFor="projectTimeline"
+    className="flex items-center gap-2 text-sm font-medium text-gray-700"
+  >
+    <FaRegCalendarCheck className="w-4 h-4 text-orange-500" />
+    Planning to Start the Project In *
+  </label>
+
+  <select
+    id="projectTimeline"
+    name="projectTimeline"
+    value={formData.projectTimeline}
+    onChange={handleChange}
+    required
+    className="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+  >
+    <option value="">Select a timeline</option>
+    <option value="0-15-days">0–15 days</option>
+    <option value="15-30-days">15–30 days</option>
+    <option value="after-30-days">After 30 days</option>
+  </select>
+</div>
 
                   {/* Submit Button */}
                   <motion.button

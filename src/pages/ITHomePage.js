@@ -20,7 +20,7 @@ const ITHomePage = () => {
       <Process mode="it-services" />
       <Industries mode="it-services" />
       <WhyChooseUs mode="it-services" />
-      <OurClients mode="it-services" />
+
       <ITServicesWork/>
       <FAQ mode="it-services"/>
        <Contact

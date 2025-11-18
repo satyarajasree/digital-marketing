@@ -315,10 +315,10 @@ const Navbar = () => {
                   <FaEnvelope className="w-3 h-3" />
                 </motion.div>
                 <a
-                  href="mailto:hello@digitalpro.com"
+                  href="mailto:info@amplinova.com"
                   className="hover:text-yellow-300 transition-colors duration-300 font-medium"
                 >
-                  hello@digitalpro.com
+                  info@amplinova.com
                 </a>
               </motion.div>
 
@@ -335,11 +335,11 @@ const Navbar = () => {
                   <FaPhone className="w-3 h-3" />
                 </motion.div>
                 <a
-                  href="tel:+15551234567"
+                  href="tel:+91 99760 89089"
                   className="hover:text-yellow-300 transition-colors duration-300 font-medium"
                 >
-                  +1 (555) 123-4567
-                </a>
+                  +91 99760 89089
+                 </a>
               </motion.div>
             </div>
 

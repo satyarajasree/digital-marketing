@@ -146,42 +146,34 @@ const MobileAppDevelopment = () => {
         </div>
 
         {/* Services Section */}
-        <div className="py-20 bg-white relative">
-          <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-blue-50 to-transparent"></div>
-          <div className="container mx-auto px-6 relative">
-            <div className="text-center mb-16">
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">
-                Our Mobile App Services
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                End-to-end mobile app development for all platforms and business needs
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  className="group bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 border border-blue-100 hover:border-blue-200 hover:transform hover:-translate-y-2"
-                >
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="text-4xl bg-gradient-to-r from-blue-600 to-blue-800 p-4 rounded-2xl text-white">
-                      {service.image}
-                    </div>
-                    <div className="text-blue-600">
-                      <service.icon className="text-3xl opacity-80" />
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-lg">
-                    {service.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {services.map((service, index) => (
+    <div key={index} className="group bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 border border-blue-100 hover:border-blue-200 hover:transform hover:-translate-y-2">
+      <div className="flex items-center justify-between mb-6">
+        <div className="text-4xl bg-gradient-to-r from-blue-600 to-blue-800 p-4 rounded-2xl text-white">
+          {service.image}
         </div>
+        <div className="text-blue-600">
+          <service.icon className="text-3xl opacity-80" />
+        </div>
+      </div>
+      <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
+      <p className="text-gray-600 leading-relaxed text-lg">{service.description}</p>
+    </div>
+  ))}
+</div>
+
+{/* Image Row */}
+<div className="container mx-auto px-6">
+  <div className="mt-16 mb-16 flex flex-wrap justify-center gap-12">
+    <img src="/img1.png" alt="img1" className="w-64 h-64 object-cover rounded-xl" />
+    <img src="/img2.png" alt="img2" className="w-64 h-64 object-cover rounded-xl" />
+    <img src="/img3.png" alt="img3" className="w-64 h-64 object-cover rounded-xl" />
+    <img src="/img4.png" alt="img4" className="w-64 h-64 object-cover rounded-xl" />
+  </div>
+</div>
+
+
 
         {/* Platforms Section */}
         <div className="py-20 bg-gradient-to-br from-blue-50 to-gray-100 relative">

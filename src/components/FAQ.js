@@ -51,38 +51,65 @@ const FAQ = ({ mode = "home" }) => {
     ],
     "digital-marketing": [
       {
-        question: "How much do your digital marketing services cost?",
-        answer: "We offer flexible, goal-based packages tailored to your specific needs. After understanding your business objectives, target audience, and budget, we'll suggest a customized package that delivers maximum ROI. Our pricing starts from competitive rates suitable for startups and scales for enterprise-level requirements.",
+        question:"What digital marketing services do you offer?",
+        answer: "SEO, social media marketing, Google Ads, content marketing, branding, automation, and email campaigns.",
       },
       {
-        question: "When will I see results from digital marketing?",
-        answer: "While some results like improved website traffic and social media engagement can be seen within 2-4 weeks, substantial growth typically occurs within 3-6 months. SEO results take 4-6 months to show significant impact, while PPC and social media campaigns can generate immediate leads. We provide monthly progress reports to track all key metrics.",
+        question: "How long does it take to see results?",
+        answer: ["SEO: 2–4 months \n",
+            "Paid Ads: Immediate results \n",
+            "Social Media Growth: 30–90 days \n",
+        ]
       },
       {
-        question: "What's included in your digital marketing packages?",
-        answer: "Our comprehensive packages include strategy development, SEO optimization, content creation, social media management, PPC campaign management, email marketing, analytics reporting, and monthly performance reviews. We customize each package based on your specific business goals and industry requirements.",
+        question: "Do you manage social media pages fully?",
+        answer: "Yes — content creation, posting, ads, storytelling, and analytics",
       },
       {
-        question: "How do you measure digital marketing campaign success?",
-        answer: "We track both quantitative metrics (website traffic, conversion rates, ROI, lead generation, customer acquisition cost) and qualitative indicators (brand sentiment, customer engagement, market positioning). Before starting, we establish clear KPIs aligned with your business objectives and continuously optimize based on performance data.",
+        question: "Can you help with branding and content creation?",
+        answer: "Yes — logo, brand identity, creatives, videos, copywriting",
+      },
+      {
+        question:"How do you track marketing performance?",
+        answer:"Using Google Analytics, Search Console, Meta Business Suite, and real-time dashboards.",
+      },
+      {
+        question:"What industries do you work with?",
+        answer:"Real estate, healthcare, education, e-commerce, tech, and local businesses.",
+      },
+      {
+        question:"Can digital marketing help small businesses?",
+        answer:"Absolutely — it builds awareness, increases leads, and boosts revenue with minimal cost.",
       },
     ],
     "it-services": [
       {
-        question: "What technologies and frameworks do you work with?",
-        answer: "We work with modern technologies including React, Node.js, Python, .NET, AWS, Azure, MongoDB, PostgreSQL, and more. We choose the best stack for each project based on requirements, scalability needs, security considerations, and long-term maintenance. Our team stays updated with the latest industry trends and best practices.",
+        question: "What services does an IT company provide?",
+        answer: "We offer software development, web/app development, cloud solutions, automation, cybersecurity, and IT consulting.",
       },
       {
-        question: "How do you ensure project security and code quality?",
-        answer: "We follow industry best practices including code reviews, automated testing, security audits, and continuous integration. Our development process includes multiple quality assurance checkpoints, follows security protocols from day one, and includes regular vulnerability assessments. We maintain comprehensive documentation and implement robust error handling.",
+        question: "How long does a typical IT project take?",
+        answer: "Depending on scope — from 2 weeks (small website) to 3–6 months (custom software).",
       },
       {
-        question: "What is your typical development process?",
-        answer: "We follow an agile methodology with 2-week sprints, regular client check-ins, and transparent communication. Our process includes: 1) Discovery & Planning, 2) Design & Architecture, 3) Development & Testing, 4) Deployment, and 5) Ongoing Support. We provide weekly progress updates and maintain a collaborative approach throughout.",
+        question: "Do you provide ongoing support after development?",
+        answer: "Yes. We offer  Annual Maintenance Contract (AMC), maintenance, updates, and performance monitoring.",
       },
       {
-        question: "Do you provide ongoing support and maintenance?",
-        answer: "Yes, we offer comprehensive support packages including bug fixes, security updates, performance optimization, feature enhancements, and 24/7 monitoring. Our maintenance plans ensure your applications remain secure, up-to-date, and performant. We provide SLAs and regular health checks to proactively address potential issues.",
+        question: "What technologies do you work with?",
+        answer: "React, Node.js, Java, Python, PHP, AWS, Azure, DevOps tools, and modern cloud-native stacks.",
+      },
+      {
+        question:"How do you ensure project quality?",
+        answer:"Through QA testing, code reviews, performance audits, and user acceptance testing (UAT).",
+      },
+      {
+        question:"Can you integrate third-party APIs?",
+        answer:"Absolutely — payment gateways, CRM, ERP, email systems, and custom APIs.",
+      },
+      {
+        question:"Do you work with startups and enterprises?",
+        answer:"Yes — we support startups, SMEs, and large-scale enterprise systems."
       },
     ],
   };

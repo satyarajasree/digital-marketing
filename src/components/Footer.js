@@ -75,7 +75,7 @@ const Footer = () => {
         <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-amber-500 rounded-full filter blur-3xl opacity-5"></div>
         
         {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(121, 40, 40, 0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
       </div>
 
       <div className="container mx-auto px-6 py-16 relative z-10">
@@ -88,12 +88,12 @@ const Footer = () => {
               {/* Logo and Tagline */}
               <div className="mb-8">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-amber-500 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/25">
-                    <FaRocket className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
+                    <img src="/amplinova.png" alt="Logo" className="w-16 h-16 object-contain" />
                   </div>
                   <h3 className="text-3xl font-bold">
                     <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
-                      DigitalPro
+                      Amplinova
                     </span>
                   </h3>
                 </div>
@@ -180,7 +180,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-gray-300 group-hover:text-white transition-colors duration-300 font-medium">
-                    hello@digitalpro.com
+                    info@amplinova.com
                   </p>
                   <p className="text-sm text-gray-500 group-hover:text-gray-400">Business Inquiries</p>
                 </div>
@@ -192,9 +192,9 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-gray-300 group-hover:text-white transition-colors duration-300 font-medium">
-                    +1 (555) 123-4567
+                    +91 99760 89089
                   </p>
-                  <p className="text-sm text-gray-500 group-hover:text-gray-400">Mon-Fri, 9AM-6PM</p>
+                  <p className="text-sm text-gray-500 group-hover:text-gray-400">Mon-Sat, 11AM-8PM</p>
                 </div>
               </div>
               
@@ -204,8 +204,8 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-gray-300 group-hover:text-white transition-colors duration-300 font-medium">
-                    123 Business Ave, Suite 100<br />
-                    New York, NY 10001
+                    Uppal Bhagayath face 2 Nagole,near Shilparamam, Laxmi Narayan Nagar Colony <br />
+                    Uppal, Hyderabad, Telangana 500039
                   </p>
                 </div>
               </div>
