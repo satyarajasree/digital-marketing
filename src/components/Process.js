@@ -58,7 +58,6 @@ const ProcessStepCircle = ({
           }
         `}
       >
-        {/* Glow Ring */}
         {isHovered && (
           <motion.div
             animate={{ scale: [1, 1.15, 1] }}
@@ -67,7 +66,6 @@ const ProcessStepCircle = ({
           />
         )}
 
-        {/* STEP NUMBER ONLY */}
         <motion.span
           animate={{
             color: isHovered ? "#ffffff" : "#64748b",
@@ -79,7 +77,6 @@ const ProcessStepCircle = ({
         </motion.span>
       </motion.div>
 
-      {/* Title */}
       <motion.h3
         initial={{ opacity: 0, y: 10 }}
         animate={{
@@ -97,13 +94,14 @@ const ProcessStepCircle = ({
   );
 };
 
-const Process = () => {
+const Process = ({ mode = "it-services" }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredStep, setHoveredStep] = useState(null);
 
   const sectionRef = useRef(null);
   const containerRef = useRef(null);
 
+  // Fade-in on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => entry.isIntersecting && setIsVisible(true),
@@ -114,22 +112,40 @@ const Process = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Hover logic
+  // DYNAMIC STEP TITLES
+  const steps =
+    mode === "digital-marketing"
+      ? [
+          { step: "01", title: "Understanding Target Audience" },
+          { step: "02", title: "Setting Marketing Objectives" },
+          { step: "03", title: "Developing a Strategy" },
+          { step: "04", title: "Execution" },
+          { step: "05", title: "Monitoring and Analysis" },
+          { step: "06", title: "Optimization" },
+          { step: "07", title: "Review and Adjust Strategy Regularly" },
+        ]
+      : [
+          { step: "01", title: "Requirement Analysis" },
+          { step: "02", title: "Solution Design" },
+          { step: "03", title: "Development & Integration" },
+          { step: "04", title: "Testing & Quality" },
+          { step: "05", title: "Deployment & Support" },
+        ];
+
+  // HOVER LOGIC UPDATED FOR dynamic steps.length
   useEffect(() => {
     const handleMove = (e) => {
       if (!containerRef.current) return;
 
       const rect = containerRef.current.getBoundingClientRect();
       const mouseX = e.clientX - rect.left;
-      const stepWidth = rect.width / 5;
+      const stepWidth = rect.width / steps.length;
       const index = Math.floor(mouseX / stepWidth);
 
-      if (index >= 0 && index < 5) setHoveredStep(index);
-      else setHoveredStep(null);
+      setHoveredStep(index >= 0 && index < steps.length ? index : null);
     };
 
     const container = containerRef.current;
-
     container.addEventListener("mousemove", handleMove);
     container.addEventListener("mouseleave", () => setHoveredStep(null));
 
@@ -137,17 +153,8 @@ const Process = () => {
       container.removeEventListener("mousemove", handleMove);
       container.removeEventListener("mouseleave", () => setHoveredStep(null));
     };
-  }, []);
-
-  const steps = [
-    { step: "01", title: "Requirement Analysis" },
-    { step: "02", title: "Solution Design" },
-    { step: "03", title: "Development & Integration" },
-    { step: "04", title: "Testing & Quality" },
-    { step: "05", title: "Deployment & Support" },
-  ];
-
-  return (
+  }, [steps]);
+    return (
     <section
       ref={sectionRef}
       id="process"
@@ -155,7 +162,7 @@ const Process = () => {
     >
       <div className="container mx-auto px-6 relative z-10">
 
-        {/* ✔ HEADER SECTION RESTORED */}
+        {/* HEADER */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -163,50 +170,62 @@ const Process = () => {
           className="text-center text-5xl md:text-6xl font-bold mb-6"
         >
           Our{" "}
-          <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <span
+            className={`bg-gradient-to-r ${
+              mode === "digital-marketing"
+                ? "from-orange-500 to-red-500"
+                : "from-blue-600 to-purple-600"
+            } bg-clip-text text-transparent`}
+          >
             Process
           </span>
         </motion.h2>
 
-        {/* ✔ UNDERLINE RESTORED */}
+        {/* UNDERLINE */}
         <motion.div
           initial={{ width: 0 }}
           animate={isVisible ? { width: 96 } : {}}
           transition={{ duration: 1 }}
-          className="h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-8 rounded-full"
+          className={`h-1 bg-gradient-to-r ${
+            mode === "digital-marketing"
+              ? "from-orange-500 to-red-500"
+              : "from-blue-500 to-purple-500"
+          } mx-auto mb-8 rounded-full`}
         />
 
-        {/* ✔ SUBTEXT RESTORED */}
+        {/* SUB TEXT */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
           className="text-xl text-gray-600 text-center max-w-4xl mx-auto mb-16"
         >
-          A proven 5-step methodology that ensures{" "}
-          <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
-            exceptional results
-          </span>{" "}
-          for every project.
+          {mode === "digital-marketing"
+            ? "A proven 7-step marketing framework that drives growth, engagement, and measurable results."
+            : "A proven 5-step IT methodology ensuring reliable, scalable, high-quality solutions."}
         </motion.p>
 
         {/* PROCESS FLOW */}
         <div className="relative" ref={containerRef}>
-          {/* Line Background */}
-          <div className="absolute top-16 left-0 w-full h-0.5 bg-gray-200 -z-10"></div>
+          <div className="absolute top-16 left-0 w-full h-0.5 bg-gray-200 -z-10" />
 
-          {/* Hover Line */}
+          {/* Dynamic Hover Line */}
           {hoveredStep !== null && (
             <motion.div
               initial={{ width: 0 }}
               animate={{
-                width: `${((hoveredStep + 1) / 5) * 100}%`,
+                width: `${((hoveredStep + 1) / steps.length) * 100}%`,
               }}
               transition={{ duration: 0.3 }}
-              className="absolute top-16 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 -z-10"
+              className={`absolute top-16 left-0 h-0.5 bg-gradient-to-r ${
+                mode === "digital-marketing"
+                  ? "from-orange-500 to-red-500"
+                  : "from-blue-500 to-purple-600"
+              } -z-10`}
             />
           )}
 
+          {/* CIRCLES */}
           <div className="flex justify-between items-start px-4">
             {steps.map((s, i) => (
               <ProcessStepCircle
@@ -215,27 +234,27 @@ const Process = () => {
                 index={i}
                 isVisible={isVisible}
                 isHovered={hoveredStep !== null && i <= hoveredStep}
-                theme="it-services"
+                theme={mode}
               />
             ))}
           </div>
         </div>
 
-        {/* ✔ DESCRIPTION TEXT UNDER THE CIRCLES RESTORED */}
+        {/* END DESCRIPTION */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="mt-16 text-center text-xl text-gray-600 max-w-4xl mx-auto"
         >
-          We conduct comprehensive assessment of your technical needs, 
-          infrastructure, and business objectives to build a solid foundation 
-          for your project.
+          {mode === "digital-marketing"
+            ? "We continuously optimize and refine campaigns to maximize ROI, engagement, and brand impact."
+            : "We focus on delivering secure, scalable, and high-performance IT services for long-term success."}
         </motion.p>
-
       </div>
     </section>
   );
 };
 
 export default Process;
+

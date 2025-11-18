@@ -238,33 +238,46 @@ const AboutUs = () => {
                     Our Story
                   </h2>
                   <div className="space-y-6 backdrop-blur-sm bg-white/70 rounded-2xl p-8 border border-amber-50 shadow-sm">
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      Founded in 2016,{" "}
-                      <strong className="text-amber-600">DigitalPro</strong>{" "}
-                      emerged from a simple observation: businesses were
-                      struggling to navigate the rapidly evolving digital
-                      landscape. We set out to bridge that gap by providing
-                      expert guidance and results-driven solutions.
-                    </p>
+                  <p className="text-lg text-gray-700 leading-relaxed">
+  🌟 Welcome to <strong className="text-amber-600">AmpliNova</strong> — 
+  Where Ideas Transform Into Intelligent Realities 🌟
+</p>
 
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      Today, we're a team of{" "}
-                      <strong className="text-amber-600">
-                        50+ dedicated professionals
-                      </strong>
-                      with diverse expertise across all digital marketing
-                      disciplines. Our collaborative approach combines creative
-                      thinking with analytical rigor to deliver campaigns that
-                      drive real business impact.
-                    </p>
+<p className="text-lg text-gray-700 leading-relaxed">
+  At AmpliNova, we combine human creativity with the power of 
+  AI-driven innovation to help businesses grow, scale, and stand out 
+  in a digital-first world.
+</p>
 
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      What sets us apart is our commitment to being{" "}
-                      <strong className="text-amber-600">true partners</strong>
-                      in our clients' success. We don't just execute campaigns;
-                      we build strategies that align with your business
-                      objectives and drive sustainable growth.
-                    </p>
+<p className="text-lg text-gray-700 leading-relaxed">
+  We're not just another IT & digital marketing company — we're your 
+  technology partner, building smart solutions that adapt, evolve, 
+  and accelerate your success.
+</p>
+
+<p className="text-lg text-gray-700 leading-relaxed">
+  🔶 <strong className="text-amber-600">What We Do</strong><br />
+  • AI-powered IT solutions that upgrade how businesses operate<br />
+  • Smart digital marketing that turns attention into measurable growth<br />
+  • Automation systems that save time, reduce errors, and boost productivity<br />
+  • Branding strategies designed to position you as a leader in your industry
+</p>
+
+<p className="text-lg text-gray-700 leading-relaxed">
+  Every project at AmpliNova is built with one core belief: Innovation 
+  should feel simple, human, and impactful.
+</p>
+
+<p className="text-lg text-gray-700 leading-relaxed">
+  If you're ready to future-proof your business and unlock the next 
+  level of growth, let’s build something remarkable together.
+</p>
+
+<p className="text-lg text-gray-700 leading-relaxed">
+  ✨ Explore the future with AmpliNova.<br />
+  Your vision. Our innovation. Powered by AI.
+</p>
+
                   </div>
                 </div>
 
@@ -372,10 +385,7 @@ const AboutUs = () => {
                   Our Mission
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  To empower businesses with data-driven digital marketing
-                  strategies that deliver measurable results, drive sustainable
-                  growth, and create lasting competitive advantages in today's
-                  dynamic digital landscape.
+                  To provide cutting-edge IT development, AI-powered automation, digital marketing, and branding solutions for start-ups, SMEs, and enterprises. Our mission is to help businesses transform, scale, and thrive in a digital-first world with innovative, reliable, and result-driven strategies.
                 </p>
               </motion.div>
 
@@ -391,9 +401,7 @@ const AboutUs = () => {
                   Our Vision
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  To be the most trusted digital marketing partner for
-                  businesses worldwide, recognized for our innovation,
-                  integrity, and unwavering commitment to client success.
+                  To become a global leader in delivering innovative IT and digital marketing solutions. Empowering businesses across industries to achieve growth, efficiency, and lasting impact through technology and creativity.
                 </p>
               </motion.div>
             </motion.div>

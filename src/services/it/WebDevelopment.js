@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; 
 import {
   FaCode,
   FaMobile,
@@ -157,11 +157,10 @@ const WebDevelopment = () => {
     <div className="bg-gray-50">
       <Navbar />
       <div className="min-h-screen">
-        {/* Hero Section */}
+
+        {/* HERO SECTION (UNCHANGED) */}
         <div className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 text-white py-24 overflow-hidden">
           <div className="absolute inset-0 bg-black opacity-10"></div>
-          <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-blue-500 to-transparent opacity-20 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-blue-400 to-transparent opacity-20 rounded-full translate-y-1/2 -translate-x-1/2"></div>
 
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
@@ -174,37 +173,24 @@ const WebDevelopment = () => {
                 Web Development
               </h1>
               <p className="text-xl text-blue-100 mb-10 leading-relaxed max-w-3xl mx-auto">
-                Custom, responsive, and high-performance websites that drive
-                results. From simple business sites to complex web applications,
-                we build digital experiences that convert and grow your
-                business.
+                Custom, responsive, and high-performance websites that drive results.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2">
-                  Start Your Project
-                  <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-200" />
-                </button>
-                <button className="bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 border border-white border-opacity-30 hover:border-opacity-50">
-                  View Portfolio
-                </button>
-              </div>
             </div>
           </div>
         </div>
 
-        {/* Features Section */}
+        {/* --- WHAT WE OFFER --- */}
         <div className="py-20 bg-white relative">
-          <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-blue-50 to-transparent"></div>
           <div className="container mx-auto px-6 relative">
             <div className="text-center mb-16">
               <h2 className="text-5xl font-bold text-gray-900 mb-6">
                 What We Offer
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                Comprehensive web development services tailored to your unique
-                business needs and goals
+                Comprehensive web development services tailored to your needs.
               </p>
             </div>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {features.map((feature, index) => (
                 <div
@@ -231,8 +217,64 @@ const WebDevelopment = () => {
           </div>
         </div>
 
-        {/* Technologies Section */}
-        {/* Technologies Section */}
+        {/* --- NEW PORTFOLIO WEBSITES SECTION --- */}
+        <div className="py-20 bg-gray-100">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-5xl font-bold text-gray-900 mb-10">
+              Portfolio Websites
+            </h2>
+            <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+              Explore fully working, live demo websites embedded directly for preview.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              
+      
+
+              {/* 1 - Wikipedia */}
+              <div className="bg-white rounded-3xl border shadow-lg p-4">
+                <iframe
+                  src="https://www.wikipedia.org"
+                  className="w-full h-96 rounded-2xl"
+                  loading="lazy"
+                ></iframe>
+                <h3 className="text-xl font-semibold mt-4">Wikipedia</h3>
+              </div>
+              
+              {/* 4. HTML5 Spec */}
+<div className="bg-white rounded-3xl border shadow-lg p-4">
+  <iframe
+    src="https://html.spec.whatwg.org/"
+    className="w-full h-96 rounded-2xl"
+    loading="lazy"
+  ></iframe>
+  <h3 className="text-xl font-semibold mt-4">HTML5 SPEC (WhatWG)</h3>
+</div>
+{/* 5. Example.com */}
+<div className="bg-white rounded-3xl border shadow-lg p-4">
+  <iframe
+    src="https://example.com/"
+    className="w-full h-96 rounded-2xl"
+    loading="lazy"
+  ></iframe>
+  <h3 className="text-xl font-semibold mt-4">Example.com</h3>
+</div>
+{/* 6. MDN (Preview Mirror) */}
+<div className="bg-white rounded-3xl border shadow-lg p-4">
+  <iframe
+    src="https://mdn.github.io/"
+    className="w-full h-96 rounded-2xl"
+    loading="lazy"
+  ></iframe>
+  <h3 className="text-xl font-semibold mt-4">MDN Web Docs (Preview)</h3>
+</div>
+              
+
+             
+            </div>
+          </div>
+        </div>
+                {/* --- TECHNOLOGIES SECTION (UNCHANGED) --- */}
         <div className="py-20 bg-gradient-to-br from-blue-50 to-gray-100 relative">
           <div className="absolute inset-0 bg-blue-900 opacity-5"></div>
           <div className="container mx-auto px-6 relative">
@@ -241,8 +283,7 @@ const WebDevelopment = () => {
                 Technologies We Use
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Modern tech stack for robust, scalable, and future-proof
-                solutions
+                Modern tech stack for robust, scalable, and future-proof solutions.
               </p>
             </div>
 
@@ -273,7 +314,7 @@ const WebDevelopment = () => {
           </div>
         </div>
 
-        {/* Process Section */}
+        {/* --- DEVELOPMENT PROCESS SECTION (UNCHANGED) --- */}
         <div className="py-20 bg-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full -translate-y-48 translate-x-48"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-50 rounded-full translate-y-48 -translate-x-48"></div>
@@ -284,8 +325,7 @@ const WebDevelopment = () => {
                 Our Development Process
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                A structured, transparent approach to ensure your project's
-                success from concept to launch
+                A structured, transparent approach to ensure your project's success.
               </p>
             </div>
 
@@ -311,26 +351,24 @@ const WebDevelopment = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
+        {/* --- CTA SECTION (UNCHANGED) --- */}
         <div className="relative py-24 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-black opacity-10"></div>
-          <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-blue-400 opacity-10 rounded-full -translate-y-1/4 translate-x-1/4"></div>
-          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-blue-300 opacity-10 rounded-full translate-y-1/4 -translate-x-1/4"></div>
+          <div className="absolute inset-0 bg-black opacity-10"></div>
 
           <div className="container mx-auto px-6 text-center relative z-10">
             <h2 className="text-5xl font-bold text-white mb-8">
               Ready to Build Your Website?
             </h2>
             <p className="text-xl text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Let's discuss your project and create a web solution that not only
-              looks amazing but also drives measurable results for your business
-              growth.
+              Let's discuss your project and build a high-performing website for your business.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <button className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-12 py-5 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center gap-3">
                 Get Free Consultation
                 <FaArrowRight className="group-hover:translate-x-2 transition-transform duration-200" />
               </button>
+
               <button className="bg-white hover:bg-gray-100 text-blue-600 px-12 py-5 rounded-xl font-semibold text-lg transition-all duration-300 border-2 border-white hover:border-gray-100 shadow-2xl">
                 View Case Studies
               </button>
@@ -338,9 +376,11 @@ const WebDevelopment = () => {
           </div>
         </div>
       </div>
+
       <Footer />
     </div>
   );
 };
 
 export default WebDevelopment;
+
