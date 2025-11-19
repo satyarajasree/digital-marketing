@@ -16,6 +16,7 @@ import {
 } from "react-icons/fa";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import infraBg from "../../assets/ITinfrastructure.jpg";
 
 const ITInfrastructure = () => {
   const services = [
@@ -101,37 +102,47 @@ const ITInfrastructure = () => {
       <Navbar />
       <div className="min-h-screen">
         {/* Hero Section */}
-        <div className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 text-white py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-black opacity-10"></div>
-          <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-blue-500 to-transparent opacity-20 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-blue-400 to-transparent opacity-20 rounded-full translate-y-1/2 -translate-x-1/2"></div>
-          
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="flex justify-center mb-8">
-                <div className="p-6 bg-white bg-opacity-20 rounded-3xl backdrop-blur-sm border border-white border-opacity-30">
-                  <FaNetworkWired className="text-5xl text-white" />
-                </div>
-              </div>
-              <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
-                IT Infrastructure
-              </h1>
-              <p className="text-xl text-blue-100 mb-10 leading-relaxed max-w-3xl mx-auto">
-                Build a robust, scalable, and secure IT infrastructure that supports your business growth. 
-                From network design to ongoing management, we provide comprehensive solutions for modern enterprises.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2">
-                  Infrastructure Assessment
-                  <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-200" />
-                </button>
-                <button className="bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 border border-white border-opacity-30 hover:border-opacity-50">
-                  View Solutions
-                </button>
-              </div>
-            </div>
-          </div>
+<div
+  className="relative bg-cover bg-center bg-no-repeat text-white py-24 overflow-hidden"
+  style={{ backgroundImage: `url(${infraBg})` }}
+>
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/50"></div>
+
+  {/* Blue Glow Shapes */}
+  <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-blue-500 to-transparent opacity-20 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+  <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-blue-400 to-transparent opacity-20 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+
+  <div className="container mx-auto px-6 relative z-10">
+    <div className="max-w-4xl mx-auto text-center">
+
+      {/* Icon */}
+      <div className="flex justify-center mb-8">
+        <div className="p-6 bg-white bg-opacity-20 rounded-3xl backdrop-blur-sm border border-white border-opacity-30">
+          <FaNetworkWired className="text-5xl text-white" />
         </div>
+      </div>
+
+      {/* Title */}
+      <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent pb-3">
+        IT Infrastructure
+      </h1>
+
+      {/* Subtitle */}
+      <p className="text-xl text-blue-100 mb-10 leading-relaxed max-w-3xl mx-auto">
+        Build a robust, scalable, and secure IT infrastructure that supports your business growth. 
+        From network design to ongoing management, we provide comprehensive solutions for modern enterprises.
+      </p>
+
+      {/* CTA Buttons */}
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
         {/* Services Section */}
         <div className="py-20 bg-white relative">

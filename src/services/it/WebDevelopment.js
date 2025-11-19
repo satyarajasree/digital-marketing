@@ -33,6 +33,7 @@ import {
 } from "react-icons/si";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import webDevBg from "../../assets/Web-development.jpeg";
 
 const WebDevelopment = () => {
   const features = [
@@ -159,25 +160,31 @@ const WebDevelopment = () => {
       <div className="min-h-screen">
 
         {/* HERO SECTION (UNCHANGED) */}
-        <div className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 text-white py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-black opacity-10"></div>
+        {/* HERO SECTION WITH BACKGROUND IMAGE */}
+<div
+  className="relative bg-cover bg-center bg-no-repeat text-white py-24 overflow-hidden"
+  style={{ backgroundImage: `url(${webDevBg})` }}
+>
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/50"></div>
 
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="flex justify-center mb-8">
-                <div className="p-6 bg-white bg-opacity-20 rounded-3xl backdrop-blur-sm border border-white border-opacity-30">
-                  <FaCode className="text-5xl text-white" />
-                </div>
-              </div>
-              <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
-                Web Development
-              </h1>
-              <p className="text-xl text-blue-100 mb-10 leading-relaxed max-w-3xl mx-auto">
-                Custom, responsive, and high-performance websites that drive results.
-              </p>
-            </div>
-          </div>
+  <div className="container mx-auto px-6 relative z-10">
+    <div className="max-w-4xl mx-auto text-center">
+      <div className="flex justify-center mb-8">
+        <div className="p-6 bg-white bg-opacity-20 rounded-3xl backdrop-blur-sm border border-white border-opacity-30">
+          <FaCode className="text-5xl text-white" />
         </div>
+      </div>
+      <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent pb-3">
+        Web Development
+      </h1>
+      <p className="text-xl text-blue-100 mb-10 leading-relaxed max-w-3xl mx-auto">
+        Custom, responsive, and high-performance websites that drive results.
+      </p>
+    </div>
+  </div>
+</div>
+
 
         {/* --- WHAT WE OFFER --- */}
         <div className="py-20 bg-white relative">
@@ -231,43 +238,64 @@ const WebDevelopment = () => {
               
       
 
-              {/* 1 - Wikipedia */}
-              <div className="bg-white rounded-3xl border shadow-lg p-4">
+              
+              
+<div className="bg-white rounded-3xl border shadow-lg p-4">
+  <iframe
+    src="https://rajasreetownships.in/"
+    className="w-full h-96 rounded-2xl"
+    loading="lazy"
+  ></iframe>
+  <h3 className="text-xl font-semibold mt-4">Rajasree Townships</h3>
+</div>            
+
+<div className="bg-white rounded-3xl border shadow-lg p-4">
+  <iframe
+    src="https://adurigroup.com/"
+    className="w-full h-96 rounded-2xl"
+    loading="lazy"
+  ></iframe>
+  <h3 className="text-xl font-semibold mt-4">Aduri Group</h3>
+</div>
+
+            <div className="bg-white rounded-3xl border shadow-lg p-4">
                 <iframe
-                  src="https://www.wikipedia.org"
+                  src="https://spineresetchiropractic.com/"
                   className="w-full h-96 rounded-2xl"
                   loading="lazy"
                 ></iframe>
-                <h3 className="text-xl font-semibold mt-4">Wikipedia</h3>
+                <h3 className="text-xl font-semibold mt-4">Spine Reset Chiropractic</h3>
               </div>
-              
-              {/* 4. HTML5 Spec */}
-<div className="bg-white rounded-3xl border shadow-lg p-4">
+
+              <div className="bg-white rounded-3xl border shadow-lg p-4">
   <iframe
-    src="https://html.spec.whatwg.org/"
+    src="https://vivinfra.com/"
     className="w-full h-96 rounded-2xl"
     loading="lazy"
   ></iframe>
-  <h3 className="text-xl font-semibold mt-4">HTML5 SPEC (WhatWG)</h3>
+  <h3 className="text-xl font-semibold mt-4">Viv Infra</h3>
 </div>
-{/* 5. Example.com */}
+
 <div className="bg-white rounded-3xl border shadow-lg p-4">
-  <iframe
-    src="https://example.com/"
-    className="w-full h-96 rounded-2xl"
-    loading="lazy"
-  ></iframe>
-  <h3 className="text-xl font-semibold mt-4">Example.com</h3>
-</div>
-{/* 6. MDN (Preview Mirror) */}
-<div className="bg-white rounded-3xl border shadow-lg p-4">
-  <iframe
-    src="https://mdn.github.io/"
-    className="w-full h-96 rounded-2xl"
-    loading="lazy"
-  ></iframe>
-  <h3 className="text-xl font-semibold mt-4">MDN Web Docs (Preview)</h3>
-</div>
+                <iframe
+                  src="https://arrowai.com/"
+                  className="w-full h-96 rounded-2xl"
+                  loading="lazy"
+                ></iframe>
+                <h3 className="text-xl font-semibold mt-4">Arrow AI</h3>
+              </div>
+
+              <div className="bg-white rounded-3xl border shadow-lg p-4">
+                <iframe
+                  src="https://abhyahastainfradevlopers.com/"
+                  className="w-full h-96 rounded-2xl"
+                  loading="lazy"
+                ></iframe>
+                <h3 className="text-xl font-semibold mt-4">Abhyahasta Infra Developers</h3>
+              </div>
+
+
+
               
 
              

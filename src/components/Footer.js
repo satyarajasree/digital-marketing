@@ -34,7 +34,7 @@ const Footer = () => {
     { 
       icon: FaInstagram, 
       label: 'Instagram', 
-      url: '#',
+      url: 'https://www.instagram.com/amplinova_solutions?igsh=MWliem1pcnRsb2syNw==',
       color: 'hover:bg-pink-600 hover:border-pink-600'
     },
     { 

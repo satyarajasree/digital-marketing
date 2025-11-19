@@ -253,7 +253,7 @@ const Navbar = () => {
     {
       icon: FaInstagram,
       name: "Instagram",
-      url: "https://instagram.com/digitalpro",
+      url: "https://www.instagram.com/amplinova_solutions?igsh=MWliem1pcnRsb2syNw==",
       color: "hover:text-pink-400",
     },
     {
@@ -745,9 +745,9 @@ const Navbar = () => {
 
               {/* Contact Us */}
               <motion.a
-                href="/contact"
+                href="/contact-us"
                 className={`transition-colors duration-300 font-semibold relative group flex items-center ${
-                  isActive("/contact") ? activeStyles : "hover:text-orange-400"
+                  isActive("/contact-us") ? activeStyles : "hover:text-orange-400"
                 }`}
                 whileHover={{ y: -2 }}
               >

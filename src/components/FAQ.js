@@ -338,14 +338,18 @@ const currentFAQs = faqData[mode] || faqData.home;
           </div>
         </motion.div>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-                      <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-10 py-4 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-2" onClick={() => navigate("/contact")}>
-                        Get In Touch with Us
-                        <FaArrowRight />
-                      </button>
-        
-                     
-                    </div>
+        <div className="w-full flex justify-center mt-10">
+  <button
+    onClick={() => navigate("/contact-us")}
+    className="bg-gradient-to-r from-orange-500 to-amber-500 
+               text-white px-10 py-4 rounded-xl font-semibold
+               hover:scale-105 transition flex items-center gap-2
+               shadow-lg"
+  >
+    Get In Touch with Us
+    <FaArrowRight />
+  </button>
+</div>
       </div>
     </section>
   );
