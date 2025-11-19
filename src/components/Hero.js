@@ -37,7 +37,8 @@ const Hero = ({
     {
       icon: FaCode,
       title: "Web Development",
-      description: "Custom websites & web applications"
+      description: "Custom websites & web applications",
+  
     },
     {
       icon: FaServer,
@@ -50,7 +51,7 @@ const Hero = ({
       description: "Complete digital protection"
     },
     {
-      icon: FaDatabase,
+      icon:  FaDatabase,
       title: "Data Solutions",
       description: "Database management & analytics"
     }
@@ -69,7 +70,7 @@ const Hero = ({
       description: "Engage your audience effectively"
     },
     {
-      icon: FaShoppingCart,
+      icon:  FaShoppingCart,
       title: "E-commerce Solutions",
       description: "Boost your online sales"
     },
@@ -83,7 +84,7 @@ const Hero = ({
   // Combined services for home page
   const combinedServices = [
     {
-      icon: FaCode,
+      icon:  FaCode,
       title: "Web Development",
       description: "Custom websites & web applications"
     },
@@ -329,7 +330,7 @@ const Hero = ({
                       whileHover={{ scale: 1.05 }}
                       className="flex items-center gap-2 bg-gray-800 bg-opacity-50 px-4 py-3 rounded-xl border border-gray-700 backdrop-blur-sm hover:border-blue-500 transition-all duration-300"
                     >
-                      <service.icon className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                      <service.icon className="w-12 h-12 text-blue-400 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-200">{service.title}</span>
                     </motion.div>
                   ))}

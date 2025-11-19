@@ -187,32 +187,32 @@ export const DigitalMarketingServices = () => {
     {
       title: "SEO Optimization",
       description: "Boost your search rankings and drive organic traffic with our comprehensive SEO strategies and technical optimization.",
-      icon: <FaGoogle className="text-green-400" />,
+      icon: <FaGoogle className="text-green-400 text-3xl" />,
     },
     {
       title: "Social Media Marketing",
       description: "Engage your audience and build brand loyalty through strategic social media campaigns across all major platforms.",
-      icon: <FaHashtag className="text-pink-400" />,
+      icon: <FaHashtag className="text-pink-400 text-3xl" />,
     },
     {
       title: "Content Marketing",
       description: "Create compelling content that drives engagement, builds authority, and converts visitors into customers.",
-      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/3281/3281340.png" alt="Content Writing" className="w-7 h-7" />,
+      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/3281/3281340.png" alt="Content Writing" className="w-12 h-12" />,
     },
     {
       title: "PPC Advertising",
       description: "Drive immediate results with targeted pay-per-click campaigns that maximize your advertising ROI and conversion rates.",
-      icon: <FaAd className="text-yellow-400" />,
+      icon: <FaAd className="text-yellow-400 text-3xl" />,
     },
     {
       title: "Email Marketing",
       description: "Nurture leads and retain customers with personalized email campaigns that drive engagement and sales.",
-      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Marketing" className="w-7 h-7" />,
+      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Marketing" className="w-12 h-12" />,
     },
     {
       title: "Analytics & Reporting",
       description: "Make data-driven decisions with comprehensive analytics and performance reports that track your marketing success.",
-      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Analytics" className="w-7 h-7" />,
+      icon: <PngIcon src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Analytics" className="w-12 h-12" />,
     }
   ];
 

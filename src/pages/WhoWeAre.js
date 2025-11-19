@@ -224,37 +224,62 @@ const WhoWeAre = () => {
              
 
               <div className="space-y-4 backdrop-blur-sm bg-white/70 rounded-2xl p-8 border border-amber-50 shadow-sm">
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  At DigitalPro, we're more than just marketers - we're a diverse
-                  collective of
-                  <span className="text-amber-600 font-semibold">
-                    {" "}
-                    creative thinkers, data scientists, and digital strategists{" "}
-                  </span>{" "}
-                  united by a common passion for driving business growth through
-                  innovative digital solutions.
-                </p>
+                <p className="text-amber-600 text-lg leading-relaxed">
+  Technology Meets Creativity. Growth Meets Intelligence.
+</p>
 
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Our team brings together{" "}
-                  <span className="text-amber-600 font-semibold">
-                    8+ years of industry experience
-                  </span>{" "}
-                  across every digital discipline. From SEO specialists and
-                  content creators to PPC experts and social media managers, we've
-                  assembled the perfect blend of talent to tackle any digital
-                  challenge.
-                </p>
+<p className="text-gray-700 text-lg leading-relaxed">
+  Amplinova blends IT development, digital marketing, branding, and AI automation
+  to build businesses that scale without limits. We turn your vision into
+  intelligent, high-performance digital experiences that drive real growth.
+</p>
 
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  What sets us apart is our{" "}
-                  <span className="text-amber-600 font-semibold">
-                    collaborative approach
-                  </span>{" "}
-                  and commitment to continuous learning. We're constantly
-                  evolving, testing new strategies, and pushing the boundaries of
-                  what's possible in digital marketing.
-                </p>
+<p className="text-amber-600 text-lg leading-relaxed">
+  Amplify your vision. Accelerate your success!
+</p>
+
+
+              <p className="text-gray-700 text-lg leading-relaxed">
+  <span className="text-amber-600 font-semibold">Our mission</span> is simple — 
+  to empower organizations with next-gen technology, impactful creativity, and
+  AI-driven automation that unlock real, measurable growth.
+</p>
+
+<p className="text-gray-700 text-lg leading-relaxed">
+  <span className="text-amber-600 font-semibold">Our vision</span> is bold — to
+  become a global leader in digital transformation and AI-powered innovation,
+  helping companies redefine how they operate, connect, and scale.
+</p>
+
+
+               <p className="text-amber-600 text-lg leading-relaxed">
+  Everything we do is built on four pillars:
+</p>
+
+<p className="text-gray-700 text-lg leading-relaxed">
+  <span className="text-amber-600 font-semibold">Integrity</span> — honesty, transparency, and long-term relationships.
+</p>
+
+<p className="text-gray-700 text-lg leading-relaxed">
+  <span className="text-amber-600 font-semibold">Innovation</span> — embracing change and pushing boundaries.
+</p>
+
+<p className="text-gray-700 text-lg leading-relaxed">
+  <span className="text-amber-600 font-semibold">Excellence</span> — delivering quality without compromise.
+</p>
+
+<p className="text-gray-700 text-lg leading-relaxed">
+  <span className="text-amber-600 font-semibold">Client Success</span> — because our achievements begin with yours.
+</p>
+
+
+<p className="text-gray-700 text-lg leading-relaxed">
+  <span className="text-amber-600">
+    "More Than a Service Provider — Your Growth Partner"
+  </span>
+  <br /><br />
+</p>
+
               </div>
 
              

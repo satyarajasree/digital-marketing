@@ -17,7 +17,6 @@ const TestimonialsModern = () => {
       content: "MageMarketer transformed our digital presence completely. Our website traffic increased by 300% and lead generation went up by 150% within just 3 months.",
       rating: 5,
       image: "RK",
-      highlight: "300% Traffic Growth"
     },
     {
       id: 2,
@@ -28,7 +27,7 @@ const TestimonialsModern = () => {
       content: "The social media campaigns created by MageMarketer helped us reach 2 million impressions. Our brand awareness has never been better!.  Our brand awareness has never been better!",
       rating: 5,
       image: "PS",
-      highlight: "2M Impressions"
+      
     },
     {
       id: 3,
@@ -39,7 +38,7 @@ const TestimonialsModern = () => {
       content: "As a traditional construction business, we needed digital transformation. MageMarketer built us a stunning website and SEO strategy.",
       rating: 5,
       image: "AR",
-      highlight: "Digital Transformation"
+     
     },
     {
       id: 4,
@@ -50,7 +49,7 @@ const TestimonialsModern = () => {
       content: "Their performance marketing strategies reduced our customer acquisition cost by 60% while increasing quality leads. The ROI has been phenomenal.",
       rating: 5,
       image: "SG",
-      highlight: "60% Cost Reduction"
+      
     },
     {
       id: 5,
@@ -61,7 +60,7 @@ const TestimonialsModern = () => {
       content: "The creative reels and social media content helped us go viral multiple times. We've seen 400% growth in online orders since partnering. Our brand awareness has never been better!",
       rating: 5,
       image: "VS",
-      highlight: "400% Order Growth"
+     
     },
     {
       id: 6,
@@ -72,7 +71,7 @@ const TestimonialsModern = () => {
       content: "Their digital marketing strategy helped us increase student enrollment by 200%. The content marketing and SEO work has positioned us as the top institute. ",
       rating: 5,
       image: "AP",
-      highlight: "200% Enrollment Increase"
+      
     }
   ];
 
@@ -187,12 +186,7 @@ const TestimonialsModern = () => {
                 
                 <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 group-hover:border-amber-400/20 transition-all duration-500 overflow-hidden">
                   
-                  {/* Highlight Badge */}
-                  <div className="absolute top-6 right-6">
-                    <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                      {testimonial.highlight}
-                    </span>
-                  </div>
+                  
 
                   {/* Quote Icon */}
                   <div className="absolute -top-4 -left-4 w-16 h-16 bg-amber-500/10 rounded-2xl flex items-center justify-center">
