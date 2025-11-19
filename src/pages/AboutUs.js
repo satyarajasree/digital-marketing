@@ -45,7 +45,6 @@ const AboutUs = () => {
     },
   };
 
-  // Falling animation for background elements
   const fallingVariants = {
     fall: {
       y: [-100, 1000],
@@ -129,7 +128,6 @@ const AboutUs = () => {
       >
         {/* Falling Animated Background */}
         <div className="absolute inset-0 overflow-hidden rounded-3xl">
-          {/* Gradient Orbs */}
           <motion.div
             variants={floatVariants}
             animate="float"
@@ -148,7 +146,6 @@ const AboutUs = () => {
             className="absolute top-1/3 right-1/3 w-64 h-64 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full filter blur-3xl opacity-20"
           />
 
-          {/* Falling Elements */}
           {[...Array(25)].map((_, i) => (
             <motion.div
               key={i}
@@ -161,14 +158,11 @@ const AboutUs = () => {
               }}
             >
               {[FaStar, FaRocket, FaChartLine, FaUsers, FaAward][i % 5]({
-                className: `text-amber-${
-                  200 + Math.floor(Math.random() * 3) * 100
-                } opacity-40`,
+                className: `text-amber-${200 + Math.floor(Math.random() * 3) * 100} opacity-40`,
               })}
             </motion.div>
           ))}
 
-          {/* Subtle Grid Pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,white,transparent)]" />
         </div>
 
@@ -180,7 +174,7 @@ const AboutUs = () => {
             animate={isInView ? "visible" : "hidden"}
             className="max-w-7xl mx-auto"
           >
-            {/* Header Section */}
+            {/* Header */}
             <div className="text-center mb-16">
               <motion.div
                 variants={itemVariants}
@@ -231,87 +225,108 @@ const AboutUs = () => {
 
             {/* Main Content Grid */}
             <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
-              {/* Left Content - Our Story */}
+
+              {/* LEFT SIDE — Our Story */}
               <motion.div variants={itemVariants} className="space-y-8">
                 <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                    Our Story
-                  </h2>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
+
                   <div className="space-y-6 backdrop-blur-sm bg-white/70 rounded-2xl p-8 border border-amber-50 shadow-sm">
-                  <p className="text-lg text-gray-700 leading-relaxed">
-  🌟 Welcome to <strong className="text-amber-600">AmpliNova</strong> — 
-  Where Ideas Transform Into Intelligent Realities 🌟
+
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      🌟 Welcome to <strong className="text-amber-600">AmpliNova</strong> — 
+                      Where Ideas Transform Into Intelligent Realities 🌟
+                    </p>
+
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      At AmpliNova, we combine human creativity with AI-driven innovation
+                      to help businesses grow, scale, and stand out in a digital-first world.
+                    </p>
+
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      We're not just another IT & digital marketing company — we are your
+                      technology partner, building smart solutions that adapt, evolve,
+                      and accelerate your success.
+                    </p>
+
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      🔶 <strong className="text-amber-600">What We Do</strong><br />
+                      <span className="text-amber-500 mr-2">•</span> AI-powered IT solutions<br />
+                      <span className="text-amber-500 mr-2">•</span> Smart digital marketing<br />
+                      <span className="text-amber-500 mr-2">•</span> Automation systems<br />
+                      <span className="text-amber-500 mr-2">•</span> Branding strategies
+                    </p>
+
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      Every project at AmpliNova is built with one core belief:
+                      Innovation should feel simple, human, and impactful.
+                    </p>
+
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      If you're ready to future-proof your business and unlock the next
+                      level of growth, let’s build something remarkable together.
+                    </p>
+
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      ✨ Explore the future with AmpliNova.<br />
+                      Your vision. Our innovation. Powered by AI.
+                    </p>
+
+                    {/* What Makes Us Different */}
+                    {/* ⭐ UPDATED — WHAT MAKES US DIFFERENT */}
+<div className="pt-4">
+
+  {/* Badge Style Heading */}
+  <p className="text-lg text-gray-700 leading-relaxed mb-4">
+  🔶 <strong className="text-amber-600">What Makes Us Different</strong>
 </p>
 
-<p className="text-lg text-gray-700 leading-relaxed">
-  At AmpliNova, we combine human creativity with the power of 
-  AI-driven innovation to help businesses grow, scale, and stand out 
-  in a digital-first world.
-</p>
+  {/* Bullet Points With Orange Dots */}
+  <p className="text-lg text-gray-700 leading-relaxed">
+    <span className="text-amber-500 mr-2">•</span>
+    Innovation-driven — constantly experimenting, evolving, and staying ahead of digital trends.
+  </p>
 
-<p className="text-lg text-gray-700 leading-relaxed">
-  We're not just another IT & digital marketing company — we're your 
-  technology partner, building smart solutions that adapt, evolve, 
-  and accelerate your success.
-</p>
+  <p className="text-lg text-gray-700 leading-relaxed">
+    <span className="text-amber-500 mr-2">•</span>
+    Result-oriented — obsessed with performance, outcomes, and ROI.
+  </p>
 
-<p className="text-lg text-gray-700 leading-relaxed">
-  🔶 <strong className="text-amber-600">What We Do</strong><br />
-  • AI-powered IT solutions that upgrade how businesses operate<br />
-  • Smart digital marketing that turns attention into measurable growth<br />
-  • Automation systems that save time, reduce errors, and boost productivity<br />
-  • Branding strategies designed to position you as a leader in your industry
-</p>
+  <p className="text-lg text-gray-700 leading-relaxed">
+    <span className="text-amber-500 mr-2">•</span>
+    Custom-focused — building solutions tailored to each business, not templates.
+  </p>
 
-<p className="text-lg text-gray-700 leading-relaxed">
-  Every project at AmpliNova is built with one core belief: Innovation 
-  should feel simple, human, and impactful.
-</p>
+  <p className="text-lg text-gray-700 leading-relaxed">
+    <span className="text-amber-500 mr-2">•</span>
+    AI-powered — integrating automation, analytics, and intelligent workflows to accelerate growth.
+  </p>
 
-<p className="text-lg text-gray-700 leading-relaxed">
-  If you're ready to future-proof your business and unlock the next 
-  level of growth, let’s build something remarkable together.
-</p>
+  <p className="text-lg text-gray-700 leading-relaxed">
+    <span className="text-amber-500 mr-2">•</span>
+    End-to-end — from strategy to execution, helping your business operate with clarity and confidence.
+  </p>
+</div>
 
-<p className="text-lg text-gray-700 leading-relaxed">
-  ✨ Explore the future with AmpliNova.<br />
-  Your vision. Our innovation. Powered by AI.
-</p>
+
+                    {/* ⭐ ADDED — Your new paragraph */}
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      Amplinova isn’t just a company you hire; it’s a team that stands beside you,
+                      understands your vision, and works relentlessly to build your future.
+                      We amplify your strengths, innovate your processes, and accelerate your growth
+                      with technology that truly makes a difference.
+                    </p>
+
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      At Amplinova, your growth isn’t a project — it’s our promise.
+                    </p>
 
                   </div>
                 </div>
-
-                {/* Services Expertise */}
-                <motion.div
-                  variants={itemVariants}
-                  className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-amber-100 shadow-sm"
-                >
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                    Our Expertise
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {services.map((service, index) => (
-                      <motion.div
-                        key={index}
-                        className="flex items-center gap-3 group"
-                        whileHover={{ x: 5 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <motion.div
-                          className="w-2 h-2 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"
-                          whileHover={{ scale: 1.5 }}
-                        />
-                        <span className="text-gray-700 group-hover:text-gray-900 transition-colors duration-200">
-                          {service}
-                        </span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
               </motion.div>
-
-              {/* Right Content - Stats & Values */}
+                            {/* RIGHT SIDE — Stats, Values, Expertise */}
               <div className="space-y-12">
+
                 {/* Statistics */}
                 <motion.div
                   variants={containerVariants}
@@ -335,11 +350,12 @@ const AboutUs = () => {
                   ))}
                 </motion.div>
 
-                {/* Values */}
+                {/* OUR VALUES */}
                 <motion.div variants={itemVariants}>
                   <h3 className="text-2xl font-bold text-gray-900 mb-8">
                     Our Values
                   </h3>
+
                   <div className="space-y-6">
                     {values.map((value, index) => (
                       <motion.div
@@ -353,6 +369,7 @@ const AboutUs = () => {
                         >
                           <value.icon className="w-6 h-6 text-white" />
                         </motion.div>
+
                         <div>
                           <h4 className="text-xl font-bold text-gray-900 mb-2">
                             {value.title}
@@ -365,14 +382,45 @@ const AboutUs = () => {
                     ))}
                   </div>
                 </motion.div>
+
+                {/* OUR EXPERTISE */}
+                <motion.div
+                  variants={itemVariants}
+                  className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-amber-100 shadow-sm"
+                >
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                    Our Expertise
+                  </h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {services.map((service, index) => (
+                      <motion.div
+                        key={index}
+                        className="flex items-center gap-3 group"
+                        whileHover={{ x: 5 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <motion.div
+                          className="w-2 h-2 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"
+                          whileHover={{ scale: 1.5 }}
+                        />
+                        <span className="text-gray-700 group-hover:text-gray-900 transition-colors duration-200">
+                          {service}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+
               </div>
             </div>
 
-            {/* Mission & Vision */}
+            {/* ⭐ FULL WIDTH MISSION & VISION SECTION */}
             <motion.div
               variants={containerVariants}
-              className="grid md:grid-cols-2 gap-8 mb-16"
+              className="grid md:grid-cols-2 gap-8 mb-16 mt-10"
             >
+              {/* Mission */}
               <motion.div
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
@@ -385,10 +433,15 @@ const AboutUs = () => {
                   Our Mission
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  To provide cutting-edge IT development, AI-powered automation, digital marketing, and branding solutions for start-ups, SMEs, and enterprises. Our mission is to help businesses transform, scale, and thrive in a digital-first world with innovative, reliable, and result-driven strategies.
+                  To provide cutting-edge IT development, AI-powered automation,
+                  digital marketing, and branding solutions for start-ups, SMEs,
+                  and enterprises. Our mission is to help businesses transform,
+                  scale, and thrive in a digital-first world with innovative,
+                  reliable, and result-driven strategies.
                 </p>
               </motion.div>
 
+              {/* Vision */}
               <motion.div
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
@@ -401,7 +454,10 @@ const AboutUs = () => {
                   Our Vision
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  To become a global leader in delivering innovative IT and digital marketing solutions. Empowering businesses across industries to achieve growth, efficiency, and lasting impact through technology and creativity.
+                  To become a global leader in delivering innovative IT and digital
+                  marketing solutions. Empowering businesses across industries to
+                  achieve growth, efficiency, and lasting impact through creativity
+                  and technology.
                 </p>
               </motion.div>
             </motion.div>
@@ -411,7 +467,6 @@ const AboutUs = () => {
               variants={itemVariants}
               className="text-center bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl p-12 relative overflow-hidden"
             >
-              {/* Background Pattern */}
               <div className="absolute inset-0 opacity-10">
                 {[...Array(20)].map((_, i) => (
                   <motion.div
@@ -439,10 +494,12 @@ const AboutUs = () => {
               <h3 className="text-3xl font-bold text-white mb-4 relative z-10">
                 Ready to Transform Your Digital Presence?
               </h3>
+
               <p className="text-amber-100 text-lg mb-8 max-w-2xl mx-auto relative z-10">
-                Join hundreds of satisfied clients who have achieved remarkable
+                Join hundreds of satisfied clients who have achieved remarkable 
                 growth with our expert digital marketing solutions.
               </p>
+
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -452,12 +509,15 @@ const AboutUs = () => {
                 <FaArrowRight className="w-4 h-4" />
               </motion.button>
             </motion.div>
+
           </motion.div>
         </div>
       </section>
+
       <Footer />
     </>
   );
 };
 
 export default AboutUs;
+

@@ -3,7 +3,7 @@ import Homepage from "./pages/Homepage";
 import Lottie from "lottie-react";
 import { motion } from "framer-motion";
 import sand from "./anime/sandy.json";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Chatbot from "./components/Chatbot";
@@ -30,6 +30,17 @@ import HealthcareIndustry from "./industries/HealthcareIndustry";
 import EducationIndustry from "./industries/EducationIndustry";
 import ManufacturingIndustry from "./industries/ManufacturingIndustry";
 import FMCGIndustry from "./industries/FMCGIndustry";
+
+const ScrollToTopWrapper = ({ children }) => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  return children;
+};
+
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -107,10 +118,11 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
+      <ScrollToTopWrapper>
         <Routes>
           <Route path="/*" element={<Homepage />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/blog" element={<Blogs />} />
           <Route path="/seo" element={<Seo />} />
@@ -190,6 +202,7 @@ const App = () => {
           />
           <Route path="/industries/product/fmcg" element={<FMCGIndustry />} />
         </Routes>
+        </ScrollToTopWrapper>
       </BrowserRouter>
       <Chatbot />
     </>

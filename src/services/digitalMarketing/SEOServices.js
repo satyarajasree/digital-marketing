@@ -14,6 +14,7 @@ import {
 } from "react-icons/fa";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import seoBg from "../../assets/SEOoptimization.jpg";
 
 const SEOServices = () => {
   const features = [
@@ -106,42 +107,45 @@ const SEOServices = () => {
       <Navbar />
       <div className="min-h-screen">
 
-        {/* HERO SECTION */}
-        <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 text-white py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-black opacity-30"></div>
+        
+        {/* HERO SECTION WITH BACKGROUND IMAGE */}
+<div
+  className="relative bg-cover bg-center bg-no-repeat text-white py-24 overflow-hidden"
+  style={{ backgroundImage: `url(${seoBg})` }}
+>
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/50"></div>
 
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
+  <div className="container mx-auto px-6 relative z-10">
+    <div className="max-w-4xl mx-auto text-center">
 
-              <div className="flex justify-center mb-8">
-                <div className="p-6 bg-white bg-opacity-10 rounded-3xl backdrop-blur-sm border border-white/20">
-                  <FaSearch className="text-5xl text-white" />
-                </div>
-              </div>
-
-              <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
-                SEO Services
-              </h1>
-
-              <p className="text-xl text-gray-200 mb-10 leading-relaxed max-w-3xl mx-auto">
-                Dominate search engine rankings and drive sustainable organic growth. 
-                Our advanced SEO strategies deliver long-term results and measurable ROI.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button className="group bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg flex items-center gap-2">
-                  Get SEO Audit
-                  <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </button>
-
-                <button className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white px-10 py-4 rounded-xl font-semibold text-lg border border-white/20 transition-all">
-                  View Case Studies
-                </button>
-              </div>
-
-            </div>
-          </div>
+      {/* Icon Box */}
+      <div className="flex justify-center mb-8">
+        <div className="p-6 bg-white bg-opacity-20 rounded-3xl backdrop-blur-sm border border-white/30">
+          <FaSearch className="text-5xl text-white" />
         </div>
+      </div>
+
+      {/* Title */}
+      <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent pb-2">
+        SEO Services
+      </h1>
+
+      {/* Description */}
+      <p className="text-xl text-gray-200 mb-10 leading-relaxed max-w-3xl mx-auto">
+        Dominate search engine rankings and drive sustainable organic growth.
+        Our advanced SEO strategies deliver long-term results and measurable ROI.
+      </p>
+
+      {/* Buttons */}
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
         {/* STATS */}
         <div className="py-16 bg-white border-b border-gray-200">

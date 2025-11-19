@@ -125,7 +125,7 @@ const Hero = ({
         return (
           <>
             Transform Your{' '}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-500 bg-clip-text text-transparent block">
+            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-500 bg-clip-text text-transparent block pb-3">
               Technology
             </span>
           </>
@@ -134,7 +134,7 @@ const Hero = ({
         return (
           <>
             Amplify Your{' '}
-            <span className="bg-gradient-to-r from-orange-400 via-pink-500 to-red-500 bg-clip-text text-transparent block">
+            <span className="bg-gradient-to-r from-orange-400 via-pink-500 to-red-500 bg-clip-text text-transparent block pb-3">
               Digital Presence
             </span>
           </>
