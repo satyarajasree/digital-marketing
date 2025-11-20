@@ -297,6 +297,7 @@ export const ITServices = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+             onClick={() => (window.location.href = "/contact-us")}
             className="relative bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-2xl overflow-hidden group"
           >
             {/* Button Shine Effect */}
@@ -304,6 +305,7 @@ export const ITServices = () => {
               animate={{ x: ["0%", "200%"] }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12"
+             
             />
             <span className="relative z-10 flex items-center gap-2">
               Get IT Consultation

@@ -211,7 +211,7 @@ const MobileAppDevelopment = () => {
               <img
                 src="/aduri3.png"
                 alt="Real Estate Template"
-                className="w-80 h-80 object-contain bg-black rounded-xl shadow-xl 
+                className="w-96 h-96 object-contain bg-black rounded-xl shadow-xl 
                    group-hover:shadow-2xl group-hover:shadow-blue-200 
                    transition-all duration-500"
               />
@@ -228,7 +228,7 @@ const MobileAppDevelopment = () => {
               <img
                 src="/arrowai.png"
                 alt="Tours Template"
-                className="w-80 h-80 object-contain bg-black rounded-xl shadow-xl
+                className="w-96 h-96 object-contain bg-black rounded-xl shadow-xl
                    group-hover:shadow-2xl group-hover:shadow-blue-200
                    transition-all duration-500"
               />
@@ -245,7 +245,7 @@ const MobileAppDevelopment = () => {
               <img
                 src="/salford.png"
                 alt="Fashion Template"
-                className="w-80 h-80 object-contain bg-black rounded-xl shadow-xl
+                className="w-96 h-96 object-contain bg-black rounded-xl shadow-xl
                    group-hover:shadow-2xl group-hover:shadow-blue-200
                    transition-all duration-500"
               />
@@ -263,7 +263,7 @@ const MobileAppDevelopment = () => {
               <img
                 src="/chiropractic2.png"
                 alt="Chiropractic Template"
-                className="w-80 h-80 object-contain bg-black rounded-xl shadow-xl
+                className="w-96 h-96 object-contain bg-black rounded-xl shadow-xl
                    group-hover:shadow-2xl group-hover:shadow-blue-200
                    transition-all duration-500"
               />
@@ -280,7 +280,7 @@ const MobileAppDevelopment = () => {
               <img
                 src="/organic1.png"
                 alt="Organic Template"
-                className="w-80 h-80 object-contain bg-black rounded-xl shadow-xl
+                className="w-96 h-96 object-contain bg-black rounded-xl shadow-xl
                    group-hover:shadow-2xl group-hover:shadow-blue-200
                    transition-all duration-500"
               />
@@ -297,7 +297,7 @@ const MobileAppDevelopment = () => {
               <img
                 src="/larana1.png"
                 alt="Learning Platform Template"
-                className="w-80 h-80 object-contain bg-black rounded-xl shadow-xl
+                className="w-96 h-96 object-contain bg-black rounded-xl shadow-xl
                    group-hover:shadow-2xl group-hover:shadow-blue-200
                    transition-all duration-500"
               />

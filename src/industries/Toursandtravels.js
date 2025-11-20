@@ -17,7 +17,9 @@ import {
 import { MdTravelExplore } from "react-icons/md";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import ChallengesImage from "../assets/Untitled-design-69.png";
+import ChallengesImage from "../assets/travel.jpg";
+import heroBg from "../assets/tour.webp";   // adjust path as needed
+
 
 const ToursTravelsIndustry = () => {
   const services = [
@@ -189,36 +191,31 @@ const ToursTravelsIndustry = () => {
       <div className="min-h-screen">
 
         {/* HERO SECTION */}
-        <div className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-black opacity-40"></div>
+<div
+  className="relative bg-cover bg-center bg-no-repeat text-white py-24 overflow-hidden"
+  style={{ backgroundImage: `url(${heroBg})` }}
+>
+  <div className="absolute inset-0 bg-black/60"></div>
 
-          <div className="container mx-auto px-6 relative z-10 text-center">
-            <div className="flex justify-center mb-8">
-              <div className="p-6 bg-white/10 rounded-3xl backdrop-blur-sm border border-white/20">
-                <FaPlane className="text-5xl text-orange-400" />
-              </div>
-            </div>
+  <div className="container mx-auto px-6 relative z-10 text-center">
+    <div className="flex justify-center mb-8">
+      <div className="p-6 bg-white/10 rounded-3xl backdrop-blur-sm border border-white/20">
+        <FaPlane className="text-5xl text-orange-400" />
+      </div>
+    </div>
 
-            <h1 className="text-6xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent mb-6">
-              Tours and Travels
-            </h1>
+    <h1 className="text-6xl font-bold text-white mb-6 pb-3">
+      Tours and Travels
+    </h1>
 
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
-              Transform your travel dreams into reality with expert planning and end-to-end support. Explore destinations, enjoy smooth bookings, and travel with complete confidence.
-            </p>
+    <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+      Transform your travel dreams into reality with expert planning and
+      end-to-end support. Explore destinations, enjoy smooth bookings, and travel
+      with complete confidence.
+    </p>
+  </div>
+</div>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-10 py-4 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-2">
-                Get Education Audit
-                <FaArrowRight />
-              </button>
-
-              <button className="bg-white/10 text-white px-10 py-4 rounded-xl font-semibold backdrop-blur border border-white/20 hover:bg-white/20 transition">
-                View Success Stories
-              </button>
-            </div>
-          </div>
-        </div>
 
         {/* UPDATED STATS SECTION */}
         <div className="py-16 bg-gray-800 border-b border-gray-700">
@@ -261,10 +258,10 @@ const ToursTravelsIndustry = () => {
               {services.map((service, index) => (
                 <div
                   key={index}
-                  className="group bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 border border-gray-700 hover:border-orange-500/50 hover:-translate-y-2"
+                  className="group bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 border border-gray-700 hover:border-blue-500/50 hover:-translate-y-2"
                 >
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="bg-gradient-to-r from-orange-500 to-amber-500 p-3 rounded-2xl shadow-lg flex items-center justify-center">
+                    <div className="bg-gradient-to-r from-cyan-500 to-blue-500 p-3 rounded-2xl shadow-lg flex items-center justify-center">
                       <service.icon className={`text-2xl ${service.iconColor}`} />
                     </div>
                     <h3 className="text-2xl font-bold">{service.title}</h3>
@@ -277,8 +274,8 @@ const ToursTravelsIndustry = () => {
                   <div className="space-y-3">
                     {service.features.map((feature, i) => (
                       <div key={i} className="flex items-center">
-                        <div className="bg-orange-500/20 p-1 rounded-lg mr-3">
-                          <FaCheck className="text-orange-400 text-sm" />
+                        <div className="bg-cyan-300/20 p-1 rounded-lg mr-3">
+                          <FaCheck className="text-blue-400 text-sm" />
                         </div>
                         <span className="text-gray-300">{feature}</span>
                       </div>
@@ -305,7 +302,7 @@ const ToursTravelsIndustry = () => {
 
                 {/* CARD 01 */}
                 <div className="bg-white shadow-xl border border-gray-200 rounded-2xl p-6 hover:shadow-2xl transition">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent mb-4">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent mb-4">
                     01
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">
@@ -318,7 +315,7 @@ const ToursTravelsIndustry = () => {
 
                 {/* CARD 02 */}
                 <div className="bg-white shadow-xl border border-gray-200 rounded-2xl p-6 hover:shadow-2xl transition">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent mb-4">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent mb-4">
                     02
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">
@@ -331,7 +328,7 @@ const ToursTravelsIndustry = () => {
 
                 {/* CARD 03 */}
                 <div className="bg-white shadow-xl border border-gray-200 rounded-2xl p-6 hover:shadow-2xl transition">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent mb-4">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent mb-4">
                     03
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">
@@ -344,7 +341,7 @@ const ToursTravelsIndustry = () => {
 
                 {/* CARD 04 */}
                 <div className="bg-white shadow-xl border border-gray-200 rounded-2xl p-6 hover:shadow-2xl transition">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent mb-4">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent mb-4">
                     04
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">
@@ -375,7 +372,7 @@ const ToursTravelsIndustry = () => {
 
             {/* Heading */}
             <h2 className="text-5xl font-bold text-gray-900 text-center mb-16">
-              How <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent underline decoration-orange-400 decoration-4">Amplinova</span> turns that challenges into opportunity
+              How <span className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent underline decoration-blue-400 decoration-4">Amplinova</span> turns that challenges into opportunity
             </h2>
 
             {/* 4 Items — Side by side */}
@@ -383,7 +380,7 @@ const ToursTravelsIndustry = () => {
 
               {/* 01 */}
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center shadow-xl">
+                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-xl">
                   <FaCheck className="text-white text-3xl" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
@@ -396,7 +393,7 @@ const ToursTravelsIndustry = () => {
 
               {/* 02 */}
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center shadow-xl">
+                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-xl">
                   <FaCheck className="text-white text-3xl" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
@@ -409,7 +406,7 @@ const ToursTravelsIndustry = () => {
 
               {/* 03 */}
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center shadow-xl">
+                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-xl">
                   <FaCheck className="text-white text-3xl" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
@@ -423,7 +420,7 @@ const ToursTravelsIndustry = () => {
 
               {/* 04 */}
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center shadow-xl">
+                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-xl">
                   <FaCheck className="text-white text-3xl" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
@@ -441,7 +438,7 @@ const ToursTravelsIndustry = () => {
         </div>
 
         {/* SEGMENTS SECTION */}
-        <div className="py-20 bg-gradient-to-br from-orange-50 to-amber-50 relative">
+        <div className="py-20 bg-gradient-to-br from-cyan-50 to-blue-50 relative">
           <div className="container mx-auto px-6 relative">
             <div className="text-center mb-16">
               <h2 className="text-5xl font-bold text-gray-900 mb-6">
@@ -456,9 +453,9 @@ const ToursTravelsIndustry = () => {
               {segments.map((segment, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl p-8 shadow-lg border border-orange-100 hover:shadow-xl transition-all duration-300 group hover:border-orange-300"
+                  className="bg-white rounded-2xl p-8 shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300 group hover:border-blue-300"
                 >
-                  <div className="bg-gradient-to-r from-orange-500 to-amber-500 p-4 rounded-2xl inline-flex mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className="bg-gradient-to-r from-cyan-500 to-blue-500 p-4 rounded-2xl inline-flex mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <segment.icon className={`text-2xl ${segment.iconColor}`} />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">
@@ -468,7 +465,7 @@ const ToursTravelsIndustry = () => {
                     {segment.items.map((item, itemIndex) => (
                       <div
                         key={itemIndex}
-                        className="flex items-center text-gray-700 group/item hover:text-orange-600 transition-colors duration-200"
+                        className="flex items-center text-gray-700 group/item hover:text-blue-600 transition-colors duration-200"
                       >
                         <div className="bg-green-100 p-1 rounded-lg mr-3 group-hover/item:bg-green-200 transition-colors duration-200">
                           <FaCheck className="text-green-600 text-sm" />
@@ -498,14 +495,13 @@ const ToursTravelsIndustry = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-12 py-5 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-3">
-                Get Free Education Audit
+              <button
+              onClick={() => (window.location.href = "/contact-us")}
+              className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-12 py-5 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-3">
+                Plan your trip now
                 <FaArrowRight />
               </button>
 
-              <button className="bg-white text-gray-900 px-12 py-5 rounded-xl font-semibold border-2 border-white hover:bg-gray-100 transition">
-                View Case Studies
-              </button>
             </div>
           </div>
         </div>

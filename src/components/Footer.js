@@ -53,11 +53,11 @@ const Footer = () => {
 
   const quickLinks = [
     { name: 'Home', url: '#home' },
-    { name: 'Services', url: '#services' },
-    { name: 'Industries', url: '#industries' },
-    { name: 'Portfolio', url: '#portfolio' },
-    { name: 'About', url: '#about' },
-    { name: 'Contact', url: '#contact' }
+    { name: 'IT Solutions', url: '/it' },
+    { name: 'Digital Marketing', url: '/marketing' },
+    { name: 'Blogs', url: '/blog' },
+    { name: 'About', url: '/about' },
+    { name: 'Contact', url: '/contact-us' }
   ];
 
   const legalLinks = [
@@ -223,7 +223,7 @@ const Footer = () => {
                 © 2024 <span className="text-orange-400 font-semibold">Amplinova</span>. All rights reserved.
                 <span className="text-gray-600">|</span>
                 <span className="text-gray-500 flex items-center gap-1">
-                  Made with <FaHeart className="w-3 h-3 text-red-400" /> by Amplinova Team
+                  Made with <FaHeart className="w-3 h-3 text-red-400" /> by Amplinovians
                 </span>
               </p>
               <p className="text-gray-500 text-xs mt-1">

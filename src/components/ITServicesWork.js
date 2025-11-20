@@ -294,6 +294,7 @@ const ITServicesWork = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => (window.location.href = "/contact-us")}
               className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 relative overflow-hidden group"
             >
               <span className="relative z-10">Start Your Project</span>
