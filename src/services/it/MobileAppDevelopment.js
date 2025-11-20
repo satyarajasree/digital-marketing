@@ -24,13 +24,15 @@ const MobileAppDevelopment = () => {
     {
       icon: FaApple,
       title: "iOS App Development",
-      description: "Native iOS applications built with Swift and Objective-C for optimal performance",
+      description:
+        "Native iOS applications built with Swift and Objective-C for optimal performance",
       image: "📱",
     },
     {
       icon: FaAndroid,
       title: "Android App Development",
-      description: "Native Android apps using Kotlin and Java for seamless user experience",
+      description:
+        "Native Android apps using Kotlin and Java for seamless user experience",
       image: "🤖",
     },
     {
@@ -42,13 +44,15 @@ const MobileAppDevelopment = () => {
     {
       icon: FaFlask,
       title: "Flutter Development",
-      description: "Beautiful, natively compiled applications from a single codebase",
+      description:
+        "Beautiful, natively compiled applications from a single codebase",
       image: "🎯",
     },
     {
       icon: FaShieldAlt,
       title: "App Security",
-      description: "Comprehensive security measures to protect user data and privacy",
+      description:
+        "Comprehensive security measures to protect user data and privacy",
       image: "🛡️",
     },
     {
@@ -74,13 +78,15 @@ const MobileAppDevelopment = () => {
     {
       step: "01",
       title: "Strategy & Planning",
-      description: "Define app objectives, target audience, and feature requirements",
+      description:
+        "Define app objectives, target audience, and feature requirements",
       icon: FaRocket,
     },
     {
       step: "02",
       title: "UI/UX Design",
-      description: "Create intuitive and engaging user interfaces and experiences",
+      description:
+        "Create intuitive and engaging user interfaces and experiences",
       icon: FaPaintBrush,
     },
     {
@@ -114,171 +120,197 @@ const MobileAppDevelopment = () => {
       <Navbar />
       <div className="min-h-screen">
         {/* HERO SECTION WITH BACKGROUND IMAGE */}
-<div
-  className="relative bg-cover bg-center bg-no-repeat text-white py-24 overflow-hidden"
-  style={{ backgroundImage: `url(${mobileBg})` }}
->
-  {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-black/50"></div>
+        <div
+          className="relative bg-cover bg-center bg-no-repeat text-white py-24 overflow-hidden"
+          style={{ backgroundImage: `url(${mobileBg})` }}
+        >
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/50"></div>
 
-  {/* Blue glow shapes (unchanged) */}
-  <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-blue-500 to-transparent opacity-20 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-  <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-blue-400 to-transparent opacity-20 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+          {/* Blue glow shapes (unchanged) */}
+          <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-blue-500 to-transparent opacity-20 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-blue-400 to-transparent opacity-20 rounded-full translate-y-1/2 -translate-x-1/2"></div>
 
-  <div className="container mx-auto px-6 relative z-10">
-    <div className="max-w-4xl mx-auto text-center">
-      <div className="flex justify-center mb-8">
-        <div className="p-6 bg-white bg-opacity-20 rounded-3xl backdrop-blur-sm border border-white border-opacity-30">
-          <FaMobile className="text-5xl text-white" />
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="flex justify-center mb-8">
+                <div className="p-6 bg-white bg-opacity-20 rounded-3xl backdrop-blur-sm border border-white border-opacity-30">
+                  <FaMobile className="text-5xl text-white" />
+                </div>
+              </div>
+
+              <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent pb-3">
+                Mobile App Development
+              </h1>
+
+              <p className="text-xl text-blue-100 mb-10 leading-relaxed max-w-3xl mx-auto">
+                Transform your ideas into powerful mobile applications. We
+                create engaging, high-performance apps that users love and
+                businesses rely on across all platforms.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center"></div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent pb-3">
-        Mobile App Development
-      </h1>
-
-      <p className="text-xl text-blue-100 mb-10 leading-relaxed max-w-3xl mx-auto">
-        Transform your ideas into powerful mobile applications. We create engaging,
-        high-performance apps that users love and businesses rely on across all platforms.
-      </p>
-
-      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        
-      </div>
-    </div>
-  </div>
-</div>
-        
         {/* Services Section */}
-         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-  {services.map((service, index) => (
-    <div key={index} className="group bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 border border-blue-100 hover:border-blue-200 hover:transform hover:-translate-y-2">
-      <div className="flex items-center justify-between mb-6">
-        <div className="text-4xl bg-gradient-to-r from-blue-600 to-blue-800 p-4 rounded-2xl text-white">
-          {service.image}
+        <div className="py-20 bg-white relative">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">
+              What We Offer
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Comprehensive web development services tailored to your needs.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="group bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 border border-blue-100 hover:border-blue-200 hover:transform hover:-translate-y-2"
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <div className="text-4xl bg-gradient-to-r from-blue-600 to-blue-800 p-4 rounded-2xl text-white">
+                    {service.image}
+                  </div>
+                  <div className="text-blue-600">
+                    <service.icon className="text-3xl opacity-80" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="text-blue-600">
-          <service.icon className="text-3xl opacity-80" />
-        </div>
-      </div>
-      <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-      <p className="text-gray-600 leading-relaxed text-lg">{service.description}</p>
-    </div>
-  ))}
-</div>
 
-{/* Image Row */}
-{/* Templates Showcase Section */}
-<div className="container mx-auto px-6 pt-24">
+        {/* Image Row */}
 
-  {/* Heading */}
-  <div className="text-center mb-12">
-    <h2 className="text-5xl font-bold text-gray-900">
-      Mobile App UI Templates
-    </h2>
-    <p className="text-xl text-gray-600 mt-4">
-      Explore our custom-designed mobile UI mockups across various industries
-    </p>
-  </div>
+        <div className="container mx-auto px-6 pt-24">
+          {/* Heading */}
+          <div className="text-center mb-12">
+            <h2 className="text-5xl font-bold text-gray-900">
+              Mobile App UI Templates
+            </h2>
+            <p className="text-xl text-gray-600 mt-4">
+              Explore our custom-designed mobile UI mockups across various
+              industries
+            </p>
+          </div>
 
-  {/* Templates */}
-  <div className="mt-16 mb-16 flex flex-wrap justify-center gap-12">
-
-    {/* Aduri Group */}
-    <div className="flex flex-col items-center group transition-all duration-300 hover:-translate-y-3">
-      <img
-        src="/aduri3.png"
-        alt="Real Estate Template"
-        className="w-96 h-96 object-contain bg-black rounded-xl shadow-xl 
+          {/* Templates */}
+          <div className="mt-16 mb-16 flex flex-wrap justify-center gap-12">
+           <div class="flex gap-4"> 
+            {/* Aduri Group */}
+            <div className="flex flex-col items-center group transition-all duration-300 hover:-translate-y-3">
+              <img
+                src="/aduri3.png"
+                alt="Real Estate Template"
+                className="w-80 h-80 object-contain bg-black rounded-xl shadow-xl 
                    group-hover:shadow-2xl group-hover:shadow-blue-200 
                    transition-all duration-500"
-      />
-      <p className="mt-4 text-lg font-semibold text-gray-700 
-                    group-hover:text-blue-600 transition-colors">
-        Real Estate – Aduri Group
-      </p>
-    </div>
+              />
+              <p
+                className="mt-4 text-lg font-semibold text-gray-700 
+                    group-hover:text-blue-600 transition-colors"
+              >
+                Real Estate – Aduri Group
+              </p>
+            </div>
 
-    {/* ArrowAI */}
-    <div className="flex flex-col items-center group transition-all duration-300 hover:-translate-y-3">
-      <img
-        src="/arrowai.png"
-        alt="Tours Template"
-        className="w-96 h-96 object-contain bg-black rounded-xl shadow-xl
+            {/* ArrowAI */}
+            <div className="flex flex-col items-center group transition-all duration-300 hover:-translate-y-3">
+              <img
+                src="/arrowai.png"
+                alt="Tours Template"
+                className="w-80 h-80 object-contain bg-black rounded-xl shadow-xl
                    group-hover:shadow-2xl group-hover:shadow-blue-200
                    transition-all duration-500"
-      />
-      <p className="mt-4 text-lg font-semibold text-gray-700
-                    group-hover:text-blue-600 transition-colors">
-        Tours & Travels – ArrowAI
-      </p>
-    </div>
+              />
+              <p
+                className="mt-4 text-lg font-semibold text-gray-700
+                    group-hover:text-blue-600 transition-colors"
+              >
+                Tours & Travels – ArrowAI
+              </p>
+            </div>
 
-    {/* Salford & Co */}
-    <div className="flex flex-col items-center group transition-all duration-300 hover:-translate-y-3">
-      <img
-        src="/salford.png"
-        alt="Fashion Template"
-        className="w-96 h-96 object-contain bg-black rounded-xl shadow-xl
+            {/* Salford & Co */}
+            <div className="flex flex-col items-center group transition-all duration-300 hover:-translate-y-3">
+              <img
+                src="/salford.png"
+                alt="Fashion Template"
+                className="w-80 h-80 object-contain bg-black rounded-xl shadow-xl
                    group-hover:shadow-2xl group-hover:shadow-blue-200
                    transition-all duration-500"
-      />
-      <p className="mt-4 text-lg font-semibold text-gray-700
-                    group-hover:text-blue-600 transition-colors">
-        Fashion Brand – Salford & Co
-      </p>
-    </div>
-
-    {/* Chiropractic */}
-    <div className="flex flex-col items-center group transition-all duration-300 hover:-translate-y-3">
-      <img
-        src="/chiropractic1.png"
-        alt="Chiropractic Template"
-        className="w-96 h-96 object-contain bg-black rounded-xl shadow-xl
+              />
+              <p
+                className="mt-4 text-lg font-semibold text-gray-700
+                    group-hover:text-blue-600 transition-colors"
+              >
+                Fashion Brand – Salford & Co
+              </p>
+            </div>
+          </div>
+            {/* Chiropractic */}
+          <div class="flex gap-4"> 
+            <div className="flex flex-col items-center group transition-all duration-300 hover:-translate-y-3">
+              <img
+                src="/chiropractic2.png"
+                alt="Chiropractic Template"
+                className="w-80 h-80 object-contain bg-black rounded-xl shadow-xl
                    group-hover:shadow-2xl group-hover:shadow-blue-200
                    transition-all duration-500"
-      />
-      <p className="mt-4 text-lg font-semibold text-gray-700
-                    group-hover:text-blue-600 transition-colors">
-        Chiropractic Health Care
-      </p>
-    </div>
+              />
+              <p
+                className="mt-4 text-lg font-semibold text-gray-700
+                    group-hover:text-blue-600 transition-colors"
+              >
+                Chiropractic Health Care
+              </p>
+            </div>
 
-    {/* Organic */}
-    <div className="flex flex-col items-center group transition-all duration-300 hover:-translate-y-3">
-      <img
-        src="/organic1.png"
-        alt="Organic Template"
-        className="w-96 h-96 object-contain bg-black rounded-xl shadow-xl
+            {/* Organic */}
+            <div className="flex flex-col items-center group transition-all duration-300 hover:-translate-y-3">
+              <img
+                src="/organic1.png"
+                alt="Organic Template"
+                className="w-80 h-80 object-contain bg-black rounded-xl shadow-xl
                    group-hover:shadow-2xl group-hover:shadow-blue-200
                    transition-all duration-500"
-      />
-      <p className="mt-4 text-lg font-semibold text-gray-700
-                    group-hover:text-blue-600 transition-colors">
-        Organic Fresh and Natural
-      </p>
-    </div>
+              />
+              <p
+                className="mt-4 text-lg font-semibold text-gray-700
+                    group-hover:text-blue-600 transition-colors"
+              >
+                Organic Fresh and Natural
+              </p>
+            </div>
 
-    {/* Larana */}
-    <div className="flex flex-col items-center group transition-all duration-300 hover:-translate-y-3">
-      <img
-        src="/larana1.png"
-        alt="Learning Platform Template"
-        className="w-96 h-96 object-contain bg-black rounded-xl shadow-xl
+            {/* Larana */}
+            <div className="flex flex-col items-center group transition-all duration-300 hover:-translate-y-3">
+              <img
+                src="/larana1.png"
+                alt="Learning Platform Template"
+                className="w-80 h-80 object-contain bg-black rounded-xl shadow-xl
                    group-hover:shadow-2xl group-hover:shadow-blue-200
                    transition-all duration-500"
-      />
-      <p className="mt-4 text-lg font-semibold text-gray-700
-                    group-hover:text-blue-600 transition-colors">
-        Larana Learning School
-      </p>
-    </div>
-
-  </div>
-</div>
-
-
-
+              />
+              <p
+                className="mt-4 text-lg font-semibold text-gray-700
+                    group-hover:text-blue-600 transition-colors"
+              >
+                Larana Learning School
+              </p>
+            </div>
+          </div>
+          </div>
+        </div>
         {/* Platforms Section */}
         <div className="py-20 bg-gradient-to-br from-blue-50 to-gray-100 relative">
           <div className="absolute inset-0 bg-blue-900 opacity-5"></div>
@@ -328,14 +360,15 @@ const MobileAppDevelopment = () => {
         <div className="py-20 bg-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full -translate-y-48 translate-x-48"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-50 rounded-full translate-y-48 -translate-x-48"></div>
-          
+
           <div className="container mx-auto px-6 relative">
             <div className="text-center mb-16">
               <h2 className="text-5xl font-bold text-gray-900 mb-6">
                 Our App Development Process
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                A proven methodology for successful app launches and user satisfaction
+                A proven methodology for successful app launches and user
+                satisfaction
               </p>
             </div>
 
@@ -368,14 +401,15 @@ const MobileAppDevelopment = () => {
           <div className="absolute top-0 left-0 w-full h-full bg-black opacity-10"></div>
           <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-blue-400 opacity-10 rounded-full -translate-y-1/4 translate-x-1/4"></div>
           <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-blue-300 opacity-10 rounded-full translate-y-1/4 -translate-x-1/4"></div>
-          
+
           <div className="container mx-auto px-6 text-center relative z-10">
             <h2 className="text-5xl font-bold text-white mb-8">
               Ready to Build Your Mobile App?
             </h2>
             <p className="text-xl text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Let's turn your app idea into reality with our expert mobile development team. 
-              From concept to launch, we'll guide you through every step of the process.
+              Let's turn your app idea into reality with our expert mobile
+              development team. From concept to launch, we'll guide you through
+              every step of the process.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <button className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-12 py-5 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center gap-3">

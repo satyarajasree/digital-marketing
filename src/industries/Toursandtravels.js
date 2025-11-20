@@ -1,187 +1,184 @@
 import React from "react";  
-import {
-  FaUsers,
-  FaArrowRight,
-  FaCheck,
-  FaChartLine,
-  FaMobile,
-  FaGlobe,
-  FaUniversity,
-  FaSchool,
-  FaLaptopCode,
-  FaHandsHelping,
-  FaGraduationCap,
-  FaUserTie,
-  FaCloud,
-  FaCogs,
+import { 
+  FaPlane, 
+  FaHotel, 
+  FaUmbrellaBeach, 
+  FaGlobeAsia, 
+  FaRoute, 
+  FaPassport, 
+  FaUsers, 
+  FaChartLine, 
+  FaGlobe, 
+  FaMobile 
 } from "react-icons/fa";
-import { SiGoogleclassroom, SiCoursera } from "react-icons/si";
+import { MdTravelExplore } from "react-icons/md";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ChallengesImage from "../assets/Untitled-design-69.png";
 
-const EducationIndustry = () => {
+const Toursandtravels = () => {
   const services = [
-    {
-      icon: FaUniversity,
-      title: "Higher Education",
-      description:
-        "Comprehensive marketing for colleges, universities, and graduate programs",
-      features: [
-        "Student Recruitment",
-        "Brand Positioning",
-        "Alumni Engagement",
-        "Program Promotion",
-      ],
-      color: "from-orange-500 to-amber-500",
-      iconColor: "text-blue-500",
-    },
-    {
-      icon: FaSchool,
-      title: "K-12 Schools",
-      description:
-        "Targeted strategies for primary and secondary educational institutions",
-      features: [
-        "Parent Communication",
-        "Enrollment Growth",
-        "Community Outreach",
-        "Event Promotion",
-      ],
-      color: "from-orange-500 to-amber-500",
-      iconColor: "text-green-500",
-    },
-    {
-      icon: FaLaptopCode,
-      title: "EdTech Companies",
-      description:
-        "Digital marketing for educational technology and e-learning platforms",
-      features: [
-        "User Acquisition",
-        "Product Launch",
-        "Partnership Development",
-        "Content Marketing",
-      ],
-      color: "from-orange-500 to-amber-500",
-      iconColor: "text-purple-500",
-    },
-    {
-      icon: SiCoursera,
-      title: "Online Courses",
-      description:
-        "Marketing solutions for online course creators and educational content",
-      features: [
-        "Course Promotion",
-        "Student Onboarding",
-        "Retention Strategies",
-        "Upsell Campaigns",
-      ],
-      color: "from-orange-500 to-amber-500",
-      iconColor: "text-red-500",
-    },
-    {
-      icon: FaUserTie,
-      title: "Vocational Training",
-      description:
-        "Marketing for trade schools and professional certification programs",
-      features: [
-        "Career-focused Messaging",
-        "Industry Partnerships",
-        "Job Placement Promotion",
-        "Skill Development",
-      ],
-      color: "from-orange-500 to-amber-500",
-      iconColor: "text-indigo-500",
-    },
-    {
-      icon: FaHandsHelping,
-      title: "Educational Nonprofits",
-      description:
-        "Mission-driven marketing for educational organizations and foundations",
-      features: [
-        "Donor Acquisition",
-        "Grant Writing Support",
-        "Community Awareness",
-        "Impact Storytelling",
-      ],
-      color: "from-orange-500 to-amber-500",
-      iconColor: "text-teal-500",
-    },
-  ];
+  {
+    icon: FaPlane,
+    title: "Flight Booking",
+    description:
+      "End-to-end flight booking solutions for domestic and international travel",
+    features: [
+      "Best Fare Search",
+      "Flexible Date Options",
+      "Group Ticketing",
+      "Real-time Flight Updates",
+    ],
+    color: "from-blue-500 to-cyan-500",
+    iconColor: "text-blue-600",
+  },
+  {
+    icon: FaHotel,
+    title: "Hotel Reservations",
+    description:
+      "Comfortable stays for every budget with global hotel partnerships",
+    features: [
+      "Luxury Hotels",
+      "Budget Stays",
+      "Resort Packages",
+      "Instant Booking",
+    ],
+    color: "from-purple-500 to-fuchsia-500",
+    iconColor: "text-purple-600",
+  },
+  {
+    icon: FaUmbrellaBeach,
+    title: "Holiday Packages",
+    description:
+      "Customizable tour packages for families, couples, and solo travelers",
+    features: [
+      "Domestic Tours",
+      "International Tours",
+      "Adventure Trips",
+      "Seasonal Offers",
+    ],
+    color: "from-orange-500 to-amber-500",
+    iconColor: "text-orange-600",
+  },
+  {
+    icon: MdTravelExplore,
+    title: "Travel Planning",
+    description:
+      "Personalized travel itineraries designed for hassle-free journeys",
+    features: [
+      "Itinerary Creation",
+      "Budget Planning",
+      "Travel Guides",
+      "Destination Research",
+    ],
+    color: "from-green-500 to-emerald-500",
+    iconColor: "text-green-600",
+  },
+  {
+    icon: FaPassport,
+    title: "Visa Assistance",
+    description:
+      "Smooth visa support for tourists, students, and business travelers",
+    features: [
+      "Document Guidance",
+      "Appointment Booking",
+      "Application Tracking",
+      "Expert Support",
+    ],
+    color: "from-red-500 to-rose-500",
+    iconColor: "text-red-600",
+  },
+  {
+    icon: FaRoute,
+    title: "Transport & Local Tours",
+    description:
+      "Reliable transportation and guided tours within destinations",
+    features: [
+      "Car Rentals",
+      "Bus Tours",
+      "Local Guides",
+      "Airport Transfers",
+    ],
+    color: "from-teal-500 to-cyan-500",
+    iconColor: "text-teal-600",
+  },
+];
+
 
   const results = [
+  {
+    metric: "4.6x",
+    label: "Increase in Bookings",
+    icon: FaUsers,
+    color: "from-blue-500 to-cyan-500",
+  },
+  {
+    metric: "78%",
+    label: "Growth in Brand Reach",
+    icon: FaGlobe,
+    color: "from-purple-500 to-fuchsia-500",
+  },
+  {
+    metric: "3.2x",
+    label: "Higher Lead Generation",
+    icon: FaChartLine,
+    color: "from-orange-500 to-amber-500",
+  },
     {
-      metric: "58%",
-      label: "Enrollment Growth",
-      icon: FaUsers,
-      color: "from-orange-500 to-amber-500",
-    },
-    {
-      metric: "4.3x",
-      label: "Lead Generation",
-      icon: FaChartLine,
-      color: "from-orange-500 to-amber-500",
-    },
-    {
-      metric: "72%",
-      label: "Brand Awareness",
-      icon: FaGlobe,
-      color: "from-orange-500 to-amber-500",
-    },
-    {
-      metric: "85%",
-      label: "Student Engagement",
-      icon: FaMobile,
-      color: "from-orange-500 to-amber-500",
-    },
-  ];
+    metric: "89%",
+    label: "Better Customer Engagement",
+    icon: FaMobile,
+    color: "from-green-500 to-emerald-500",
+  },
+];
 
   const segments = [
-    {
-      category: "Educational Institutions",
-      items: [
-        "Universities",
-        "Colleges",
-        "Community Colleges",
-        "Vocational Schools",
-        "K-12 Schools",
-        "Preschools",
-        "Language Schools",
-        "Test Prep Centers",
-      ],
-      icon: FaUniversity,
-      iconColor: "text-blue-500",
-    },
-    {
-      category: "EdTech & Online Learning",
-      items: [
-        "Learning Management Systems",
-        "Online Course Platforms",
-        "Educational Apps",
-        "Tutoring Services",
-        "Educational Software",
-        "Virtual Classrooms",
-        "Assessment Tools",
-        "Learning Analytics",
-      ],
-      icon: FaCloud,
-      iconColor: "text-purple-500",
-    },
-    {
-      category: "Educational Services",
-      items: [
-        "Student Recruitment",
-        "Educational Consulting",
-        "Curriculum Development",
-        "Teacher Training",
-        "Study Abroad Programs",
-        "Educational Publishing",
-        "Research Institutions",
-        "Educational Nonprofits",
-      ],
-      icon: FaCogs,
-      iconColor: "text-green-500",
-    },
-  ];
+  {
+    category: "Travel Services",
+    items: [
+      "Flight Booking",
+      "Hotel Booking",
+      "Train Tickets",
+      "Cab Rentals",
+      "Cruise Tours",
+      "Holiday Packages",
+      "Adventure Tours",
+      "International Trips",
+    ],
+    icon: FaPlane,
+    iconColor: "text-blue-500",
+  },
+  {
+    category: "Tour Types",
+    items: [
+      "Family Tours",
+      "Honeymoon Packages",
+      "Solo Travel Plans",
+      "Corporate Travel",
+      "Pilgrimage Tours",
+      "Luxury Tours",
+      "Group Tours",
+      "Backpacking Trips",
+    ],
+    icon: FaUmbrellaBeach,
+    iconColor: "text-purple-500",
+  },
+  {
+    category: "Travel Support Services",
+    items: [
+      "Visa Assistance",
+      "Passport Support",
+      "Travel Insurance",
+      "Foreign Exchange",
+      "Travel Guides",
+      "Itinerary Planning",
+      "Travel Consultation",
+      "Emergency Support",
+    ],
+    icon: FaCogs,
+    iconColor: "text-green-500",
+  },
+];
 
   return (
     <div className="bg-gradient-to-br from-gray-50 to-gray-100">
@@ -195,18 +192,16 @@ const EducationIndustry = () => {
           <div className="container mx-auto px-6 relative z-10 text-center">
             <div className="flex justify-center mb-8">
               <div className="p-6 bg-white/10 rounded-3xl backdrop-blur-sm border border-white/20">
-                <FaGraduationCap className="text-5xl text-orange-400" />
+                <FaPlane className="text-5xl text-orange-400" />
               </div>
             </div>
 
             <h1 className="text-6xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent mb-6">
-              Education Marketing
+              Tours and Travels
             </h1>
 
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
-              Transform educational institutions with data-driven marketing
-              strategies. Attract students, engage communities, and build
-              lasting educational brands.
+              Transform your travel dreams into reality with expert planning and end-to-end support. Explore destinations, enjoy smooth bookings, and travel with complete confidence.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -252,10 +247,10 @@ const EducationIndustry = () => {
           <div className="container mx-auto px-6 relative">
             <div className="text-center mb-16">
               <h2 className="text-5xl font-bold text-white mb-6">
-                Education Marketing Services
+                Tours and Travel Services
               </h2>
               <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                Specialized solutions for every segment of the education industry
+                Specialized solutions for every segment of the tours and travel industry
               </p>
             </div>
 
@@ -297,7 +292,7 @@ const EducationIndustry = () => {
         <div className="py-20 bg-white">
           <div className="container mx-auto px-6">
             <h2 className="text-5xl font-bold text-gray-900 text-center mb-16">
-              Challenges Faced by the Education Industry
+              Challenges Faced by the Tours and Travel Industry
             </h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -311,11 +306,10 @@ const EducationIndustry = () => {
                     01
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">
-                    Student Enrollment Drop
+                    Low Travel Bookings
                   </h3>
                   <p className="text-gray-600">
-                    Many institutions struggle to meet their admission targets due to 
-                    increasing competition, lack of brand visibility, and limited digital outreach.
+                    Run targeted ads, seasonal promotions, and optimize listings to attract high-intent travelers.
                   </p>
                 </div>
 
@@ -325,11 +319,10 @@ const EducationIndustry = () => {
                     02
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">
-                    Low Engagement in Digital
+                    High Competition
                   </h3>
                   <p className="text-gray-600">
-                    Educational brands often fail to maintain consistent interaction across 
-                    social platforms, causing missed opportunities for engagement & brand recall.
+                    Build strong brand presence, offer unique packages, and highlight customer reviews & trust signals.
                   </p>
                 </div>
 
@@ -339,11 +332,10 @@ const EducationIndustry = () => {
                     03
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">
-                    Poor Lead Follow-Up & Conversion
+                    Complex Travel Planning
                   </h3>
                   <p className="text-gray-600">
-                    Manual processes and unorganized systems lead to slow or missed follow-ups, 
-                    reducing conversions and lowering ROI on marketing efforts.
+                    Provide personalized itineraries, bundled packages, and end-to-end travel management.
                   </p>
                 </div>
 
@@ -353,11 +345,10 @@ const EducationIndustry = () => {
                     04
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">
-                    Difficulty in Showing Value Proposition
+                   Poor Customer Engagement
                   </h3>
                   <p className="text-gray-600">
-                    Institutions often struggle to showcase their strengths, faculty quality, 
-                    and outcomes effectively in a competitive digital space.
+                    Use automated follow-ups, instant messaging, and 24/7 support tools to maintain engagement.
                   </p>
                 </div>
 
@@ -393,13 +384,10 @@ const EducationIndustry = () => {
                   <FaCheck className="text-white text-3xl" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                  Performance-Wise Lead Generation
+                  Personalized Travel Experiences
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  We run strategic ad campaigns across platforms like Meta,
-                  Google, and LinkedIn, generating high-quality leads for 
-                  courses, webinars, and admissions—customized to your 
-                  target audience.
+                  Turn complex planning into curated, tailor-made tours that offer a unique and memorable travel experience.
                 </p>
               </div>
 
@@ -409,12 +397,10 @@ const EducationIndustry = () => {
                   <FaCheck className="text-white text-3xl" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                  Automated Follow-Up Systems
+                  Stronger Digital Reach
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  With WhatsApp API, email automation, and CRM integrations, 
-                  we ensure no lead goes unattended—maximizing conversions 
-                  with timely communication.
+                  Leverage social media, SEO, and content marketing to attract global travelers and boost brand visibility.
                 </p>
               </div>
 
@@ -424,12 +410,11 @@ const EducationIndustry = () => {
                   <FaCheck className="text-white text-3xl" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                  Value-Driven Content
+                 Loyalty & Repeat Customers
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  We create compelling content including student 
-                  testimonials, alumni success stories, and virtual campus 
-                  tours to highlight your institution’s strengths and build trust.
+                  Create loyalty programs, referral rewards, and exclusive
+                   offers to turn one-time travelers into repeat clients.
                 </p>
               </div>
 
@@ -439,12 +424,12 @@ const EducationIndustry = () => {
                   <FaCheck className="text-white text-3xl" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                  Student-Centric Campaigns
+                  Niche Travel Markets
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  From quizzes, webinars, and guidance sessions to trending
-                  social media challenges, we help you engage prospective 
-                  students where they spend most of their time—online.
+                  Expand into niche segments like adventure tours, 
+                  luxury travel, pilgrimage trips, and wellness 
+                  tourism for higher margins.
                 </p>
               </div>
 
@@ -457,10 +442,10 @@ const EducationIndustry = () => {
           <div className="container mx-auto px-6 relative">
             <div className="text-center mb-16">
               <h2 className="text-5xl font-bold text-gray-900 mb-6">
-                Education Segments We Serve
+                Tours and travels Segments We Serve
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Comprehensive expertise across all education sectors
+                Comprehensive expertise across all tours and travel sectors
               </p>
             </div>
 
@@ -501,12 +486,12 @@ const EducationIndustry = () => {
 
           <div className="container mx-auto px-6 text-center relative z-10">
             <h2 className="text-5xl font-bold text-white mb-8">
-              Ready to Transform Your Education Institution?
+              Ready to Transform Your Tours and Travels?
             </h2>
             <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-              Let's create a marketing strategy that attracts the right
-              students, builds your brand, and drives measurable growth for your
-              educational organization.
+              Experience stress-free travel with tailored itineraries, 
+              exclusive deals, and reliable customer support. Whether it’s 
+              leisure, business, or adventure, we take care of every detail.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-6">
@@ -529,4 +514,4 @@ const EducationIndustry = () => {
   );
 };
 
-export default EducationIndustry;
+export default Toursandtravels;
