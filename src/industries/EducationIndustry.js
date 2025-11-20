@@ -19,6 +19,7 @@ import { SiGoogleclassroom, SiCoursera } from "react-icons/si";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ChallengesImage from "../assets/Untitled-design-69.png";
+import educationBg from "../assets/education.jpg"; 
 
 const EducationIndustry = () => {
   const services = [
@@ -188,39 +189,39 @@ const EducationIndustry = () => {
       <Navbar />
       <div className="min-h-screen">
 
-        {/* HERO SECTION */}
-        <div className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-black opacity-40"></div>
+        {/* HERO SECTION WITH BACKGROUND IMAGE (ORANGE THEME) */}
+<div
+  className="relative bg-cover bg-center bg-no-repeat text-white py-24 overflow-hidden"
+  style={{ backgroundImage: `url(${educationBg})` }}
+>
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/50"></div>
 
-          <div className="container mx-auto px-6 relative z-10 text-center">
-            <div className="flex justify-center mb-8">
-              <div className="p-6 bg-white/10 rounded-3xl backdrop-blur-sm border border-white/20">
-                <FaGraduationCap className="text-5xl text-orange-400" />
-              </div>
-            </div>
+  <div className="container mx-auto px-6 relative z-10 text-center">
 
-            <h1 className="text-6xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent mb-6">
-              Education Marketing
-            </h1>
+    {/* Icon */}
+    <div className="flex justify-center mb-8">
+      <div className="p-6 bg-white/20 rounded-3xl backdrop-blur-sm border border-white/30">
+        <FaGraduationCap className="text-5xl text-orange-400" />
+      </div>
+    </div>
 
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
-              Transform educational institutions with data-driven marketing
-              strategies. Attract students, engage communities, and build
-              lasting educational brands.
-            </p>
+    {/* Title */}
+    <h1 className="text-6xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent mb-6 pb-3">
+      Education Marketing
+    </h1>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-10 py-4 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-2">
-                Get Education Audit
-                <FaArrowRight />
-              </button>
+    {/* Subtitle */}
+    <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-10 leading-relaxed">
+      Transform educational institutions with data-driven marketing
+      strategies. Attract students, engage communities, and build
+      lasting educational brands.
+    </p>
 
-              <button className="bg-white/10 text-white px-10 py-4 rounded-xl font-semibold backdrop-blur border border-white/20 hover:bg-white/20 transition">
-                View Success Stories
-              </button>
-            </div>
-          </div>
-        </div>
+  </div>
+</div>
+
+
 
         {/* UPDATED STATS SECTION */}
         <div className="py-16 bg-gray-800 border-b border-gray-700">
@@ -510,14 +511,14 @@ const EducationIndustry = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-12 py-5 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-3">
+              <button 
+              onClick={() => (window.location.href = "/contact-us")}
+              className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-12 py-5 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-3">
                 Get Free Education Audit
                 <FaArrowRight />
               </button>
 
-              <button className="bg-white text-gray-900 px-12 py-5 rounded-xl font-semibold border-2 border-white hover:bg-gray-100 transition">
-                View Case Studies
-              </button>
+    
             </div>
           </div>
         </div>
