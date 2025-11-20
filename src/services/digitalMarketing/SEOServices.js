@@ -256,14 +256,12 @@ const SEOServices = () => {
               and brings customers who are ready to convert.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="group bg-gradient-to-r from-blue-500 to-blue-600 hover:scale-105 px-12 py-5 rounded-xl shadow-2xl font-semibold flex items-center gap-3">
+            <div className="flex justify-center items-center mt-6">
+              <button 
+              onClick={() => (window.location.href = "/contact-us")}
+              className="group bg-gradient-to-r from-blue-500 to-blue-600 hover:scale-105 px-12 py-5 rounded-xl shadow-2xl font-semibold flex items-center gap-3">
                 Get Free SEO Audit
                 <FaArrowRight className="group-hover:translate-x-2 transition-transform" />
-              </button>
-
-              <button className="bg-white text-gray-900 hover:bg-gray-100 px-12 py-5 rounded-xl font-semibold shadow-2xl border">
-                Schedule Consultation
               </button>
             </div>
 

@@ -383,13 +383,12 @@ const SocialMediaMarketingService = () => {
               Let's create a social media presence that captivates your audience, 
               builds brand loyalty, and drives measurable business growth.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button className="group bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-12 py-5 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-orange-500/25 flex items-center gap-3">
+            <div className="flex justify-center items-center mt-6">
+              <button 
+              onClick={() => (window.location.href = "/contact-us")}
+              className="group bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-12 py-5 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-orange-500/25 flex items-center gap-3">
                 Launch Your Campaign
                 <FaArrowRight className="group-hover:translate-x-2 transition-transform duration-200" />
-              </button>
-              <button className="bg-white bg-opacity-10 hover:bg-opacity-20 backdrop-blur-sm text-white px-12 py-5 rounded-xl font-semibold text-lg transition-all duration-300 border border-white border-opacity-20 hover:border-opacity-40">
-                Book Strategy Call
               </button>
             </div>
             

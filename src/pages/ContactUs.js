@@ -211,10 +211,10 @@ const ContactUs = () => {
   ];
 
   const socialLinks = [
-    { icon: FaLinkedin, url: "#", color: "hover:text-blue-600" },
+    { icon: FaLinkedin, url: "https://www.linkedin.com/company/109608290/admin/dashboard/", color: "hover:text-blue-600" },
     { icon: FaTwitter, url: "#", color: "hover:text-cyan-500" },
     { icon: FaFacebook, url: "#", color: "hover:text-blue-500" },
-    { icon: FaInstagram, url: "#", color: "hover:text-pink-500" },
+    { icon: FaInstagram, url: "https://www.instagram.com/amplinova_solutions?igsh=MWliem1pcnRsb2syNw==", color: "hover:text-pink-500" },
   ];
 
   return (

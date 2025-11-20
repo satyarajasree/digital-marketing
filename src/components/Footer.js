@@ -46,7 +46,7 @@ const Footer = () => {
     { 
       icon: FaLinkedinIn, 
       label: 'LinkedIn', 
-      url: '#',
+      url: 'https://www.linkedin.com/company/109608290/admin/dashboard/',
       color: 'hover:bg-blue-500 hover:border-blue-500'
     }
   ];

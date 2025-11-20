@@ -30,6 +30,8 @@ import HealthcareIndustry from "./industries/HealthcareIndustry";
 import EducationIndustry from "./industries/EducationIndustry";
 import ManufacturingIndustry from "./industries/ManufacturingIndustry";
 import FMCGIndustry from "./industries/FMCGIndustry";
+import FoodBeveragesIndustry from "./industries/FoodBeveragesIndustry";
+import HospitalityIndustry from "./industries/HospitalityIndustry";
 
 const ScrollToTopWrapper = ({ children }) => {
   const location = useLocation();
@@ -188,6 +190,26 @@ const App = () => {
           />
 
           {/* Alternative Routes for Industries */}
+          
+          <Route
+            path="industries/service/food-beverages"
+            element={<FoodBeveragesIndustry />}
+          />
+          <Route
+            path="industries/service/hospitality"
+            element={<HospitalityIndustry />}
+          />
+          <Route
+            path="industries/service/tours-travels"
+            element={<ToursTravelsIndustry />}
+          />
+          <Route
+            path="industries/service/real-estate"
+            element={<RealEstateIndustry />}
+          />
+
+
+
           <Route
             path="/industries/product/health-care"
             element={<HealthcareIndustry />}

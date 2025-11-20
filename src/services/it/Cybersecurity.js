@@ -325,13 +325,12 @@ const Cybersecurity = () => {
               Don't wait for a security breach. Protect your digital assets with our expert cybersecurity services 
               and sleep better knowing your business is protected against evolving threats.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-12 py-5 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center gap-3">
+            <div className="flex justify-center items-center mt-6">
+              <button 
+              onClick={() => (window.location.href = "/contact-us")}
+              className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-12 py-5 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center gap-3">
                 Get Security Audit
                 <FaArrowRight className="group-hover:translate-x-2 transition-transform duration-200" />
-              </button>
-              <button className="bg-white hover:bg-gray-100 text-blue-600 px-12 py-5 rounded-xl font-semibold text-lg transition-all duration-300 border-2 border-white hover:border-gray-100 shadow-2xl">
-                Download Security Guide
               </button>
             </div>
           </div>

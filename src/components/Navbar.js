@@ -236,11 +236,6 @@ const Navbar = () => {
       icon: FaBlog,
       href: "/blog",
     },
-    {
-      name: "FAQ",
-      icon: FaQuestionCircle,
-      href: "/faq",
-    },
   ];
 
   const socialMediaLinks = [
@@ -265,7 +260,7 @@ const Navbar = () => {
     {
       icon: FaLinkedinIn,
       name: "LinkedIn",
-      url: "https://linkedin.com/company/digitalpro",
+      url: "https://www.linkedin.com/company/109608290/admin/dashboard/",
       color: "hover:text-blue-500",
     },
   ];
