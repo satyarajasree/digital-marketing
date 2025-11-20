@@ -9,7 +9,7 @@ import {
   FaUniversity,
   FaSchool,
   FaLaptopCode,
-  FaHandsHelping,
+  FaHandsHelping,   
   FaGraduationCap,
   FaUserTie,
   FaCloud,
