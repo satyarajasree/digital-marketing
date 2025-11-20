@@ -10,67 +10,89 @@ const TestimonialsModern = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Rajesh Kumar",
-      company: "Tech Solutions Hyderabad",
-      position: "CEO",
-      location: "Gachibowli, Hyderabad",
-      content: "MageMarketer transformed our digital presence completely. Our website traffic increased by 300% and lead generation went up by 150% within just 3 months.",
+      name: "V.S.V.Lakshmi Narayana",
+      company: "Rajasree Townships",
+      position: "Managing Director – Rajasree Townships",
+      location: "Nagole, Hyderabad",
+      content: "Amplinova completely transformed our online presence. Our property inquiries have gone up by nearly 60% after they redesigned our website and took over our digital marketing. Their automation tools have made lead follow-ups effortless and fast. Truly a partner who understands modern real estate marketing.",
       rating: 5,
-      image: "RK",
+      image: "LN",
     },
     {
       id: 2,
-      name: "Priya Sharma",
-      company: "Fashion Trends India",
-      position: "Marketing Director",
+      name: "Dr. Kavya Menon",
+      company: "MedNova Health Systems",
+      position: "Managing Director - MedNova Health Systems",
       location: "Banjara Hills, Hyderabad",
-      content: "The social media campaigns created by MageMarketer helped us reach 2 million impressions. Our brand awareness has never been better!.  Our brand awareness has never been better!",
+      content: "Amplinova has been instrumental in strengthening our digital presence. Their team developed a secure, user-friendly website and implemented an efficient appointment automation system. Their SEO strategy increased our visibility among local and international patients. We appreciate their timely delivery and attention to detail.",
       rating: 5,
-      image: "PS",
+      image: "KM",
       
     },
     {
       id: 3,
-      name: "Arun Reddy",
-      company: "Reddy Constructions",
-      position: "Managing Director",
-      location: "Jubilee Hills, Hyderabad",
-      content: "As a traditional construction business, we needed digital transformation. MageMarketer built us a stunning website and SEO strategy.",
-      rating: 5,
+      name: "Arjun Rao",
+      company: "SpiceVilla Restaurant",
+      position: "Owner - SpiceVilla Restaurant",
+      location: "Vijayawada, Andhra Pradesh",
+      content: "From branding to a complete reservation-friendly website, Amplinova helped modernize our digital presence beautifully. Their social media strategy boosted our footfall and online reviews. They understood our brand better than we did.",
+      rating: 4,
       image: "AR",
-     
+      
     },
     {
       id: 4,
-      name: "Sneha Gupta",
-      company: "HealthPlus Clinics",
-      position: "Operations Head",
+      name: "Vishal Deshpande",
+      company: "LearnMax Academy",
+      position: "CEO - LearnMax Academy",
       location: "HITEC City, Hyderabad",
-      content: "Their performance marketing strategies reduced our customer acquisition cost by 60% while increasing quality leads. The ROI has been phenomenal.",
+      content: "Amplinova provided us with a comprehensive digital transformation solution that included LMS development, a modern website, and performance-driven marketing. Their structured approach and technical expertise resulted in increased student engagement and higher enrollment rates. They have proven to be a reliable and skilled technology partner.",
       rating: 5,
-      image: "SG",
+      image: "VD",
       
     },
     {
       id: 5,
-      name: "Vikram Singh",
-      company: "Foodie Delights",
-      position: "Founder",
+      name: "Rohan S",
+      company: "TravelOrbit Pvt. Ltd.",
+      position: "Director - TravelOrbit Pvt. Ltd.",
       location: "Madhapur, Hyderabad",
-      content: "The creative reels and social media content helped us go viral multiple times. We've seen 400% growth in online orders since partnering. Our brand awareness has never been better!",
+      content: "Amplinova developed a fully automated booking platform for our travel agency, which significantly enhanced our customer experience and operational efficiency. Their UI/UX design is clean, fast, and user-friendly. The team communicates clearly and delivers on time — a highly reliable partner for travel businesses.",
       rating: 5,
-      image: "VS",
+      image: "RS",
      
     },
     {
       id: 6,
-      name: "Ananya Patel",
-      company: "EduSmart Academy",
-      position: "Principal",
+      name: "Sudarshan Rao",
+      company: "Apex Metal Industries",
+      position: "Operations Head - Apex Metal Industries",
       location: "Secunderabad, Hyderabad",
-      content: "Their digital marketing strategy helped us increase student enrollment by 200%. The content marketing and SEO work has positioned us as the top institute. ",
+      content: "Amplinova helped modernize our manufacturing operations by implementing a customized ERP module and automation workflows. Their solution improved production tracking, reduced manual errors, and enhanced overall operational efficiency. Their technical expertise and disciplined project management make them an excellent long-term technology partner.",
+      rating: 4,
+      image: "SR",
+      
+    },
+    {
+      id: 7,
+      name: "Manish Verma",
+      company: "SpiceCraft Foods Pvt. Ltd.",
+      position: "Founder - SpiceCraft Foods Pvt. Ltd.",
+      location: "Khammam, Telangana",
+      content: "Amplinova helped us rebuild our digital identity from the ground up. Their work on our branding and website created a premium and modern look that perfectly matches our F&B brand. The user experience is seamless, and customer engagement has improved significantly. Their professionalism and creativity make them an exceptional partner.",
       rating: 5,
-      image: "AP",
+      image: "MV",
+      
+    },
+    {
+      id: 8,
+      name: "Rohit Khanna",
+      company: "NutriGood Snacks",
+      position: "Founder - NutriGood Snacks",
+      location: "Mahabubnagar, Telangana",
+      content: "We always believed in the quality of our product, but our old packaging didn’t reflect it. Amplinova redesigned everything — from colors to typography to messaging. When we saw the new packaging, we knew our product finally had the identity it deserved.",
+      rating: 5,
+      image: "RK",
       
     }
   ];
@@ -250,7 +272,9 @@ const TestimonialsModern = () => {
             <p className="text-gray-400 mb-6">
               Ready to write your success story?
             </p>
-            <button className="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-4 px-8 rounded-2xl hover:shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 transform hover:scale-105">
+            <button 
+            onClick={() => (window.location.href = "/contact-us")}
+            className="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-4 px-8 rounded-2xl hover:shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 transform hover:scale-105">
               Start Your Journey
             </button>
           </motion.div>

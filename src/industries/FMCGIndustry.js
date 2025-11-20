@@ -16,6 +16,8 @@ import {
 } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import fmcgBg from "../assets/fmcg.jpg"; 
+
 
 const FMCGIndustry = () => {
   const services = [
@@ -110,43 +112,43 @@ const FMCGIndustry = () => {
     <div className="bg-gradient-to-br from-gray-50 to-gray-100">
       <Navbar />
       <div className="min-h-screen">
-        {/* Hero Section */}
-        <div className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white py-24 overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-orange-500/10 to-transparent"></div>
-          <div className="absolute inset-0 bg-black opacity-40"></div>
-          
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-20 -left-20 w-80 h-80 bg-orange-500 rounded-full filter blur-3xl opacity-10"></div>
-            <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-amber-500 rounded-full filter blur-3xl opacity-10"></div>
-          </div>
-          
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="flex justify-center mb-8">
-                <div className="p-6 bg-white bg-opacity-10 rounded-3xl backdrop-blur-sm border border-white border-opacity-20">
-                  <FaShoppingCart className="text-5xl text-orange-400" />
-                </div>
-              </div>
-              <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
-                FMCG Marketing
-              </h1>
-              <p className="text-xl text-gray-300 mb-10 leading-relaxed max-w-3xl mx-auto">
-                Accelerate growth in the fast-moving consumer goods sector. 
-                Drive shelf presence, consumer loyalty, and rapid sales velocity 
-                with specialized FMCG marketing strategies.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button className="group bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/25 flex items-center gap-2">
-                  Get FMCG Audit
-                  <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-200" />
-                </button>
-                <button className="bg-white bg-opacity-10 hover:bg-opacity-20 backdrop-blur-sm text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 border border-white border-opacity-20 hover:border-opacity-40">
-                  View Success Stories
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* HERO SECTION WITH BACKGROUND IMAGE */}
+<div
+  className="relative bg-cover bg-center bg-no-repeat text-white py-24 overflow-hidden"
+  style={{ backgroundImage: `url(${fmcgBg})` }}
+>
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/50"></div>
+
+  {/* Background Glow Elements */}
+  <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute -top-20 -left-20 w-80 h-80 bg-orange-500 rounded-full filter blur-3xl opacity-10"></div>
+    <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-amber-500 rounded-full filter blur-3xl opacity-10"></div>
+  </div>
+
+  <div className="container mx-auto px-6 relative z-10 text-center">
+
+    {/* Icon */}
+    <div className="flex justify-center mb-8">
+      <div className="p-6 bg-white/20 rounded-3xl backdrop-blur-sm border border-white/30">
+        <FaShoppingCart className="text-5xl text-orange-400" />
+      </div>
+    </div>
+
+    {/* Title */}
+    <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent pb-3">
+      FMCG Marketing
+    </h1>
+
+    {/* Subtitle */}
+    <p className="text-xl text-gray-200 mb-10 leading-relaxed max-w-3xl mx-auto">
+      Accelerate growth in the fast-moving consumer goods sector.
+      Drive shelf presence, consumer loyalty, and rapid sales velocity 
+      with specialized FMCG marketing strategies.
+    </p>
+
+  </div>
+</div>
 
         {/* Trust Badges */}
         <div className="py-12 bg-gray-800 border-b border-gray-700">

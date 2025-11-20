@@ -33,8 +33,10 @@ import {
   FaNetworkWired,
 } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isIndustryOpen, setIsIndustryOpen] = useState(false);
@@ -825,6 +827,10 @@ const Navbar = () => {
               </div>
 
               <motion.button
+              onClick={() => {
+      setIsMobileMenuOpen(false);
+      navigate("/contact-us"); 
+    }}
                 whileHover={{
                   scale: 1.05,
                   boxShadow: "0 10px 30px -5px rgba(255, 107, 53, 0.5)",
@@ -1182,16 +1188,19 @@ const Navbar = () => {
                       </AnimatePresence>
                     </div>
 
-                    <div className="px-4 py-3">
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 text-sm"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        Get Started
-                      </motion.button>
-                    </div>
+                    <div className="px-4 py-3"> 
+  <motion.button
+    whileHover={{ scale: 1.02 }}
+    whileTap={{ scale: 0.98 }}
+    className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 text-sm"
+    onClick={() => {
+      setIsMobileMenuOpen(false); 
+    }}
+  >
+    Get Started
+  </motion.button>
+</div>
+
 
                     {/* Social Media in Mobile Menu */}
                     <div className="px-4 py-3 border-t border-gray-800">
