@@ -403,6 +403,8 @@ const Navbar = () => {
                   <motion.a
                     key={social.name}
                     href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.3, y: -2 }}
                     whileTap={{ scale: 0.9 }}
                     initial={{ opacity: 0, y: -10 }}

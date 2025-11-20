@@ -124,6 +124,8 @@ const Footer = () => {
                   <a
                     key={social.label}
                     href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`
                       w-12 h-12 bg-gray-800/50 backdrop-blur-sm rounded-xl flex items-center justify-center cursor-pointer 
                       transition-all duration-300 hover:scale-110 hover:shadow-lg
