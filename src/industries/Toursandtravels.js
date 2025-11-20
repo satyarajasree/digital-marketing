@@ -9,14 +9,17 @@ import {
   FaUsers, 
   FaChartLine, 
   FaGlobe, 
-  FaMobile 
+  FaMobile,
+  FaCogs,
+  FaArrowRight,
+  FaCheck,
 } from "react-icons/fa";
 import { MdTravelExplore } from "react-icons/md";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ChallengesImage from "../assets/Untitled-design-69.png";
 
-const Toursandtravels = () => {
+const ToursTravelsIndustry = () => {
   const services = [
   {
     icon: FaPlane,
@@ -514,4 +517,4 @@ const Toursandtravels = () => {
   );
 };
 
-export default Toursandtravels;
+export default ToursTravelsIndustry;

@@ -12,18 +12,20 @@ import {
   FaGlobe,
   FaMobile,
   FaHandshake,
-  FaHome,
-  FaBuilding,
   FaMoneyBillWave,
   FaCogs,
-  FaWarehouse,
+  FaCheck,
+  FaArrowRight,
   FaIndustry,
+
 } from "react-icons/fa";
+import { MdApartment } from "react-icons/md";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ChallengesImage from "../assets/food.webp"; 
 
-const Realestate = () => {
+const RealEstateIndustry = () => {
   const services = [
     {
       icon: FaBuilding,
@@ -510,4 +512,4 @@ const Realestate = () => {
     </div>
   );
 };
-export default Realestate;
+export default RealEstateIndustry;

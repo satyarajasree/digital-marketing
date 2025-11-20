@@ -32,6 +32,9 @@ import ManufacturingIndustry from "./industries/ManufacturingIndustry";
 import FMCGIndustry from "./industries/FMCGIndustry";
 import FoodBeveragesIndustry from "./industries/FoodBeveragesIndustry";
 import HospitalityIndustry from "./industries/HospitalityIndustry";
+import ToursTravelsIndustry from "./industries/Toursandtravels";
+import RealEstateIndustry from "./industries/Realestate";
+
 
 const ScrollToTopWrapper = ({ children }) => {
   const location = useLocation();
