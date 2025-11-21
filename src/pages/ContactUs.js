@@ -362,9 +362,10 @@ const ContactUs = () => {
                           <input
                             type="text"
                             name="fullname"
+                            placeholder="Enter your Full Name"
                             value={itData.fullname}
                             onChange={handleITChange}
-                            className="w-full px-4 py-3 border rounded-xl"
+                            className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                             required
                           />
                         </div>
@@ -374,9 +375,10 @@ const ContactUs = () => {
                           <input
                             type="text"
                             name="company"
+                            placeholder="Enter your Company Name"
                             value={itData.company}
                             onChange={handleITChange}
-                            className="w-full px-4 py-3 border rounded-xl"
+                            className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                           />
                         </div>
                       </div>
@@ -386,9 +388,10 @@ const ContactUs = () => {
                         <input
                           type="email"
                           name="email"
+                          placeholder="Enter your Email"
                           value={itData.email}
                           onChange={handleITChange}
-                          className="w-full px-4 py-3 border rounded-xl"
+                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                           required
                         />
                       </div>
@@ -398,9 +401,10 @@ const ContactUs = () => {
                         <input
                           type="tel"
                           name="phone"
+                          placeholder="Enter your Phone Number"
                           value={itData.phone}
                           onChange={handleITChange}
-                          className="w-full px-4 py-3 border rounded-xl"
+                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                         />
                       </div>
 
@@ -447,9 +451,10 @@ const ContactUs = () => {
                         <textarea
                           name="description"
                           rows="5"
+                          placeholder="Enter details about your project"
                           value={itData.description}
                           onChange={handleITChange}
-                          className="w-full px-4 py-3 border rounded-xl"
+                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                           required
                         ></textarea>
                       </div>
@@ -477,21 +482,23 @@ const ContactUs = () => {
                           <input
                             type="text"
                             name="fullname"
+                            placeholder="Enter your Full Name"
                             value={dmData.fullname}
                             onChange={handleDMChange}
-                            className="w-full px-4 py-3 border rounded-xl"
+                            className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                             required
                           />
                         </div>
 
                         <div>
-                          <label>Business / Brand Name</label>
+                          <label>Business Name</label>
                           <input
                             type="text"
                             name="brand"
+                            placeholder="Enter your Business Name"
                             value={dmData.brand}
                             onChange={handleDMChange}
-                            className="w-full px-4 py-3 border rounded-xl"
+                            className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                           />
                         </div>
                       </div>
@@ -501,9 +508,10 @@ const ContactUs = () => {
                         <input
                           type="email"
                           name="email"
+                          placeholder="Enter your Email"
                           value={dmData.email}
                           onChange={handleDMChange}
-                          className="w-full px-4 py-3 border rounded-xl"
+                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                           required
                         />
                       </div>
@@ -513,9 +521,10 @@ const ContactUs = () => {
                         <input
                           type="tel"
                           name="phone"
+                          placeholder="Enter your Phone Number"
                           value={dmData.phone}
                           onChange={handleDMChange}
-                          className="w-full px-4 py-3 border rounded-xl"
+                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                         />
                       </div>
 
@@ -589,9 +598,10 @@ const ContactUs = () => {
                         <textarea
                           name="description"
                           rows="5"
+                          placeholder="Enter details about your marketing needs"
                           value={dmData.description}
                           onChange={handleDMChange}
-                          className="w-full px-4 py-3 border rounded-xl"
+                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                           required
                         ></textarea>
                       </div>

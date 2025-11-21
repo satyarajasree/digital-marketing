@@ -277,24 +277,24 @@ const getBenefits = () => {
                       <div>
                         <label>Full Name *</label>
                         <input
-                          type="text"
-                          name="fullname"
-                          value={itData.fullname}
-                          onChange={handleITChange}
-                          className="w-full px-4 py-3 border border-gray-400 rounded-md text-gray-900 focus:outline-none focus:border-black hover:border-black"
-                          style={{ caretColor: 'black' }}
-                          required
-                        />
+  type="text"
+  name="fullname"
+  placeholder="Enter your Full Name"
+  className="w-full px-4 py-3 border border-gray-400 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
+  value={itData.fullname}
+  onChange={handleITChange}
+  required
+/>
                       </div>
-
                       <div>
                         <label>Company Name</label>
                         <input
                           type="text"
                           name="company"
+                          placeholder="Enter your Company Name"
                           value={itData.company}
                           onChange={handleITChange}
-                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black selection:bg-black selection:text-white text-gray-900 focus:outline-none focus:border-black hover:border-black"
+                          className="w-full px-4 py-3 border border-gray-400 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                         />
                       </div>
                     </div>
@@ -306,9 +306,10 @@ const getBenefits = () => {
                         <input
                           type="email"
                           name="email"
+                          placeholder="Enter your Email"
                           value={itData.email}
                           onChange={handleITChange}
-                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 focus:outline-none focus:border-gray-700"
+                          className="w-full px-4 py-3 border border-gray-400 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                           required
                         />
                       </div>
@@ -318,9 +319,10 @@ const getBenefits = () => {
                         <input
                           type="tel"
                           name="phone"
+                          placeholder="Enter your Phone Number"
                           value={itData.phone}
                           onChange={handleITChange}
-                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 focus:outline-none focus:border-gray-700"
+                          className="w-full px-4 py-3 border border-gray-400 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                         />
                       </div>
                     </div>
@@ -371,10 +373,11 @@ const getBenefits = () => {
                       <label>Project Description *</label>
                       <textarea
                         name="description"
+                        placeholder="Enter your Project Description"
                         rows="3"
                         value={itData.description}
                         onChange={handleITChange}
-                        className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 focus:outline-none focus:border-gray-700"
+                        className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                         required
                       ></textarea>
                     </div>
@@ -404,21 +407,23 @@ const getBenefits = () => {
                         <input
                           type="text"
                           name="fullname"
+                          placeholder="Enter your Full Name"
                           value={dmData.fullname}
                           onChange={handleDMChange}
-                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 focus:outline-none focus:border-gray-700"
+                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                           required
                         />
                       </div>
 
                       <div>
-                        <label>Business / Brand Name</label>
+                        <label>Business Name</label>
                         <input
                           type="text"
                           name="brand"
+                          placeholder="Enter your Business Name"
                           value={dmData.brand}
                           onChange={handleDMChange}
-                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 focus:outline-none focus:border-gray-700"
+                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                         />
                       </div>
                     </div>
@@ -430,9 +435,10 @@ const getBenefits = () => {
                         <input
                           type="email"
                           name="email"
+                          placeholder="Enter your Email"
                           value={dmData.email}
                           onChange={handleDMChange}
-                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 focus:outline-none focus:border-black-700"
+                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                           required
                         />
                       </div>
@@ -442,9 +448,10 @@ const getBenefits = () => {
                         <input
                           type="tel"
                           name="phone"
+                          placeholder="Enter your Phone Number"
                           value={dmData.phone}
                           onChange={handleDMChange}
-                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 focus:outline-none focus:border-gray-700"
+                          className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                         />
                       </div>
                     </div>
@@ -507,10 +514,11 @@ const getBenefits = () => {
                       <label>Describe Your Marketing Needs *</label>
                       <textarea
                         name="description"
+                        placeholder="Enter details about your marketing needs"
                         rows="3"
                         value={dmData.description}
                         onChange={handleDMChange}
-                        className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 focus:outline-none focus:border-gray-700"
+                        className="w-full px-4 py-3 border border-gray-400 rounded-md caret-black text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black"
                         required
                       ></textarea>
                     </div>

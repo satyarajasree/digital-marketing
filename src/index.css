@@ -3,14 +3,13 @@
 @tailwind utilities;
 
 /* FIX INVISIBLE CURSOR — MUST BE AFTER TAILWIND */
+/* Default: light background → black caret */
 input, textarea, select {
-  background-color: #ffffff !important;   /* very light gray */
-  caret-color: rgb(95, 95, 95) !important;
+  caret-color: black;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-  caret-color: #000 !important;
-  color: #000 !important;
+/* Dark background → white caret */
+input.dark-bg, textarea.dark-bg, select.dark-bg {
+  caret-color: white;
+  color: white;
 }

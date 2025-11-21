@@ -2,17 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ensure black cursor and proper text selection */
-input, textarea, select {
-  caret-color: black !important;
+/* * 1. The 'caret-color' property sets the color of the blinking text cursor. 
+ * 2. We set it globally for all common input elements (input, textarea, select).
+ * 3. Using !important ensures it overrides any default Tailwind styling 
+ * that might interfere, although generally, custom CSS after the @tailwind directives 
+ * should take precedence.
+/* * Optional: You can set a different color when the input is focused 
+ * if you want visual feedback, but black is usually the safest choice.
+ */
+
+
+.light input, .light textarea, .light select {
+  caret-color: black;
+  color: black;
 }
 
-input::selection, textarea::selection {
-  background-color: black !important;
-  color: white !important;
-}
-
-input::-moz-selection, textarea::-moz-selection {
-  background-color: black !important;
-  color: white !important;
+.dark input, .dark textarea, .dark select {
+  caret-color: white;
+  color: white;
 }
