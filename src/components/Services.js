@@ -357,7 +357,7 @@ const Services = () => {
     <section
       ref={sectionRef}
       id="services"
-      className="relative py-20 bg-black text-white overflow-hidden"
+      className="relative pt-4 pb-20 bg-black text-white overflow-hidden"
     >
       {/* Enhanced Background Elements with Category-based Colors */}
       <div className="absolute inset-0">
@@ -400,7 +400,7 @@ const Services = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <motion.h2
             initial={{ opacity: 0, y: 30 }}

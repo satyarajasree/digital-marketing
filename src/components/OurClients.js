@@ -1,4 +1,6 @@
-import React from "react";
+// Uploaded file (tooling): /mnt/data/9bc4f132-ebf6-49c0-aefe-5d1faf566e23.png
+
+import React, { useRef, useEffect } from "react";
 
 import AbhyaHasta from "../assets/Abhya Hasta.png";
 import AduriInfra from "../assets/Aduri Infra.png";
@@ -19,53 +21,122 @@ import VivInfra from "../assets/Viv Infra.png";
 
 const OurClients = () => {
   const clients = [
-    { name: "Abhya Hasta Infra", logo: AbhyaHasta },
-    { name: "Spine Reset Chiropractic", logo: SpineReset },
-    { name: "Ganesh Traders", logo: GaneshTraders },
-    { name: "Aduri Infra Pvt. Ltd.", logo: AduriInfra },
-
-    { name: "Viv Infra", logo: VivInfra },
-    { name: "OOTD", logo: OOTD },
-    { name: "Muktha Photography", logo: MukthaPhotography },
-    { name: "Daya Interiors", logo: DayaInteriors },
-
-    { name: "Larana Online School", logo: Larana },
-    { name: "Arowwai", logo: Arowwai },
-    { name: "House Hunter", logo: HouseHunter },
-    { name: "Salford & Co", logo: SalfordCo },
-
-    { name: "Reative Studio", logo: ReativeStudio },
-    { name: "StyleBliss", logo: StyleBliss },
-    { name: "Chiropractic Healthcare", logo: Chiropractic },
-    { name: "Organic Fresh & Natural", logo: OrganicFresh },
+    AbhyaHasta,
+    SpineReset,
+    GaneshTraders,
+    AduriInfra,
+    VivInfra,
+    OOTD,
+    MukthaPhotography,
+    DayaInteriors,
+    Larana,
+    Arowwai,
+    HouseHunter,
+    SalfordCo,
+    ReativeStudio,
+    StyleBliss,
+    Chiropractic,
+    OrganicFresh,
   ];
-    return (
-    <section className="bg-[#0A1A2F] py-20 px-6 md:px-12 rounded-3xl mx-4 my-8">
-      {/* HEADER */}
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+
+  const row1Ref = useRef(null);
+  const row2Ref = useRef(null);
+
+  const speed = 0.5;
+  const rafRef1 = useRef(null);
+  const rafRef2 = useRef(null);
+
+  useEffect(() => {
+    const c1 = row1Ref.current;
+    const c2 = row2Ref.current;
+
+    const step1 = () => {
+      if (c1) {
+        c1.scrollLeft += speed;
+        if (c1.scrollLeft >= c1.scrollWidth / 2) {
+          c1.scrollLeft -= c1.scrollWidth / 2;
+        }
+      }
+      rafRef1.current = requestAnimationFrame(step1);
+    };
+
+    const step2 = () => {
+      if (c2) {
+        c2.scrollLeft -= speed;
+        if (c2.scrollLeft <= 0) {
+          c2.scrollLeft += c2.scrollWidth / 2;
+        }
+      }
+      rafRef2.current = requestAnimationFrame(step2);
+    };
+
+    if (c1) c1.scrollLeft = 0;
+    if (c2) c2.scrollLeft = c2.scrollWidth / 2;
+
+    rafRef1.current = requestAnimationFrame(step1);
+    rafRef2.current = requestAnimationFrame(step2);
+
+    return () => {
+      cancelAnimationFrame(rafRef1.current);
+      cancelAnimationFrame(rafRef2.current);
+    };
+  }, []);
+
+  const renderItem = (logo, idx) => (
+    <div
+      key={idx}
+      data-client-item
+      className="flex-shrink-0 w-[18%] px-2"
+      style={{ maxWidth: "220px", minWidth: "120px" }}
+    >
+      <div className="bg-white rounded-xl shadow-md p-3 h-28 flex items-center justify-center">
+        <img src={logo} alt={`client-${idx}`} className="max-h-16 object-contain" />
+      </div>
+    </div>
+  );
+
+  return (
+    <section className="bg-[#0A1A2F] py-14 px-4 md:px-12 rounded-3xl mx-4 my-4">
+      
+      {/* Centered Header */}
+      <div className="text-center max-w-7xl mx-auto mb-10">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
           Our <span className="text-yellow-400">Clients</span>
         </h2>
 
-        <p className="text-gray-300 text-xl max-w-2xl mx-auto">
+        <p className="text-gray-300 text-lg mt-3">
           Trusted by industry leaders and innovative companies worldwide
         </p>
       </div>
+            {/* SCROLLING ROWS */}
+      <div className="max-w-7xl mx-auto space-y-8">
 
-      {/* STATIC GRID */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-        {clients.map((client, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-2xl shadow-lg p-6 flex items-center justify-center h-40 hover:scale-105 transition-all duration-300"
-          >
-            <img
-              src={client.logo}
-              alt={client.name}
-              className="max-h-24 max-w-full object-contain"
-            />
+        {/* ROW 1 */}
+        <div
+          ref={row1Ref}
+          className="overflow-hidden whitespace-nowrap w-full"
+          style={{ cursor: "grab" }}
+        >
+          <div className="flex items-center" style={{ width: "max-content" }}>
+            {clients.map((c, i) => renderItem(c, `r1-a-${i}`))}
+            {clients.map((c, i) => renderItem(c, `r1-b-${i}`))}
           </div>
-        ))}
+        </div>
+
+        {/* Gap added */}
+
+        {/* ROW 2 (reverse direction) */}
+        <div
+          ref={row2Ref}
+          className="overflow-hidden whitespace-nowrap w-full"
+          style={{ cursor: "grab" }}
+        >
+          <div className="flex items-center" style={{ width: "max-content" }}>
+            {clients.slice().reverse().map((c, i) => renderItem(c, `r2-a-${i}`))}
+            {clients.slice().reverse().map((c, i) => renderItem(c, `r2-b-${i}`))}
+          </div>
+        </div>
+
       </div>
     </section>
   );

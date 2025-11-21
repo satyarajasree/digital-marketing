@@ -73,7 +73,7 @@ const WhoWeAre = () => {
   return (
     <section
       id="about"
-      className="py-20 bg-gradient-to-br from-amber-50 via-white to-orange-50 text-gray-800 overflow-hidden relative rounded-3xl mx-4 my-8"
+      className="py-12 bg-gradient-to-br from-amber-50 via-white to-orange-50 text-gray-800 overflow-hidden relative rounded-3xl mx-4 my-8"
     >
       {/* Refined Background Elements */}
       <div className="absolute inset-0 overflow-hidden rounded-3xl">
@@ -179,11 +179,11 @@ const WhoWeAre = () => {
           className="max-w-7xl mx-auto"
         >
           {/* Header Section */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-6">
            
             <motion.h2
               variants={itemVariants}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 relative"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 relative"
             >
               Who{" "}
               <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent relative inline-block">
@@ -229,9 +229,7 @@ const WhoWeAre = () => {
 </p>
 
 <p className="text-gray-700 text-lg leading-relaxed">
-  Amplinova blends IT development, digital marketing, branding, and AI automation
-  to build businesses that scale without limits. We turn your vision into
-  intelligent, high-performance digital experiences that drive real growth.
+  Amplinova blends IT development, digital marketing, branding, and AI automation to build scalable, high-performance digital solutions. We turn your ideas into smart experiences that deliver real growth.
 </p>
 
 <p className="text-amber-600 text-lg leading-relaxed">
@@ -240,36 +238,33 @@ const WhoWeAre = () => {
 
 
               <p className="text-gray-700 text-lg leading-relaxed">
-  <span className="text-amber-600 font-semibold">Our mission</span> is simple — 
-  to empower organizations with next-gen technology, impactful creativity, and
-  AI-driven automation that unlock real, measurable growth.
+  <span className="text-amber-600 font-semibold">Our Mission</span>: 
+  To empower organizations with advanced technology, creative strategy, and AI automation that drive measurable growth.
 </p>
 
 <p className="text-gray-700 text-lg leading-relaxed">
-  <span className="text-amber-600 font-semibold">Our vision</span> is bold — to
-  become a global leader in digital transformation and AI-powered innovation,
-  helping companies redefine how they operate, connect, and scale.
+  <span className="text-amber-600 font-semibold">Our Vision</span>: 
+  To become a global leader in digital transformation and AI innovation, helping businesses evolve, connect, and scale.
 </p>
 
 
                <p className="text-amber-600 text-lg leading-relaxed">
-  Everything we do is built on four pillars:
+  Our Core Pillars:
 </p>
 
 <p className="text-gray-700 text-lg leading-relaxed">
-  <span className="text-amber-600 font-semibold">Integrity</span> — honesty, transparency, and long-term relationships.
+  <span className="text-amber-600 font-semibold">Integrity</span> — Honesty, Transparency, and Lasting partnerships
 </p>
 
 <p className="text-gray-700 text-lg leading-relaxed">
-  <span className="text-amber-600 font-semibold">Innovation</span> — embracing change and pushing boundaries.
+  <span className="text-amber-600 font-semibold">Innovation</span> — Embracing Change and Pushing Boundaries.
+</p>
+<p className="text-gray-700 text-lg leading-relaxed">
+  <span className="text-amber-600 font-semibold">Excellence</span> — Uncompromising Quality in Everything We Do.
 </p>
 
 <p className="text-gray-700 text-lg leading-relaxed">
-  <span className="text-amber-600 font-semibold">Excellence</span> — delivering quality without compromise.
-</p>
-
-<p className="text-gray-700 text-lg leading-relaxed">
-  <span className="text-amber-600 font-semibold">Client Success</span> — because our achievements begin with yours.
+  <span className="text-amber-600 font-semibold">Client Success</span> — Your Growth is the Foundation of Our Success.
 </p>
 
 

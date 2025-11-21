@@ -1,59 +1,18 @@
-/* App.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Ensure black cursor and proper text selection */
+input, textarea, select {
+  caret-color: black !important;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-  color: #333;
+input::selection, textarea::selection {
+  background-color: black !important;
+  color: white !important;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom scrollbar for chat */
-.chat-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.chat-scrollbar::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.chat-scrollbar::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 10px;
-}
-
-.chat-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
-}
-
-/* Animation classes */
-.fade-in {
-  animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Ensure chatbot stays on top */
-.fixed {
-  position: fixed;
+input::-moz-selection, textarea::-moz-selection {
+  background-color: black !important;
+  color: white !important;
 }

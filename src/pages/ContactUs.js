@@ -6,12 +6,13 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaPaperPlane,
+  FaWhatsapp,
   FaClock,
   FaLinkedin,
-  FaTwitter,
   FaFacebook,
   FaInstagram,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -212,7 +213,7 @@ const ContactUs = () => {
 
   const socialLinks = [
     { icon: FaLinkedin, url: "https://www.linkedin.com/company/109608290/admin/dashboard/", color: "hover:text-blue-600" },
-    { icon: FaTwitter, url: "#", color: "hover:text-cyan-500" },
+    { icon: FaWhatsapp, url: "https://wa.me/919976089089", color: "hover:text-cyan-500" },
     { icon: FaFacebook, url: "#", color: "hover:text-blue-500" },
     { icon: FaInstagram, url: "https://www.instagram.com/amplinova_solutions?igsh=MWliem1pcnRsb2syNw==", color: "hover:text-pink-500" },
   ];

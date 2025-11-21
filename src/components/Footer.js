@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { 
   FaFacebookF, 
-  FaTwitter, 
   FaInstagram, 
   FaLinkedinIn, 
-  FaEnvelope, 
+  FaEnvelope,
+  FaWhatsapp, 
   FaPhone, 
   FaMapMarkerAlt,
   FaArrowRight,
@@ -13,6 +13,7 @@ import {
   FaRocket,
   FaHeart
 } from 'react-icons/fa';
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,9 +39,9 @@ const Footer = () => {
       color: 'hover:bg-pink-600 hover:border-pink-600'
     },
     { 
-      icon: FaTwitter, 
-      label: 'Twitter', 
-      url: '#',
+      icon: FaWhatsapp, 
+      label: 'WhatsApp', 
+      url: 'https://wa.me/919976089089',
       color: 'hover:bg-cyan-500 hover:border-cyan-500'
     },
     { 

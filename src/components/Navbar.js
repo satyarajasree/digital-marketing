@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   FaFacebookF,
   FaInstagram,
-  FaTwitter,
   FaLinkedinIn,
   FaEnvelope,
   FaPhone,
   FaChevronDown,
   FaBars,
   FaTimes,
+  FaWhatsapp,
   FaQuestionCircle,
   FaBlog,
   FaRocket,
@@ -32,6 +32,7 @@ import {
   FaDatabase,
   FaNetworkWired,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -254,10 +255,10 @@ const Navbar = () => {
       color: "hover:text-pink-400",
     },
     {
-      icon: FaTwitter,
-      name: "Twitter",
-      url: "https://twitter.com/digitalpro",
-      color: "hover:text-blue-300",
+      icon: FaWhatsapp,
+      name: "WhatsApp",
+      url: "https://wa.me/919976089089",
+      color: "hover:text-green-400",
     },
     {
       icon: FaLinkedinIn,

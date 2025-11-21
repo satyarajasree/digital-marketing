@@ -158,7 +158,7 @@ const Process = ({ mode = "it-services" }) => {
     <section
       ref={sectionRef}
       id="process"
-      className="relative py-20 bg-gradient-to-br from-gray-50 to-white text-gray-900"
+      className="relative pt-10 pb-10 bg-gradient-to-br from-gray-50 to-white text-gray-900"
     >
       <div className="container mx-auto px-6 relative z-10">
 

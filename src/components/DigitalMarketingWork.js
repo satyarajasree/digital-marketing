@@ -35,7 +35,7 @@ const DigitalMarketingWork = () => {
   return (
     <section
       id="digital-marketing-work"
-      className="min-h-screen py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white overflow-hidden relative"
+      className="min-h-screen pt-8 pb-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white overflow-hidden relative"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
