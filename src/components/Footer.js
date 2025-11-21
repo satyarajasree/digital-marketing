@@ -29,7 +29,7 @@ const Footer = () => {
     { 
       icon: FaFacebookF, 
       label: 'Facebook', 
-      url: '#',
+      url: 'https://www.facebook.com/people/Amplinova-Solutions/61583932147457/',
       color: 'hover:bg-blue-600 hover:border-blue-600'
     },
     { 

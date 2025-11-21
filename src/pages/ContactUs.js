@@ -214,7 +214,7 @@ const ContactUs = () => {
   const socialLinks = [
     { icon: FaLinkedin, url: "https://www.linkedin.com/company/109608290/admin/dashboard/", color: "hover:text-blue-600" },
     { icon: FaWhatsapp, url: "https://wa.me/919976089089", color: "hover:text-cyan-500" },
-    { icon: FaFacebook, url: "#", color: "hover:text-blue-500" },
+    { icon: FaFacebook, url: "https://www.facebook.com/people/Amplinova-Solutions/61583932147457/", color: "hover:text-blue-500" },
     { icon: FaInstagram, url: "https://www.instagram.com/amplinova_solutions?igsh=MWliem1pcnRsb2syNw==", color: "hover:text-pink-500" },
   ];
 

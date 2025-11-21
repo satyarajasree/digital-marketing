@@ -245,7 +245,7 @@ const Navbar = () => {
     {
       icon: FaFacebookF,
       name: "Facebook",
-      url: "https://facebook.com/digitalpro",
+      url: "https://www.facebook.com/people/Amplinova-Solutions/61583932147457/",
       color: "hover:text-blue-400",
     },
     {
